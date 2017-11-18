@@ -1,0 +1,245 @@
+
+Wavefront OBJ File Format Summary
+
+Also Known As: Wavefront Object, OBJ
+
+
+Type 3D Vector 
+Colors Unlimited 
+Compression Uncompressed 
+Maximum Image Size Unlimited 
+Multiple Images Per File Yes 
+Numerical Format NA 
+Originator Wavefront 
+Platform UNIX 
+Supporting Applications Advanced Visualizer 
+See Also Wavefront RLA 
+
+Usage
+Used to store and exchange 3D data. 
+
+Comments
+The Wavefront OBJ format is a useful standard for representing polygonal data in ASCII form. 
+
+
+Wavefront OBJ (object) files are used by Wavefront's Advanced Visualizer application to store geometric objects composed of lines, polygons, and free-form curves and surfaces. Wavefront is best known for its high-end computer graphics tools, including modeling, animation, and image compositing tools. These programs run on powerful workstations such as those made by Silicon Graphics, Inc. 
+
+Wavefront OBJ files are often stored with the extension ".obj" following the UNIX convention of lowercase letters for filenames. The most recently documented version of OBJ is v3.0, superseding the previous v2.11 release. 
+
+Contents:
+File Organization
+File Details
+For Further Information
+
+
+In Wavefront's 3D software, geometric object files may be stored in ASCII format (using the ".obj" file extension) or in binary format (using the .MOD extension). The binary format is proprietary and undocumented, so only the ASCII format is described here. 
+
+The OBJ file format supports lines, polygons, and free-form curves and surfaces. Lines and polygons are described in terms of their points, while curves and surfaces are defined with control points and other information depending on the type of curve. The format supports rational and non-rational curves, including those based on Bezier, B-spline, Cardinal (Catmull-Rom splines), and Taylor equations. 
+
+File Organization
+
+OBJ files do not require any sort of header, although it is common to begin the file with a comment line of some kind. Comment lines begin with a hash mark (#). Blank space and blank lines can be freely added to the file to aid in formatting and readability. Each non-blank line begins with a keyword and may be followed on the same line with the data for that keyword. Lines are read and processed until the end of the file. Lines can be logically joined with the line continuation character ( \ ) at the end of a line. 
+
+The following keywords may be included in an OBJ file. In this list, keywords are arranged by data type, and each is followed by a brief description. 
+
+
+Vertex data: 
+v Geometric vertices 
+vt Texture vertices 
+vn Vertex normals 
+vp Parameter space vertices 
+
+
+Free-form curve/surface attributes: 
+deg Degree 
+bmat Basis matrix 
+step Step size 
+cstype Curve or surface type 
+
+
+Elements: 
+p Point 
+l Line 
+f Face 
+curv Curve 
+curv2 2D curve 
+surf Surface 
+
+
+Free-form curve/surface body statements: 
+parm Parameter values 
+trim Outer trimming loop 
+hole Inner trimming loop 
+scrv Special curve 
+sp Special point 
+end End statement 
+
+
+Connectivity between free-form surfaces: 
+con Connect 
+
+
+Grouping: 
+g Group name 
+s Smoothing group 
+mg Merging group 
+o Object name 
+
+
+Display/render attributes: 
+bevel Bevel interpolation 
+c_interp Color interpolation 
+d_interp Dissolve interpolation 
+lod Level of detail 
+usemtl Material name 
+mtllib Material library 
+shadow_obj  Shadow casting 
+trace_obj Ray tracing 
+ctech Curve approximation technique 
+stech Surface approximation technique 
+
+
+File Details
+
+The most commonly encountered OBJ files contain only polygonal faces. To describe a polygon, the file first describes each point with the "v" keyword, then describes the face with the "f" keyword. The line of a face command contains the enumerations of the points in the face, as 1-based indices into the list of points, in the order they occurred in the file. For example, the following describes a simple triangle: 
+# Simple Wavefront file
+v 0.0 0.0 0.0
+v 0.0 1.0 0.0
+v 1.0 0.0 0.0
+f 1 2 3
+
+
+It is also possible to reference points using negative indices. This makes it easy to describe the points in a face, then the face, without the need to store a large list of points and their indexes. In this way, "v" commands and "f" commands can be interspersed. 
+v -0.500000 0.000000 0.400000
+v -0.500000 0.000000 -0.800000
+v -0.500000 1.000000 -0.800000
+v -0.500000 1.000000 0.400000
+f -4 -3 -2 -1
+
+
+OBJ files do not contain color definitions for faces, although they can reference materials that are stored in a separate material library file. The material library can be loaded using the "mtllib" keyword. The material library contains the definitions for the RGB values for the material's diffuse, ambient, and specular colors, along with other characteristics such as specularity, refraction, transparency, etc. 
+
+The OBJ file references materials by name with the "usemtl" keyword. All faces that follow are given the attributes of this material until the next "usemtl" command is encountered. 
+
+Faces and surfaces can be assigned into named groups with the "g" keyword. This is used to create convenient sub-objects to make it easier to edit and animate 3D models. Faces can belong to more than one group. 
+
+The following demonstrate more complicated examples of smooth surfaces of different types, material assignment, line continuation, and grouping. 
+
+Cube with Materials
+# This cube has a different material
+# applied to each of its faces.
+	mtllib master.mtl
+	v	0.000000	2.000000	2.000000
+	v	0.000000	0.000000	2.000000
+	v	2.000000	0.000000	2.000000
+	v	2.000000	2.000000	2.000000
+	v	0.000000	2.000000	0.000000
+	v	0.000000	0.000000	0.000000
+	v	2.000000	0.000000	0.000000
+	v	2.000000	2.000000	0.000000
+	# 8 vertices
+	g front
+	usemtl red
+	f 1 2 3 4
+	g back
+	usemtl blue
+	f 8 7 6 5
+	g right
+	usemtl green
+	f 4 3 7 8
+	g top
+	usemtl gold
+	f 5 1 4 8
+	g left
+	usemtl orange
+	f 5 6 2 1
+	g bottom
+	usemtl purple
+	f 2 6 7 3
+	# 6 elements
+
+
+Bezier Patch
+# 3.0 Bezier patch
+v -5.000000 -5.000000 0.000000
+v -5.000000 -1.666667 0.000000
+v -5.000000 1.666667 0.000000
+v -5.000000 5.000000 0.000000
+v -1.666667 -5.000000 0.000000
+v -1.666667 -1.666667 0.000000
+v -1.666667 1.666667 0.000000
+v -1.666667 5.000000 0.000000
+v 1.666667 -5.000000 0.000000
+v 1.666667 -1.666667 0.000000
+v 1.666667 1.666667 0.000000
+v 1.666667 5.000000 0.000000
+v 5.000000 -5.000000 0.000000
+v 5.000000 -1.666667 0.000000
+v 5.000000 1.666667 0.000000
+v 5.000000 5.000000 0.000000
+# 16 vertices
+cstype bezier
+deg 3 3
+# Example of line continuation
+surf 0.000000 1.000000 0.000000 1.000000 13 14 \ 
+				 15 16 9 10 11 12 5 6 7 8 1 2 3 4
+parm u 0.000000 1.000000
+parm v 0.000000 1.000000
+end
+# 1 element
+
+
+Cardinal Curve
+# 3.0 Cardinal curve
+v 0.940000 1.340000 0.000000
+v -0.670000 0.820000 0.000000
+v -0.770000 -0.940000 0.000000
+v 1.030000 -1.350000 0.000000
+v 3.070000 -1.310000 0.000000
+# 6 vertices
+cstype cardinal
+deg 3
+curv 0.000000 3.000000 1 2 3 4 5 6
+parm u 0.000000 1.000000 2.000000 3.000000 end
+# 1 element
+
+
+Texture-Mapped Square
+# A 2 x 2 square mapped with a 1 x 1 square
+# texture stretched to fit the square exactly.
+mtllib master.mtl
+v  0.000000 2.000000 0.000000
+v  0.000000 0.000000 0.000000
+v  2.000000 0.000000 0.000000
+v  2.000000 2.000000 0.000000
+vt 0.000000 1.000000 0.000000
+vt 0.000000 0.000000 0.000000
+vt 1.000000 0.000000 0.000000
+vt 1.000000 1.000000 0.000000
+# 4 vertices
+usemtl wood
+# The first number is the point,
+# then the slash,
+# and the second is the texture point
+f 1/1 2/2 3/3 4/4
+# 1 element
+
+
+For Further Information
+
+For further information about the Wavefront OBJ format, see the specification. 
+
+You can also contact: 
+
+Wavefront Technologies
+530 East Montecito Street
+Santa Barbara, CA 93103
+Voice: 805-962-8117
+FAX: 805-963-0410
+WWW: http://www.aw.sgi.com/ 
+
+
+Wavefront also maintains a toll-free support number and a BBS for its customers. There are many Wavefront user groups, too. 
+
+
+This page is taken from the Encyclopedia of Graphics File Formats and is licensed by O'Reilly under the Creative Common/Attribution license.

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://raw.githubusercontent.com/JeremyAnsel/JeremyAnsel.Media.WavefrontObj/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/JeremyAnsel/JeremyAnsel.Media.WavefrontObj</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A .Net library to handle Wavefront Obj .obj and .mtl files.</description>
+    <copyright>Copyright © 2017 Jérémy Ansel</copyright>
+    <tags>Media 3D Model Wavefront Obj Mtl</tags>
+  </metadata>
+  <files>
+    <file src="..\..\LICENSE.txt" target="license.txt" />
+    <file src="bin\$configuration$\$id$.pdb" target="lib\net40\" />
+  </files>
+</package>

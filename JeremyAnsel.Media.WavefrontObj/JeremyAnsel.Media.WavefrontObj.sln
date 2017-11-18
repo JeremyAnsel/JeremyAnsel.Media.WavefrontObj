@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeremyAnsel.Media.WavefrontObj", "JeremyAnsel.Media.WavefrontObj\JeremyAnsel.Media.WavefrontObj.csproj", "{32A40ACD-819E-49C7-B2B8-CCF20AE2286E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeremyAnsel.Media.WavefrontObj.Tests", "JeremyAnsel.Media.WavefrontObj.Tests\JeremyAnsel.Media.WavefrontObj.Tests.csproj", "{1501BDBE-4B03-4CD3-8B1B-CD5482F669F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32A40ACD-819E-49C7-B2B8-CCF20AE2286E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A40ACD-819E-49C7-B2B8-CCF20AE2286E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A40ACD-819E-49C7-B2B8-CCF20AE2286E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A40ACD-819E-49C7-B2B8-CCF20AE2286E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1501BDBE-4B03-4CD3-8B1B-CD5482F669F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1501BDBE-4B03-4CD3-8B1B-CD5482F669F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1501BDBE-4B03-4CD3-8B1B-CD5482F669F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1501BDBE-4B03-4CD3-8B1B-CD5482F669F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
