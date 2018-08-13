@@ -37,22 +37,46 @@ namespace JeremyAnsel.Media.WavefrontObj
                                 throw new InvalidDataException("A v statement must specify at least 3 values.");
                             }
 
-                            var v = new ObjVector4();
-                            v.X = float.Parse(values[1], CultureInfo.InvariantCulture);
-                            v.Y = float.Parse(values[2], CultureInfo.InvariantCulture);
-                            v.Z = float.Parse(values[3], CultureInfo.InvariantCulture);
+                            float x = float.Parse(values[1], CultureInfo.InvariantCulture);
+                            float y = float.Parse(values[2], CultureInfo.InvariantCulture);
+                            float z = float.Parse(values[3], CultureInfo.InvariantCulture);
+                            float w = 1.0f;
+                            bool hasColor = false;
+                            float r = 0.0f;
+                            float g = 0.0f;
+                            float b = 0.0f;
+                            float a = 1.0f;
 
-                            if (values.Length == 4)
+                            if (values.Length == 4 || values.Length == 5)
                             {
-                                v.W = 1.0f;
+                                if (values.Length == 5)
+                                {
+                                    w = float.Parse(values[4], CultureInfo.InvariantCulture);
+                                }
                             }
-                            else if (values.Length == 5)
+                            else if (values.Length == 7 || values.Length == 8)
                             {
-                                v.W = float.Parse(values[4], CultureInfo.InvariantCulture);
+                                hasColor = true;
+                                r = float.Parse(values[4], CultureInfo.InvariantCulture);
+                                g = float.Parse(values[5], CultureInfo.InvariantCulture);
+                                b = float.Parse(values[6], CultureInfo.InvariantCulture);
+
+                                if (values.Length == 8)
+                                {
+                                    a = float.Parse(values[7], CultureInfo.InvariantCulture);
+                                }
                             }
                             else
                             {
                                 throw new InvalidDataException("A v statement has too many values.");
+                            }
+
+                            var v = new ObjVertex();
+                            v.Position = new ObjVector4(x, y, z, w);
+
+                            if (hasColor)
+                            {
+                                v.Color = new ObjVector4(r, g, b, a);
                             }
 
                             obj.Vertices.Add(v);

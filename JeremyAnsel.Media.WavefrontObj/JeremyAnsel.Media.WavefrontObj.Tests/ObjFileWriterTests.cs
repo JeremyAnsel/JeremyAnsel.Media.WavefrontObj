@@ -254,7 +254,7 @@ p 1
         public void Vertex_Geometric3_Valid()
         {
             var obj = new ObjFile();
-            obj.Vertices.Add(new ObjVector4(2.0f, 3.0f, 4.0f, 1.0f));
+            obj.Vertices.Add(new ObjVertex(2.0f, 3.0f, 4.0f, 1.0f));
 
             string text = WriteObj(obj);
             string expected =
@@ -268,11 +268,39 @@ p 1
         public void Vertex_Geometric4_Valid()
         {
             var obj = new ObjFile();
-            obj.Vertices.Add(new ObjVector4(2.0f, 3.0f, 4.0f, 5.0f));
+            obj.Vertices.Add(new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f));
 
             string text = WriteObj(obj);
             string expected =
 @"v 2.000000 3.000000 4.000000 5.000000
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Vertex_Geometric6_Valid()
+        {
+            var obj = new ObjFile();
+            obj.Vertices.Add(new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 1.0f));
+
+            string text = WriteObj(obj);
+            string expected =
+@"v 2.000000 3.000000 4.000000 5.000000 6.000000 7.000000
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Vertex_Geometric7_Valid()
+        {
+            var obj = new ObjFile();
+            obj.Vertices.Add(new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f));
+
+            string text = WriteObj(obj);
+            string expected =
+@"v 2.000000 3.000000 4.000000 5.000000 6.000000 7.000000 8.000000
 ";
 
             AssertExtensions.TextEqual(expected, text);
@@ -498,9 +526,9 @@ p 2
         {
             var obj = new ObjFile();
             obj.Groups.Add(new ObjGroup("b"));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
             var point = new ObjPoint();
             point.Vertices.Add(new ObjTriplet(2, 0, 0));
             point.Vertices.Add(new ObjTriplet(3, 0, 0));
@@ -540,10 +568,10 @@ p 2 3
         {
             var obj = new ObjFile();
             obj.Groups.Add(new ObjGroup("b"));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
             var line = new ObjLine();
             line.Vertices.Add(new ObjTriplet(2, 0, 0));
             line.Vertices.Add(new ObjTriplet(3, 0, 0));
@@ -585,12 +613,12 @@ l 2 3 4
         {
             var obj = new ObjFile();
             obj.Groups.Add(new ObjGroup("b"));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
             var face = new ObjFace();
             face.Vertices.Add(new ObjTriplet(2, 0, 0));
             face.Vertices.Add(new ObjTriplet(3, 0, 0));
@@ -636,10 +664,10 @@ f 2 3 4 5 6
         {
             var obj = new ObjFile();
             obj.Groups.Add(new ObjGroup("b"));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
             var curve = new ObjCurve();
             curve.StartParameter = 5.0f;
             curve.EndParameter = 6.0f;
@@ -734,10 +762,10 @@ curv2 2 3 4
         {
             var obj = new ObjFile();
             obj.Groups.Add(new ObjGroup("b"));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
-            obj.Vertices.Add(new ObjVector4(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
+            obj.Vertices.Add(new ObjVertex(0, 0, 0));
             var surface = new ObjSurface();
             surface.StartParameterU = 5.0f;
             surface.EndParameterU = 6.0f;

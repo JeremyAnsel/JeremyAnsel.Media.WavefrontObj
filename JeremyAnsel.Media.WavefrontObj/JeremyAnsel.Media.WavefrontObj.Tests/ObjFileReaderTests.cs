@@ -127,6 +127,7 @@ p 2/3/4
             Assert.Throws<InvalidDataException>(() => ReadObj("v 0"));
             Assert.Throws<InvalidDataException>(() => ReadObj("v 0 0"));
             Assert.Throws<InvalidDataException>(() => ReadObj("v 0 0 0 0 0"));
+            Assert.Throws<InvalidDataException>(() => ReadObj("v 0 0 0 0 0 0 0 0"));
         }
 
         [Fact]
@@ -139,7 +140,7 @@ v 2.0 3.0 4.0
             var obj = ReadObj(content);
 
             Assert.Equal(1, obj.Vertices.Count);
-            Assert.Equal(new ObjVector4(2.0f, 3.0f, 4.0f, 1.0f), obj.Vertices[0]);
+            Assert.Equal(new ObjVertex(2.0f, 3.0f, 4.0f, 1.0f), obj.Vertices[0]);
         }
 
         [Fact]
@@ -152,7 +153,33 @@ v 2.0 3.0 4.0 5.0
             var obj = ReadObj(content);
 
             Assert.Equal(1, obj.Vertices.Count);
-            Assert.Equal(new ObjVector4(2.0f, 3.0f, 4.0f, 5.0f), obj.Vertices[0]);
+            Assert.Equal(new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f), obj.Vertices[0]);
+        }
+
+        [Fact]
+        public void Vertex_Geometric6_Valid()
+        {
+            string content = @"
+v 2.0 3.0 4.0 5.0 6.0 7.0
+";
+
+            var obj = ReadObj(content);
+
+            Assert.Equal(1, obj.Vertices.Count);
+            Assert.Equal(new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 1.0f), obj.Vertices[0]);
+        }
+
+        [Fact]
+        public void Vertex_Geometric7_Valid()
+        {
+            string content = @"
+v 2.0 3.0 4.0 5.0 6.0 7.0 8.0
+";
+
+            var obj = ReadObj(content);
+
+            Assert.Equal(1, obj.Vertices.Count);
+            Assert.Equal(new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f), obj.Vertices[0]);
         }
 
         [Fact]

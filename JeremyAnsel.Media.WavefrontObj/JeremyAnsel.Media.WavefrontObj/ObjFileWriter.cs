@@ -98,22 +98,55 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             foreach (var vertex in obj.Vertices)
             {
-                if (vertex.W == 1.0f)
+                var position = vertex.Position;
+
+                if (vertex.Color.HasValue)
                 {
-                    stream.WriteLine(
-                        "v {0} {1} {2}",
-                        vertex.X.ToString("F6", CultureInfo.InvariantCulture),
-                        vertex.Y.ToString("F6", CultureInfo.InvariantCulture),
-                        vertex.Z.ToString("F6", CultureInfo.InvariantCulture));
+                    var color = vertex.Color.Value;
+
+                    if (color.W == 1.0f)
+                    {
+                        stream.WriteLine(
+                            "v {0} {1} {2} {3} {4} {5}",
+                            position.X.ToString("F6", CultureInfo.InvariantCulture),
+                            position.Y.ToString("F6", CultureInfo.InvariantCulture),
+                            position.Z.ToString("F6", CultureInfo.InvariantCulture),
+                            color.X.ToString("F6", CultureInfo.InvariantCulture),
+                            color.Y.ToString("F6", CultureInfo.InvariantCulture),
+                            color.Z.ToString("F6", CultureInfo.InvariantCulture));
+                    }
+                    else
+                    {
+                        stream.WriteLine(
+                            "v {0} {1} {2} {3} {4} {5} {6}",
+                            position.X.ToString("F6", CultureInfo.InvariantCulture),
+                            position.Y.ToString("F6", CultureInfo.InvariantCulture),
+                            position.Z.ToString("F6", CultureInfo.InvariantCulture),
+                            color.X.ToString("F6", CultureInfo.InvariantCulture),
+                            color.Y.ToString("F6", CultureInfo.InvariantCulture),
+                            color.Z.ToString("F6", CultureInfo.InvariantCulture),
+                            color.W.ToString("F6", CultureInfo.InvariantCulture));
+                    }
                 }
                 else
                 {
-                    stream.WriteLine(
-                        "v {0} {1} {2} {3}",
-                        vertex.X.ToString("F6", CultureInfo.InvariantCulture),
-                        vertex.Y.ToString("F6", CultureInfo.InvariantCulture),
-                        vertex.Z.ToString("F6", CultureInfo.InvariantCulture),
-                        vertex.W.ToString("F6", CultureInfo.InvariantCulture));
+                    if (position.W == 1.0f)
+                    {
+                        stream.WriteLine(
+                            "v {0} {1} {2}",
+                            position.X.ToString("F6", CultureInfo.InvariantCulture),
+                            position.Y.ToString("F6", CultureInfo.InvariantCulture),
+                            position.Z.ToString("F6", CultureInfo.InvariantCulture));
+                    }
+                    else
+                    {
+                        stream.WriteLine(
+                            "v {0} {1} {2} {3}",
+                            position.X.ToString("F6", CultureInfo.InvariantCulture),
+                            position.Y.ToString("F6", CultureInfo.InvariantCulture),
+                            position.Z.ToString("F6", CultureInfo.InvariantCulture),
+                            position.W.ToString("F6", CultureInfo.InvariantCulture));
+                    }
                 }
             }
         }

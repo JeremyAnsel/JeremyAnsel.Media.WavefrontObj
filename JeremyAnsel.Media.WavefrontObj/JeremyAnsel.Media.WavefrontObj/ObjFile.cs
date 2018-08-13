@@ -17,7 +17,7 @@ namespace JeremyAnsel.Media.WavefrontObj
     {
         public ObjFile()
         {
-            this.Vertices = new List<ObjVector4>();
+            this.Vertices = new List<ObjVertex>();
             this.ParameterSpaceVertices = new List<ObjVector3>();
             this.VertexNormals = new List<ObjVector3>();
             this.TextureVertices = new List<ObjVector3>();
@@ -35,7 +35,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             this.MaterialLibraries = new List<string>();
         }
 
-        public IList<ObjVector4> Vertices { get; private set; }
+        public IList<ObjVertex> Vertices { get; private set; }
 
         public IList<ObjVector3> ParameterSpaceVertices { get; private set; }
 

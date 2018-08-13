@@ -83,6 +83,7 @@
     <Compile Include="ObjTriplet.cs" />
     <Compile Include="ObjVector3.cs" />
     <Compile Include="ObjVector4.cs" />
+    <Compile Include="ObjVertex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

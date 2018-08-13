@@ -80,6 +80,7 @@
     <Compile Include="ObjTripletTests.cs" />
     <Compile Include="ObjVector3Tests.cs" />
     <Compile Include="ObjVector4Tests.cs" />
+    <Compile Include="ObjVertexTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
