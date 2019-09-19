@@ -198,30 +198,11 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             foreach (var vertex in obj.TextureVertices)
             {
-                if (vertex.Z == 0.0f)
-                {
-                    if (vertex.Y == 0.0f)
-                    {
-                        stream.WriteLine(
-                            "vt {0}",
-                            vertex.X.ToString("F6", CultureInfo.InvariantCulture));
-                    }
-                    else
-                    {
-                        stream.WriteLine(
-                            "vt {0} {1}",
-                            vertex.X.ToString("F6", CultureInfo.InvariantCulture),
-                            vertex.Y.ToString("F6", CultureInfo.InvariantCulture));
-                    }
-                }
-                else
-                {
-                    stream.WriteLine(
-                        "vt {0} {1} {2}",
-                        vertex.X.ToString("F6", CultureInfo.InvariantCulture),
-                        vertex.Y.ToString("F6", CultureInfo.InvariantCulture),
-                        vertex.Z.ToString("F6", CultureInfo.InvariantCulture));
-                }
+                stream.WriteLine(
+                    "vt {0} {1} {2}",
+                    vertex.X.ToString("F6", CultureInfo.InvariantCulture),
+                    vertex.Y.ToString("F6", CultureInfo.InvariantCulture),
+                    vertex.Z.ToString("F6", CultureInfo.InvariantCulture));
             }
         }
 

@@ -370,7 +370,7 @@ p 1
 
             string text = WriteObj(obj);
             string expected =
-@"vt 2.000000
+@"vt 2.000000 0.000000 0.000000
 ";
 
             AssertExtensions.TextEqual(expected, text);
@@ -384,7 +384,7 @@ p 1
 
             string text = WriteObj(obj);
             string expected =
-@"vt 2.000000 3.000000
+@"vt 2.000000 3.000000 0.000000
 ";
 
             AssertExtensions.TextEqual(expected, text);
