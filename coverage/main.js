@@ -224,39 +224,39 @@ var assemblies = [
   {
     "name": "JeremyAnsel.Media.WavefrontObj",
     "classes": [
-      { "name": "JeremyAnsel.Media.WavefrontObj.LineReader", "rp": "JeremyAnsel.Media.WavefrontObj_LineReader.htm", "cl": 22, "ucl": 0, "cal": 22, "tl": 73, "ct": "LineCoverage", "mc": "-", "cb": 12, "tb": 12, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.LineReader", "rp": "JeremyAnsel.Media.WavefrontObj_LineReader.htm", "cl": 22, "ucl": 0, "cal": 22, "tl": 73, "ct": "LineCoverage", "mc": "-", "cb": 13, "tb": 14, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjApproximationTechnique", "rp": "JeremyAnsel.Media.WavefrontObj_ObjApproximationTechnique.htm", "cl": 2, "ucl": 0, "cal": 2, "tl": 21, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique", "rp": "JeremyAnsel.Media.WavefrontObj_ObjConstantParametricSubdivisionTechnique.htm", "cl": 12, "ucl": 0, "cal": 12, "tl": 37, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjConstantSpatialSubdivisionTechnique", "rp": "JeremyAnsel.Media.WavefrontObj_ObjConstantSpatialSubdivisionTechnique.htm", "cl": 6, "ucl": 0, "cal": 6, "tl": 28, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjCurvatureDependentSubdivisionTechnique", "rp": "JeremyAnsel.Media.WavefrontObj_ObjCurvatureDependentSubdivisionTechnique.htm", "cl": 8, "ucl": 0, "cal": 8, "tl": 31, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjCurve", "rp": "JeremyAnsel.Media.WavefrontObj_ObjCurve.htm", "cl": 6, "ucl": 0, "cal": 6, "tl": 28, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjCurve2D", "rp": "JeremyAnsel.Media.WavefrontObj_ObjCurve2D.htm", "cl": 4, "ucl": 0, "cal": 4, "tl": 24, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjCurveIndex", "rp": "JeremyAnsel.Media.WavefrontObj_ObjCurveIndex.htm", "cl": 16, "ucl": 0, "cal": 16, "tl": 59, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjCurveIndex", "rp": "JeremyAnsel.Media.WavefrontObj_ObjCurveIndex.htm", "cl": 16, "ucl": 11, "cal": 27, "tl": 90, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 6, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjElement", "rp": "JeremyAnsel.Media.WavefrontObj_ObjElement.htm", "cl": 6, "ucl": 0, "cal": 6, "tl": 29, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjFace", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFace.htm", "cl": 4, "ucl": 0, "cal": 4, "tl": 24, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjFile", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFile.htm", "cl": 50, "ucl": 0, "cal": 50, "tl": 108, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 2, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjFileReader", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFileReader.htm", "cl": 517, "ucl": 0, "cal": 517, "tl": 1228, "ct": "LineCoverage", "mc": "-", "cb": 485, "tb": 544, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjFileReaderContext", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFileReaderContext.htm", "cl": 57, "ucl": 0, "cal": 57, "tl": 124, "ct": "LineCoverage", "mc": "-", "cb": 4, "tb": 4, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjFileWriter", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFileWriter.htm", "cl": 228, "ucl": 0, "cal": 228, "tl": 444, "ct": "LineCoverage", "mc": "-", "cb": 40, "tb": 44, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjFileWriterContext", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFileWriterContext.htm", "cl": 171, "ucl": 0, "cal": 171, "tl": 378, "ct": "LineCoverage", "mc": "-", "cb": 80, "tb": 82, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFreeFormElement.htm", "cl": 25, "ucl": 0, "cal": 25, "tl": 61, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjFileReader", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFileReader.htm", "cl": 516, "ucl": 0, "cal": 516, "tl": 1234, "ct": "LineCoverage", "mc": "-", "cb": 564, "tb": 564, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjFileReaderContext", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFileReaderContext.htm", "cl": 57, "ucl": 0, "cal": 57, "tl": 124, "ct": "LineCoverage", "mc": "-", "cb": 6, "tb": 6, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjFileWriter", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFileWriter.htm", "cl": 228, "ucl": 0, "cal": 228, "tl": 444, "ct": "LineCoverage", "mc": "-", "cb": 96, "tb": 96, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjFileWriterContext", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFileWriterContext.htm", "cl": 171, "ucl": 0, "cal": 171, "tl": 378, "ct": "LineCoverage", "mc": "-", "cb": 88, "tb": 88, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFreeFormElement.htm", "cl": 25, "ucl": 0, "cal": 25, "tl": 64, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjGroup", "rp": "JeremyAnsel.Media.WavefrontObj_ObjGroup.htm", "cl": 18, "ucl": 0, "cal": 18, "tl": 47, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjLine", "rp": "JeremyAnsel.Media.WavefrontObj_ObjLine.htm", "cl": 4, "ucl": 0, "cal": 4, "tl": 24, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterial", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterial.htm", "cl": 33, "ucl": 0, "cal": 33, "tl": 79, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialColor", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialColor.htm", "cl": 20, "ucl": 0, "cal": 20, "tl": 67, "ct": "LineCoverage", "mc": "-", "cb": 4, "tb": 4, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFile", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFile.htm", "cl": 18, "ucl": 0, "cal": 18, "tl": 59, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 2, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.htm", "cl": 343, "ucl": 0, "cal": 343, "tl": 792, "ct": "LineCoverage", "mc": "-", "cb": 338, "tb": 404, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileWriter", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileWriter.htm", "cl": 144, "ucl": 0, "cal": 144, "tl": 322, "ct": "LineCoverage", "mc": "-", "cb": 94, "tb": 97, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.htm", "cl": 343, "ucl": 0, "cal": 343, "tl": 796, "ct": "LineCoverage", "mc": "-", "cb": 409, "tb": 416, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileWriter", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileWriter.htm", "cl": 144, "ucl": 0, "cal": 144, "tl": 322, "ct": "LineCoverage", "mc": "-", "cb": 99, "tb": 99, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialMap", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialMap.htm", "cl": 27, "ucl": 0, "cal": 27, "tl": 63, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialReflectionMap", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialReflectionMap.htm", "cl": 7, "ucl": 0, "cal": 7, "tl": 31, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjPoint", "rp": "JeremyAnsel.Media.WavefrontObj_ObjPoint.htm", "cl": 4, "ucl": 0, "cal": 4, "tl": 24, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjPolygonalElement", "rp": "JeremyAnsel.Media.WavefrontObj_ObjPolygonalElement.htm", "cl": 6, "ucl": 0, "cal": 6, "tl": 29, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjSurface", "rp": "JeremyAnsel.Media.WavefrontObj_ObjSurface.htm", "cl": 8, "ucl": 0, "cal": 8, "tl": 32, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjSurfaceConnection", "rp": "JeremyAnsel.Media.WavefrontObj_ObjSurfaceConnection.htm", "cl": 4, "ucl": 0, "cal": 4, "tl": 25, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjTriplet", "rp": "JeremyAnsel.Media.WavefrontObj_ObjTriplet.htm", "cl": 28, "ucl": 0, "cal": 28, "tl": 86, "ct": "LineCoverage", "mc": "-", "cb": 6, "tb": 6, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjVector3", "rp": "JeremyAnsel.Media.WavefrontObj_ObjVector3.htm", "cl": 18, "ucl": 0, "cal": 18, "tl": 62, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjVector4", "rp": "JeremyAnsel.Media.WavefrontObj_ObjVector4.htm", "cl": 18, "ucl": 0, "cal": 18, "tl": 65, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjVertex", "rp": "JeremyAnsel.Media.WavefrontObj_ObjVertex.htm", "cl": 16, "ucl": 0, "cal": 16, "tl": 57, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjTriplet", "rp": "JeremyAnsel.Media.WavefrontObj_ObjTriplet.htm", "cl": 28, "ucl": 11, "cal": 39, "tl": 117, "ct": "LineCoverage", "mc": "-", "cb": 6, "tb": 12, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjVector3", "rp": "JeremyAnsel.Media.WavefrontObj_ObjVector3.htm", "cl": 21, "ucl": 8, "cal": 29, "tl": 93, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 6, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjVector4", "rp": "JeremyAnsel.Media.WavefrontObj_ObjVector4.htm", "cl": 22, "ucl": 9, "cal": 31, "tl": 98, "ct": "LineCoverage", "mc": "-", "cb": 3, "tb": 8, "lch": [], "bch": [], "hc": [] },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjVertex", "rp": "JeremyAnsel.Media.WavefrontObj_ObjVertex.htm", "cl": 18, "ucl": 7, "cal": 25, "tl": 86, "ct": "LineCoverage", "mc": "-", "cb": 1, "tb": 4, "lch": [], "bch": [], "hc": [] },
     ]},
 ];
 
@@ -265,100 +265,56 @@ var historicCoverageExecutionTimes = [];
 var riskHotspotMetrics = [
       { "name": "Cyclomatic complexity", "explanationUrl": "https://en.wikipedia.org/wiki/Cyclomatic_complexity" },
       { "name": "NPath complexity", "explanationUrl": "https://modess.io/npath-complexity-cyclomatic-complexity-explained" },
-      { "name": "Crap Score", "explanationUrl": "https://googletesting.blogspot.de/2011/02/this-code-is-crap.html" },
 ];
 
 var riskHotspots = [
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader.htm", "methodName": "JeremyAnsel.Media.WavefrontObj.ObjFile JeremyAnsel.Media.WavefrontObj.ObjFileReader::FromStream(System.IO.Stream)", "methodShortName": "FromStream(...)", "fileIndex": 0, "line": 21,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader.htm", "methodName": "JeremyAnsel.Media.WavefrontObj.ObjFile JeremyAnsel.Media.WavefrontObj.ObjFileReader::FromStream(System.IO.Stream)", "methodShortName": "FromStream(...)", "fileIndex": 0, "line": 23,
     "metrics": [
-      { "value": 225, "exceeded": true },
-      { "value": 2147483647, "exceeded": true },
-      { "value": 225, "exceeded": true },
+      { "value": 436, "exceeded": true },
+      { "value": 0, "exceeded": false },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.htm", "methodName": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFile JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader::FromStream(System.IO.Stream)", "methodShortName": "FromStream(...)", "fileIndex": 0, "line": 21,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.htm", "methodName": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFile JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader::FromStream(System.IO.Stream)", "methodShortName": "FromStream(...)", "fileIndex": 0, "line": 23,
     "metrics": [
-      { "value": 126, "exceeded": true },
-      { "value": 2147483647, "exceeded": true },
-      { "value": 126, "exceeded": true },
+      { "value": 252, "exceeded": true },
+      { "value": 0, "exceeded": false },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.htm", "methodName": "JeremyAnsel.Media.WavefrontObj.ObjMaterialMap JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader::ParseMaterialMap(System.String,System.String[])", "methodShortName": "ParseMaterialMap(...)", "fileIndex": 0, "line": 493,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.htm", "methodName": "JeremyAnsel.Media.WavefrontObj.ObjMaterialMap JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader::ParseMaterialMap(System.String,System.String[])", "methodShortName": "ParseMaterialMap(...)", "fileIndex": 0, "line": 497,
     "metrics": [
-      { "value": 68, "exceeded": true },
-      { "value": 2147483647, "exceeded": true },
-      { "value": 68, "exceeded": true },
-    ]},
-  {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileWriter", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileWriter.htm", "methodName": "System.Void JeremyAnsel.Media.WavefrontObj.ObjMaterialFileWriter::WriteMaterial(JeremyAnsel.Media.WavefrontObj.ObjMaterial,System.IO.StreamWriter)", "methodShortName": "WriteMaterial(...)", "fileIndex": 0, "line": 29,
-    "metrics": [
-      { "value": 24, "exceeded": false },
-      { "value": 8388608, "exceeded": true },
-      { "value": 24, "exceeded": true },
+      { "value": 138, "exceeded": true },
+      { "value": 0, "exceeded": false },
     ]},
   {
     "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileWriterContext", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileWriterContext.htm", "methodName": "System.Void JeremyAnsel.Media.WavefrontObj.ObjFileWriterContext::WriteAttributesOfFreeFormElement(System.IO.StreamWriter,JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement)", "methodShortName": "WriteAttributesOfFreeFormElement(...)", "fileIndex": 0, "line": 180,
     "metrics": [
-      { "value": 28, "exceeded": false },
-      { "value": 6291456, "exceeded": true },
-      { "value": 28, "exceeded": true },
+      { "value": 50, "exceeded": true },
+      { "value": 0, "exceeded": false },
+    ]},
+  {
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileWriter", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileWriter.htm", "methodName": "System.Void JeremyAnsel.Media.WavefrontObj.ObjMaterialFileWriter::WriteMaterial(JeremyAnsel.Media.WavefrontObj.ObjMaterial,System.IO.StreamWriter)", "methodShortName": "WriteMaterial(...)", "fileIndex": 0, "line": 29,
+    "metrics": [
+      { "value": 46, "exceeded": true },
+      { "value": 0, "exceeded": false },
     ]},
   {
     "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileWriter", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileWriter.htm", "methodName": "System.Void JeremyAnsel.Media.WavefrontObj.ObjMaterialFileWriter::WriteMap(System.String,JeremyAnsel.Media.WavefrontObj.ObjMaterialMap,System.IO.StreamWriter)", "methodShortName": "WriteMap(...)", "fileIndex": 0, "line": 202,
     "metrics": [
-      { "value": 26, "exceeded": false },
-      { "value": 3670016, "exceeded": true },
-      { "value": 26, "exceeded": true },
+      { "value": 45, "exceeded": true },
+      { "value": 0, "exceeded": false },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader.htm", "methodName": "JeremyAnsel.Media.WavefrontObj.ObjTriplet JeremyAnsel.Media.WavefrontObj.ObjFileReader::ParseTriplet(JeremyAnsel.Media.WavefrontObj.ObjFile,System.String)", "methodShortName": "ParseTriplet(...)", "fileIndex": 0, "line": 895,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader.htm", "methodName": "JeremyAnsel.Media.WavefrontObj.ObjTriplet JeremyAnsel.Media.WavefrontObj.ObjFileReader::ParseTriplet(JeremyAnsel.Media.WavefrontObj.ObjFile,System.String)", "methodShortName": "ParseTriplet(...)", "fileIndex": 0, "line": 898,
     "metrics": [
-      { "value": 22, "exceeded": false },
-      { "value": 262144, "exceeded": true },
-      { "value": 22, "exceeded": true },
+      { "value": 36, "exceeded": true },
+      { "value": 0, "exceeded": false },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader.htm", "methodName": "JeremyAnsel.Media.WavefrontObj.ObjApproximationTechnique JeremyAnsel.Media.WavefrontObj.ObjFileReader::ParseApproximationTechnique(System.String[])", "methodShortName": "ParseApproximationTechnique(...)", "fileIndex": 0, "line": 1125,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader.htm", "methodName": "JeremyAnsel.Media.WavefrontObj.ObjApproximationTechnique JeremyAnsel.Media.WavefrontObj.ObjFileReader::ParseApproximationTechnique(System.String[])", "methodShortName": "ParseApproximationTechnique(...)", "fileIndex": 0, "line": 1131,
     "metrics": [
-      { "value": 17, "exceeded": false },
-      { "value": 65536, "exceeded": true },
-      { "value": 17, "exceeded": true },
-    ]},
-  {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.htm", "methodName": "JeremyAnsel.Media.WavefrontObj.ObjMaterialColor JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader::ParseMaterialColor(System.String,System.String[])", "methodShortName": "ParseMaterialColor(...)", "fileIndex": 0, "line": 386,
-    "metrics": [
-      { "value": 13, "exceeded": false },
-      { "value": 4096, "exceeded": true },
-      { "value": 13, "exceeded": false },
-    ]},
-  {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader.htm", "methodName": "System.Void JeremyAnsel.Media.WavefrontObj.ObjFileReader::ParseSurfaceConnection(JeremyAnsel.Media.WavefrontObj.ObjFile,System.String[])", "methodShortName": "ParseSurfaceConnection(...)", "fileIndex": 0, "line": 1047,
-    "metrics": [
-      { "value": 11, "exceeded": false },
-      { "value": 1024, "exceeded": true },
-      { "value": 11, "exceeded": false },
-    ]},
-  {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader.htm", "methodName": "System.Void JeremyAnsel.Media.WavefrontObj.ObjFileReader::ParseFreeFormType(JeremyAnsel.Media.WavefrontObj.ObjFileReaderContext,System.String[])", "methodShortName": "ParseFreeFormType(...)", "fileIndex": 0, "line": 996,
-    "metrics": [
-      { "value": 10, "exceeded": false },
-      { "value": 512, "exceeded": true },
-      { "value": 10, "exceeded": false },
-    ]},
-  {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileWriterContext", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileWriterContext.htm", "methodName": "System.Void JeremyAnsel.Media.WavefrontObj.ObjFileWriterContext::WriteAttributesOfPolygonalElement(System.IO.StreamWriter,JeremyAnsel.Media.WavefrontObj.ObjPolygonalElement)", "methodShortName": "WriteAttributesOfPolygonalElement(...)", "fileIndex": 0, "line": 121,
-    "metrics": [
-      { "value": 9, "exceeded": false },
-      { "value": 256, "exceeded": true },
-      { "value": 9, "exceeded": false },
-    ]},
-  {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileWriter", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileWriter.htm", "methodName": "System.Void JeremyAnsel.Media.WavefrontObj.ObjFileWriter::WriteBodyOfFreeFormElement(System.IO.StreamWriter,JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement)", "methodShortName": "WriteBodyOfFreeFormElement(...)", "fileIndex": 0, "line": 352,
-    "metrics": [
-      { "value": 20, "exceeded": false },
-      { "value": 128, "exceeded": false },
-      { "value": 20, "exceeded": true },
+      { "value": 34, "exceeded": true },
+      { "value": 0, "exceeded": false },
     ]},
 ];
 
