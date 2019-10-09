@@ -96,7 +96,7 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             if (stream == null)
             {
-                throw new ArgumentNullException("stream");
+                throw new ArgumentNullException(nameof(stream));
             }
 
             using (var writer = new StreamWriter(stream))

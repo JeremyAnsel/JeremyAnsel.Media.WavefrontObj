@@ -1260,7 +1260,7 @@ p 1
 
             var obj = ReadObj(content);
 
-            Assert.Equal(null, obj.Points[0].ObjectName);
+            Assert.Null(obj.Points[0].ObjectName);
         }
 
         [Fact]

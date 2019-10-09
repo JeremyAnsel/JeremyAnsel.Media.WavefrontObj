@@ -13,7 +13,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
-    public struct ObjTriplet
+    public struct ObjTriplet : IEquatable<ObjTriplet>
     {
         private int vertex;
 
@@ -44,6 +44,27 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             get { return this.normal; }
             set { this.normal = value; }
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is ObjTriplet triplet && Equals(triplet);
+        }
+
+        public bool Equals(ObjTriplet other)
+        {
+            return vertex == other.vertex &&
+                   texture == other.texture &&
+                   normal == other.normal;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -683219715;
+            hashCode = hashCode * -1521134295 + vertex.GetHashCode();
+            hashCode = hashCode * -1521134295 + texture.GetHashCode();
+            hashCode = hashCode * -1521134295 + normal.GetHashCode();
+            return hashCode;
         }
 
         public override string ToString()
@@ -81,6 +102,16 @@ namespace JeremyAnsel.Media.WavefrontObj
                         this.Normal.ToString(CultureInfo.InvariantCulture));
                 }
             }
+        }
+
+        public static bool operator ==(ObjTriplet left, ObjTriplet right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(ObjTriplet left, ObjTriplet right)
+        {
+            return !(left == right);
         }
     }
 }

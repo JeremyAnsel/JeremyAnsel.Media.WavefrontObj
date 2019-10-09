@@ -44,7 +44,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                     line = line.Trim();
 
-                    isMultiLine = line.EndsWith("\\");
+                    isMultiLine = line.EndsWith("\\", StringComparison.Ordinal);
 
                     if (isMultiLine)
                     {

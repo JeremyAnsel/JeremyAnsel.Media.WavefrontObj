@@ -12,7 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
-    public struct ObjVector4
+    public struct ObjVector4 : IEquatable<ObjVector4>
     {
         private float x;
 
@@ -60,6 +60,39 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             get { return this.w; }
             set { this.w = value; }
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is ObjVector4 vector && Equals(vector);
+        }
+
+        public bool Equals(ObjVector4 other)
+        {
+            return x == other.x &&
+                   y == other.y &&
+                   z == other.z &&
+                   w == other.w;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -1743314642;
+            hashCode = hashCode * -1521134295 + x.GetHashCode();
+            hashCode = hashCode * -1521134295 + y.GetHashCode();
+            hashCode = hashCode * -1521134295 + z.GetHashCode();
+            hashCode = hashCode * -1521134295 + w.GetHashCode();
+            return hashCode;
+        }
+
+        public static bool operator ==(ObjVector4 left, ObjVector4 right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(ObjVector4 left, ObjVector4 right)
+        {
+            return !(left == right);
         }
     }
 }

@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -16,11 +17,12 @@ namespace JeremyAnsel.Media.WavefrontObj
 {
     internal static class ObjFileReader
     {
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         public static ObjFile FromStream(Stream stream)
         {
             if (stream == null)
             {
-                throw new ArgumentNullException("stream");
+                throw new ArgumentNullException(nameof(stream));
             }
 
             var obj = new ObjFile();
@@ -184,7 +186,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                         if (values.Length == 2)
                         {
-                            context.DegreeU = int.Parse(values[1]);
+                            context.DegreeU = int.Parse(values[1], CultureInfo.InvariantCulture);
                             context.DegreeV = 0;
                         }
                         else if (values.Length == 3)
@@ -890,6 +892,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             return obj;
         }
 
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private static ObjTriplet ParseTriplet(ObjFile obj, string value)
         {
             var values = value.Split('/');
@@ -949,6 +952,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             return new ObjTriplet(v, vt, vn);
         }
 
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private static ObjCurveIndex ParseCurveIndex(ObjFile obj, string[] values, int index)
         {
             float start = float.Parse(values[index], CultureInfo.InvariantCulture);
@@ -991,6 +995,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             }
         }
 
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private static void ParseFreeFormType(ObjFileReaderContext context, string[] values)
         {
             if (values.Length < 2)
@@ -1042,6 +1047,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             }
         }
 
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private static void ParseSurfaceConnection(ObjFile obj, string[] values)
         {
             if (values.Length < 9)

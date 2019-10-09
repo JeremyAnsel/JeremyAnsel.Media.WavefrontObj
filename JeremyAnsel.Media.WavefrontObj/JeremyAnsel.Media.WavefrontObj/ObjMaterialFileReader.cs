@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -16,11 +17,12 @@ namespace JeremyAnsel.Media.WavefrontObj
 {
     internal static class ObjMaterialFileReader
     {
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         public static ObjMaterialFile FromStream(Stream stream)
         {
             if (stream == null)
             {
-                throw new ArgumentNullException("stream");
+                throw new ArgumentNullException(nameof(stream));
             }
 
             var mtl = new ObjMaterialFile();
@@ -381,6 +383,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             return mtl;
         }
 
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private static ObjMaterialColor ParseMaterialColor(string statement, string[] values)
         {
             if (values.Length < 2)
@@ -488,6 +491,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             return color;
         }
 
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private static ObjMaterialMap ParseMaterialMap(string statement, string[] values)
         {
             var map = new ObjMaterialMap();

@@ -12,7 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
-    public struct ObjVertex
+    public struct ObjVertex : IEquatable<ObjVertex>
     {
         private ObjVector4 position;
 
@@ -52,6 +52,35 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             get { return this.color; }
             set { this.color = value; }
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is ObjVertex vertex && Equals(vertex);
+        }
+
+        public bool Equals(ObjVertex other)
+        {
+            return position.Equals(other.position) &&
+                   EqualityComparer<ObjVector4?>.Default.Equals(color, other.color);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -2056440846;
+            hashCode = hashCode * -1521134295 + EqualityComparer<ObjVector4>.Default.GetHashCode(position);
+            hashCode = hashCode * -1521134295 + EqualityComparer<ObjVector4?>.Default.GetHashCode(color);
+            return hashCode;
+        }
+
+        public static bool operator ==(ObjVertex left, ObjVertex right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(ObjVertex left, ObjVertex right)
+        {
+            return !(left == right);
         }
     }
 }

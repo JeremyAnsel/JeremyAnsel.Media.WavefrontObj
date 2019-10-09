@@ -1059,7 +1059,6 @@ curv 5.000000 6.000000 2 3 4
 
         [Theory]
         [InlineData("bmatrix", false, ObjFreeFormType.BasisMatrix)]
-        [InlineData("bmatrix", false, ObjFreeFormType.BasisMatrix)]
         [InlineData("rat bmatrix", true, ObjFreeFormType.BasisMatrix)]
         [InlineData("bezier", false, ObjFreeFormType.Bezier)]
         [InlineData("rat bezier", true, ObjFreeFormType.Bezier)]

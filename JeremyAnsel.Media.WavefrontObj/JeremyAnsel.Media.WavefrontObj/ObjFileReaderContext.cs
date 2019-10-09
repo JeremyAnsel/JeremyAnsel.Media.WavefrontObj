@@ -71,7 +71,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
             foreach (var name in this.GroupNames)
             {
-                var group = obj.Groups.FirstOrDefault(t => string.Equals(t.Name, name));
+                var group = obj.Groups.FirstOrDefault(t => string.Equals(t.Name, name, StringComparison.Ordinal));
 
                 if (group == null)
                 {
