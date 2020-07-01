@@ -23,6 +23,8 @@ before_build:
 build:
   project: JeremyAnsel.Media.WavefrontObj\JeremyAnsel.Media.WavefrontObj.sln
   publish_nuget: true
+  publish_nuget_symbols: true
+  use_snupkg_format: true
   verbosity: minimal
 
 after_build:
