@@ -578,6 +578,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.Groups
   nameWithType: ObjFile.Groups
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFile.HeaderText
+  name: HeaderText
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_HeaderText
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjFile.HeaderText
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.HeaderText
+  nameWithType: ObjFile.HeaderText
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFile.HeaderText*
+  name: HeaderText
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_HeaderText_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjFile.HeaderText
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.HeaderText
+  nameWithType: ObjFile.HeaderText
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFile.Lines
   name: Lines
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_Lines
@@ -1716,6 +1729,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream
   nameWithType: ObjMaterialFile.FromStream
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.HeaderText
+  name: HeaderText
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_HeaderText
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.HeaderText
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.HeaderText
+  nameWithType: ObjMaterialFile.HeaderText
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.HeaderText*
+  name: HeaderText
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_HeaderText_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.HeaderText
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.HeaderText
+  nameWithType: ObjMaterialFile.HeaderText
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.Materials
   name: Materials
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_Materials
