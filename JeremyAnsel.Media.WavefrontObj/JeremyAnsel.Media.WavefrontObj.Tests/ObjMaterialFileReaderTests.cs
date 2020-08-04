@@ -26,6 +26,27 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         }
 
         [Fact]
+        public void HeaderText_Valid()
+        {
+            string content = @"
+# header line 1
+
+# header line 2
+
+# header \
+line 3
+newmtl a
+# comment
+";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("\n header line 1\n\n header line 2\n\n header line 3", mtl.HeaderText);
+            Assert.Equal(1, mtl.Materials.Count);
+            Assert.Equal("a", mtl.Materials[0].Name);
+        }
+
+        [Fact]
         public void MaterialName_NoName_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl"));

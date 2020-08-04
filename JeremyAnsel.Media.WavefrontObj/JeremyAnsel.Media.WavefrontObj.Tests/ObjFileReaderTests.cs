@@ -26,6 +26,27 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         }
 
         [Fact]
+        public void HeaderText_Valid()
+        {
+            string content = @"
+# header line 1
+
+# header line 2
+
+# header \
+line 3
+g a
+# comment
+";
+
+            var obj = ReadObj(content);
+
+            Assert.Equal("\n header line 1\n\n header line 2\n\n header line 3", obj.HeaderText);
+            Assert.Equal(1, obj.Groups.Count);
+            Assert.Equal("a", obj.Groups[0].Name);
+        }
+
+        [Fact]
         public void Parsing_Triplet_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadObj("p ///"));

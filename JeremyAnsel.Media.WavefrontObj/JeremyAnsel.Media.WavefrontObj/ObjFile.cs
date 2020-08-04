@@ -35,6 +35,8 @@ namespace JeremyAnsel.Media.WavefrontObj
             this.MaterialLibraries = new List<string>();
         }
 
+        public string HeaderText { get; set; }
+
         public IList<ObjVertex> Vertices { get; private set; }
 
         public IList<ObjVector3> ParameterSpaceVertices { get; private set; }

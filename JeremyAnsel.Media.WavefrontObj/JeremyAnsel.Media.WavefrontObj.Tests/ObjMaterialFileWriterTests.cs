@@ -30,6 +30,21 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         }
 
         [Fact]
+        public void Write_HeaderText_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            mtl.HeaderText = "header line 1\nheader line 2";
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"#header line 1
+#header line 2
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
         public void MaterialName_NewName_Valid()
         {
             var mtl = new ObjMaterialFile();

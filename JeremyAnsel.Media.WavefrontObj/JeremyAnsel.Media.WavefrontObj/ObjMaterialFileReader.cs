@@ -26,10 +26,11 @@ namespace JeremyAnsel.Media.WavefrontObj
             }
 
             var mtl = new ObjMaterialFile();
+            var lineReader = new LineReader();
 
             ObjMaterial currentMaterial = null;
 
-            foreach (var values in LineReader.Read(stream))
+            foreach (var values in lineReader.Read(stream))
             {
                 switch (values[0].ToLowerInvariant())
                 {
@@ -379,6 +380,8 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
                 }
             }
+
+            mtl.HeaderText = string.Join("\n", lineReader.HeaderTextLines.ToArray());
 
             return mtl;
         }

@@ -13,16 +13,19 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
-    internal static class LineReader
+    internal class LineReader
     {
         private static readonly char[] lineSeparators = new char[] { ' ', '\t' };
 
-        public static IEnumerable<string[]> Read(Stream stream)
+        public IList<string> HeaderTextLines { get; } = new List<string>();
+
+        public IEnumerable<string[]> Read(Stream stream)
         {
             using (var reader = new StreamReader(stream))
             {
                 string line = null;
                 bool isMultiLine = false;
+                bool readHeaderText = true;
 
                 while (!reader.EndOfStream)
                 {
@@ -30,6 +33,11 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                     if (string.IsNullOrWhiteSpace(currentLine))
                     {
+                        if (readHeaderText)
+                        {
+                            this.HeaderTextLines.Add(string.Empty);
+                        }
+
                         continue;
                     }
 
@@ -55,7 +63,17 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                     if (commentIndex == 0)
                     {
+                        if (readHeaderText)
+                        {
+                            this.HeaderTextLines.Add(line.Substring(1));
+                        }
+
                         continue;
+                    }
+
+                    if (readHeaderText)
+                    {
+                        readHeaderText = false;
                     }
 
                     if (commentIndex != -1)

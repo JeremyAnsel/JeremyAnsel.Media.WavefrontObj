@@ -18,9 +18,27 @@ namespace JeremyAnsel.Media.WavefrontObj
     {
         public static void Write(ObjMaterialFile mtl, StreamWriter stream)
         {
+            WriteHeaderText(mtl, stream);
+
             foreach (ObjMaterial material in mtl.Materials)
             {
                 WriteMaterial(material, stream);
+            }
+        }
+
+        private static void WriteHeaderText(ObjMaterialFile mtl, StreamWriter stream)
+        {
+            if (string.IsNullOrEmpty(mtl.HeaderText))
+            {
+                return;
+            }
+
+            string[] headerLines = mtl.HeaderText.Split('\n');
+
+            foreach (string line in headerLines)
+            {
+                stream.Write('#');
+                stream.WriteLine(line);
             }
         }
 

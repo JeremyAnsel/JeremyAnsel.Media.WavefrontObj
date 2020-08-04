@@ -27,8 +27,9 @@ namespace JeremyAnsel.Media.WavefrontObj
 
             var obj = new ObjFile();
             var context = new ObjFileReaderContext(obj);
+            var lineReader = new LineReader();
 
-            foreach (var values in LineReader.Read(stream))
+            foreach (var values in lineReader.Read(stream))
             {
                 switch (values[0].ToLowerInvariant())
                 {
@@ -888,6 +889,8 @@ namespace JeremyAnsel.Media.WavefrontObj
                         throw new NotImplementedException(string.Concat(values[0], " statement have been replaced by free-form geometry statements."));
                 }
             }
+
+            obj.HeaderText = string.Join("\n", lineReader.HeaderTextLines.ToArray());
 
             return obj;
         }

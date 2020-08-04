@@ -20,6 +20,8 @@ namespace JeremyAnsel.Media.WavefrontObj
             this.Materials = new List<ObjMaterial>();
         }
 
+        public string HeaderText { get; set; }
+
         public IList<ObjMaterial> Materials { get; private set; }
 
         public static ObjMaterialFile FromFile(string path)

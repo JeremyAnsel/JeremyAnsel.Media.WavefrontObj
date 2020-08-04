@@ -20,6 +20,8 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             var context = new ObjFileWriterContext(obj);
 
+            WriteHeaderText(obj, stream);
+
             WriteShadowObjectFileName(obj, stream);
             WriteTraceObjectFileName(obj, stream);
 
@@ -40,6 +42,22 @@ namespace JeremyAnsel.Media.WavefrontObj
             WriteSurfaces(obj, stream, context);
 
             WriteSurfaceConnection(obj, stream);
+        }
+
+        private static void WriteHeaderText(ObjFile obj, StreamWriter stream)
+        {
+            if (string.IsNullOrEmpty(obj.HeaderText))
+            {
+                return;
+            }
+
+            string[] headerLines = obj.HeaderText.Split('\n');
+
+            foreach (string line in headerLines)
+            {
+                stream.Write('#');
+                stream.WriteLine(line);
+            }
         }
 
         private static void WriteShadowObjectFileName(ObjFile obj, StreamWriter stream)
