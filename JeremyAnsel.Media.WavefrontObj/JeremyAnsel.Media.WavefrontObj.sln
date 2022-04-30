@@ -1,16 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29326.143
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeremyAnsel.Media.WavefrontObj", "JeremyAnsel.Media.WavefrontObj\JeremyAnsel.Media.WavefrontObj.csproj", "{49AEFBBD-45ED-40AB-A74C-9D4A69014DB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeremyAnsel.Media.WavefrontObj", "JeremyAnsel.Media.WavefrontObj\JeremyAnsel.Media.WavefrontObj.csproj", "{13C351A3-1120-4AA1-B128-A193641CEDEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeremyAnsel.Media.WavefrontObj.Tests", "JeremyAnsel.Media.WavefrontObj.Tests\JeremyAnsel.Media.WavefrontObj.Tests.csproj", "{5C635CBF-2BB6-45CE-9E2C-290A8B09834A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Documentation", "Documentation\Documentation.csproj", "{649C9A2B-C924-4FDD-961C-5905FEECACC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Documentation", "Documentation\Documentation.csproj", "{01844787-D88A-469D-A372-B6D24199A881}"
 	ProjectSection(ProjectDependencies) = postProject
-		{49AEFBBD-45ED-40AB-A74C-9D4A69014DB1} = {49AEFBBD-45ED-40AB-A74C-9D4A69014DB1}
+		{13C351A3-1120-4AA1-B128-A193641CEDEB} = {13C351A3-1120-4AA1-B128-A193641CEDEB}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeremyAnsel.Media.WavefrontObj.Tests", "JeremyAnsel.Media.WavefrontObj.Tests\JeremyAnsel.Media.WavefrontObj.Tests.csproj", "{F2BCCF22-836E-48BC-8AAA-E29831EE0585}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,23 +18,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{49AEFBBD-45ED-40AB-A74C-9D4A69014DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49AEFBBD-45ED-40AB-A74C-9D4A69014DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49AEFBBD-45ED-40AB-A74C-9D4A69014DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49AEFBBD-45ED-40AB-A74C-9D4A69014DB1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C635CBF-2BB6-45CE-9E2C-290A8B09834A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C635CBF-2BB6-45CE-9E2C-290A8B09834A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C635CBF-2BB6-45CE-9E2C-290A8B09834A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C635CBF-2BB6-45CE-9E2C-290A8B09834A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{649C9A2B-C924-4FDD-961C-5905FEECACC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{649C9A2B-C924-4FDD-961C-5905FEECACC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{649C9A2B-C924-4FDD-961C-5905FEECACC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{649C9A2B-C924-4FDD-961C-5905FEECACC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13C351A3-1120-4AA1-B128-A193641CEDEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C351A3-1120-4AA1-B128-A193641CEDEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C351A3-1120-4AA1-B128-A193641CEDEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C351A3-1120-4AA1-B128-A193641CEDEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01844787-D88A-469D-A372-B6D24199A881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01844787-D88A-469D-A372-B6D24199A881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01844787-D88A-469D-A372-B6D24199A881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2BCCF22-836E-48BC-8AAA-E29831EE0585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2BCCF22-836E-48BC-8AAA-E29831EE0585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2BCCF22-836E-48BC-8AAA-E29831EE0585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2BCCF22-836E-48BC-8AAA-E29831EE0585}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {79A9ED32-ABEE-4FFC-BA17-B5A25105994B}
+		SolutionGuid = {0A52CC3F-E692-4B83-80CF-70BB2A1146ED}
 	EndGlobalSection
 EndGlobal
