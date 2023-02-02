@@ -819,18 +819,18 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A usemtl statement must specify a value.");
                         }
 
-                        if (values.Length != 2)
-                        {
-                            throw new InvalidDataException("A usemtl statement has too many values.");
-                        }
-
                         if (string.Equals(values[1], "off", StringComparison.OrdinalIgnoreCase))
                         {
+                            if (values.Length != 2)
+                            {
+                                throw new InvalidDataException("A usemtl statement has too many values.");
+                            }
+
                             context.MaterialName = null;
                         }
                         else
                         {
-                            context.MaterialName = values[1];
+                            context.MaterialName = string.Join(" ", values, 1, values.Length - 1);
                         }
 
                         break;

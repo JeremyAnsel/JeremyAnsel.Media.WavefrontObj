@@ -40,14 +40,9 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A newmtl statement must specify a name.");
                         }
 
-                        if (values.Length != 2)
-                        {
-                            throw new InvalidDataException("A newmtl statement has too many values.");
-                        }
-
                         currentMaterial = new ObjMaterial
                         {
-                            Name = values[1]
+                            Name = string.Join(" ", values, 1, values.Length - 1)
                         };
 
                         mtl.Materials.Add(currentMaterial);

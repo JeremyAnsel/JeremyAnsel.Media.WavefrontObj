@@ -50,18 +50,17 @@ newmtl a
         public void MaterialName_NoName_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl 0 0"));
         }
 
         [Fact]
         public void MaterialName_NewName_Valid()
         {
-            string content = "newmtl a";
+            string content = "newmtl a with spaces";
 
             var mtl = ReadMtl(content);
 
             Assert.Equal(1, mtl.Materials.Count);
-            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.Equal("a with spaces", mtl.Materials[0].Name);
         }
 
         [Fact]

@@ -48,12 +48,12 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         public void MaterialName_NewName_Valid()
         {
             var mtl = new ObjMaterialFile();
-            var material = new ObjMaterial("a");
+            var material = new ObjMaterial("a with spaces");
             mtl.Materials.Add(material);
 
             string text = WriteMtl(mtl);
             string expected =
-@"newmtl a
+@"newmtl a with spaces
 illum 2
 d 1.000000
 Ns 0.000000

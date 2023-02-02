@@ -143,7 +143,7 @@ p 1
 
         [Theory]
         [InlineData(null, "off")]
-        [InlineData("a", "a")]
+        [InlineData("a with spaces", "a with spaces")]
         public void RenderAttributes_UseMaterial_Valid(string value, string name)
         {
             var obj = new ObjFile();

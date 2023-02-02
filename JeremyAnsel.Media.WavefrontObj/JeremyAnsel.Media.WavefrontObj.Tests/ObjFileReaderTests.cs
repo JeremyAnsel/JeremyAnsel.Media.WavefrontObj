@@ -1456,12 +1456,12 @@ p 1
         public void RenderAttributes_UseMaterial_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadObj("usemtl"));
-            Assert.Throws<InvalidDataException>(() => ReadObj("usemtl 0 0"));
+            Assert.Throws<InvalidDataException>(() => ReadObj("usemtl off a"));
         }
 
         [Theory]
         [InlineData("off", null)]
-        [InlineData("a", "a")]
+        [InlineData("a with spaces", "a with spaces")]
         public void RenderAttributes_UseMaterial_Valid(string value, string expected)
         {
             string content = @"
