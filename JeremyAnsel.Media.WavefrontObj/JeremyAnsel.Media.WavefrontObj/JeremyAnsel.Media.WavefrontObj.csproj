@@ -20,6 +20,8 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageTags>Media 3D Model Wavefront Obj Mtl</PackageTags>
     <PackageProjectUrl>https://github.com/JeremyAnsel/JeremyAnsel.Media.WavefrontObj</PackageProjectUrl>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>JeremyAnsel.Media.WavefrontObj.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
