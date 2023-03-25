@@ -9,8 +9,7 @@
         "resource": {
           "relative_path": "index.json"
         }
-      },
-      "is_incremental": false
+      }
     },
     {
       "type": "ManagedReference",
@@ -18,10 +17,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjApproximationTechnique.html",
-          "hash": "rjBHzLQgAmSSDAo0krbQK3Gf6x8prpgKoCa7MXPwCUI="
+          "hash": "x65kWCqyUb2fMTqvf9LvLPWvD63xTh/meHSy30ntK0I="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -30,10 +28,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.html",
-          "hash": "vpxA2rgNR6kUYC+OvFhdsksuTkDQiM7ePqDoYQePxtQ="
+          "hash": "waEsJQOcxY13a1LstsbnBo2+oHvAhWu+ulMqvEtE3QA="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -42,10 +39,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjConstantSpatialSubdivisionTechnique.html",
-          "hash": "d7d4AwX1Ti/O3Z9rowmMe3z7OwoWfPic9U+GvJNYdjg="
+          "hash": "BS5lVDTS3LsCaL37iZzY+D71qFyslNyOdm1Dr0UQ8rU="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -54,10 +50,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurvatureDependentSubdivisionTechnique.html",
-          "hash": "0GRFqSDAIHbcqg99pgIVgMKl1taT+3RHdoy6PvAWreU="
+          "hash": "eNCmn1wGNbDXx/nZvJqgmjBYKqICchukMRrPSTG4SiI="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -66,10 +61,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurve.html",
-          "hash": "o1G8c5K3U9alh9mg3CBOhakdyCYNAdQeCu7tvzlMJu4="
+          "hash": "LvwIb1nVRx7mk+0BSIl2irS69twaA/6LbDkaPu5w0c4="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -78,10 +72,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurve2D.html",
-          "hash": "NWnOnUGf/qTypTAAS+EJSTi72rHm/ZwYvL0DcahsDL8="
+          "hash": "EKqKG+oVfv/v+audYxdzD0oqxStSTsyGW1bF1RNZa64="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -90,10 +83,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html",
-          "hash": "natYWjIB3W/9y0nDld6192lLsJ8Xkp2kJHU2mvLROC8="
+          "hash": "jtCXY63Z9SLoZNgmpIjBcSMWVMNuXERmnknrtkRWhEM="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -102,10 +94,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjElement.html",
-          "hash": "a+lZi6X5+5yMK9ivM96l0Zrj/G6N7V0aL3JkR7Y7Nmw="
+          "hash": "SjxeKfjpjaO+OEvbVIVBdgMBK469s4GZtEeJC9O9Cbo="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -114,10 +105,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFace.html",
-          "hash": "nKyT2SgjB7OdgTn3w9Lee0Edyli6AGqCt/FfGN0WF2k="
+          "hash": "hSArD8bFFYMJQz5NFDbvfYZE0Ive+BEovlQfS8hBWI4="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -126,10 +116,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFile.html",
-          "hash": "wegnvaKLRNchQ411mq1E+4hgNg8aYSSApgQVSUtL0uo="
+          "hash": "k1zgL/c7+6bF17NFmrbTk3m5QP9p1bG1PNPe2AD26Hs="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -138,10 +127,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement.html",
-          "hash": "t8rZ+Tm0eEK3zDWEByXNSEbG5KOse4ZPZcNVvA5WFe8="
+          "hash": "QXM0TpeR/6PPjOJG/ALbGEYZ9yDGGqVSC7djcLQE0io="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -150,10 +138,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.html",
-          "hash": "XdH+X6p3C836YVocvqstAeKnu14HOyHEYhu1ppPMHKI="
+          "hash": "V5yvDGBCF7NjgVc4G34wkQ7dNxUBXvTnbfzDtGYmz1g="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -162,10 +149,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjGroup.html",
-          "hash": "q5RXJk5K7ZUF1nuXqGxZqQPXUFbP9eWbKrcJDVw9pbA="
+          "hash": "3oI2ToGZt1HmEQBhXL52aBkg8kDpKRL/6iprPGcymz4="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -174,10 +160,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjLine.html",
-          "hash": "xupPEbp16aYdfX03uYd3/KV36li5/AOle0MH0Qf+9fQ="
+          "hash": "879Pb88NWJTQxyFqSbFOhS0v+SndPvxDj50Tukb8hLs="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -186,10 +171,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMapChannel.html",
-          "hash": "LvS4Gcv0iFY0qEW6DIz7/WyacjJ2PJvEhk/iE+WgdRM="
+          "hash": "Z48+uhgqIvz7uDPuLW7EgvaxSjrYXfw9tOXKxc9PRsQ="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -198,10 +182,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html",
-          "hash": "odb65U07gSE05OfKsF0wBlsTcV24P9AMSSuNUANRkyY="
+          "hash": "jYyX5edHP/VHrjsRlTJdjZaG25zXBXy7jtjlo6rsqKk="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -210,10 +193,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.html",
-          "hash": "VkUw3Yw0ZJQ05Ks7/N8y0IDtR105esLewM/d0xNwKgg="
+          "hash": "85ji3OEhBcltFtBLkaEsd2QpAfbjXUNS2vkkAzfSDaA="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -222,10 +204,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html",
-          "hash": "oejqqHTQZ5MePmlwUHEt1gIXch9HM74N/bCGitM8c0g="
+          "hash": "5u+Hh29Evik4U+rBllrWszbXQeh8k95TTrFIUAYRhGc="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -234,10 +215,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.html",
-          "hash": "t+hk20HGgth2zcTPsOr2hQ0jVRvbBObb5TllyXk/8aw="
+          "hash": "X7rG8GEQUQF//CD78qww0KtrfA/4/+e3k1nfqUforDM="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -246,10 +226,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialReflectionMap.html",
-          "hash": "ck89uT1zXvqp2Hyy7CRjpMQdNKevXKNW+GrxpB9tYi8="
+          "hash": "PhzNrCvDrY+GwuSocpkginMCOyZcrINYZvpBHQbQABc="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -258,10 +237,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjPoint.html",
-          "hash": "VoAY95CzDxW06xLBbFxUNO48qa78GSjOl94BzhirIhM="
+          "hash": "VTCzHObNuCXL1/WGM4vHJhJ2gq3HlalxcR5GHpY0TKo="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -270,10 +248,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjPolygonalElement.html",
-          "hash": "nlDu55tM7yY/4wW/cFhajvjQkvQ+U9EeYNhkGNFbDHY="
+          "hash": "DN2PpxFIvBG0fJqzUcJ9NyUXxuqcnB6Rny1b3y1p198="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -282,10 +259,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjSurface.html",
-          "hash": "91l63V1pd189+ULirSjCvjRV3oZFFI7byD879K4Wdps="
+          "hash": "ZBxS5oASCSka9yJQmpJfwSqSI+Ndj9/H7QelUA5AQC4="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -294,10 +270,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjSurfaceConnection.html",
-          "hash": "SrfRmjMYbIqH1z0ctV1ITNolxeVJT+bA9Y0LqbLs4xs="
+          "hash": "PvEI2v2LW8w1UBQ/cVSEpi1ahx27yc/tKgfMpImcWe8="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -306,10 +281,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html",
-          "hash": "8pjkxE/UXVlK47nD28Y02nDHXNtW4gHdGdZPX8TFbjM="
+          "hash": "j5RXoT+hTEu4Gvc+zCMUS3ANP0ctwxbycTD4WvGgI/0="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -318,10 +292,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html",
-          "hash": "jqQ6SwJcGUs9NvJUdr2kgFw6f80gNS39+nY7Am7COsU="
+          "hash": "wRkNC8VQS5gLkNRnHbk5s1riXxvF+eekxQXjHPbo4C0="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -330,10 +303,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html",
-          "hash": "XIotLJsFiCOkZ8KTg7hbq1JaEl1DIb8NjWlHzWUNUWo="
+          "hash": "7CydIGzyxEL8C9wEhxTObkVdRgZF6Gk2rJtrLWCeD5U="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -342,10 +314,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html",
-          "hash": "pqAgAjpIl+ZjJvYxg4zHXgSnAC8Skl+mGFFZqQHwodY="
+          "hash": "3kkdWtnkFi+mU/Z+b/xOQkmorzgIUoDcoF60r/aWC9U="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -354,10 +325,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.html",
-          "hash": "Ov2uWT1ELwNGNtJ+OhlnoX8v+zs3ITuowaPbUVEuSgg="
+          "hash": "GmWR7ajNJCvi8X/a0Qf7NlGRPZDnpVM12cTiINo4Izw="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -366,10 +336,9 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "3/TLtxM1+NhrF8UKkR/RKHgaN+28npGvalMduK0GHxU="
+          "hash": "z7zveUgmNArKwaIHpcMN8u5xeFs1iVJx/t6f6FAUHrM="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -378,54 +347,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "SnF2wwEKJxDF9fQOsDVx0EvZ3aBTjOyF8UhcwCZVRAY="
+          "hash": "3Gm4eGMQcLisKnj2fDSwq9nZlecIZL7GDQaFfDv7fJ8="
         }
       },
-      "is_incremental": false,
       "version": ""
-    }
-  ],
-  "incremental_info": [
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
-        "incrementalPhase": "build",
-        "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
-      },
-      "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 2,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 29,
-          "skipped_file_count": 0
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        }
-      }
-    },
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
-        "incrementalPhase": "postProcessing",
-        "total_file_count": 0,
-        "skipped_file_count": 0
-      },
-      "processors": {}
     }
   ],
   "version_info": {},
