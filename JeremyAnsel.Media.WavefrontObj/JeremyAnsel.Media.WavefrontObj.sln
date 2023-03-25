@@ -6,11 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeremyAnsel.Media.WavefrontObj", "JeremyAnsel.Media.WavefrontObj\JeremyAnsel.Media.WavefrontObj.csproj", "{13C351A3-1120-4AA1-B128-A193641CEDEB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Documentation", "Documentation\Documentation.csproj", "{01844787-D88A-469D-A372-B6D24199A881}"
-	ProjectSection(ProjectDependencies) = postProject
-		{13C351A3-1120-4AA1-B128-A193641CEDEB} = {13C351A3-1120-4AA1-B128-A193641CEDEB}
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeremyAnsel.Media.WavefrontObj.Tests", "JeremyAnsel.Media.WavefrontObj.Tests\JeremyAnsel.Media.WavefrontObj.Tests.csproj", "{F2BCCF22-836E-48BC-8AAA-E29831EE0585}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeremyAnsel.Media.WavefrontObj.Tests", "JeremyAnsel.Media.WavefrontObj.Tests\JeremyAnsel.Media.WavefrontObj.Tests.csproj", "{F2BCCF22-836E-48BC-8AAA-E29831EE0585}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
