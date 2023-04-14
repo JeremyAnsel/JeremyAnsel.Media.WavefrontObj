@@ -61,6 +61,7 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
 
                 var mtl = ObjMaterialFile.FromStream(stream);
 
+                Assert.True(stream.CanRead);
                 Assert.Equal("a", mtl.Materials[0].Name);
             }
         }
@@ -114,6 +115,8 @@ map_aat off
                 mtl.Materials.Add(new ObjMaterial("a"));
 
                 mtl.WriteTo(stream);
+
+                Assert.True(stream.CanWrite);
 
                 buffer = stream.ToArray();
             }

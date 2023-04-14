@@ -60,6 +60,7 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
 
                 var obj = ObjFile.FromStream(stream);
 
+                Assert.True(stream.CanRead);
                 Assert.Equal("a.a", obj.ShadowObjectFileName);
             }
         }
@@ -108,6 +109,8 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
                 obj.ShadowObjectFileName = "a.a";
 
                 obj.WriteTo(stream);
+
+                Assert.True(stream.CanWrite);
 
                 buffer = stream.ToArray();
             }

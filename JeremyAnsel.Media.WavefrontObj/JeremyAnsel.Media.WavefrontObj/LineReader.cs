@@ -21,7 +21,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public IEnumerable<string[]> Read(Stream stream)
         {
-            using (var reader = new StreamReader(stream))
+            using (var reader = new StreamReader(stream, Encoding.UTF8, true, 1024, true))
             {
                 string line = null;
                 bool isMultiLine = false;

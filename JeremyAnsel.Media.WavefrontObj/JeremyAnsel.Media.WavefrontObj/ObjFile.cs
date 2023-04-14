@@ -101,7 +101,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                 throw new ArgumentNullException(nameof(stream));
             }
 
-            using (var writer = new StreamWriter(stream))
+            using (var writer = new StreamWriter(stream, new UTF8Encoding(false, true), 1024, true))
             {
                 ObjFileWriter.Write(this, writer);
             }
