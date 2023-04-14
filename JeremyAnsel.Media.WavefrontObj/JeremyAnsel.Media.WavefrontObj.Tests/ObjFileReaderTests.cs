@@ -1420,13 +1420,12 @@ p 1
         [Fact]
         public void RenderAttributes_MaterialLibrary_Valid()
         {
-            string content = "mtllib a.a b.b";
+            string content = "mtllib a with spaces.b";
 
             var obj = ReadObj(content);
 
-            Assert.Equal(2, obj.MaterialLibraries.Count);
-            Assert.Equal("a.a", obj.MaterialLibraries[0]);
-            Assert.Equal("b.b", obj.MaterialLibraries[1]);
+            Assert.Equal(1, obj.MaterialLibraries.Count);
+            Assert.Equal("a with spaces.b", obj.MaterialLibraries[0]);
         }
 
         [Fact]

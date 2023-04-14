@@ -779,14 +779,15 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A mtllib statement must specify a file name.");
                         }
 
-                        for (int i = 1; i < values.Length; i++)
                         {
-                            if (!Path.HasExtension(values[i]))
+                            string name = string.Join(" ", values, 1, values.Length - 1);
+
+                            if (!Path.HasExtension(name))
                             {
                                 throw new InvalidDataException("A file name must have an extension.");
                             }
 
-                            obj.MaterialLibraries.Add(values[i]);
+                            obj.MaterialLibraries.Add(name);
                         }
 
                         break;
