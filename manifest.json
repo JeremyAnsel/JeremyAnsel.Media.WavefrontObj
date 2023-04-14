@@ -16,8 +16,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjApproximationTechnique.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjApproximationTechnique.html",
-          "hash": "x65kWCqyUb2fMTqvf9LvLPWvD63xTh/meHSy30ntK0I="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjApproximationTechnique.html"
         }
       },
       "version": ""
@@ -27,8 +26,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.html",
-          "hash": "waEsJQOcxY13a1LstsbnBo2+oHvAhWu+ulMqvEtE3QA="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.html"
         }
       },
       "version": ""
@@ -38,8 +36,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjConstantSpatialSubdivisionTechnique.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjConstantSpatialSubdivisionTechnique.html",
-          "hash": "BS5lVDTS3LsCaL37iZzY+D71qFyslNyOdm1Dr0UQ8rU="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjConstantSpatialSubdivisionTechnique.html"
         }
       },
       "version": ""
@@ -49,8 +46,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurvatureDependentSubdivisionTechnique.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurvatureDependentSubdivisionTechnique.html",
-          "hash": "eNCmn1wGNbDXx/nZvJqgmjBYKqICchukMRrPSTG4SiI="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurvatureDependentSubdivisionTechnique.html"
         }
       },
       "version": ""
@@ -60,8 +56,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurve.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurve.html",
-          "hash": "LvwIb1nVRx7mk+0BSIl2irS69twaA/6LbDkaPu5w0c4="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurve.html"
         }
       },
       "version": ""
@@ -71,8 +66,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurve2D.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurve2D.html",
-          "hash": "EKqKG+oVfv/v+audYxdzD0oqxStSTsyGW1bF1RNZa64="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurve2D.html"
         }
       },
       "version": ""
@@ -82,8 +76,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html",
-          "hash": "jtCXY63Z9SLoZNgmpIjBcSMWVMNuXERmnknrtkRWhEM="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html"
         }
       },
       "version": ""
@@ -93,8 +86,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjElement.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjElement.html",
-          "hash": "SjxeKfjpjaO+OEvbVIVBdgMBK469s4GZtEeJC9O9Cbo="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjElement.html"
         }
       },
       "version": ""
@@ -104,8 +96,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFace.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFace.html",
-          "hash": "hSArD8bFFYMJQz5NFDbvfYZE0Ive+BEovlQfS8hBWI4="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFace.html"
         }
       },
       "version": ""
@@ -115,8 +106,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFile.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFile.html",
-          "hash": "k1zgL/c7+6bF17NFmrbTk3m5QP9p1bG1PNPe2AD26Hs="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFile.html"
         }
       },
       "version": ""
@@ -126,8 +116,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement.html",
-          "hash": "QXM0TpeR/6PPjOJG/ALbGEYZ9yDGGqVSC7djcLQE0io="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement.html"
         }
       },
       "version": ""
@@ -137,8 +126,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.html",
-          "hash": "V5yvDGBCF7NjgVc4G34wkQ7dNxUBXvTnbfzDtGYmz1g="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.html"
         }
       },
       "version": ""
@@ -148,8 +136,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjGroup.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjGroup.html",
-          "hash": "3oI2ToGZt1HmEQBhXL52aBkg8kDpKRL/6iprPGcymz4="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjGroup.html"
         }
       },
       "version": ""
@@ -159,8 +146,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjLine.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjLine.html",
-          "hash": "879Pb88NWJTQxyFqSbFOhS0v+SndPvxDj50Tukb8hLs="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjLine.html"
         }
       },
       "version": ""
@@ -170,8 +156,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMapChannel.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMapChannel.html",
-          "hash": "Z48+uhgqIvz7uDPuLW7EgvaxSjrYXfw9tOXKxc9PRsQ="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMapChannel.html"
         }
       },
       "version": ""
@@ -181,8 +166,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html",
-          "hash": "jYyX5edHP/VHrjsRlTJdjZaG25zXBXy7jtjlo6rsqKk="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html"
         }
       },
       "version": ""
@@ -192,8 +176,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.html",
-          "hash": "85ji3OEhBcltFtBLkaEsd2QpAfbjXUNS2vkkAzfSDaA="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.html"
         }
       },
       "version": ""
@@ -203,8 +186,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html",
-          "hash": "5u+Hh29Evik4U+rBllrWszbXQeh8k95TTrFIUAYRhGc="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html"
         }
       },
       "version": ""
@@ -214,8 +196,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.html",
-          "hash": "X7rG8GEQUQF//CD78qww0KtrfA/4/+e3k1nfqUforDM="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.html"
         }
       },
       "version": ""
@@ -225,8 +206,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialReflectionMap.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialReflectionMap.html",
-          "hash": "PhzNrCvDrY+GwuSocpkginMCOyZcrINYZvpBHQbQABc="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialReflectionMap.html"
         }
       },
       "version": ""
@@ -236,8 +216,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjPoint.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjPoint.html",
-          "hash": "VTCzHObNuCXL1/WGM4vHJhJ2gq3HlalxcR5GHpY0TKo="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjPoint.html"
         }
       },
       "version": ""
@@ -247,8 +226,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjPolygonalElement.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjPolygonalElement.html",
-          "hash": "DN2PpxFIvBG0fJqzUcJ9NyUXxuqcnB6Rny1b3y1p198="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjPolygonalElement.html"
         }
       },
       "version": ""
@@ -258,8 +236,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjSurface.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjSurface.html",
-          "hash": "ZBxS5oASCSka9yJQmpJfwSqSI+Ndj9/H7QelUA5AQC4="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjSurface.html"
         }
       },
       "version": ""
@@ -269,8 +246,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjSurfaceConnection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjSurfaceConnection.html",
-          "hash": "PvEI2v2LW8w1UBQ/cVSEpi1ahx27yc/tKgfMpImcWe8="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjSurfaceConnection.html"
         }
       },
       "version": ""
@@ -280,8 +256,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html",
-          "hash": "j5RXoT+hTEu4Gvc+zCMUS3ANP0ctwxbycTD4WvGgI/0="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html"
         }
       },
       "version": ""
@@ -291,8 +266,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVector3.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html",
-          "hash": "wRkNC8VQS5gLkNRnHbk5s1riXxvF+eekxQXjHPbo4C0="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html"
         }
       },
       "version": ""
@@ -302,8 +276,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVector4.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html",
-          "hash": "7CydIGzyxEL8C9wEhxTObkVdRgZF6Gk2rJtrLWCeD5U="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html"
         }
       },
       "version": ""
@@ -313,8 +286,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVertex.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html",
-          "hash": "3kkdWtnkFi+mU/Z+b/xOQkmorzgIUoDcoF60r/aWC9U="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html"
         }
       },
       "version": ""
@@ -324,8 +296,7 @@
       "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.yml",
       "output": {
         ".html": {
-          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.html",
-          "hash": "GmWR7ajNJCvi8X/a0Qf7NlGRPZDnpVM12cTiINo4Izw="
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.html"
         }
       },
       "version": ""
@@ -335,8 +306,7 @@
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
-          "relative_path": "api/index.html",
-          "hash": "z7zveUgmNArKwaIHpcMN8u5xeFs1iVJx/t6f6FAUHrM="
+          "relative_path": "api/index.html"
         }
       },
       "version": ""
@@ -346,8 +316,7 @@
       "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "3Gm4eGMQcLisKnj2fDSwq9nZlecIZL7GDQaFfDv7fJ8="
+          "relative_path": "index.html"
         }
       },
       "version": ""
