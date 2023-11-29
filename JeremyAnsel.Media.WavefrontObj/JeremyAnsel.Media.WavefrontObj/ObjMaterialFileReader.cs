@@ -777,6 +777,10 @@ namespace JeremyAnsel.Media.WavefrontObj
                         {
                             throw new InvalidDataException("A filename must have an extension.");
                         }
+                        if (Path.GetExtension(filename).Contains(" "))
+                        {
+                            throw new InvalidDataException("A filename extension must not have whitespace.");
+                        }
 
                         map.FileName = filename;
                         index = values.Length;
