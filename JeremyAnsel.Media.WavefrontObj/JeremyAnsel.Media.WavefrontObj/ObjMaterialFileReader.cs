@@ -771,18 +771,15 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
 
                     default:
-                        if (!Path.HasExtension(values[index]))
+                        string filename = string.Join(" ", values, index, values.Length - index);
+
+                        if (!Path.HasExtension(filename))
                         {
                             throw new InvalidDataException("A filename must have an extension.");
                         }
 
-                        map.FileName = values[index];
-                        index++;
-
-                        if (index != values.Length)
-                        {
-                            throw new InvalidDataException(string.Concat("A ", statement, " has too many values."));
-                        }
+                        map.FileName = filename;
+                        index = values.Length;
 
                         break;
                 }
