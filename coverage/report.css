@@ -156,6 +156,7 @@ code { font-family: Consolas, monospace; font-size: 0.9em; }
 
 .toggleZoom { text-align:right; }
 
+.historychart svg { max-width: 100%; }
 .ct-chart { position: relative; }
 .ct-chart .ct-line { stroke-width: 2px !important; }
 .ct-chart .ct-point { stroke-width: 6px !important; transition: stroke-width .2s; }
@@ -173,7 +174,7 @@ code { font-family: Consolas, monospace; font-size: 0.9em; }
 
 .linecoverage { background-color: #c00; width: 10px; height: 8px; border: 1px solid #000; display: inline-block; }
 .branchcoverage { background-color: #1c2298; width: 10px; height: 8px; border: 1px solid #000; display: inline-block; }
-.codeelementcoverage { background-color: var(--green); width: 10px; height: 8px; border: 1px solid #000; display: inline-block; }
+.codeelementcoverage { background-color: #0aad0a; width: 10px; height: 8px; border: 1px solid #000; display: inline-block; }
 
 .tooltip { position: absolute; display: none; padding: 5px; background: #F4C63D; color: #453D3F; pointer-events: none; z-index: 1; min-width: 250px; }
 
@@ -687,6 +688,7 @@ code { font-family: Consolas, monospace; font-size: 0.9em; }
 
         .ct-label {
             color: #fff !important;
+            fill: #fff !important;
         }
 
         .ct-grid {
