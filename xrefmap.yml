@@ -28,15 +28,6 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.New()
   nameWithType: ObjConstantParametricSubdivisionTechnique.ObjConstantParametricSubdivisionTechnique()
   nameWithType.vb: ObjConstantParametricSubdivisionTechnique.New()
-- uid: JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.#ctor(System.Single,System.Single)
-  name: ObjConstantParametricSubdivisionTechnique(float, float)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.html#JeremyAnsel_Media_WavefrontObj_ObjConstantParametricSubdivisionTechnique__ctor_System_Single_System_Single_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.#ctor(System.Single,System.Single)
-  name.vb: New(Single, Single)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.ObjConstantParametricSubdivisionTechnique(float, float)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.New(Single, Single)
-  nameWithType: ObjConstantParametricSubdivisionTechnique.ObjConstantParametricSubdivisionTechnique(float, float)
-  nameWithType.vb: ObjConstantParametricSubdivisionTechnique.New(Single, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.#ctor(System.Single)
   name: ObjConstantParametricSubdivisionTechnique(float)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.html#JeremyAnsel_Media_WavefrontObj_ObjConstantParametricSubdivisionTechnique__ctor_System_Single_
@@ -46,6 +37,15 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.New(Single)
   nameWithType: ObjConstantParametricSubdivisionTechnique.ObjConstantParametricSubdivisionTechnique(float)
   nameWithType.vb: ObjConstantParametricSubdivisionTechnique.New(Single)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.#ctor(System.Single,System.Single)
+  name: ObjConstantParametricSubdivisionTechnique(float, float)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.html#JeremyAnsel_Media_WavefrontObj_ObjConstantParametricSubdivisionTechnique__ctor_System_Single_System_Single_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.#ctor(System.Single,System.Single)
+  name.vb: New(Single, Single)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.ObjConstantParametricSubdivisionTechnique(float, float)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.New(Single, Single)
+  nameWithType: ObjConstantParametricSubdivisionTechnique.ObjConstantParametricSubdivisionTechnique(float, float)
+  nameWithType.vb: ObjConstantParametricSubdivisionTechnique.New(Single, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.#ctor*
   name: ObjConstantParametricSubdivisionTechnique
   href: api/JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.html#JeremyAnsel_Media_WavefrontObj_ObjConstantParametricSubdivisionTechnique__ctor_
@@ -377,6 +377,32 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.GetHashCode
   nameWithType: ObjCurveIndex.GetHashCode
+- uid: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start
+  name: Start
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html#JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_Start
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start
+  nameWithType: ObjCurveIndex.Start
+- uid: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start*
+  name: Start
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html#JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_Start_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start
+  nameWithType: ObjCurveIndex.Start
+- uid: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString
+  name: ToString()
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html#JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_ToString
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString()
+  nameWithType: ObjCurveIndex.ToString()
+- uid: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString*
+  name: ToString
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html#JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_ToString_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString
+  nameWithType: ObjCurveIndex.ToString
 - uid: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjCurveIndex,JeremyAnsel.Media.WavefrontObj.ObjCurveIndex)
   name: operator ==(ObjCurveIndex, ObjCurveIndex)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html#JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_op_Equality_JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_
@@ -415,32 +441,6 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.<>
   nameWithType: ObjCurveIndex.operator !=
   nameWithType.vb: ObjCurveIndex.<>
-- uid: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start
-  name: Start
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html#JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_Start
-  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start
-  nameWithType: ObjCurveIndex.Start
-- uid: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start*
-  name: Start
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html#JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_Start_
-  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start
-  isSpec: "True"
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Start
-  nameWithType: ObjCurveIndex.Start
-- uid: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString
-  name: ToString()
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html#JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_ToString
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString()
-  nameWithType: ObjCurveIndex.ToString()
-- uid: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString*
-  name: ToString
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html#JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_ToString_
-  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString
-  isSpec: "True"
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.ToString
-  nameWithType: ObjCurveIndex.ToString
 - uid: JeremyAnsel.Media.WavefrontObj.ObjElement
   name: ObjElement
   href: api/JeremyAnsel.Media.WavefrontObj.ObjElement.html
@@ -1093,6 +1093,12 @@ references:
   commentId: T:JeremyAnsel.Media.WavefrontObj.ObjFreeFormType
   fullName: JeremyAnsel.Media.WavefrontObj.ObjFreeFormType
   nameWithType: ObjFreeFormType
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.BSpline
+  name: BSpline
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.html#JeremyAnsel_Media_WavefrontObj_ObjFreeFormType_BSpline
+  commentId: F:JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.BSpline
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.BSpline
+  nameWithType: ObjFreeFormType.BSpline
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.BasisMatrix
   name: BasisMatrix
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.html#JeremyAnsel_Media_WavefrontObj_ObjFreeFormType_BasisMatrix
@@ -1105,12 +1111,6 @@ references:
   commentId: F:JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.Bezier
   fullName: JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.Bezier
   nameWithType: ObjFreeFormType.Bezier
-- uid: JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.BSpline
-  name: BSpline
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.html#JeremyAnsel_Media_WavefrontObj_ObjFreeFormType_BSpline
-  commentId: F:JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.BSpline
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.BSpline
-  nameWithType: ObjFreeFormType.BSpline
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.Cardinal
   name: Cardinal
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.html#JeremyAnsel_Media_WavefrontObj_ObjFreeFormType_Cardinal
@@ -1685,15 +1685,6 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.New(Single, Single, Single)
   nameWithType: ObjMaterialColor.ObjMaterialColor(float, float, float)
   nameWithType.vb: ObjMaterialColor.New(Single, Single, Single)
-- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.#ctor(System.String,System.Single)
-  name: ObjMaterialColor(string, float)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialColor__ctor_System_String_System_Single_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.#ctor(System.String,System.Single)
-  name.vb: New(String, Single)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.ObjMaterialColor(string, float)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.New(String, Single)
-  nameWithType: ObjMaterialColor.ObjMaterialColor(string, float)
-  nameWithType.vb: ObjMaterialColor.New(String, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.#ctor(System.String)
   name: ObjMaterialColor(string)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialColor__ctor_System_String_
@@ -1703,6 +1694,15 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.New(String)
   nameWithType: ObjMaterialColor.ObjMaterialColor(string)
   nameWithType.vb: ObjMaterialColor.New(String)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.#ctor(System.String,System.Single)
+  name: ObjMaterialColor(string, float)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialColor__ctor_System_String_System_Single_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.#ctor(System.String,System.Single)
+  name.vb: New(String, Single)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.ObjMaterialColor(string, float)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.New(String, Single)
+  nameWithType: ObjMaterialColor.ObjMaterialColor(string, float)
+  nameWithType.vb: ObjMaterialColor.New(String, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.#ctor*
   name: ObjMaterialColor
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialColor__ctor_
@@ -2536,44 +2536,6 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.Normal
   nameWithType: ObjTriplet.Normal
-- uid: JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjTriplet,JeremyAnsel.Media.WavefrontObj.ObjTriplet)
-  name: operator ==(ObjTriplet, ObjTriplet)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html#JeremyAnsel_Media_WavefrontObj_ObjTriplet_op_Equality_JeremyAnsel_Media_WavefrontObj_ObjTriplet_JeremyAnsel_Media_WavefrontObj_ObjTriplet_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjTriplet,JeremyAnsel.Media.WavefrontObj.ObjTriplet)
-  name.vb: =(ObjTriplet, ObjTriplet)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.operator ==(JeremyAnsel.Media.WavefrontObj.ObjTriplet, JeremyAnsel.Media.WavefrontObj.ObjTriplet)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjTriplet.=(JeremyAnsel.Media.WavefrontObj.ObjTriplet, JeremyAnsel.Media.WavefrontObj.ObjTriplet)
-  nameWithType: ObjTriplet.operator ==(ObjTriplet, ObjTriplet)
-  nameWithType.vb: ObjTriplet.=(ObjTriplet, ObjTriplet)
-- uid: JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Equality*
-  name: operator ==
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html#JeremyAnsel_Media_WavefrontObj_ObjTriplet_op_Equality_
-  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Equality
-  isSpec: "True"
-  name.vb: =
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.operator ==
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjTriplet.=
-  nameWithType: ObjTriplet.operator ==
-  nameWithType.vb: ObjTriplet.=
-- uid: JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjTriplet,JeremyAnsel.Media.WavefrontObj.ObjTriplet)
-  name: operator !=(ObjTriplet, ObjTriplet)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html#JeremyAnsel_Media_WavefrontObj_ObjTriplet_op_Inequality_JeremyAnsel_Media_WavefrontObj_ObjTriplet_JeremyAnsel_Media_WavefrontObj_ObjTriplet_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjTriplet,JeremyAnsel.Media.WavefrontObj.ObjTriplet)
-  name.vb: <>(ObjTriplet, ObjTriplet)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.operator !=(JeremyAnsel.Media.WavefrontObj.ObjTriplet, JeremyAnsel.Media.WavefrontObj.ObjTriplet)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjTriplet.<>(JeremyAnsel.Media.WavefrontObj.ObjTriplet, JeremyAnsel.Media.WavefrontObj.ObjTriplet)
-  nameWithType: ObjTriplet.operator !=(ObjTriplet, ObjTriplet)
-  nameWithType.vb: ObjTriplet.<>(ObjTriplet, ObjTriplet)
-- uid: JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Inequality*
-  name: operator !=
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html#JeremyAnsel_Media_WavefrontObj_ObjTriplet_op_Inequality_
-  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Inequality
-  isSpec: "True"
-  name.vb: <>
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.operator !=
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjTriplet.<>
-  nameWithType: ObjTriplet.operator !=
-  nameWithType.vb: ObjTriplet.<>
 - uid: JeremyAnsel.Media.WavefrontObj.ObjTriplet.Texture
   name: Texture
   href: api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html#JeremyAnsel_Media_WavefrontObj_ObjTriplet_Texture
@@ -2613,30 +2575,50 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.Vertex
   nameWithType: ObjTriplet.Vertex
+- uid: JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjTriplet,JeremyAnsel.Media.WavefrontObj.ObjTriplet)
+  name: operator ==(ObjTriplet, ObjTriplet)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html#JeremyAnsel_Media_WavefrontObj_ObjTriplet_op_Equality_JeremyAnsel_Media_WavefrontObj_ObjTriplet_JeremyAnsel_Media_WavefrontObj_ObjTriplet_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjTriplet,JeremyAnsel.Media.WavefrontObj.ObjTriplet)
+  name.vb: =(ObjTriplet, ObjTriplet)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.operator ==(JeremyAnsel.Media.WavefrontObj.ObjTriplet, JeremyAnsel.Media.WavefrontObj.ObjTriplet)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjTriplet.=(JeremyAnsel.Media.WavefrontObj.ObjTriplet, JeremyAnsel.Media.WavefrontObj.ObjTriplet)
+  nameWithType: ObjTriplet.operator ==(ObjTriplet, ObjTriplet)
+  nameWithType.vb: ObjTriplet.=(ObjTriplet, ObjTriplet)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Equality*
+  name: operator ==
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html#JeremyAnsel_Media_WavefrontObj_ObjTriplet_op_Equality_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.operator ==
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjTriplet.=
+  nameWithType: ObjTriplet.operator ==
+  nameWithType.vb: ObjTriplet.=
+- uid: JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjTriplet,JeremyAnsel.Media.WavefrontObj.ObjTriplet)
+  name: operator !=(ObjTriplet, ObjTriplet)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html#JeremyAnsel_Media_WavefrontObj_ObjTriplet_op_Inequality_JeremyAnsel_Media_WavefrontObj_ObjTriplet_JeremyAnsel_Media_WavefrontObj_ObjTriplet_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjTriplet,JeremyAnsel.Media.WavefrontObj.ObjTriplet)
+  name.vb: <>(ObjTriplet, ObjTriplet)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.operator !=(JeremyAnsel.Media.WavefrontObj.ObjTriplet, JeremyAnsel.Media.WavefrontObj.ObjTriplet)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjTriplet.<>(JeremyAnsel.Media.WavefrontObj.ObjTriplet, JeremyAnsel.Media.WavefrontObj.ObjTriplet)
+  nameWithType: ObjTriplet.operator !=(ObjTriplet, ObjTriplet)
+  nameWithType.vb: ObjTriplet.<>(ObjTriplet, ObjTriplet)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Inequality*
+  name: operator !=
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html#JeremyAnsel_Media_WavefrontObj_ObjTriplet_op_Inequality_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjTriplet.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.operator !=
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjTriplet.<>
+  nameWithType: ObjTriplet.operator !=
+  nameWithType.vb: ObjTriplet.<>
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector3
   name: ObjVector3
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html
   commentId: T:JeremyAnsel.Media.WavefrontObj.ObjVector3
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3
   nameWithType: ObjVector3
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.#ctor(System.Single,System.Single,System.Single)
-  name: ObjVector3(float, float, float)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3__ctor_System_Single_System_Single_System_Single_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector3.#ctor(System.Single,System.Single,System.Single)
-  name.vb: New(Single, Single, Single)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.ObjVector3(float, float, float)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.New(Single, Single, Single)
-  nameWithType: ObjVector3.ObjVector3(float, float, float)
-  nameWithType.vb: ObjVector3.New(Single, Single, Single)
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.#ctor(System.Single,System.Single)
-  name: ObjVector3(float, float)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3__ctor_System_Single_System_Single_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector3.#ctor(System.Single,System.Single)
-  name.vb: New(Single, Single)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.ObjVector3(float, float)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.New(Single, Single)
-  nameWithType: ObjVector3.ObjVector3(float, float)
-  nameWithType.vb: ObjVector3.New(Single, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.#ctor(System.Single)
   name: ObjVector3(float)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3__ctor_System_Single_
@@ -2646,6 +2628,24 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.New(Single)
   nameWithType: ObjVector3.ObjVector3(float)
   nameWithType.vb: ObjVector3.New(Single)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.#ctor(System.Single,System.Single)
+  name: ObjVector3(float, float)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3__ctor_System_Single_System_Single_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector3.#ctor(System.Single,System.Single)
+  name.vb: New(Single, Single)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.ObjVector3(float, float)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.New(Single, Single)
+  nameWithType: ObjVector3.ObjVector3(float, float)
+  nameWithType.vb: ObjVector3.New(Single, Single)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.#ctor(System.Single,System.Single,System.Single)
+  name: ObjVector3(float, float, float)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3__ctor_System_Single_System_Single_System_Single_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector3.#ctor(System.Single,System.Single,System.Single)
+  name.vb: New(Single, Single, Single)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.ObjVector3(float, float, float)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.New(Single, Single, Single)
+  nameWithType: ObjVector3.ObjVector3(float, float, float)
+  nameWithType.vb: ObjVector3.New(Single, Single, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.#ctor*
   name: ObjVector3
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3__ctor_
@@ -2691,44 +2691,6 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.GetHashCode
   nameWithType: ObjVector3.GetHashCode
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjVector3,JeremyAnsel.Media.WavefrontObj.ObjVector3)
-  name: operator ==(ObjVector3, ObjVector3)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3_op_Equality_JeremyAnsel_Media_WavefrontObj_ObjVector3_JeremyAnsel_Media_WavefrontObj_ObjVector3_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjVector3,JeremyAnsel.Media.WavefrontObj.ObjVector3)
-  name.vb: =(ObjVector3, ObjVector3)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.operator ==(JeremyAnsel.Media.WavefrontObj.ObjVector3, JeremyAnsel.Media.WavefrontObj.ObjVector3)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.=(JeremyAnsel.Media.WavefrontObj.ObjVector3, JeremyAnsel.Media.WavefrontObj.ObjVector3)
-  nameWithType: ObjVector3.operator ==(ObjVector3, ObjVector3)
-  nameWithType.vb: ObjVector3.=(ObjVector3, ObjVector3)
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Equality*
-  name: operator ==
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3_op_Equality_
-  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Equality
-  isSpec: "True"
-  name.vb: =
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.operator ==
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.=
-  nameWithType: ObjVector3.operator ==
-  nameWithType.vb: ObjVector3.=
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjVector3,JeremyAnsel.Media.WavefrontObj.ObjVector3)
-  name: operator !=(ObjVector3, ObjVector3)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3_op_Inequality_JeremyAnsel_Media_WavefrontObj_ObjVector3_JeremyAnsel_Media_WavefrontObj_ObjVector3_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjVector3,JeremyAnsel.Media.WavefrontObj.ObjVector3)
-  name.vb: <>(ObjVector3, ObjVector3)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.operator !=(JeremyAnsel.Media.WavefrontObj.ObjVector3, JeremyAnsel.Media.WavefrontObj.ObjVector3)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.<>(JeremyAnsel.Media.WavefrontObj.ObjVector3, JeremyAnsel.Media.WavefrontObj.ObjVector3)
-  nameWithType: ObjVector3.operator !=(ObjVector3, ObjVector3)
-  nameWithType.vb: ObjVector3.<>(ObjVector3, ObjVector3)
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Inequality*
-  name: operator !=
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3_op_Inequality_
-  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Inequality
-  isSpec: "True"
-  name.vb: <>
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.operator !=
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.<>
-  nameWithType: ObjVector3.operator !=
-  nameWithType.vb: ObjVector3.<>
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.X
   name: X
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3_X
@@ -2768,21 +2730,50 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.Z
   nameWithType: ObjVector3.Z
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjVector3,JeremyAnsel.Media.WavefrontObj.ObjVector3)
+  name: operator ==(ObjVector3, ObjVector3)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3_op_Equality_JeremyAnsel_Media_WavefrontObj_ObjVector3_JeremyAnsel_Media_WavefrontObj_ObjVector3_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjVector3,JeremyAnsel.Media.WavefrontObj.ObjVector3)
+  name.vb: =(ObjVector3, ObjVector3)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.operator ==(JeremyAnsel.Media.WavefrontObj.ObjVector3, JeremyAnsel.Media.WavefrontObj.ObjVector3)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.=(JeremyAnsel.Media.WavefrontObj.ObjVector3, JeremyAnsel.Media.WavefrontObj.ObjVector3)
+  nameWithType: ObjVector3.operator ==(ObjVector3, ObjVector3)
+  nameWithType.vb: ObjVector3.=(ObjVector3, ObjVector3)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Equality*
+  name: operator ==
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3_op_Equality_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.operator ==
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.=
+  nameWithType: ObjVector3.operator ==
+  nameWithType.vb: ObjVector3.=
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjVector3,JeremyAnsel.Media.WavefrontObj.ObjVector3)
+  name: operator !=(ObjVector3, ObjVector3)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3_op_Inequality_JeremyAnsel_Media_WavefrontObj_ObjVector3_JeremyAnsel_Media_WavefrontObj_ObjVector3_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjVector3,JeremyAnsel.Media.WavefrontObj.ObjVector3)
+  name.vb: <>(ObjVector3, ObjVector3)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.operator !=(JeremyAnsel.Media.WavefrontObj.ObjVector3, JeremyAnsel.Media.WavefrontObj.ObjVector3)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.<>(JeremyAnsel.Media.WavefrontObj.ObjVector3, JeremyAnsel.Media.WavefrontObj.ObjVector3)
+  nameWithType: ObjVector3.operator !=(ObjVector3, ObjVector3)
+  nameWithType.vb: ObjVector3.<>(ObjVector3, ObjVector3)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Inequality*
+  name: operator !=
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3_op_Inequality_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVector3.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.operator !=
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.<>
+  nameWithType: ObjVector3.operator !=
+  nameWithType.vb: ObjVector3.<>
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector4
   name: ObjVector4
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html
   commentId: T:JeremyAnsel.Media.WavefrontObj.ObjVector4
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4
   nameWithType: ObjVector4
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.#ctor(System.Single,System.Single,System.Single,System.Single)
-  name: ObjVector4(float, float, float, float)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4__ctor_System_Single_System_Single_System_Single_System_Single_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector4.#ctor(System.Single,System.Single,System.Single,System.Single)
-  name.vb: New(Single, Single, Single, Single)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.ObjVector4(float, float, float, float)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.New(Single, Single, Single, Single)
-  nameWithType: ObjVector4.ObjVector4(float, float, float, float)
-  nameWithType.vb: ObjVector4.New(Single, Single, Single, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.#ctor(System.Single,System.Single,System.Single)
   name: ObjVector4(float, float, float)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4__ctor_System_Single_System_Single_System_Single_
@@ -2792,6 +2783,15 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.New(Single, Single, Single)
   nameWithType: ObjVector4.ObjVector4(float, float, float)
   nameWithType.vb: ObjVector4.New(Single, Single, Single)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.#ctor(System.Single,System.Single,System.Single,System.Single)
+  name: ObjVector4(float, float, float, float)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4__ctor_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector4.#ctor(System.Single,System.Single,System.Single,System.Single)
+  name.vb: New(Single, Single, Single, Single)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.ObjVector4(float, float, float, float)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.New(Single, Single, Single, Single)
+  nameWithType: ObjVector4.ObjVector4(float, float, float, float)
+  nameWithType.vb: ObjVector4.New(Single, Single, Single, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.#ctor*
   name: ObjVector4
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4__ctor_
@@ -2837,44 +2837,6 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.GetHashCode
   nameWithType: ObjVector4.GetHashCode
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjVector4,JeremyAnsel.Media.WavefrontObj.ObjVector4)
-  name: operator ==(ObjVector4, ObjVector4)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_op_Equality_JeremyAnsel_Media_WavefrontObj_ObjVector4_JeremyAnsel_Media_WavefrontObj_ObjVector4_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjVector4,JeremyAnsel.Media.WavefrontObj.ObjVector4)
-  name.vb: =(ObjVector4, ObjVector4)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.operator ==(JeremyAnsel.Media.WavefrontObj.ObjVector4, JeremyAnsel.Media.WavefrontObj.ObjVector4)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.=(JeremyAnsel.Media.WavefrontObj.ObjVector4, JeremyAnsel.Media.WavefrontObj.ObjVector4)
-  nameWithType: ObjVector4.operator ==(ObjVector4, ObjVector4)
-  nameWithType.vb: ObjVector4.=(ObjVector4, ObjVector4)
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Equality*
-  name: operator ==
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_op_Equality_
-  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Equality
-  isSpec: "True"
-  name.vb: =
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.operator ==
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.=
-  nameWithType: ObjVector4.operator ==
-  nameWithType.vb: ObjVector4.=
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjVector4,JeremyAnsel.Media.WavefrontObj.ObjVector4)
-  name: operator !=(ObjVector4, ObjVector4)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_op_Inequality_JeremyAnsel_Media_WavefrontObj_ObjVector4_JeremyAnsel_Media_WavefrontObj_ObjVector4_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjVector4,JeremyAnsel.Media.WavefrontObj.ObjVector4)
-  name.vb: <>(ObjVector4, ObjVector4)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.operator !=(JeremyAnsel.Media.WavefrontObj.ObjVector4, JeremyAnsel.Media.WavefrontObj.ObjVector4)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.<>(JeremyAnsel.Media.WavefrontObj.ObjVector4, JeremyAnsel.Media.WavefrontObj.ObjVector4)
-  nameWithType: ObjVector4.operator !=(ObjVector4, ObjVector4)
-  nameWithType.vb: ObjVector4.<>(ObjVector4, ObjVector4)
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Inequality*
-  name: operator !=
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_op_Inequality_
-  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Inequality
-  isSpec: "True"
-  name.vb: <>
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.operator !=
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.<>
-  nameWithType: ObjVector4.operator !=
-  nameWithType.vb: ObjVector4.<>
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.W
   name: W
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_W
@@ -2927,39 +2889,50 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.Z
   nameWithType: ObjVector4.Z
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjVector4,JeremyAnsel.Media.WavefrontObj.ObjVector4)
+  name: operator ==(ObjVector4, ObjVector4)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_op_Equality_JeremyAnsel_Media_WavefrontObj_ObjVector4_JeremyAnsel_Media_WavefrontObj_ObjVector4_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjVector4,JeremyAnsel.Media.WavefrontObj.ObjVector4)
+  name.vb: =(ObjVector4, ObjVector4)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.operator ==(JeremyAnsel.Media.WavefrontObj.ObjVector4, JeremyAnsel.Media.WavefrontObj.ObjVector4)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.=(JeremyAnsel.Media.WavefrontObj.ObjVector4, JeremyAnsel.Media.WavefrontObj.ObjVector4)
+  nameWithType: ObjVector4.operator ==(ObjVector4, ObjVector4)
+  nameWithType.vb: ObjVector4.=(ObjVector4, ObjVector4)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Equality*
+  name: operator ==
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_op_Equality_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.operator ==
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.=
+  nameWithType: ObjVector4.operator ==
+  nameWithType.vb: ObjVector4.=
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjVector4,JeremyAnsel.Media.WavefrontObj.ObjVector4)
+  name: operator !=(ObjVector4, ObjVector4)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_op_Inequality_JeremyAnsel_Media_WavefrontObj_ObjVector4_JeremyAnsel_Media_WavefrontObj_ObjVector4_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Inequality(JeremyAnsel.Media.WavefrontObj.ObjVector4,JeremyAnsel.Media.WavefrontObj.ObjVector4)
+  name.vb: <>(ObjVector4, ObjVector4)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.operator !=(JeremyAnsel.Media.WavefrontObj.ObjVector4, JeremyAnsel.Media.WavefrontObj.ObjVector4)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.<>(JeremyAnsel.Media.WavefrontObj.ObjVector4, JeremyAnsel.Media.WavefrontObj.ObjVector4)
+  nameWithType: ObjVector4.operator !=(ObjVector4, ObjVector4)
+  nameWithType.vb: ObjVector4.<>(ObjVector4, ObjVector4)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Inequality*
+  name: operator !=
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_op_Inequality_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVector4.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.operator !=
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.<>
+  nameWithType: ObjVector4.operator !=
+  nameWithType.vb: ObjVector4.<>
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVertex
   name: ObjVertex
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html
   commentId: T:JeremyAnsel.Media.WavefrontObj.ObjVertex
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex
   nameWithType: ObjVertex
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
-  name: ObjVertex(float, float, float, float, float, float, float)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex__ctor_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
-  name.vb: New(Single, Single, Single, Single, Single, Single, Single)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.ObjVertex(float, float, float, float, float, float, float)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVertex.New(Single, Single, Single, Single, Single, Single, Single)
-  nameWithType: ObjVertex.ObjVertex(float, float, float, float, float, float, float)
-  nameWithType.vb: ObjVertex.New(Single, Single, Single, Single, Single, Single, Single)
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
-  name: ObjVertex(float, float, float, float, float, float)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex__ctor_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
-  name.vb: New(Single, Single, Single, Single, Single, Single)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.ObjVertex(float, float, float, float, float, float)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVertex.New(Single, Single, Single, Single, Single, Single)
-  nameWithType: ObjVertex.ObjVertex(float, float, float, float, float, float)
-  nameWithType.vb: ObjVertex.New(Single, Single, Single, Single, Single, Single)
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single)
-  name: ObjVertex(float, float, float, float)
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex__ctor_System_Single_System_Single_System_Single_System_Single_
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single)
-  name.vb: New(Single, Single, Single, Single)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.ObjVertex(float, float, float, float)
-  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVertex.New(Single, Single, Single, Single)
-  nameWithType: ObjVertex.ObjVertex(float, float, float, float)
-  nameWithType.vb: ObjVertex.New(Single, Single, Single, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single)
   name: ObjVertex(float, float, float)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex__ctor_System_Single_System_Single_System_Single_
@@ -2969,6 +2942,33 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVertex.New(Single, Single, Single)
   nameWithType: ObjVertex.ObjVertex(float, float, float)
   nameWithType.vb: ObjVertex.New(Single, Single, Single)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single)
+  name: ObjVertex(float, float, float, float)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex__ctor_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single)
+  name.vb: New(Single, Single, Single, Single)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.ObjVertex(float, float, float, float)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVertex.New(Single, Single, Single, Single)
+  nameWithType: ObjVertex.ObjVertex(float, float, float, float)
+  nameWithType.vb: ObjVertex.New(Single, Single, Single, Single)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  name: ObjVertex(float, float, float, float, float, float)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex__ctor_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  name.vb: New(Single, Single, Single, Single, Single, Single)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.ObjVertex(float, float, float, float, float, float)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVertex.New(Single, Single, Single, Single, Single, Single)
+  nameWithType: ObjVertex.ObjVertex(float, float, float, float, float, float)
+  nameWithType.vb: ObjVertex.New(Single, Single, Single, Single, Single, Single)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  name: ObjVertex(float, float, float, float, float, float, float)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex__ctor_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  name.vb: New(Single, Single, Single, Single, Single, Single, Single)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.ObjVertex(float, float, float, float, float, float, float)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVertex.New(Single, Single, Single, Single, Single, Single, Single)
+  nameWithType: ObjVertex.ObjVertex(float, float, float, float, float, float, float)
+  nameWithType.vb: ObjVertex.New(Single, Single, Single, Single, Single, Single, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.#ctor*
   name: ObjVertex
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex__ctor_
@@ -3027,6 +3027,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.GetHashCode
   nameWithType: ObjVertex.GetHashCode
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.Position
+  name: Position
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex_Position
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjVertex.Position
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.Position
+  nameWithType: ObjVertex.Position
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.Position*
+  name: Position
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex_Position_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVertex.Position
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.Position
+  nameWithType: ObjVertex.Position
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.op_Equality(JeremyAnsel.Media.WavefrontObj.ObjVertex,JeremyAnsel.Media.WavefrontObj.ObjVertex)
   name: operator ==(ObjVertex, ObjVertex)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex_op_Equality_JeremyAnsel_Media_WavefrontObj_ObjVertex_JeremyAnsel_Media_WavefrontObj_ObjVertex_
@@ -3065,16 +3078,3 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVertex.<>
   nameWithType: ObjVertex.operator !=
   nameWithType.vb: ObjVertex.<>
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.Position
-  name: Position
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex_Position
-  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjVertex.Position
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.Position
-  nameWithType: ObjVertex.Position
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.Position*
-  name: Position
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex_Position_
-  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVertex.Position
-  isSpec: "True"
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.Position
-  nameWithType: ObjVertex.Position
