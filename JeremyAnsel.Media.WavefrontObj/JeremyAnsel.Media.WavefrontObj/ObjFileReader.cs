@@ -494,7 +494,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A parm statement must specify at least 3 values.");
                         }
 
-                        IList<float> parameters;
+                        List<float> parameters;
 
                         if (string.Equals(values[1], "u", StringComparison.OrdinalIgnoreCase))
                         {
@@ -981,7 +981,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             return new ObjCurveIndex(start, end, curve2D);
         }
 
-        private static void ParseCurveIndex(IList<ObjCurveIndex> curves, ObjFile obj, string[] values)
+        private static void ParseCurveIndex(List<ObjCurveIndex> curves, ObjFile obj, string[] values)
         {
             if (values.Length < 4)
             {

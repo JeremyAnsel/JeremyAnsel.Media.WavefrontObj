@@ -49,16 +49,16 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public ObjApproximationTechnique SurfaceApproximationTechnique { get; set; }
 
-        public IList<float> ParametersU { get; private set; }
+        public List<float> ParametersU { get; private set; }
 
-        public IList<float> ParametersV { get; private set; }
+        public List<float> ParametersV { get; private set; }
 
-        public IList<ObjCurveIndex> OuterTrimmingCurves { get; private set; }
+        public List<ObjCurveIndex> OuterTrimmingCurves { get; private set; }
 
-        public IList<ObjCurveIndex> InnerTrimmingCurves { get; private set; }
+        public List<ObjCurveIndex> InnerTrimmingCurves { get; private set; }
 
-        public IList<ObjCurveIndex> SequenceCurves { get; private set; }
+        public List<ObjCurveIndex> SequenceCurves { get; private set; }
 
-        public IList<int> SpecialPoints { get; private set; }
+        public List<int> SpecialPoints { get; private set; }
     }
 }

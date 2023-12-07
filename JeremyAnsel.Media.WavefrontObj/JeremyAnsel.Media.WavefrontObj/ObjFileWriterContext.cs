@@ -44,7 +44,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public int MergingGroupNumber { get; private set; }
 
-        public void WriteGroupNames<T>(StreamWriter stream, T element, Func<ObjGroup, IList<T>> func)
+        public void WriteGroupNames<T>(StreamWriter stream, T element, Func<ObjGroup, List<T>> func)
             where T : ObjElement
         {
             string groupNames = GetGroupNames(element, func);
@@ -357,14 +357,14 @@ namespace JeremyAnsel.Media.WavefrontObj
             }
         }
 
-        private string GetGroupNames<T>(T element, Func<ObjGroup, IList<T>> func)
+        private string GetGroupNames<T>(T element, Func<ObjGroup, List<T>> func)
             where T : ObjElement
         {
             var groups = new List<string>();
 
             foreach (ObjGroup group in obj.Groups)
             {
-                IList<T> elements = func(group);
+                List<T> elements = func(group);
 
                 if (elements.Contains(element))
                 {

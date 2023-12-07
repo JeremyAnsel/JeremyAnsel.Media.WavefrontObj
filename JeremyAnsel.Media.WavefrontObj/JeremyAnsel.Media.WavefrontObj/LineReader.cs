@@ -17,7 +17,7 @@ namespace JeremyAnsel.Media.WavefrontObj
     {
         private static readonly char[] lineSeparators = new char[] { ' ', '\t' };
 
-        public IList<string> HeaderTextLines { get; } = new List<string>();
+        public List<string> HeaderTextLines { get; } = new List<string>();
 
         public IEnumerable<string[]> Read(Stream stream)
         {

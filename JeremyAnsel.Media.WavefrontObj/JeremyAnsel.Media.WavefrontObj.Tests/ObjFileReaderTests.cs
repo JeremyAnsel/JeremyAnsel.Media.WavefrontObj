@@ -912,7 +912,7 @@ end
 ";
 
             var obj = ReadObj(content);
-            IList<float> parameters = type == 0 ? obj.Curves[0].ParametersU : obj.Curves[0].ParametersV;
+            List<float> parameters = type == 0 ? obj.Curves[0].ParametersU : obj.Curves[0].ParametersV;
 
             Assert.Equal(3, parameters.Count);
             Assert.Equal(2.0f, parameters[0]);

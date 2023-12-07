@@ -27,6 +27,6 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public float EndParameterV { get; set; }
 
-        public IList<ObjTriplet> Vertices { get; private set; }
+        public List<ObjTriplet> Vertices { get; private set; }
     }
 }

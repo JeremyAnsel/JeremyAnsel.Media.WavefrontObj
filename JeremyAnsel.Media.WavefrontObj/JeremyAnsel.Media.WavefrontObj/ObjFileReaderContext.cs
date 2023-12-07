@@ -63,9 +63,9 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public ObjFreeFormElement CurrentFreeFormElement { get; set; }
 
-        public IList<string> GroupNames { get; private set; }
+        public List<string> GroupNames { get; private set; }
 
-        public IList<ObjGroup> GetCurrentGroups()
+        public List<ObjGroup> GetCurrentGroups()
         {
             var groups = new List<ObjGroup>();
 

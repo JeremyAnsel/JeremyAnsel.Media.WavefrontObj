@@ -37,37 +37,37 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public string HeaderText { get; set; }
 
-        public IList<ObjVertex> Vertices { get; private set; }
+        public List<ObjVertex> Vertices { get; private set; }
 
-        public IList<ObjVector3> ParameterSpaceVertices { get; private set; }
+        public List<ObjVector3> ParameterSpaceVertices { get; private set; }
 
-        public IList<ObjVector3> VertexNormals { get; private set; }
+        public List<ObjVector3> VertexNormals { get; private set; }
 
-        public IList<ObjVector3> TextureVertices { get; private set; }
+        public List<ObjVector3> TextureVertices { get; private set; }
 
-        public IList<ObjPoint> Points { get; private set; }
+        public List<ObjPoint> Points { get; private set; }
 
-        public IList<ObjLine> Lines { get; private set; }
+        public List<ObjLine> Lines { get; private set; }
 
-        public IList<ObjFace> Faces { get; private set; }
+        public List<ObjFace> Faces { get; private set; }
 
-        public IList<ObjCurve> Curves { get; private set; }
+        public List<ObjCurve> Curves { get; private set; }
 
-        public IList<ObjCurve2D> Curves2D { get; private set; }
+        public List<ObjCurve2D> Curves2D { get; private set; }
 
-        public IList<ObjSurface> Surfaces { get; private set; }
+        public List<ObjSurface> Surfaces { get; private set; }
 
-        public IList<ObjSurfaceConnection> SurfaceConnections { get; private set; }
+        public List<ObjSurfaceConnection> SurfaceConnections { get; private set; }
 
         public ObjGroup DefaultGroup { get; private set; }
 
-        public IList<ObjGroup> Groups { get; private set; }
+        public List<ObjGroup> Groups { get; private set; }
 
         public IDictionary<int, float> MergingGroupResolutions { get; private set; }
 
-        public IList<string> MapLibraries { get; private set; }
+        public List<string> MapLibraries { get; private set; }
 
-        public IList<string> MaterialLibraries { get; private set; }
+        public List<string> MaterialLibraries { get; private set; }
 
         public string ShadowObjectFileName { get; set; }
 

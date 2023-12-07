@@ -23,6 +23,6 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public float EndParameter { get; set; }
 
-        public IList<int> Vertices { get; private set; }
+        public List<int> Vertices { get; private set; }
     }
 }

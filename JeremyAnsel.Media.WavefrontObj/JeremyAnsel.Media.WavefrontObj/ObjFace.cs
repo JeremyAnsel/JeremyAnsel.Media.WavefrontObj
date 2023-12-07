@@ -19,6 +19,6 @@ namespace JeremyAnsel.Media.WavefrontObj
             this.Vertices = new List<ObjTriplet>();
         }
 
-        public IList<ObjTriplet> Vertices { get; private set; }
+        public List<ObjTriplet> Vertices { get; private set; }
     }
 }

@@ -839,7 +839,7 @@ surf 5.000000 6.000000 7.000000 8.000000 2 3 4
             obj.Curves.Add(curve);
             FillFreeFormAttributes(curve);
 
-            IList<float> parameters = type == 0 ? obj.Curves[0].ParametersU : obj.Curves[0].ParametersV;
+            List<float> parameters = type == 0 ? obj.Curves[0].ParametersU : obj.Curves[0].ParametersV;
             parameters.Add(2.0f);
             parameters.Add(3.0f);
             parameters.Add(4.0f);

@@ -19,6 +19,6 @@ namespace JeremyAnsel.Media.WavefrontObj
             this.ParameterSpaceVertices = new List<int>();
         }
 
-        public IList<int> ParameterSpaceVertices { get; private set; }
+        public List<int> ParameterSpaceVertices { get; private set; }
     }
 }

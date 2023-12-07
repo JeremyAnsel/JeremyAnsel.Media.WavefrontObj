@@ -32,16 +32,16 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public string Name { get; set; }
 
-        public IList<ObjPoint> Points { get; private set; }
+        public List<ObjPoint> Points { get; private set; }
 
-        public IList<ObjLine> Lines { get; private set; }
+        public List<ObjLine> Lines { get; private set; }
 
-        public IList<ObjFace> Faces { get; private set; }
+        public List<ObjFace> Faces { get; private set; }
 
-        public IList<ObjCurve> Curves { get; private set; }
+        public List<ObjCurve> Curves { get; private set; }
 
-        public IList<ObjCurve2D> Curves2D { get; private set; }
+        public List<ObjCurve2D> Curves2D { get; private set; }
 
-        public IList<ObjSurface> Surfaces { get; private set; }
+        public List<ObjSurface> Surfaces { get; private set; }
     }
 }
