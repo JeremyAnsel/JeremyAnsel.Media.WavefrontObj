@@ -63,7 +63,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public List<ObjGroup> Groups { get; private set; }
 
-        public IDictionary<int, float> MergingGroupResolutions { get; private set; }
+        public Dictionary<int, float> MergingGroupResolutions { get; private set; }
 
         public List<string> MapLibraries { get; private set; }
 
