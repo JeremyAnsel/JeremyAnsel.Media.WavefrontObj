@@ -12,6 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("Material:{Name}")]
     public class ObjMaterial
     {
         public ObjMaterial()

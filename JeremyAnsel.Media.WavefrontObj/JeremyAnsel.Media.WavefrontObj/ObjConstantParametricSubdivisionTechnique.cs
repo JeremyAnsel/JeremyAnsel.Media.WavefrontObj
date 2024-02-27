@@ -12,6 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("ObjConstantParametricSubdivisionTechnique U:{ResolutionU} V:{ResolutionV}")]
     public class ObjConstantParametricSubdivisionTechnique : ObjApproximationTechnique
     {
         public ObjConstantParametricSubdivisionTechnique()

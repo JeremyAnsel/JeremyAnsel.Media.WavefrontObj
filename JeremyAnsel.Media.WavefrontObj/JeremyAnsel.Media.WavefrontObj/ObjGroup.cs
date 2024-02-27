@@ -12,6 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("Group:{Name}")]
     public class ObjGroup
     {
         public ObjGroup()

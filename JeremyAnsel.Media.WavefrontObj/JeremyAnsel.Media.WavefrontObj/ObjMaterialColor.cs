@@ -12,6 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("{ToDebuggerDisplayString(),nq}")]
     public class ObjMaterialColor
     {
         public ObjMaterialColor()
@@ -62,6 +63,13 @@ namespace JeremyAnsel.Media.WavefrontObj
         public bool IsXYZ
         {
             get { return !this.IsSpectral && this.UseXYZColorSpace; }
+        }
+
+        private string ToDebuggerDisplayString()
+        {
+            if (IsSpectral) return $"Spectral:{SpectralFileName} Factor:{SpectralFactor}";
+            if (UseXYZColorSpace) return $"X:{Color.X} Y:{Color.X} Z:{Color.X}";
+            return $"R:{Color.X} G:{Color.X} B:{Color.X}";
         }
     }
 }

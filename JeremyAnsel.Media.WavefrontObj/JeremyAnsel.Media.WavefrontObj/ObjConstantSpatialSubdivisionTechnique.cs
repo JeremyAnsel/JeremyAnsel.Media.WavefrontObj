@@ -12,6 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("ObjConstantSpatialSubdivisionTechnique MaxLen:{MaximumLength}")]
     public class ObjConstantSpatialSubdivisionTechnique : ObjApproximationTechnique
     {
         public ObjConstantSpatialSubdivisionTechnique()

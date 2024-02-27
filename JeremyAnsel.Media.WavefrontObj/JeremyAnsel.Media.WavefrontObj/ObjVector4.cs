@@ -12,6 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("{X} {Y} {Z} {W}")]
     public struct ObjVector4 : IEquatable<ObjVector4>
     {
         private float x;

@@ -22,6 +22,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public string HeaderText { get; set; }
 
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.RootHidden)]
         public List<ObjMaterial> Materials { get; private set; }
 
         public static ObjMaterialFile FromFile(string path)

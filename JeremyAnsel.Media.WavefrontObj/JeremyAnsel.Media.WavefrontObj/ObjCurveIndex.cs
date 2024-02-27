@@ -13,6 +13,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("Curve Index:{Curve2D} Start:{Start} End:{End}")]
     public struct ObjCurveIndex : IEquatable<ObjCurveIndex>
     {
         private float start;

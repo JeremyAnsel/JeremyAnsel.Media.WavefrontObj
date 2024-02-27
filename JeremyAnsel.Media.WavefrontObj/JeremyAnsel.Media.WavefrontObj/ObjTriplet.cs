@@ -13,6 +13,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("Vertex:{vertex} Texture:{texture} Normal:{normal}")]
     public struct ObjTriplet : IEquatable<ObjTriplet>
     {
         private int vertex;
