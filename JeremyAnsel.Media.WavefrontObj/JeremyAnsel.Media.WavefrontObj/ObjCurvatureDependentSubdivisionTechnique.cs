@@ -12,6 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("ObjCurvatureDependentSubdivisionTechnique MaxDist:{MaximumDistance} MaxAngle:{MaximumAngle}")]
     public class ObjCurvatureDependentSubdivisionTechnique : ObjApproximationTechnique
     {
         public ObjCurvatureDependentSubdivisionTechnique()

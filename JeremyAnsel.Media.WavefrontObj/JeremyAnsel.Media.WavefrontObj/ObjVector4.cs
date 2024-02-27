@@ -12,6 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("{X} {Y} {Z} {W}")]
     public struct ObjVector4 : IEquatable<ObjVector4>
     {
         private float x;
@@ -20,7 +21,23 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         private float z;
 
-        private float w;
+        private float w;        
+
+        public ObjVector4(System.Numerics.Vector4 v)
+        {
+            this.x = v.X;
+            this.y = v.Y;
+            this.z = v.Z;
+            this.w = v.W;
+        }
+
+        public ObjVector4(System.Numerics.Vector3 v, float w = 1.0f)
+        {
+            this.x = v.X;
+            this.y = v.Y;
+            this.z = v.Z;
+            this.w = w;
+        }
 
         public ObjVector4(float x, float y, float z, float w)
         {
@@ -40,34 +57,34 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public float X
         {
-            get { return this.x; }
+            readonly get { return this.x; }
             set { this.x = value; }
         }
 
         public float Y
         {
-            get { return this.y; }
+            readonly get { return this.y; }
             set { this.y = value; }
         }
 
         public float Z
         {
-            get { return this.z; }
+            readonly get { return this.z; }
             set { this.z = value; }
         }
 
         public float W
         {
-            get { return this.w; }
+            readonly get { return this.w; }
             set { this.w = value; }
         }
 
-        public override bool Equals(object obj)
+        public readonly override bool Equals(object obj)
         {
             return obj is ObjVector4 vector && Equals(vector);
         }
 
-        public bool Equals(ObjVector4 other)
+        public readonly bool Equals(ObjVector4 other)
         {
             return x == other.x &&
                    y == other.y &&
@@ -75,7 +92,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                    w == other.w;
         }
 
-        public override int GetHashCode()
+        public readonly override int GetHashCode()
         {
             var hashCode = -1743314642;
             hashCode = hashCode * -1521134295 + x.GetHashCode();
@@ -93,6 +110,24 @@ namespace JeremyAnsel.Media.WavefrontObj
         public static bool operator !=(ObjVector4 left, ObjVector4 right)
         {
             return !(left == right);
+        }
+
+        public static implicit operator ObjVector4(System.Numerics.Vector4 v)
+        {
+            return new ObjVector4(v);
+        }
+
+        public readonly void Deconstruct(out float @x, out float @y, out float @z, out float @w)
+        {
+            @x = this.x;
+            @y = this.y;
+            @z = this.z;
+            @w = this.w;
+        }
+
+        public readonly System.Numerics.Vector4 ToVector3()
+        {
+            return new System.Numerics.Vector4(x, y, z, w);
         }
     }
 }

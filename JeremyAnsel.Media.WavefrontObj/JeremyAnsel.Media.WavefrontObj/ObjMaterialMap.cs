@@ -12,6 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("Material Map:{FileName}")]
     public class ObjMaterialMap
     {
         public ObjMaterialMap()

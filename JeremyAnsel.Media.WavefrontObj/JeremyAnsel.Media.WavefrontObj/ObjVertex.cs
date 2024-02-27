@@ -12,6 +12,7 @@ using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
+    [System.Diagnostics.DebuggerDisplay("Vertex Position:{Position} Color:{Color}")]
     public struct ObjVertex : IEquatable<ObjVertex>
     {
         private ObjVector4 position;
