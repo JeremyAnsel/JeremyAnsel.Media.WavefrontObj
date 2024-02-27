@@ -31,35 +31,35 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public int Vertex
         {
-            get { return this.vertex; }
+            readonly get { return this.vertex; }
             set { this.vertex = value; }
         }
 
         public int Texture
         {
-            get { return this.texture; }
+            readonly get { return this.texture; }
             set { this.texture = value; }
         }
 
         public int Normal
         {
-            get { return this.normal; }
+            readonly get { return this.normal; }
             set { this.normal = value; }
         }
 
-        public override bool Equals(object obj)
+        public readonly override bool Equals(object obj)
         {
             return obj is ObjTriplet triplet && Equals(triplet);
         }
 
-        public bool Equals(ObjTriplet other)
+        public readonly bool Equals(ObjTriplet other)
         {
             return vertex == other.vertex &&
                    texture == other.texture &&
                    normal == other.normal;
         }
 
-        public override int GetHashCode()
+        public readonly override int GetHashCode()
         {
             var hashCode = -683219715;
             hashCode = hashCode * -1521134295 + vertex.GetHashCode();
@@ -68,7 +68,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             return hashCode;
         }
 
-        public override string ToString()
+        public readonly override string ToString()
         {
             if (this.Normal == 0)
             {

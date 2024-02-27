@@ -19,7 +19,21 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         private float y;
 
-        private float z;
+        private float z;        
+
+        public ObjVector3(System.Numerics.Vector3 v)
+        {
+            this.x = v.X;
+            this.y = v.Y;
+            this.z = v.Z;
+        }
+
+        public ObjVector3(System.Numerics.Vector2 v, float z = 1.0f)
+        {
+            this.x = v.X;
+            this.y = v.Y;
+            this.z = z;
+        }
 
         public ObjVector3(float x, float y, float z)
         {
@@ -44,35 +58,35 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public float X
         {
-            get { return this.x; }
+            readonly get { return this.x; }
             set { this.x = value; }
         }
 
         public float Y
         {
-            get { return this.y; }
+            readonly get { return this.y; }
             set { this.y = value; }
         }
 
         public float Z
         {
-            get { return this.z; }
+            readonly get { return this.z; }
             set { this.z = value; }
         }
 
-        public override bool Equals(object obj)
+        public readonly override bool Equals(object obj)
         {
             return obj is ObjVector3 vector && Equals(vector);
         }
 
-        public bool Equals(ObjVector3 other)
+        public readonly bool Equals(ObjVector3 other)
         {
             return x == other.x &&
                    y == other.y &&
                    z == other.z;
         }
 
-        public override int GetHashCode()
+        public readonly override int GetHashCode()
         {
             var hashCode = 373119288;
             hashCode = hashCode * -1521134295 + x.GetHashCode();
@@ -89,6 +103,23 @@ namespace JeremyAnsel.Media.WavefrontObj
         public static bool operator !=(ObjVector3 left, ObjVector3 right)
         {
             return !(left == right);
+        }
+
+        public static implicit operator ObjVector3(System.Numerics.Vector3 v)
+        {
+            return new ObjVector3(v);
+        }
+
+        public readonly void Deconstruct(out float @x, out float @y, out float @z)
+        {
+            @x = this.x;
+            @y = this.y;
+            @z = this.z;            
+        }
+
+        public readonly System.Numerics.Vector3 ToVector3()
+        {
+            return new System.Numerics.Vector3(x, y, z);
         }
     }
 }

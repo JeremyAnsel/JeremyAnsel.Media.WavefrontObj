@@ -36,11 +36,15 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' " >
+    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Condition="'$(CI)' == 'True'" Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+    </PackageReference>    
+  </ItemGroup>  
 
 </Project>
