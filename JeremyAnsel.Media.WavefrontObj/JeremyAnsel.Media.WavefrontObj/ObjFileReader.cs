@@ -607,7 +607,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                         }
                         else
                         {
-                            context.SmoothingGroupNumber = int.Parse(values[1], CultureInfo.InvariantCulture);
+                            context.SmoothingGroupNumber = long.Parse(values[1], CultureInfo.InvariantCulture);
                         }
 
                         break;

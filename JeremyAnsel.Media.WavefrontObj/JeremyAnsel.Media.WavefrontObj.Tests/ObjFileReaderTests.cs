@@ -1215,10 +1215,10 @@ p 1
         }
 
         [Theory]
-        [InlineData("0", 0)]
-        [InlineData("off", 0)]
-        [InlineData("2", 2)]
-        public void SmoothingGroup_Valid(string value, int number)
+        [InlineData("0", 0L)]
+        [InlineData("off", 0L)]
+        [InlineData("2", 2L)]
+        public void SmoothingGroup_Valid(string value, long number)
         {
             string content = @"
 s " + value + @"

@@ -168,9 +168,9 @@ p 1
         }
 
         [Theory]
-        [InlineData(0, "off")]
-        [InlineData(2, "2")]
-        public void SmoothingGroup_Valid(int number, string value)
+        [InlineData(0L, "off")]
+        [InlineData(2L, "2")]
+        public void SmoothingGroup_Valid(long number, string value)
         {
             var obj = new ObjFile();
             var point1 = new ObjPoint();

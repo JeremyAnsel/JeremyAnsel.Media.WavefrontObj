@@ -34,7 +34,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public string MaterialName { get; private set; }
 
-        public int SmoothingGroupNumber { get; private set; }
+        public long SmoothingGroupNumber { get; private set; }
 
         public bool IsBevelInterpolationEnabled { get; private set; }
 
