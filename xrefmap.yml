@@ -349,13 +349,13 @@ references:
   fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Equals(JeremyAnsel.Media.WavefrontObj.ObjCurveIndex)
   nameWithType: ObjCurveIndex.Equals(ObjCurveIndex)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Equals(System.Object)
-  name: Equals(object)
+  name: Equals(object?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html#JeremyAnsel_Media_WavefrontObj_ObjCurveIndex_Equals_System_Object_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Equals(object)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Equals(object?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Equals(Object)
-  nameWithType: ObjCurveIndex.Equals(object)
+  nameWithType: ObjCurveIndex.Equals(object?)
   nameWithType.vb: ObjCurveIndex.Equals(Object)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.Equals*
   name: Equals
@@ -615,13 +615,13 @@ references:
   fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.Faces
   nameWithType: ObjFile.Faces
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile(System.String)
-  name: FromFile(string)
+  name: FromFile(string?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_FromFile_System_String_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile(System.String)
   name.vb: FromFile(String)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile(string)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile(string?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile(String)
-  nameWithType: ObjFile.FromFile(string)
+  nameWithType: ObjFile.FromFile(string?)
   nameWithType.vb: ObjFile.FromFile(String)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile*
   name: FromFile
@@ -631,11 +631,14 @@ references:
   fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile
   nameWithType: ObjFile.FromFile
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream(System.IO.Stream)
-  name: FromStream(Stream)
+  name: FromStream(Stream?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_FromStream_System_IO_Stream_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream(System.IO.Stream)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream(System.IO.Stream)
-  nameWithType: ObjFile.FromStream(Stream)
+  name.vb: FromStream(Stream)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream(System.IO.Stream)
+  nameWithType: ObjFile.FromStream(Stream?)
+  nameWithType.vb: ObjFile.FromStream(Stream)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream*
   name: FromStream
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_FromStream_
@@ -839,19 +842,22 @@ references:
   fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.Vertices
   nameWithType: ObjFile.Vertices
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo(System.IO.Stream)
-  name: WriteTo(Stream)
+  name: WriteTo(Stream?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_WriteTo_System_IO_Stream_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo(System.IO.Stream)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo(System.IO.Stream)
-  nameWithType: ObjFile.WriteTo(Stream)
+  name.vb: WriteTo(Stream)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo(System.IO.Stream)
+  nameWithType: ObjFile.WriteTo(Stream?)
+  nameWithType.vb: ObjFile.WriteTo(Stream)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo(System.String)
-  name: WriteTo(string)
+  name: WriteTo(string?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_WriteTo_System_String_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo(System.String)
   name.vb: WriteTo(String)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo(string)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo(string?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo(String)
-  nameWithType: ObjFile.WriteTo(string)
+  nameWithType: ObjFile.WriteTo(string?)
   nameWithType.vb: ObjFile.WriteTo(String)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo*
   name: WriteTo
@@ -1344,13 +1350,13 @@ references:
   nameWithType: ObjMaterial.ObjMaterial()
   nameWithType.vb: ObjMaterial.New()
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.#ctor(System.String)
-  name: ObjMaterial(string)
+  name: ObjMaterial(string?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial__ctor_System_String_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterial.#ctor(System.String)
   name.vb: New(String)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.ObjMaterial(string)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.ObjMaterial(string?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterial.New(String)
-  nameWithType: ObjMaterial.ObjMaterial(string)
+  nameWithType: ObjMaterial.ObjMaterial(string?)
   nameWithType.vb: ObjMaterial.New(String)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.#ctor*
   name: ObjMaterial
@@ -1686,22 +1692,22 @@ references:
   nameWithType: ObjMaterialColor.ObjMaterialColor(float, float, float)
   nameWithType.vb: ObjMaterialColor.New(Single, Single, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.#ctor(System.String)
-  name: ObjMaterialColor(string)
+  name: ObjMaterialColor(string?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialColor__ctor_System_String_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.#ctor(System.String)
   name.vb: New(String)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.ObjMaterialColor(string)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.ObjMaterialColor(string?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.New(String)
-  nameWithType: ObjMaterialColor.ObjMaterialColor(string)
+  nameWithType: ObjMaterialColor.ObjMaterialColor(string?)
   nameWithType.vb: ObjMaterialColor.New(String)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.#ctor(System.String,System.Single)
-  name: ObjMaterialColor(string, float)
+  name: ObjMaterialColor(string?, float)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialColor__ctor_System_String_System_Single_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.#ctor(System.String,System.Single)
   name.vb: New(String, Single)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.ObjMaterialColor(string, float)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.ObjMaterialColor(string?, float)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.New(String, Single)
-  nameWithType: ObjMaterialColor.ObjMaterialColor(string, float)
+  nameWithType: ObjMaterialColor.ObjMaterialColor(string?, float)
   nameWithType.vb: ObjMaterialColor.New(String, Single)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.#ctor*
   name: ObjMaterialColor
@@ -1830,13 +1836,13 @@ references:
   nameWithType: ObjMaterialFile.ObjMaterialFile
   nameWithType.vb: ObjMaterialFile.New
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile(System.String)
-  name: FromFile(string)
+  name: FromFile(string?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_FromFile_System_String_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile(System.String)
   name.vb: FromFile(String)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile(string)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile(string?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile(String)
-  nameWithType: ObjMaterialFile.FromFile(string)
+  nameWithType: ObjMaterialFile.FromFile(string?)
   nameWithType.vb: ObjMaterialFile.FromFile(String)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile*
   name: FromFile
@@ -1846,11 +1852,14 @@ references:
   fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile
   nameWithType: ObjMaterialFile.FromFile
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream(System.IO.Stream)
-  name: FromStream(Stream)
+  name: FromStream(Stream?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_FromStream_System_IO_Stream_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream(System.IO.Stream)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream(System.IO.Stream)
-  nameWithType: ObjMaterialFile.FromStream(Stream)
+  name.vb: FromStream(Stream)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream(System.IO.Stream)
+  nameWithType: ObjMaterialFile.FromStream(Stream?)
+  nameWithType.vb: ObjMaterialFile.FromStream(Stream)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream*
   name: FromStream
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_FromStream_
@@ -1885,19 +1894,22 @@ references:
   fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.Materials
   nameWithType: ObjMaterialFile.Materials
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo(System.IO.Stream)
-  name: WriteTo(Stream)
+  name: WriteTo(Stream?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_WriteTo_System_IO_Stream_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo(System.IO.Stream)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo(System.IO.Stream)
-  nameWithType: ObjMaterialFile.WriteTo(Stream)
+  name.vb: WriteTo(Stream)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo(System.IO.Stream)
+  nameWithType: ObjMaterialFile.WriteTo(Stream?)
+  nameWithType.vb: ObjMaterialFile.WriteTo(Stream)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo(System.String)
-  name: WriteTo(string)
+  name: WriteTo(string?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_WriteTo_System_String_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo(System.String)
   name.vb: WriteTo(String)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo(string)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo(string?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo(String)
-  nameWithType: ObjMaterialFile.WriteTo(string)
+  nameWithType: ObjMaterialFile.WriteTo(string?)
   nameWithType.vb: ObjMaterialFile.WriteTo(String)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo*
   name: WriteTo
@@ -1922,13 +1934,13 @@ references:
   nameWithType: ObjMaterialMap.ObjMaterialMap()
   nameWithType.vb: ObjMaterialMap.New()
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.#ctor(System.String)
-  name: ObjMaterialMap(string)
+  name: ObjMaterialMap(string?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialMap__ctor_System_String_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.#ctor(System.String)
   name.vb: New(String)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.ObjMaterialMap(string)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.ObjMaterialMap(string?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.New(String)
-  nameWithType: ObjMaterialMap.ObjMaterialMap(string)
+  nameWithType: ObjMaterialMap.ObjMaterialMap(string?)
   nameWithType.vb: ObjMaterialMap.New(String)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.#ctor*
   name: ObjMaterialMap
@@ -2495,13 +2507,13 @@ references:
   fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.Equals(JeremyAnsel.Media.WavefrontObj.ObjTriplet)
   nameWithType: ObjTriplet.Equals(ObjTriplet)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjTriplet.Equals(System.Object)
-  name: Equals(object)
+  name: Equals(object?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html#JeremyAnsel_Media_WavefrontObj_ObjTriplet_Equals_System_Object_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjTriplet.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.Equals(object)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjTriplet.Equals(object?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjTriplet.Equals(Object)
-  nameWithType: ObjTriplet.Equals(object)
+  nameWithType: ObjTriplet.Equals(object?)
   nameWithType.vb: ObjTriplet.Equals(Object)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjTriplet.Equals*
   name: Equals
@@ -2697,13 +2709,13 @@ references:
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.Equals(JeremyAnsel.Media.WavefrontObj.ObjVector3)
   nameWithType: ObjVector3.Equals(ObjVector3)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.Equals(System.Object)
-  name: Equals(object)
+  name: Equals(object?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html#JeremyAnsel_Media_WavefrontObj_ObjVector3_Equals_System_Object_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector3.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.Equals(object)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector3.Equals(object?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector3.Equals(Object)
-  nameWithType: ObjVector3.Equals(object)
+  nameWithType: ObjVector3.Equals(object?)
   nameWithType.vb: ObjVector3.Equals(Object)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector3.Equals*
   name: Equals
@@ -2909,13 +2921,13 @@ references:
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.Equals(JeremyAnsel.Media.WavefrontObj.ObjVector4)
   nameWithType: ObjVector4.Equals(ObjVector4)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.Equals(System.Object)
-  name: Equals(object)
+  name: Equals(object?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_Equals_System_Object_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector4.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.Equals(object)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.Equals(object?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVector4.Equals(Object)
-  nameWithType: ObjVector4.Equals(object)
+  nameWithType: ObjVector4.Equals(object?)
   nameWithType.vb: ObjVector4.Equals(Object)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.Equals*
   name: Equals
@@ -3131,13 +3143,13 @@ references:
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.Equals(JeremyAnsel.Media.WavefrontObj.ObjVertex)
   nameWithType: ObjVertex.Equals(ObjVertex)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.Equals(System.Object)
-  name: Equals(object)
+  name: Equals(object?)
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html#JeremyAnsel_Media_WavefrontObj_ObjVertex_Equals_System_Object_
   commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVertex.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.Equals(object)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVertex.Equals(object?)
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjVertex.Equals(Object)
-  nameWithType: ObjVertex.Equals(object)
+  nameWithType: ObjVertex.Equals(object?)
   nameWithType.vb: ObjVertex.Equals(Object)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVertex.Equals*
   name: Equals
