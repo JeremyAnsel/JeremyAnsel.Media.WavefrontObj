@@ -5,12 +5,7 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
@@ -51,7 +46,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                 return;
             }
 
-            string[] headerLines = obj.HeaderText.Split('\n');
+            string[] headerLines = obj.HeaderText!.Split('\n');
 
             foreach (string line in headerLines)
             {

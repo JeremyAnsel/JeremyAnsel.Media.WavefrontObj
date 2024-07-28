@@ -5,11 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace JeremyAnsel.Media.WavefrontObj
 {
     [System.Diagnostics.DebuggerDisplay("Vertex Position:{Position} Color:{Color}")]
@@ -55,7 +50,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             set { this.color = value; }
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is ObjVertex vertex && Equals(vertex);
         }
@@ -70,7 +65,12 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             var hashCode = -2056440846;
             hashCode = hashCode * -1521134295 + EqualityComparer<ObjVector4>.Default.GetHashCode(position);
-            hashCode = hashCode * -1521134295 + EqualityComparer<ObjVector4?>.Default.GetHashCode(color);
+
+            if (color.HasValue)
+            {
+                hashCode = hashCode * -1521134295 + EqualityComparer<ObjVector4>.Default.GetHashCode(color.Value);
+            }
+
             return hashCode;
         }
 

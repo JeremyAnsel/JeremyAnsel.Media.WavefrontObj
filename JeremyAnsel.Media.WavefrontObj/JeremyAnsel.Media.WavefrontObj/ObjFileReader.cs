@@ -5,20 +5,15 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
     internal static class ObjFileReader
     {
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        public static ObjFile FromStream(Stream stream)
+        public static ObjFile FromStream(Stream? stream)
         {
             if (stream == null)
             {
@@ -1132,7 +1127,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         private static ObjApproximationTechnique ParseApproximationTechnique(string[] values)
         {
-            ObjApproximationTechnique technique = null;
+            ObjApproximationTechnique technique;
 
             if (values.Length < 2)
             {

@@ -5,12 +5,8 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace JeremyAnsel.Media.WavefrontObj.Tests
@@ -118,7 +114,7 @@ p 1
         [Theory]
         [InlineData(null, "off")]
         [InlineData("a", "a")]
-        public void RenderAttributes_UseMap_Valid(string value, string name)
+        public void RenderAttributes_UseMap_Valid(string? value, string name)
         {
             var obj = new ObjFile();
             var point1 = new ObjPoint();
@@ -144,7 +140,7 @@ p 1
         [Theory]
         [InlineData(null, "off")]
         [InlineData("a with spaces", "a with spaces")]
-        public void RenderAttributes_UseMaterial_Valid(string value, string name)
+        public void RenderAttributes_UseMaterial_Valid(string? value, string name)
         {
             var obj = new ObjFile();
             var point1 = new ObjPoint();

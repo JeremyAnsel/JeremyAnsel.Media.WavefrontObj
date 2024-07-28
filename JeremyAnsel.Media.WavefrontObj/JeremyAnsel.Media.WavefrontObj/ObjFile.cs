@@ -5,10 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
@@ -35,7 +31,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             this.MaterialLibraries = new List<string>();
         }
 
-        public string HeaderText { get; set; }
+        public string? HeaderText { get; set; }
 
         public List<ObjVertex> Vertices { get; private set; }
 
@@ -69,32 +65,42 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public List<string> MaterialLibraries { get; private set; }
 
-        public string ShadowObjectFileName { get; set; }
+        public string? ShadowObjectFileName { get; set; }
 
-        public string TraceObjectFileName { get; set; }
+        public string? TraceObjectFileName { get; set; }
 
-        public static ObjFile FromFile(string path)
+        public static ObjFile FromFile(string? path)
         {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 return ObjFileReader.FromStream(stream);
             }
         }
 
-        public static ObjFile FromStream(Stream stream)
+        public static ObjFile FromStream(Stream? stream)
         {
             return ObjFileReader.FromStream(stream);
         }
 
-        public void WriteTo(string path)
+        public void WriteTo(string? path)
         {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
             using (var writer = new StreamWriter(path))
             {
                 ObjFileWriter.Write(this, writer);
             }
         }
 
-        public void WriteTo(Stream stream)
+        public void WriteTo(Stream? stream)
         {
             if (stream == null)
             {

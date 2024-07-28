@@ -6,11 +6,8 @@
 // </license>
 
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace JeremyAnsel.Media.WavefrontObj.Tests
@@ -101,7 +98,7 @@ map_aat off
         public void Write_NullStream_Throws()
         {
             var mtl = new ObjMaterialFile();
-            Assert.Throws<ArgumentNullException>("stream", () => mtl.WriteTo((Stream)null));
+            Assert.Throws<ArgumentNullException>("stream", () => mtl.WriteTo((Stream?)null));
         }
 
         [Fact]

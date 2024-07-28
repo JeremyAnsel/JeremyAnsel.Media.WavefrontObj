@@ -5,12 +5,8 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace JeremyAnsel.Media.WavefrontObj.Tests
@@ -86,12 +82,13 @@ Ka 2.0 3.0 4.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].AmbientColor.IsRGB);
-            Assert.False(mtl.Materials[0].AmbientColor.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].AmbientColor.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].AmbientColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientColor);
+            Assert.True(mtl.Materials[0].AmbientColor?.IsRGB);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsSpectral);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.X);
+            Assert.Equal(3.0f, mtl.Materials[0].AmbientColor?.Color.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].AmbientColor?.Color.Z);
         }
 
         [Fact]
@@ -104,12 +101,13 @@ Ka 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].AmbientColor.IsRGB);
-            Assert.False(mtl.Materials[0].AmbientColor.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientColor);
+            Assert.True(mtl.Materials[0].AmbientColor?.IsRGB);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsSpectral);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.X);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.Y);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.Z);
         }
 
         [Fact]
@@ -122,12 +120,13 @@ Ka xyz 2.0 3.0 4.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].AmbientColor.IsXYZ);
-            Assert.False(mtl.Materials[0].AmbientColor.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].AmbientColor.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].AmbientColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientColor);
+            Assert.True(mtl.Materials[0].AmbientColor?.IsXYZ);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsSpectral);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.X);
+            Assert.Equal(3.0f, mtl.Materials[0].AmbientColor?.Color.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].AmbientColor?.Color.Z);
         }
 
         [Fact]
@@ -140,12 +139,13 @@ Ka xyz 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].AmbientColor.IsXYZ);
-            Assert.False(mtl.Materials[0].AmbientColor.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientColor);
+            Assert.True(mtl.Materials[0].AmbientColor?.IsXYZ);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsSpectral);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.X);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.Y);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.Z);
         }
 
         [Fact]
@@ -158,11 +158,12 @@ Ka spectral b.b 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].AmbientColor.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor.IsRGB);
-            Assert.False(mtl.Materials[0].AmbientColor.IsXYZ);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientColor.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor.SpectralFactor);
+            Assert.NotNull(mtl.Materials[0].AmbientColor);
+            Assert.True(mtl.Materials[0].AmbientColor?.IsSpectral);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientColor?.SpectralFileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.SpectralFactor);
         }
 
         [Fact]
@@ -175,11 +176,12 @@ Ka spectral b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].AmbientColor.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor.IsRGB);
-            Assert.False(mtl.Materials[0].AmbientColor.IsXYZ);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientColor.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].AmbientColor.SpectralFactor);
+            Assert.NotNull(mtl.Materials[0].AmbientColor);
+            Assert.True(mtl.Materials[0].AmbientColor?.IsSpectral);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientColor?.SpectralFileName);
+            Assert.Equal(1.0f, mtl.Materials[0].AmbientColor?.SpectralFactor);
         }
 
         [Fact]
@@ -205,10 +207,11 @@ Kd 2.0 3.0 4.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].DiffuseColor.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].DiffuseColor.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].DiffuseColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].DiffuseColor);
+            Assert.True(mtl.Materials[0].DiffuseColor?.IsRGB);
+            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.X);
+            Assert.Equal(3.0f, mtl.Materials[0].DiffuseColor?.Color.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].DiffuseColor?.Color.Z);
         }
 
         [Fact]
@@ -221,10 +224,11 @@ Kd 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].DiffuseColor.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].DiffuseColor);
+            Assert.True(mtl.Materials[0].DiffuseColor?.IsRGB);
+            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.X);
+            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.Y);
+            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.Z);
         }
 
         [Fact]
@@ -237,10 +241,11 @@ Kd xyz 2.0 3.0 4.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].DiffuseColor.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].DiffuseColor.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].DiffuseColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].DiffuseColor);
+            Assert.True(mtl.Materials[0].DiffuseColor?.IsXYZ);
+            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.X);
+            Assert.Equal(3.0f, mtl.Materials[0].DiffuseColor?.Color.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].DiffuseColor?.Color.Z);
         }
 
         [Fact]
@@ -253,10 +258,11 @@ Kd xyz 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].DiffuseColor.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].DiffuseColor);
+            Assert.True(mtl.Materials[0].DiffuseColor?.IsXYZ);
+            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.X);
+            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.Y);
+            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.Z);
         }
 
         [Fact]
@@ -269,9 +275,10 @@ Kd spectral b.b 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].DiffuseColor.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].DiffuseColor.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor.SpectralFactor);
+            Assert.NotNull(mtl.Materials[0].DiffuseColor);
+            Assert.True(mtl.Materials[0].DiffuseColor?.IsSpectral);
+            Assert.Equal("b.b", mtl.Materials[0].DiffuseColor?.SpectralFileName);
+            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.SpectralFactor);
         }
 
         [Fact]
@@ -284,9 +291,10 @@ Kd spectral b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].DiffuseColor.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].DiffuseColor.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].DiffuseColor.SpectralFactor);
+            Assert.NotNull(mtl.Materials[0].DiffuseColor);
+            Assert.True(mtl.Materials[0].DiffuseColor?.IsSpectral);
+            Assert.Equal("b.b", mtl.Materials[0].DiffuseColor?.SpectralFileName);
+            Assert.Equal(1.0f, mtl.Materials[0].DiffuseColor?.SpectralFactor);
         }
 
         [Fact]
@@ -312,10 +320,11 @@ Ke 2.0 3.0 4.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].EmissiveColor.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].EmissiveColor.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].EmissiveColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].EmissiveColor);
+            Assert.True(mtl.Materials[0].EmissiveColor?.IsRGB);
+            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.X);
+            Assert.Equal(3.0f, mtl.Materials[0].EmissiveColor?.Color.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].EmissiveColor?.Color.Z);
         }
 
         [Fact]
@@ -328,10 +337,11 @@ Ke 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].EmissiveColor.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].EmissiveColor);
+            Assert.True(mtl.Materials[0].EmissiveColor?.IsRGB);
+            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.X);
+            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.Y);
+            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.Z);
         }
 
         [Fact]
@@ -344,10 +354,11 @@ Ke xyz 2.0 3.0 4.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].EmissiveColor.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].EmissiveColor.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].EmissiveColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].EmissiveColor);
+            Assert.True(mtl.Materials[0].EmissiveColor?.IsXYZ);
+            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.X);
+            Assert.Equal(3.0f, mtl.Materials[0].EmissiveColor?.Color.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].EmissiveColor?.Color.Z);
         }
 
         [Fact]
@@ -360,10 +371,11 @@ Ke xyz 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].EmissiveColor.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].EmissiveColor);
+            Assert.True(mtl.Materials[0].EmissiveColor?.IsXYZ);
+            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.X);
+            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.Y);
+            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.Z);
         }
 
         [Fact]
@@ -376,9 +388,10 @@ Ke spectral b.b 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].EmissiveColor.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].EmissiveColor.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor.SpectralFactor);
+            Assert.NotNull(mtl.Materials[0].EmissiveColor);
+            Assert.True(mtl.Materials[0].EmissiveColor?.IsSpectral);
+            Assert.Equal("b.b", mtl.Materials[0].EmissiveColor?.SpectralFileName);
+            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.SpectralFactor);
         }
 
         [Fact]
@@ -391,9 +404,10 @@ Ke spectral b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].EmissiveColor.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].EmissiveColor.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].EmissiveColor.SpectralFactor);
+            Assert.NotNull(mtl.Materials[0].EmissiveColor);
+            Assert.True(mtl.Materials[0].EmissiveColor?.IsSpectral);
+            Assert.Equal("b.b", mtl.Materials[0].EmissiveColor?.SpectralFileName);
+            Assert.Equal(1.0f, mtl.Materials[0].EmissiveColor?.SpectralFactor);
         }
 
         [Fact]
@@ -419,10 +433,11 @@ Ks 2.0 3.0 4.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].SpecularColor.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].SpecularColor.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].SpecularColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].SpecularColor);
+            Assert.True(mtl.Materials[0].SpecularColor?.IsRGB);
+            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.X);
+            Assert.Equal(3.0f, mtl.Materials[0].SpecularColor?.Color.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].SpecularColor?.Color.Z);
         }
 
         [Fact]
@@ -435,10 +450,11 @@ Ks 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].SpecularColor.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].SpecularColor);
+            Assert.True(mtl.Materials[0].SpecularColor?.IsRGB);
+            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.X);
+            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.Y);
+            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.Z);
         }
 
         [Fact]
@@ -451,10 +467,11 @@ Ks xyz 2.0 3.0 4.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].SpecularColor.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].SpecularColor.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].SpecularColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].SpecularColor);
+            Assert.True(mtl.Materials[0].SpecularColor?.IsXYZ);
+            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.X);
+            Assert.Equal(3.0f, mtl.Materials[0].SpecularColor?.Color.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].SpecularColor?.Color.Z);
         }
 
         [Fact]
@@ -467,10 +484,11 @@ Ks xyz 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].SpecularColor.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].SpecularColor);
+            Assert.True(mtl.Materials[0].SpecularColor?.IsXYZ);
+            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.X);
+            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.Y);
+            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.Z);
         }
 
         [Fact]
@@ -483,9 +501,10 @@ Ks spectral b.b 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].SpecularColor.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].SpecularColor.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor.SpectralFactor);
+            Assert.NotNull(mtl.Materials[0].SpecularColor);
+            Assert.True(mtl.Materials[0].SpecularColor?.IsSpectral);
+            Assert.Equal("b.b", mtl.Materials[0].SpecularColor?.SpectralFileName);
+            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.SpectralFactor);
         }
 
         [Fact]
@@ -498,9 +517,10 @@ Ks spectral b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].SpecularColor.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].SpecularColor.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].SpecularColor.SpectralFactor);
+            Assert.NotNull(mtl.Materials[0].SpecularColor);
+            Assert.True(mtl.Materials[0].SpecularColor?.IsSpectral);
+            Assert.Equal("b.b", mtl.Materials[0].SpecularColor?.SpectralFileName);
+            Assert.Equal(1.0f, mtl.Materials[0].SpecularColor?.SpectralFactor);
         }
 
         [Fact]
@@ -526,10 +546,11 @@ Tf 2.0 3.0 4.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].TransmissionColor.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].TransmissionColor.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].TransmissionColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].TransmissionColor);
+            Assert.True(mtl.Materials[0].TransmissionColor?.IsRGB);
+            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.X);
+            Assert.Equal(3.0f, mtl.Materials[0].TransmissionColor?.Color.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].TransmissionColor?.Color.Z);
         }
 
         [Fact]
@@ -542,10 +563,11 @@ Tf 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].TransmissionColor.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].TransmissionColor);
+            Assert.True(mtl.Materials[0].TransmissionColor?.IsRGB);
+            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.X);
+            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.Y);
+            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.Z);
         }
 
         [Fact]
@@ -558,10 +580,11 @@ Tf xyz 2.0 3.0 4.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].TransmissionColor.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].TransmissionColor.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].TransmissionColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].TransmissionColor);
+            Assert.True(mtl.Materials[0].TransmissionColor?.IsXYZ);
+            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.X);
+            Assert.Equal(3.0f, mtl.Materials[0].TransmissionColor?.Color.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].TransmissionColor?.Color.Z);
         }
 
         [Fact]
@@ -574,10 +597,11 @@ Tf xyz 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].TransmissionColor.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor.Color.Z);
+            Assert.NotNull(mtl.Materials[0].TransmissionColor);
+            Assert.True(mtl.Materials[0].TransmissionColor?.IsXYZ);
+            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.X);
+            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.Y);
+            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.Z);
         }
 
         [Fact]
@@ -590,9 +614,10 @@ Tf spectral b.b 2.0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].TransmissionColor.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].TransmissionColor.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor.SpectralFactor);
+            Assert.NotNull(mtl.Materials[0].TransmissionColor);
+            Assert.True(mtl.Materials[0].TransmissionColor?.IsSpectral);
+            Assert.Equal("b.b", mtl.Materials[0].TransmissionColor?.SpectralFileName);
+            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.SpectralFactor);
         }
 
         [Fact]
@@ -605,9 +630,10 @@ Tf spectral b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.True(mtl.Materials[0].TransmissionColor.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].TransmissionColor.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].TransmissionColor.SpectralFactor);
+            Assert.NotNull(mtl.Materials[0].TransmissionColor);
+            Assert.True(mtl.Materials[0].TransmissionColor?.IsSpectral);
+            Assert.Equal("b.b", mtl.Materials[0].TransmissionColor?.SpectralFileName);
+            Assert.Equal(1.0f, mtl.Materials[0].TransmissionColor?.SpectralFactor);
         }
 
         [Fact]
@@ -775,7 +801,8 @@ map_Ka b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
         }
 
         [Fact]
@@ -797,7 +824,8 @@ map_Kd b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].DiffuseMap.FileName);
+            Assert.NotNull(mtl.Materials[0].DiffuseMap);
+            Assert.Equal("b.b", mtl.Materials[0].DiffuseMap?.FileName);
         }
 
         [Fact]
@@ -819,7 +847,8 @@ map_Ke b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].EmissiveMap.FileName);
+            Assert.NotNull(mtl.Materials[0].EmissiveMap);
+            Assert.Equal("b.b", mtl.Materials[0].EmissiveMap?.FileName);
         }
 
         [Fact]
@@ -841,7 +870,8 @@ map_Ks b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].SpecularMap.FileName);
+            Assert.NotNull(mtl.Materials[0].SpecularMap);
+            Assert.Equal("b.b", mtl.Materials[0].SpecularMap?.FileName);
         }
 
         [Fact]
@@ -863,7 +893,8 @@ map_Ns b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].SpecularExponentMap.FileName);
+            Assert.NotNull(mtl.Materials[0].SpecularExponentMap);
+            Assert.Equal("b.b", mtl.Materials[0].SpecularExponentMap?.FileName);
         }
 
         [Fact]
@@ -885,7 +916,8 @@ map_d b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].DissolveMap.FileName);
+            Assert.NotNull(mtl.Materials[0].DissolveMap);
+            Assert.Equal("b.b", mtl.Materials[0].DissolveMap?.FileName);
         }
 
         [Fact]
@@ -907,7 +939,8 @@ decal b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].DecalMap.FileName);
+            Assert.NotNull(mtl.Materials[0].DecalMap);
+            Assert.Equal("b.b", mtl.Materials[0].DecalMap?.FileName);
         }
 
         [Fact]
@@ -929,7 +962,8 @@ disp b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].DispMap.FileName);
+            Assert.NotNull(mtl.Materials[0].DispMap);
+            Assert.Equal("b.b", mtl.Materials[0].DispMap?.FileName);
         }
 
         [Fact]
@@ -951,7 +985,8 @@ bump b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].BumpMap.FileName);
+            Assert.NotNull(mtl.Materials[0].BumpMap);
+            Assert.Equal("b.b", mtl.Materials[0].BumpMap?.FileName);
         }
 
         [Fact]
@@ -986,7 +1021,8 @@ refl -type sphere b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.Sphere.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.Sphere);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.Sphere?.FileName);
         }
 
         [Fact]
@@ -999,7 +1035,8 @@ refl -type cube_top b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeTop.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeTop);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeTop?.FileName);
         }
 
         [Fact]
@@ -1012,7 +1049,8 @@ refl -type cube_bottom b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeBottom.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBottom);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeBottom?.FileName);
         }
 
         [Fact]
@@ -1025,7 +1063,8 @@ refl -type cube_front b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeFront.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeFront);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeFront?.FileName);
         }
 
         [Fact]
@@ -1038,7 +1077,8 @@ refl -type cube_back b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeBack.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBack);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeBack?.FileName);
         }
 
         [Fact]
@@ -1051,7 +1091,8 @@ refl -type cube_left b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeLeft.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeLeft);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeLeft?.FileName);
         }
 
         [Fact]
@@ -1064,7 +1105,8 @@ refl -type cube_right b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeRight.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeRight);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeRight?.FileName);
         }
 
         [Fact]
@@ -1117,8 +1159,9 @@ map_Ka -blenu " + value + @" b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(expected, mtl.Materials[0].AmbientMap.IsHorizontalBlendingEnabled);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expected, mtl.Materials[0].AmbientMap?.IsHorizontalBlendingEnabled);
         }
 
         [Theory]
@@ -1133,8 +1176,9 @@ map_Ka -blenv " + value + @" b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(expected, mtl.Materials[0].AmbientMap.IsVerticalBlendingEnabled);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expected, mtl.Materials[0].AmbientMap?.IsVerticalBlendingEnabled);
         }
 
         [Fact]
@@ -1147,8 +1191,9 @@ map_Ka -bm 2.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.BumpMultiplier);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.BumpMultiplier);
         }
 
         [Fact]
@@ -1161,8 +1206,9 @@ map_Ka -boost 2.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.Boost);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Boost);
         }
 
         [Theory]
@@ -1177,8 +1223,9 @@ map_Ka -cc " + value + @" b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(expected, mtl.Materials[0].AmbientMap.IsColorCorrectionEnabled);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expected, mtl.Materials[0].AmbientMap?.IsColorCorrectionEnabled);
         }
 
         [Theory]
@@ -1193,8 +1240,9 @@ map_Ka -clamp " + value + @" b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(expected, mtl.Materials[0].AmbientMap.IsClampingEnabled);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expected, mtl.Materials[0].AmbientMap?.IsClampingEnabled);
         }
 
         [Theory]
@@ -1213,8 +1261,9 @@ map_Ka -imfchan " + value + @" b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(expected, mtl.Materials[0].AmbientMap.ScalarChannel);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expected, mtl.Materials[0].AmbientMap?.ScalarChannel);
         }
 
         [Fact]
@@ -1227,9 +1276,10 @@ map_Ka -mm 2.0 3.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.ModifierBase);
-            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap.ModifierGain);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.ModifierBase);
+            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.ModifierGain);
         }
 
         [Fact]
@@ -1242,10 +1292,11 @@ map_Ka -o 2.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.Offset.X);
-            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap.Offset.Y);
-            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap.Offset.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Offset.X);
+            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Offset.Y);
+            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Offset.Z);
         }
 
         [Fact]
@@ -1258,10 +1309,11 @@ map_Ka -o 2.0 3.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.Offset.X);
-            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap.Offset.Y);
-            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap.Offset.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Offset.X);
+            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Offset.Y);
+            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Offset.Z);
         }
 
         [Fact]
@@ -1274,10 +1326,11 @@ map_Ka -o 2.0 3.0 4.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.Offset.X);
-            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap.Offset.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].AmbientMap.Offset.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Offset.X);
+            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Offset.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].AmbientMap?.Offset.Z);
         }
 
         [Fact]
@@ -1290,10 +1343,11 @@ map_Ka -s 2.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.Scale.X);
-            Assert.Equal(1.0f, mtl.Materials[0].AmbientMap.Scale.Y);
-            Assert.Equal(1.0f, mtl.Materials[0].AmbientMap.Scale.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Scale.X);
+            Assert.Equal(1.0f, mtl.Materials[0].AmbientMap?.Scale.Y);
+            Assert.Equal(1.0f, mtl.Materials[0].AmbientMap?.Scale.Z);
         }
 
         [Fact]
@@ -1306,10 +1360,11 @@ map_Ka -s 2.0 3.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.Scale.X);
-            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap.Scale.Y);
-            Assert.Equal(1.0f, mtl.Materials[0].AmbientMap.Scale.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Scale.X);
+            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Scale.Y);
+            Assert.Equal(1.0f, mtl.Materials[0].AmbientMap?.Scale.Z);
         }
 
         [Fact]
@@ -1322,10 +1377,11 @@ map_Ka -s 2.0 3.0 4.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.Scale.X);
-            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap.Scale.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].AmbientMap.Scale.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Scale.X);
+            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Scale.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].AmbientMap?.Scale.Z);
         }
 
         [Fact]
@@ -1338,10 +1394,11 @@ map_Ka -t 2.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.Turbulence.X);
-            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap.Turbulence.Y);
-            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap.Turbulence.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Turbulence.X);
+            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Turbulence.Y);
+            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Turbulence.Z);
         }
 
         [Fact]
@@ -1354,10 +1411,11 @@ map_Ka -t 2.0 3.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.Turbulence.X);
-            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap.Turbulence.Y);
-            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap.Turbulence.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Turbulence.X);
+            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Turbulence.Y);
+            Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Turbulence.Z);
         }
 
         [Fact]
@@ -1370,10 +1428,11 @@ map_Ka -t 2.0 3.0 4.0 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap.Turbulence.X);
-            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap.Turbulence.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].AmbientMap.Turbulence.Z);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Turbulence.X);
+            Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Turbulence.Y);
+            Assert.Equal(4.0f, mtl.Materials[0].AmbientMap?.Turbulence.Z);
         }
 
         [Fact]
@@ -1386,8 +1445,9 @@ map_Ka -texres 2 b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap.FileName);
-            Assert.Equal(2, mtl.Materials[0].AmbientMap.TextureResolution);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(2, mtl.Materials[0].AmbientMap?.TextureResolution);
         }
 
         private ObjMaterialFile ReadMtl(string content)

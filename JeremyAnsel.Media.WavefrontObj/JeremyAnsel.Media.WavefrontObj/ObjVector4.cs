@@ -5,11 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace JeremyAnsel.Media.WavefrontObj
 {
     [System.Diagnostics.DebuggerDisplay("{X} {Y} {Z} {W}")]
@@ -79,7 +74,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             set { this.w = value; }
         }
 
-        public readonly override bool Equals(object obj)
+        public readonly override bool Equals(object? obj)
         {
             return obj is ObjVector4 vector && Equals(vector);
         }

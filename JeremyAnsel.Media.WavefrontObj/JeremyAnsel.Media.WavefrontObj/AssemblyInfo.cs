@@ -5,6 +5,4 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-
 [assembly: CLSCompliant(true)]

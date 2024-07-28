@@ -5,11 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace JeremyAnsel.Media.WavefrontObj
 {
     [System.Diagnostics.DebuggerDisplay("Material:{Name}")]
@@ -25,23 +20,23 @@ namespace JeremyAnsel.Media.WavefrontObj
             this.OpticalDensity = 1.0f;
         }
 
-        public ObjMaterial(string name)
-            :this()
+        public ObjMaterial(string? name)
+            : this()
         {
             this.Name = name;
         }
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public ObjMaterialColor AmbientColor { get; set; }
+        public ObjMaterialColor? AmbientColor { get; set; }
 
-        public ObjMaterialColor DiffuseColor { get; set; }
+        public ObjMaterialColor? DiffuseColor { get; set; }
 
-        public ObjMaterialColor EmissiveColor { get; set; }
+        public ObjMaterialColor? EmissiveColor { get; set; }
 
-        public ObjMaterialColor SpecularColor { get; set; }
+        public ObjMaterialColor? SpecularColor { get; set; }
 
-        public ObjMaterialColor TransmissionColor { get; set; }
+        public ObjMaterialColor? TransmissionColor { get; set; }
 
         public int IlluminationModel { get; set; }
 
@@ -57,23 +52,23 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public bool IsAntiAliasingEnabled { get; set; }
 
-        public ObjMaterialMap AmbientMap { get; set; }
+        public ObjMaterialMap? AmbientMap { get; set; }
 
-        public ObjMaterialMap DiffuseMap { get; set; }
+        public ObjMaterialMap? DiffuseMap { get; set; }
 
-        public ObjMaterialMap EmissiveMap { get; set; }
+        public ObjMaterialMap? EmissiveMap { get; set; }
 
-        public ObjMaterialMap SpecularMap { get; set; }
+        public ObjMaterialMap? SpecularMap { get; set; }
 
-        public ObjMaterialMap SpecularExponentMap { get; set; }
+        public ObjMaterialMap? SpecularExponentMap { get; set; }
 
-        public ObjMaterialMap DissolveMap { get; set; }
+        public ObjMaterialMap? DissolveMap { get; set; }
 
-        public ObjMaterialMap DecalMap { get; set; }
+        public ObjMaterialMap? DecalMap { get; set; }
 
-        public ObjMaterialMap DispMap { get; set; }
+        public ObjMaterialMap? DispMap { get; set; }
 
-        public ObjMaterialMap BumpMap { get; set; }
+        public ObjMaterialMap? BumpMap { get; set; }
 
         public ObjMaterialReflectionMap ReflectionMap { get; private set; }
     }

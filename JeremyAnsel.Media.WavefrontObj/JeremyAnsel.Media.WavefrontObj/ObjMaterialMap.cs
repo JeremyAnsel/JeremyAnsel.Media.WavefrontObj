@@ -5,11 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace JeremyAnsel.Media.WavefrontObj
 {
     [System.Diagnostics.DebuggerDisplay("Material Map:{FileName}")]
@@ -27,13 +22,13 @@ namespace JeremyAnsel.Media.WavefrontObj
             this.Turbulence = new ObjVector3(0.0f, 0.0f, 0.0f);
         }
 
-        public ObjMaterialMap(string fileName)
+        public ObjMaterialMap(string? fileName)
             :this()
         {
             this.FileName = fileName;
         }
 
-        public string FileName { get; set; }
+        public string? FileName { get; set; }
 
         public bool IsHorizontalBlendingEnabled { get; set; }
 

@@ -5,11 +5,7 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
@@ -47,7 +43,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             set { this.curve2D = value; }
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is ObjCurveIndex index && Equals(index);
         }

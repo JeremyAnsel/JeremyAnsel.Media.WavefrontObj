@@ -5,12 +5,7 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
@@ -26,13 +21,13 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public string GroupNames { get; private set; }
 
-        public string ObjectName { get; private set; }
+        public string? ObjectName { get; private set; }
 
         public int LevelOfDetail { get; private set; }
 
-        public string MapName { get; private set; }
+        public string? MapName { get; private set; }
 
-        public string MaterialName { get; private set; }
+        public string? MaterialName { get; private set; }
 
         public long SmoothingGroupNumber { get; private set; }
 

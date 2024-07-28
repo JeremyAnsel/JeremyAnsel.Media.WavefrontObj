@@ -5,11 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace JeremyAnsel.Media.WavefrontObj.Tests
@@ -62,6 +57,7 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
             Assert.Equal(3.0f, v.Position.Y);
             Assert.Equal(4.0f, v.Position.Z);
             Assert.Equal(1.0f, v.Position.W);
+            Assert.NotNull(v.Color);
             Assert.Equal(5.0f, v.Color.Value.X);
             Assert.Equal(6.0f, v.Color.Value.Y);
             Assert.Equal(7.0f, v.Color.Value.Z);
@@ -77,6 +73,7 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
             Assert.Equal(3.0f, v.Position.Y);
             Assert.Equal(4.0f, v.Position.Z);
             Assert.Equal(1.0f, v.Position.W);
+            Assert.NotNull(v.Color);
             Assert.Equal(5.0f, v.Color.Value.X);
             Assert.Equal(6.0f, v.Color.Value.Y);
             Assert.Equal(7.0f, v.Color.Value.Z);

@@ -5,11 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace JeremyAnsel.Media.WavefrontObj
 {
     public abstract class ObjElement
@@ -18,12 +13,12 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
         }
 
-        public string ObjectName { get; set; }
+        public string? ObjectName { get; set; }
 
         public int LevelOfDetail { get; set; }
 
-        public string MapName { get; set; }
+        public string? MapName { get; set; }
 
-        public string MaterialName { get; set; }
+        public string? MaterialName { get; set; }
     }
 }

@@ -5,11 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace JeremyAnsel.Media.WavefrontObj
 {
     internal class ObjFileReaderContext
@@ -23,13 +18,13 @@ namespace JeremyAnsel.Media.WavefrontObj
             this.GroupNames = new List<string>();
         }
 
-        public string ObjectName { get; set; }
+        public string? ObjectName { get; set; }
 
         public int LevelOfDetail { get; set; }
 
-        public string MapName { get; set; }
+        public string? MapName { get; set; }
 
-        public string MaterialName { get; set; }
+        public string? MaterialName { get; set; }
 
         public long SmoothingGroupNumber { get; set; }
 
@@ -49,19 +44,19 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public int DegreeV { get; set; }
 
-        public float[] BasicMatrixU { get; set; }
+        public float[]? BasicMatrixU { get; set; }
 
-        public float[] BasicMatrixV { get; set; }
+        public float[]? BasicMatrixV { get; set; }
 
         public float StepU { get; set; }
 
         public float StepV { get; set; }
 
-        public ObjApproximationTechnique CurveApproximationTechnique { get; set; }
+        public ObjApproximationTechnique? CurveApproximationTechnique { get; set; }
 
-        public ObjApproximationTechnique SurfaceApproximationTechnique { get; set; }
+        public ObjApproximationTechnique? SurfaceApproximationTechnique { get; set; }
 
-        public ObjFreeFormElement CurrentFreeFormElement { get; set; }
+        public ObjFreeFormElement? CurrentFreeFormElement { get; set; }
 
         public List<string> GroupNames { get; private set; }
 

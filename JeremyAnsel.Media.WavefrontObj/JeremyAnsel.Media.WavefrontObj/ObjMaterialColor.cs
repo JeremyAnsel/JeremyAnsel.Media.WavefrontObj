@@ -5,11 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace JeremyAnsel.Media.WavefrontObj
 {
     [System.Diagnostics.DebuggerDisplay("{ToDebuggerDisplayString(),nq}")]
@@ -26,13 +21,13 @@ namespace JeremyAnsel.Media.WavefrontObj
             this.Color = new ObjVector3(x, y, z);
         }
 
-        public ObjMaterialColor(string spectralFileName)
+        public ObjMaterialColor(string? spectralFileName)
             : this()
         {
             this.SpectralFileName = spectralFileName;
         }
 
-        public ObjMaterialColor(string spectralFileName, float factor)
+        public ObjMaterialColor(string? spectralFileName, float factor)
             : this()
         {
             this.SpectralFileName = spectralFileName;
@@ -43,7 +38,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public bool UseXYZColorSpace { get; set; }
 
-        public string SpectralFileName { get; set; }
+        public string? SpectralFileName { get; set; }
 
         public float SpectralFactor { get; set; }
 

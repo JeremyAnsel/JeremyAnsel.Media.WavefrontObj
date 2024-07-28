@@ -6,11 +6,8 @@
 // </license>
 
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace JeremyAnsel.Media.WavefrontObj.Tests
@@ -95,7 +92,7 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         public void Write_NullStream_Throws()
         {
             var obj = new ObjFile();
-            Assert.Throws<ArgumentNullException>("stream", () => obj.WriteTo((Stream)null));
+            Assert.Throws<ArgumentNullException>("stream", () => obj.WriteTo((Stream?)null));
         }
 
         [Fact]

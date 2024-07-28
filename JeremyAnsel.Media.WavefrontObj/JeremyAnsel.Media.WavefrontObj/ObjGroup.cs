@@ -5,11 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace JeremyAnsel.Media.WavefrontObj
 {
     [System.Diagnostics.DebuggerDisplay("Group:{Name}")]
@@ -31,7 +26,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             this.Name = name;
         }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         public List<ObjPoint> Points { get; private set; }
 

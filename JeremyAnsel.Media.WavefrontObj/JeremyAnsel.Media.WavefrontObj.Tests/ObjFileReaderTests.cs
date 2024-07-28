@@ -8,9 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace JeremyAnsel.Media.WavefrontObj.Tests
@@ -1438,7 +1436,7 @@ p 1
         [Theory]
         [InlineData("off", null)]
         [InlineData("a", "a")]
-        public void RenderAttributes_UseMap_Valid(string value, string expected)
+        public void RenderAttributes_UseMap_Valid(string value, string? expected)
         {
             string content = @"
 usemap " + value + @"
@@ -1461,7 +1459,7 @@ p 1
         [Theory]
         [InlineData("off", null)]
         [InlineData("a with spaces", "a with spaces")]
-        public void RenderAttributes_UseMaterial_Valid(string value, string expected)
+        public void RenderAttributes_UseMaterial_Valid(string value, string? expected)
         {
             string content = @"
 usemtl " + value + @"
@@ -1546,7 +1544,7 @@ curv 0 1 1 2
 
             var obj = ReadObj(content);
 
-            ObjApproximationTechnique technique;
+            ObjApproximationTechnique? technique;
 
             if (type == 0)
             {
@@ -1586,7 +1584,7 @@ curv 0 1 1 2
 
             var obj = ReadObj(content);
 
-            ObjApproximationTechnique technique;
+            ObjApproximationTechnique? technique;
 
             if (type == 0)
             {
@@ -1627,7 +1625,7 @@ curv 0 1 1 2
 
             var obj = ReadObj(content);
 
-            ObjApproximationTechnique technique;
+            ObjApproximationTechnique? technique;
 
             if (type == 0)
             {

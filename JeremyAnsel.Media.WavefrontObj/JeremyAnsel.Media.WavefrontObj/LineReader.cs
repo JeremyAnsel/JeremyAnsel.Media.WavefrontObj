@@ -5,10 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
@@ -23,13 +19,13 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             using (var reader = new StreamReader(stream, Encoding.UTF8, true, 1024, true))
             {
-                string line = null;
+                string line = string.Empty;
                 bool isMultiLine = false;
                 bool readHeaderText = true;
 
                 while (!reader.EndOfStream)
                 {
-                    string currentLine = reader.ReadLine();
+                    string? currentLine = reader.ReadLine();
 
                     if (string.IsNullOrWhiteSpace(currentLine))
                     {
