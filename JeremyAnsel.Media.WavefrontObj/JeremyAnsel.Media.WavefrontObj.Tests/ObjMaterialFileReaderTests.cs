@@ -42,7 +42,7 @@ newmtl a
             var mtl = ReadMtl(content);
 
             Assert.Equal("\n header line 1\n\n header line 2\n\n header line 3", mtl.HeaderText);
-            Assert.Equal(1, mtl.Materials.Count);
+            Assert.Single(mtl.Materials);
             Assert.Equal("a", mtl.Materials[0].Name);
         }
 
@@ -59,7 +59,7 @@ newmtl a
 
             var mtl = ReadMtl(content);
 
-            Assert.Equal(1, mtl.Materials.Count);
+            Assert.Single(mtl.Materials);
             Assert.Equal("a with spaces", mtl.Materials[0].Name);
         }
 

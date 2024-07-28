@@ -37,7 +37,7 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Groups.Count);
+            Assert.Single(obj.Groups);
             Assert.Equal("a", obj.Groups[0].Name);
         }
 
@@ -50,7 +50,7 @@ g a";
 
             var obj = ReadObj(content);
 
-            Assert.Equal(0, obj.Groups.Count);
+            Assert.Empty(obj.Groups);
         }
 
         [Fact]

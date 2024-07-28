@@ -42,7 +42,7 @@ g a
             var obj = ReadObj(content);
 
             Assert.Equal("\n header line 1\n\n header line 2\n\n header line 3", obj.HeaderText);
-            Assert.Equal(1, obj.Groups.Count);
+            Assert.Single(obj.Groups);
             Assert.Equal("a", obj.Groups[0].Name);
         }
 
@@ -160,7 +160,7 @@ v 2.0 3.0 4.0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Vertices.Count);
+            Assert.Single(obj.Vertices);
             Assert.Equal(new ObjVertex(2.0f, 3.0f, 4.0f, 1.0f), obj.Vertices[0]);
         }
 
@@ -173,7 +173,7 @@ v 2.0 3.0 4.0 5.0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Vertices.Count);
+            Assert.Single(obj.Vertices);
             Assert.Equal(new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f), obj.Vertices[0]);
         }
 
@@ -186,7 +186,7 @@ v 2.0 3.0 4.0 5.0 6.0 7.0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Vertices.Count);
+            Assert.Single(obj.Vertices);
             Assert.Equal(new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 1.0f), obj.Vertices[0]);
         }
 
@@ -199,7 +199,7 @@ v 2.0 3.0 4.0 5.0 6.0 7.0 8.0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Vertices.Count);
+            Assert.Single(obj.Vertices);
             Assert.Equal(new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f), obj.Vertices[0]);
         }
 
@@ -219,7 +219,7 @@ vp 2.0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.ParameterSpaceVertices.Count);
+            Assert.Single(obj.ParameterSpaceVertices);
             Assert.Equal(new ObjVector3(2.0f, 0.0f, 1.0f), obj.ParameterSpaceVertices[0]);
         }
 
@@ -232,7 +232,7 @@ vp 2.0 3.0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.ParameterSpaceVertices.Count);
+            Assert.Single(obj.ParameterSpaceVertices);
             Assert.Equal(new ObjVector3(2.0f, 3.0f, 1.0f), obj.ParameterSpaceVertices[0]);
         }
 
@@ -245,7 +245,7 @@ vp 2.0 3.0 4.0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.ParameterSpaceVertices.Count);
+            Assert.Single(obj.ParameterSpaceVertices);
             Assert.Equal(new ObjVector3(2.0f, 3.0f, 4.0f), obj.ParameterSpaceVertices[0]);
         }
 
@@ -267,7 +267,7 @@ vn 2.0 3.0 4.0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.VertexNormals.Count);
+            Assert.Single(obj.VertexNormals);
             Assert.Equal(new ObjVector3(2.0f, 3.0f, 4.0f), obj.VertexNormals[0]);
         }
 
@@ -287,7 +287,7 @@ vt 2.0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.TextureVertices.Count);
+            Assert.Single(obj.TextureVertices);
             Assert.Equal(new ObjVector3(2.0f, 0.0f, 0.0f), obj.TextureVertices[0]);
         }
 
@@ -300,7 +300,7 @@ vt 2.0 3.0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.TextureVertices.Count);
+            Assert.Single(obj.TextureVertices);
             Assert.Equal(new ObjVector3(2.0f, 3.0f, 0.0f), obj.TextureVertices[0]);
         }
 
@@ -313,7 +313,7 @@ vt 2.0 3.0 4.0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.TextureVertices.Count);
+            Assert.Single(obj.TextureVertices);
             Assert.Equal(new ObjVector3(2.0f, 3.0f, 4.0f), obj.TextureVertices[0]);
         }
 
@@ -466,7 +466,7 @@ p 2 3
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Points.Count);
+            Assert.Single(obj.Points);
             Assert.Equal(2, obj.Points[0].Vertices.Count);
             Assert.Equal(2, obj.Points[0].Vertices[0].Vertex);
             Assert.Equal(3, obj.Points[0].Vertices[1].Vertex);
@@ -494,7 +494,7 @@ p 2 3
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Points.Count);
+            Assert.Single(obj.Points);
             Assert.Equal(2, obj.Points[0].Vertices.Count);
             Assert.Equal(2, obj.Points[0].Vertices[0].Vertex);
             Assert.Equal(3, obj.Points[0].Vertices[1].Vertex);
@@ -530,7 +530,7 @@ l 2 3 4
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Lines.Count);
+            Assert.Single(obj.Lines);
             Assert.Equal(3, obj.Lines[0].Vertices.Count);
             Assert.Equal(2, obj.Lines[0].Vertices[0].Vertex);
             Assert.Equal(3, obj.Lines[0].Vertices[1].Vertex);
@@ -560,7 +560,7 @@ l 2 3 4
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Lines.Count);
+            Assert.Single(obj.Lines);
             Assert.Equal(3, obj.Lines[0].Vertices.Count);
             Assert.Equal(2, obj.Lines[0].Vertices[0].Vertex);
             Assert.Equal(3, obj.Lines[0].Vertices[1].Vertex);
@@ -604,7 +604,7 @@ v 0 0 0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Faces.Count);
+            Assert.Single(obj.Faces);
             Assert.Equal(5, obj.Faces[0].Vertices.Count);
             Assert.Equal(2, obj.Faces[0].Vertices[0].Vertex);
             Assert.Equal(3, obj.Faces[0].Vertices[1].Vertex);
@@ -640,7 +640,7 @@ v 0 0 0
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Faces.Count);
+            Assert.Single(obj.Faces);
             Assert.Equal(5, obj.Faces[0].Vertices.Count);
             Assert.Equal(2, obj.Faces[0].Vertices[0].Vertex);
             Assert.Equal(3, obj.Faces[0].Vertices[1].Vertex);
@@ -683,7 +683,7 @@ curv 5.0 6.0 2 3 4
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Curves.Count);
+            Assert.Single(obj.Curves);
             Assert.Equal(5.0f, obj.Curves[0].StartParameter);
             Assert.Equal(6.0f, obj.Curves[0].EndParameter);
             Assert.Equal(3, obj.Curves[0].Vertices.Count);
@@ -716,7 +716,7 @@ curv 5.0 6.0 2 3 4
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Curves.Count);
+            Assert.Single(obj.Curves);
             Assert.Equal(5.0f, obj.Curves[0].StartParameter);
             Assert.Equal(6.0f, obj.Curves[0].EndParameter);
             Assert.Equal(3, obj.Curves[0].Vertices.Count);
@@ -759,7 +759,7 @@ curv2 2 3 4
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Curves2D.Count);
+            Assert.Single(obj.Curves2D);
             Assert.Equal(3, obj.Curves2D[0].ParameterSpaceVertices.Count);
             Assert.Equal(2, obj.Curves2D[0].ParameterSpaceVertices[0]);
             Assert.Equal(3, obj.Curves2D[0].ParameterSpaceVertices[1]);
@@ -790,7 +790,7 @@ curv2 2 3 4
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Curves2D.Count);
+            Assert.Single(obj.Curves2D);
             Assert.Equal(3, obj.Curves2D[0].ParameterSpaceVertices.Count);
             Assert.Equal(2, obj.Curves2D[0].ParameterSpaceVertices[0]);
             Assert.Equal(3, obj.Curves2D[0].ParameterSpaceVertices[1]);
@@ -834,7 +834,7 @@ surf 5.0 6.0 7.0 8.0 2 3 4
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Surfaces.Count);
+            Assert.Single(obj.Surfaces);
             Assert.Equal(5.0f, obj.Surfaces[0].StartParameterU);
             Assert.Equal(6.0f, obj.Surfaces[0].EndParameterU);
             Assert.Equal(7.0f, obj.Surfaces[0].StartParameterV);
@@ -869,7 +869,7 @@ surf 5.0 6.0 7.0 8.0 2 3 4
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Surfaces.Count);
+            Assert.Single(obj.Surfaces);
             Assert.Equal(5.0f, obj.Surfaces[0].StartParameterU);
             Assert.Equal(6.0f, obj.Surfaces[0].EndParameterU);
             Assert.Equal(7.0f, obj.Surfaces[0].StartParameterV);
@@ -1145,7 +1145,7 @@ con 2 6.0 7.0 3 4 8.0 9.0 5
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.SurfaceConnections.Count);
+            Assert.Single(obj.SurfaceConnections);
             Assert.Equal(2, obj.SurfaceConnections[0].Surface1);
             Assert.Equal(6.0f, obj.SurfaceConnections[0].Curve2D1.Start);
             Assert.Equal(7.0f, obj.SurfaceConnections[0].Curve2D1.End);
@@ -1167,7 +1167,7 @@ p 1
 
             var obj = ReadObj(content);
 
-            Assert.Equal(0, obj.Groups.Count);
+            Assert.Empty(obj.Groups);
         }
 
         [Fact]
@@ -1181,7 +1181,7 @@ p 1
 
             var obj = ReadObj(content);
 
-            Assert.Equal(0, obj.Groups.Count);
+            Assert.Empty(obj.Groups);
         }
 
         [Fact]
@@ -1191,7 +1191,7 @@ p 1
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.Groups.Count);
+            Assert.Single(obj.Groups);
             Assert.Equal("a", obj.Groups[0].Name);
         }
 
@@ -1424,7 +1424,7 @@ p 1
 
             var obj = ReadObj(content);
 
-            Assert.Equal(1, obj.MaterialLibraries.Count);
+            Assert.Single(obj.MaterialLibraries);
             Assert.Equal("a with spaces.b", obj.MaterialLibraries[0]);
         }
 

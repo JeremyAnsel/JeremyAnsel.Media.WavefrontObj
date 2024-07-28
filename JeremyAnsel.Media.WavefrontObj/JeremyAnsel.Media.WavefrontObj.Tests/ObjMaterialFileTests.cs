@@ -34,7 +34,7 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
 
                 var mtl = ObjMaterialFile.FromFile(temp);
 
-                Assert.Equal(1, mtl.Materials.Count);
+                Assert.Single(mtl.Materials);
                 Assert.Equal("a", mtl.Materials[0].Name);
             }
             finally
