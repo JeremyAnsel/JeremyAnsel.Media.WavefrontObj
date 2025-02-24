@@ -1123,7 +1123,6 @@ namespace JeremyAnsel.Media.WavefrontObj
                 {
                     context.GroupNames.Add(name);
                 }
-                context.GroupNames.Add(name);
             }
             else
             {
