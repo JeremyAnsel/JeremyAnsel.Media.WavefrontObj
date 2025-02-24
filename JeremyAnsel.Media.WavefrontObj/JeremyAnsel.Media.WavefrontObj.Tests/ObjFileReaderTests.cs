@@ -1206,6 +1206,17 @@ p 1
         }
 
         [Fact]
+        public void Group_MultipleNames_OnlyOneGroupNamePerLine_Valid()
+        {
+            string content = "g a b";
+
+            var obj = ReadObj(content, new ObjFileReaderSettings { OnlyOneGroupNamePerLine = true});
+
+            Assert.Single(obj.Groups);
+            Assert.Equal("a b", obj.Groups[0].Name);
+        }
+
+        [Fact]
         public void SmoothingGroup_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadObj("s"));
@@ -1294,6 +1305,42 @@ p 1
             var obj = ReadObj(content);
 
             Assert.Equal("a", obj.Points[0].ObjectName);
+        }
+        
+        
+
+        [Fact]
+        public void ObjectName_SingleName_HandleObjectNamesAsGroup_Valid()
+        {
+            string content = "o a";
+
+            var obj = ReadObj(content, new ObjFileReaderSettings { HandleObjectNamesAsGroup = true});
+
+            Assert.Single(obj.Groups);
+            Assert.Equal("a", obj.Groups[0].Name);
+        }
+
+        [Fact]
+        public void ObjectName_MultipleNames_HandleObjectNamesAsGroup_Valid()
+        {
+            string content = "o a b";
+
+            var obj = ReadObj(content, new ObjFileReaderSettings { HandleObjectNamesAsGroup = true});
+
+            Assert.Equal(2, obj.Groups.Count);
+            Assert.Equal("a", obj.Groups[0].Name);
+            Assert.Equal("b", obj.Groups[1].Name);
+        }
+
+        [Fact]
+        public void ObjectName_OnlyOneGroupNamePerLine_HandleObjectNamesAsGroup_MultipleNames_Valid()
+        {
+            string content = "o a b";
+
+            var obj = ReadObj(content, new ObjFileReaderSettings { HandleObjectNamesAsGroup = true, OnlyOneGroupNamePerLine = true});
+
+            Assert.Single(obj.Groups);
+            Assert.Equal("a b", obj.Groups[0].Name);
         }
 
         [Fact]
@@ -1653,13 +1700,13 @@ curv 0 1 1 2
             Assert.Throws<NotImplementedException>(() => ReadObj(statement));
         }
 
-        private static ObjFile ReadObj(string content)
+        private static ObjFile ReadObj(string content, ObjFileReaderSettings? settings = null)
         {
             var buffer = Encoding.UTF8.GetBytes(content);
 
             using (var stream = new MemoryStream(buffer, false))
             {
-                return ObjFile.FromStream(stream);
+                return ObjFile.FromStream(stream, settings ?? ObjFileReaderSettings.Default);
             }
         }
     }

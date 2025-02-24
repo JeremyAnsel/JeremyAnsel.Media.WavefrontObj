@@ -71,6 +71,11 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public static ObjFile FromFile(string? path)
         {
+            return FromFile(path, ObjFileReaderSettings.Default);
+        }
+
+        public static ObjFile FromFile(string? path, ObjFileReaderSettings settings)
+        {
             if (path == null)
             {
                 throw new ArgumentNullException(nameof(path));
@@ -78,13 +83,18 @@ namespace JeremyAnsel.Media.WavefrontObj
 
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
-                return ObjFileReader.FromStream(stream);
+                return ObjFileReader.FromStream(stream, settings);
             }
         }
 
         public static ObjFile FromStream(Stream? stream)
         {
-            return ObjFileReader.FromStream(stream);
+            return FromStream(stream, ObjFileReaderSettings.Default);
+        }
+
+        public static ObjFile FromStream(Stream? stream, ObjFileReaderSettings settings)
+        {
+            return ObjFileReader.FromStream(stream, settings);
         }
 
         public void WriteTo(string? path)
