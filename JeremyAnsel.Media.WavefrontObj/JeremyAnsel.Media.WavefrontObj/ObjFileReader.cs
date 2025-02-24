@@ -13,7 +13,7 @@ namespace JeremyAnsel.Media.WavefrontObj
     internal static class ObjFileReader
     {
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        public static ObjFile FromStream(Stream? stream)
+        public static ObjFile FromStream(Stream? stream, ObjFileReaderSettings settings)
         {
             if (stream == null)
             {
@@ -644,6 +644,11 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
 
                     case "o":
+                        if (settings.HandleObjectNamesAsGroup)
+                        {
+                            ParseGroupName(values, context);
+                            break;
+                        }
                         if (values.Length == 1)
                         {
                             context.ObjectName = null;

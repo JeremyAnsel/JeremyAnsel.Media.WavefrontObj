@@ -1295,6 +1295,31 @@ p 1
 
             Assert.Equal("a", obj.Points[0].ObjectName);
         }
+        
+        
+
+        [Fact]
+        public void ObjectName_HandleObjectNamesAsGroup_SingleName_Valid()
+        {
+            string content = "o a";
+
+            var obj = ReadObj(content, new ObjFileReaderSettings { HandleObjectNamesAsGroup = true});
+
+            Assert.Single(obj.Groups);
+            Assert.Equal("a", obj.Groups[0].Name);
+        }
+
+        [Fact]
+        public void ObjectName_HandleObjectNamesAsGroup_MultipleNames_Valid()
+        {
+            string content = "o a b";
+
+            var obj = ReadObj(content, new ObjFileReaderSettings { HandleObjectNamesAsGroup = true});
+
+            Assert.Equal(2, obj.Groups.Count);
+            Assert.Equal("a", obj.Groups[0].Name);
+            Assert.Equal("b", obj.Groups[1].Name);
+        }
 
         [Fact]
         public void RenderAttributes_Bevel_Throws()
@@ -1653,13 +1678,13 @@ curv 0 1 1 2
             Assert.Throws<NotImplementedException>(() => ReadObj(statement));
         }
 
-        private static ObjFile ReadObj(string content)
+        private static ObjFile ReadObj(string content, ObjFileReaderSettings? settings = null)
         {
             var buffer = Encoding.UTF8.GetBytes(content);
 
             using (var stream = new MemoryStream(buffer, false))
             {
-                return ObjFile.FromStream(stream);
+                return ObjFile.FromStream(stream, settings ?? ObjFileReaderSettings.Default);
             }
         }
     }
