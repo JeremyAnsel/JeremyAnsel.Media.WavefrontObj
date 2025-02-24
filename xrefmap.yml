@@ -623,6 +623,15 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile(String)
   nameWithType: ObjFile.FromFile(string?)
   nameWithType.vb: ObjFile.FromFile(String)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile(System.String,JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings)
+  name: FromFile(string?, ObjFileReaderSettings)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_FromFile_System_String_JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile(System.String,JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings)
+  name.vb: FromFile(String, ObjFileReaderSettings)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile(string?, JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile(String, JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings)
+  nameWithType: ObjFile.FromFile(string?, ObjFileReaderSettings)
+  nameWithType.vb: ObjFile.FromFile(String, ObjFileReaderSettings)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFile.FromFile*
   name: FromFile
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_FromFile_
@@ -639,6 +648,15 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream(System.IO.Stream)
   nameWithType: ObjFile.FromStream(Stream?)
   nameWithType.vb: ObjFile.FromStream(Stream)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream(System.IO.Stream,JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings)
+  name: FromStream(Stream?, ObjFileReaderSettings)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_FromStream_System_IO_Stream_JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream(System.IO.Stream,JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings)
+  name.vb: FromStream(Stream, ObjFileReaderSettings)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream(System.IO.Stream?, JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream(System.IO.Stream, JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings)
+  nameWithType: ObjFile.FromStream(Stream?, ObjFileReaderSettings)
+  nameWithType.vb: ObjFile.FromStream(Stream, ObjFileReaderSettings)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFile.FromStream*
   name: FromStream
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_FromStream_
@@ -866,6 +884,44 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.WriteTo
   nameWithType: ObjFile.WriteTo
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings
+  name: ObjFileReaderSettings
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html
+  commentId: T:JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings
+  nameWithType: ObjFileReaderSettings
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.Default
+  name: Default
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_Default
+  commentId: F:JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.Default
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.Default
+  nameWithType: ObjFileReaderSettings.Default
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleObjectNamesAsGroup
+  name: HandleObjectNamesAsGroup
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_HandleObjectNamesAsGroup
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleObjectNamesAsGroup
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleObjectNamesAsGroup
+  nameWithType: ObjFileReaderSettings.HandleObjectNamesAsGroup
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleObjectNamesAsGroup*
+  name: HandleObjectNamesAsGroup
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_HandleObjectNamesAsGroup_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleObjectNamesAsGroup
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleObjectNamesAsGroup
+  nameWithType: ObjFileReaderSettings.HandleObjectNamesAsGroup
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.OnlyOneGroupNamePerLine
+  name: OnlyOneGroupNamePerLine
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_OnlyOneGroupNamePerLine
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.OnlyOneGroupNamePerLine
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.OnlyOneGroupNamePerLine
+  nameWithType: ObjFileReaderSettings.OnlyOneGroupNamePerLine
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.OnlyOneGroupNamePerLine*
+  name: OnlyOneGroupNamePerLine
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_OnlyOneGroupNamePerLine_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.OnlyOneGroupNamePerLine
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.OnlyOneGroupNamePerLine
+  nameWithType: ObjFileReaderSettings.OnlyOneGroupNamePerLine
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement
   name: ObjFreeFormElement
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement.html

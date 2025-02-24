@@ -18,7 +18,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjApproximationTechnique.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjApproximationTechnique",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -28,7 +32,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjConstantParametricSubdivisionTechnique",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -38,7 +46,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjConstantSpatialSubdivisionTechnique.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjConstantSpatialSubdivisionTechnique",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -48,7 +60,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurvatureDependentSubdivisionTechnique.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjCurvatureDependentSubdivisionTechnique",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -58,7 +74,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurve.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjCurve",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -68,7 +88,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurve2D.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjCurve2D",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -78,7 +102,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjCurveIndex.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjCurveIndex",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -88,7 +116,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjElement.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjElement",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -98,7 +130,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFace.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjFace",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -108,7 +144,25 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFile.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjFile",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings",
+      "Summary": "<p sourcefile=\"api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.yml\" sourcestartlinenumber=\"1\">Settings to control the behaviour of the <xref href=\"JeremyAnsel.Media.WavefrontObj.ObjFileReader\" data-throw-if-not-resolved=\"false\"></xref></p>\n"
     },
     {
       "type": "ManagedReference",
@@ -118,7 +172,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -128,7 +186,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjFreeFormType.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjFreeFormType",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -138,7 +200,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjGroup.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjGroup",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -148,7 +214,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjLine.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjLine",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -158,7 +228,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMapChannel.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjMapChannel",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -168,7 +242,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjMaterial",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -178,7 +256,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialColor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjMaterialColor",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -188,7 +270,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFile",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -198,7 +284,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjMaterialMap",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -208,7 +298,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjMaterialReflectionMap.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjMaterialReflectionMap",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -218,7 +312,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjPoint.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjPoint",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -228,7 +326,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjPolygonalElement.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjPolygonalElement",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -238,7 +340,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjSurface.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjSurface",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -248,7 +354,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjSurfaceConnection.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjSurfaceConnection",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -258,7 +368,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjTriplet.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjTriplet",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -268,7 +382,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVector3.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjVector3",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -278,7 +396,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjVector4",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -288,7 +410,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.ObjVertex.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj.ObjVertex",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -298,7 +424,11 @@
           "relative_path": "api/JeremyAnsel.Media.WavefrontObj.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Media.WavefrontObj",
+      "Summary": null
     },
     {
       "type": "Conceptual",
