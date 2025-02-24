@@ -11,12 +11,15 @@ namespace JeremyAnsel.Media.WavefrontObj
     {
         private ObjFile obj;
 
-        public ObjFileReaderContext(ObjFile obj)
+        public ObjFileReaderContext(ObjFile obj, ObjFileReaderSettings settings)
         {
             this.obj = obj;
+            this.Settings = settings;
 
             this.GroupNames = new List<string>();
         }
+        
+        public ObjFileReaderSettings Settings { get; }
 
         public string? ObjectName { get; set; }
 

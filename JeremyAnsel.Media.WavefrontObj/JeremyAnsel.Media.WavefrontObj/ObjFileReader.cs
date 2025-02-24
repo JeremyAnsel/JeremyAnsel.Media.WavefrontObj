@@ -21,7 +21,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             }
 
             var obj = new ObjFile();
-            var context = new ObjFileReaderContext(obj);
+            var context = new ObjFileReaderContext(obj, settings);
             var lineReader = new LineReader();
 
             foreach (var values in lineReader.Read(stream))
@@ -654,12 +654,11 @@ namespace JeremyAnsel.Media.WavefrontObj
                             context.ObjectName = null;
                             break;
                         }
-
                         if (values.Length != 2)
                         {
                             throw new InvalidDataException("A o statement has too many values.");
                         }
-
+                        
                         context.ObjectName = values[1];
                         break;
 
@@ -1117,13 +1116,25 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             context.GroupNames.Clear();
 
-            for (int i = 1; i < values.Length; i++)
+            if (context.Settings.OnlyOneGroupNamePerLine)
             {
-                var name = values[i];
-
+                var name = string.Join(" ", values, 1, values.Length - 1);
                 if (!string.Equals(name, "default", StringComparison.OrdinalIgnoreCase))
                 {
                     context.GroupNames.Add(name);
+                }
+                context.GroupNames.Add(name);
+            }
+            else
+            {
+                for (int i = 1; i < values.Length; i++)
+                {
+                    var name = values[i];
+
+                    if (!string.Equals(name, "default", StringComparison.OrdinalIgnoreCase))
+                    {
+                        context.GroupNames.Add(name);
+                    }
                 }
             }
 

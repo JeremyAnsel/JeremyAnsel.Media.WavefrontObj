@@ -18,4 +18,13 @@ public class ObjFileReaderSettings
     ///     This flag should be set to true, when object files should be interpreted like other libraries like three.js or tinyobjloader
     /// </remarks>
     public bool HandleObjectNamesAsGroup { get; set; } = false;
+
+    /// <summary>
+    ///     Normally multiple group names are valid per line e.g. "g group_name1 group_name1"
+    ///     If this flag is set to true, all after the g will be interpreted as a single group name
+    /// </summary>
+    /// <remarks>
+    ///     This flag should be set to true, when object files should be interpreted like other libraries like three.js or tinyobjloader
+    /// </remarks>
+    public bool OnlyOneGroupNamePerLine { get; set; } = false;
 }

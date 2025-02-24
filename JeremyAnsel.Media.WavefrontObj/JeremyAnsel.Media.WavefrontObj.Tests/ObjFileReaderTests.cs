@@ -1206,6 +1206,17 @@ p 1
         }
 
         [Fact]
+        public void Group_MultipleNames_OnlyOneGroupNamePerLine_Valid()
+        {
+            string content = "g a b";
+
+            var obj = ReadObj(content, new ObjFileReaderSettings { OnlyOneGroupNamePerLine = true});
+
+            Assert.Single(obj.Groups);
+            Assert.Equal("a b", obj.Groups[0].Name);
+        }
+
+        [Fact]
         public void SmoothingGroup_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadObj("s"));
@@ -1299,7 +1310,7 @@ p 1
         
 
         [Fact]
-        public void ObjectName_HandleObjectNamesAsGroup_SingleName_Valid()
+        public void ObjectName_SingleName_HandleObjectNamesAsGroup_Valid()
         {
             string content = "o a";
 
@@ -1310,7 +1321,7 @@ p 1
         }
 
         [Fact]
-        public void ObjectName_HandleObjectNamesAsGroup_MultipleNames_Valid()
+        public void ObjectName_MultipleNames_HandleObjectNamesAsGroup_Valid()
         {
             string content = "o a b";
 
@@ -1319,6 +1330,17 @@ p 1
             Assert.Equal(2, obj.Groups.Count);
             Assert.Equal("a", obj.Groups[0].Name);
             Assert.Equal("b", obj.Groups[1].Name);
+        }
+
+        [Fact]
+        public void ObjectName_OnlyOneGroupNamePerLine_HandleObjectNamesAsGroup_MultipleNames_Valid()
+        {
+            string content = "o a b";
+
+            var obj = ReadObj(content, new ObjFileReaderSettings { HandleObjectNamesAsGroup = true, OnlyOneGroupNamePerLine = true});
+
+            Assert.Single(obj.Groups);
+            Assert.Equal("a b", obj.Groups[0].Name);
         }
 
         [Fact]
