@@ -762,11 +762,6 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                         for (int i = 1; i < values.Length; i++)
                         {
-                            if (!Path.HasExtension(values[i]))
-                            {
-                                throw new InvalidDataException("A file name must have an extension.");
-                            }
-
                             obj.MapLibraries.Add(values[i]);
                         }
 
@@ -778,16 +773,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A mtllib statement must specify a file name.");
                         }
 
-                        {
-                            string name = string.Join(" ", values, 1, values.Length - 1);
-
-                            if (!Path.HasExtension(name))
-                            {
-                                throw new InvalidDataException("A file name must have an extension.");
-                            }
-
-                            obj.MaterialLibraries.Add(name);
-                        }
+                        obj.MaterialLibraries.Add(string.Join(" ", values, 1, values.Length - 1));
 
                         break;
 
@@ -841,17 +827,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A shadow_obj statement must specify a file name.");
                         }
 
-                        if (values.Length != 2)
-                        {
-                            throw new InvalidDataException("A shadow_obj statement has too many values.");
-                        }
-
-                        if (!Path.HasExtension(values[1]))
-                        {
-                            throw new InvalidDataException("A file name must have an extension.");
-                        }
-
-                        obj.ShadowObjectFileName = values[1];
+                        obj.ShadowObjectFileName = string.Join(" ", values, 1, values.Length - 1);
                         break;
 
                     case "trace_obj":
@@ -860,17 +836,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A trace_obj statement must specify a file name.");
                         }
 
-                        if (values.Length != 2)
-                        {
-                            throw new InvalidDataException("A trace_obj statement has too many values.");
-                        }
-
-                        if (!Path.HasExtension(values[1]))
-                        {
-                            throw new InvalidDataException("A file name must have an extension.");
-                        }
-
-                        obj.TraceObjectFileName = values[1];
+                        obj.TraceObjectFileName = string.Join(" ", values, 1, values.Length - 1);
                         break;
 
                     case "ctech":

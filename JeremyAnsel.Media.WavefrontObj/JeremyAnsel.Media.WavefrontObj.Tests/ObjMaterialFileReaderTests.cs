@@ -68,7 +68,6 @@ newmtl a
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKa xyz"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKa xyz 0 0"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKa spectral"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKa spectral b"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKa 0 0 0 0"));
         }
 
@@ -167,6 +166,24 @@ Ka spectral b.b 2.0";
         }
 
         [Fact]
+        public void MaterialColor_AmbientSpectral_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+Ka spectral b 2.0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].AmbientColor);
+            Assert.True(mtl.Materials[0].AmbientColor?.IsSpectral);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
+            Assert.Equal("b", mtl.Materials[0].AmbientColor?.SpectralFileName);
+            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.SpectralFactor);
+        }
+
+        [Fact]
         public void MaterialColor_AmbientSpectral_Optional()
         {
             string content = @"
@@ -185,6 +202,24 @@ Ka spectral b.b";
         }
 
         [Fact]
+        public void MaterialColor_AmbientSpectral_OptionalWithoutExtension()
+        {
+            string content = @"
+newmtl a
+Ka spectral b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].AmbientColor);
+            Assert.True(mtl.Materials[0].AmbientColor?.IsSpectral);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
+            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
+            Assert.Equal("b", mtl.Materials[0].AmbientColor?.SpectralFileName);
+            Assert.Equal(1.0f, mtl.Materials[0].AmbientColor?.SpectralFactor);
+        }
+
+        [Fact]
         public void MaterialColor_Diffuse_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("Kd"));
@@ -193,7 +228,6 @@ Ka spectral b.b";
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKd xyz"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKd xyz 0 0"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKd spectral"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKd spectral b"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKd 0 0 0 0"));
         }
 
@@ -282,6 +316,22 @@ Kd spectral b.b 2.0";
         }
 
         [Fact]
+        public void MaterialColor_DiffuseSpectral_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+Kd spectral b 2.0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].DiffuseColor);
+            Assert.True(mtl.Materials[0].DiffuseColor?.IsSpectral);
+            Assert.Equal("b", mtl.Materials[0].DiffuseColor?.SpectralFileName);
+            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.SpectralFactor);
+        }
+
+        [Fact]
         public void MaterialColor_DiffuseSpectral_Optional()
         {
             string content = @"
@@ -298,6 +348,22 @@ Kd spectral b.b";
         }
 
         [Fact]
+        public void MaterialColor_DiffuseSpectral_OptionalWithoutExtension()
+        {
+            string content = @"
+newmtl a
+Kd spectral b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].DiffuseColor);
+            Assert.True(mtl.Materials[0].DiffuseColor?.IsSpectral);
+            Assert.Equal("b", mtl.Materials[0].DiffuseColor?.SpectralFileName);
+            Assert.Equal(1.0f, mtl.Materials[0].DiffuseColor?.SpectralFactor);
+        }
+
+        [Fact]
         public void MaterialColor_Emissive_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("Ke"));
@@ -306,7 +372,6 @@ Kd spectral b.b";
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKe xyz"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKe xyz 0 0"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKe spectral"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKe spectral b"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKe 0 0 0 0"));
         }
 
@@ -395,6 +460,22 @@ Ke spectral b.b 2.0";
         }
 
         [Fact]
+        public void MaterialColor_EmissiveSpectral_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+Ke spectral b 2.0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].EmissiveColor);
+            Assert.True(mtl.Materials[0].EmissiveColor?.IsSpectral);
+            Assert.Equal("b", mtl.Materials[0].EmissiveColor?.SpectralFileName);
+            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.SpectralFactor);
+        }
+
+        [Fact]
         public void MaterialColor_EmissiveSpectral_Optional()
         {
             string content = @"
@@ -411,6 +492,22 @@ Ke spectral b.b";
         }
 
         [Fact]
+        public void MaterialColor_EmissiveSpectral_OptionalWithoutExtension()
+        {
+            string content = @"
+newmtl a
+Ke spectral b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].EmissiveColor);
+            Assert.True(mtl.Materials[0].EmissiveColor?.IsSpectral);
+            Assert.Equal("b", mtl.Materials[0].EmissiveColor?.SpectralFileName);
+            Assert.Equal(1.0f, mtl.Materials[0].EmissiveColor?.SpectralFactor);
+        }
+
+        [Fact]
         public void MaterialColor_Specular_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("Ks"));
@@ -419,7 +516,6 @@ Ke spectral b.b";
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKs xyz"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKs xyz 0 0"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKs spectral"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKs spectral b"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKs 0 0 0 0"));
         }
 
@@ -508,6 +604,22 @@ Ks spectral b.b 2.0";
         }
 
         [Fact]
+        public void MaterialColor_SpecularSpectral_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+Ks spectral b 2.0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].SpecularColor);
+            Assert.True(mtl.Materials[0].SpecularColor?.IsSpectral);
+            Assert.Equal("b", mtl.Materials[0].SpecularColor?.SpectralFileName);
+            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.SpectralFactor);
+        }
+
+        [Fact]
         public void MaterialColor_SpecularSpectral_Optional()
         {
             string content = @"
@@ -524,6 +636,22 @@ Ks spectral b.b";
         }
 
         [Fact]
+        public void MaterialColor_SpecularSpectral_OptionalWithoutExtension()
+        {
+            string content = @"
+newmtl a
+Ks spectral b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].SpecularColor);
+            Assert.True(mtl.Materials[0].SpecularColor?.IsSpectral);
+            Assert.Equal("b", mtl.Materials[0].SpecularColor?.SpectralFileName);
+            Assert.Equal(1.0f, mtl.Materials[0].SpecularColor?.SpectralFactor);
+        }
+
+        [Fact]
         public void MaterialColor_Transmission_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("Tf"));
@@ -532,7 +660,6 @@ Ks spectral b.b";
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nTf xyz"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nTf xyz 0 0"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nTf spectral"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nTf spectral b"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nTf 0 0 0 0"));
         }
 
@@ -621,6 +748,22 @@ Tf spectral b.b 2.0";
         }
 
         [Fact]
+        public void MaterialColor_TransmissionSpectral_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+Tf spectral b 2.0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].TransmissionColor);
+            Assert.True(mtl.Materials[0].TransmissionColor?.IsSpectral);
+            Assert.Equal("b", mtl.Materials[0].TransmissionColor?.SpectralFileName);
+            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.SpectralFactor);
+        }
+
+        [Fact]
         public void MaterialColor_TransmissionSpectral_Optional()
         {
             string content = @"
@@ -633,6 +776,22 @@ Tf spectral b.b";
             Assert.NotNull(mtl.Materials[0].TransmissionColor);
             Assert.True(mtl.Materials[0].TransmissionColor?.IsSpectral);
             Assert.Equal("b.b", mtl.Materials[0].TransmissionColor?.SpectralFileName);
+            Assert.Equal(1.0f, mtl.Materials[0].TransmissionColor?.SpectralFactor);
+        }
+
+        [Fact]
+        public void MaterialColor_TransmissionSpectral_OptionalWithoutExtension()
+        {
+            string content = @"
+newmtl a
+Tf spectral b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].TransmissionColor);
+            Assert.True(mtl.Materials[0].TransmissionColor?.IsSpectral);
+            Assert.Equal("b", mtl.Materials[0].TransmissionColor?.SpectralFileName);
             Assert.Equal(1.0f, mtl.Materials[0].TransmissionColor?.SpectralFactor);
         }
 
@@ -787,8 +946,6 @@ map_aat " + value;
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("map_Ka"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ka"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ka b"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ka b.b 0"));
         }
 
         [Fact]
@@ -806,12 +963,24 @@ map_Ka b.b";
         }
 
         [Fact]
+        public void Texture_Ambient_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+map_Ka b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].AmbientMap);
+            Assert.Equal("b", mtl.Materials[0].AmbientMap?.FileName);
+        }
+
+        [Fact]
         public void Texture_Diffuse_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("map_Kd"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Kd"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Kd b"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Kd b.b 0"));
         }
 
         [Fact]
@@ -829,12 +998,38 @@ map_Kd b.b";
         }
 
         [Fact]
+        public void Texture_Diffuse_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+map_Kd b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].DiffuseMap);
+            Assert.Equal("b", mtl.Materials[0].DiffuseMap?.FileName);
+        }
+
+        [Fact]
+        public void Texture_Diffuse_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+map_Kd b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].DiffuseMap);
+            Assert.Equal("b.b 0", mtl.Materials[0].DiffuseMap?.FileName);
+        }
+
+        [Fact]
         public void Texture_Emissive_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("map_Ke"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ke"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ke b"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ke b.b 0"));
         }
 
         [Fact]
@@ -852,12 +1047,38 @@ map_Ke b.b";
         }
 
         [Fact]
+        public void Texture_Emissive_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+map_Ke b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].EmissiveMap);
+            Assert.Equal("b", mtl.Materials[0].EmissiveMap?.FileName);
+        }
+
+        [Fact]
+        public void Texture_Emissive_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+map_Ke b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].EmissiveMap);
+            Assert.Equal("b.b 0", mtl.Materials[0].EmissiveMap?.FileName);
+        }
+
+        [Fact]
         public void Texture_Specular_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("map_Ks"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ks"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ks b"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ks b.b 0"));
         }
 
         [Fact]
@@ -875,12 +1096,38 @@ map_Ks b.b";
         }
 
         [Fact]
+        public void Texture_Specular_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+map_Ks b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].SpecularMap);
+            Assert.Equal("b", mtl.Materials[0].SpecularMap?.FileName);
+        }
+
+        [Fact]
+        public void Texture_Specular_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+map_Ks b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].SpecularMap);
+            Assert.Equal("b.b 0", mtl.Materials[0].SpecularMap?.FileName);
+        }
+
+        [Fact]
         public void Texture_SpecularExponent_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("map_Ns"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ns"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ns b"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ns b.b 0"));
         }
 
         [Fact]
@@ -898,12 +1145,38 @@ map_Ns b.b";
         }
 
         [Fact]
+        public void Texture_SpecularExponent_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+map_Ns b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].SpecularExponentMap);
+            Assert.Equal("b", mtl.Materials[0].SpecularExponentMap?.FileName);
+        }
+
+        [Fact]
+        public void Texture_SpecularExponent_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+map_Ns b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].SpecularExponentMap);
+            Assert.Equal("b.b 0", mtl.Materials[0].SpecularExponentMap?.FileName);
+        }
+
+        [Fact]
         public void Texture_Dissolve_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("map_d"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_d"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_d b"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_d b.b 0"));
         }
 
         [Fact]
@@ -921,12 +1194,38 @@ map_d b.b";
         }
 
         [Fact]
+        public void Texture_Dissolve_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+map_d b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].DissolveMap);
+            Assert.Equal("b", mtl.Materials[0].DissolveMap?.FileName);
+        }
+
+        [Fact]
+        public void Texture_Dissolve_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+map_d b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].DissolveMap);
+            Assert.Equal("b.b 0", mtl.Materials[0].DissolveMap?.FileName);
+        }
+
+        [Fact]
         public void Texture_Decal_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("decal"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\ndecal"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\ndecal b"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\ndecal b.b 0"));
         }
 
         [Fact]
@@ -944,12 +1243,38 @@ decal b.b";
         }
 
         [Fact]
+        public void Texture_Decal_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+decal b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].DecalMap);
+            Assert.Equal("b", mtl.Materials[0].DecalMap?.FileName);
+        }
+
+        [Fact]
+        public void Texture_Decal_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+decal b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].DecalMap);
+            Assert.Equal("b.b 0", mtl.Materials[0].DecalMap?.FileName);
+        }
+
+        [Fact]
         public void Texture_Disp_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("disp"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\ndisp"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\ndisp b"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\ndisp b.b 0"));
         }
 
         [Fact]
@@ -967,12 +1292,38 @@ disp b.b";
         }
 
         [Fact]
+        public void Texture_Disp_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+disp b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].DispMap);
+            Assert.Equal("b", mtl.Materials[0].DispMap?.FileName);
+        }
+
+        [Fact]
+        public void Texture_Disp_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+disp b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].DispMap);
+            Assert.Equal("b.b 0", mtl.Materials[0].DispMap?.FileName);
+        }
+
+        [Fact]
         public void Texture_Bump_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("bump"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nbump"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nbump b"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nbump b.b 0"));
         }
 
         [Fact]
@@ -996,9 +1347,7 @@ bump b.b";
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nrefl"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nrefl -type"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nrefl -type sphere"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nrefl -type sphere b"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nrefl 0 0 0"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nrefl -type sphere b.b 0"));
         }
 
         [Fact]
@@ -1008,7 +1357,7 @@ bump b.b";
 newmtl a
 refl -type unknown b.b";
 
-            var mtl = ReadMtl(content);
+            _ = ReadMtl(content);
         }
 
         [Fact]
@@ -1026,6 +1375,34 @@ refl -type sphere b.b";
         }
 
         [Fact]
+        public void Texture_ReflectionSphere_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+refl -type sphere b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.Sphere);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.Sphere?.FileName);
+        }
+
+        [Fact]
+        public void Texture_ReflectionSphere_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+refl -type sphere b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.Sphere);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.Sphere?.FileName);
+        }
+
+        [Fact]
         public void Texture_ReflectionCubeTop_Valid()
         {
             string content = @"
@@ -1037,6 +1414,34 @@ refl -type cube_top b.b";
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeTop);
             Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeTop?.FileName);
+        }
+
+        [Fact]
+        public void Texture_ReflectionCubeTop_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+refl -type cube_top b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeTop);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeTop?.FileName);
+        }
+
+        [Fact]
+        public void Texture_ReflectionCubeTop_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+refl -type cube_top b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeTop);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeTop?.FileName);
         }
 
         [Fact]
@@ -1054,6 +1459,34 @@ refl -type cube_bottom b.b";
         }
 
         [Fact]
+        public void Texture_ReflectionCubeBottom_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+refl -type cube_bottom b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBottom);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeBottom?.FileName);
+        }
+
+        [Fact]
+        public void Texture_ReflectionCubeBottom_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+refl -type cube_bottom b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBottom);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeBottom?.FileName);
+        }
+
+        [Fact]
         public void Texture_ReflectionCubeFront_Valid()
         {
             string content = @"
@@ -1065,6 +1498,34 @@ refl -type cube_front b.b";
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeFront);
             Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeFront?.FileName);
+        }
+
+        [Fact]
+        public void Texture_ReflectionCubeFront_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+refl -type cube_front b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeFront);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeFront?.FileName);
+        }
+
+        [Fact]
+        public void Texture_ReflectionCubeFront_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+refl -type cube_front b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeFront);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeFront?.FileName);
         }
 
         [Fact]
@@ -1082,6 +1543,34 @@ refl -type cube_back b.b";
         }
 
         [Fact]
+        public void Texture_ReflectionCubeBack_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+refl -type cube_back b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBack);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeBack?.FileName);
+        }
+
+        [Fact]
+        public void Texture_ReflectionCubeBack_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+refl -type cube_back b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBack);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeBack?.FileName);
+        }
+
+        [Fact]
         public void Texture_ReflectionCubeLeft_Valid()
         {
             string content = @"
@@ -1096,6 +1585,34 @@ refl -type cube_left b.b";
         }
 
         [Fact]
+        public void Texture_ReflectionCubeLeft_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+refl -type cube_left b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeLeft);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeLeft?.FileName);
+        }
+
+        [Fact]
+        public void Texture_ReflectionCubeLeft_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+refl -type cube_left b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeLeft);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeLeft?.FileName);
+        }
+
+        [Fact]
         public void Texture_ReflectionCubeRight_Valid()
         {
             string content = @"
@@ -1107,6 +1624,34 @@ refl -type cube_right b.b";
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeRight);
             Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeRight?.FileName);
+        }
+
+        [Fact]
+        public void Texture_ReflectionCubeRight_ValidWithoutExtension()
+        {
+            string content = @"
+newmtl a
+refl -type cube_right b";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeRight);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeRight?.FileName);
+        }
+
+        [Fact]
+        public void Texture_ReflectionCubeRight_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = @"
+newmtl a
+refl -type cube_right b.b 0";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeRight);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeRight?.FileName);
         }
 
         [Fact]
