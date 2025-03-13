@@ -398,11 +398,6 @@ namespace JeremyAnsel.Media.WavefrontObj
                         throw new InvalidDataException(string.Concat("A ", statement, " spectral statement must specify a file name."));
                     }
 
-                    if (!Path.HasExtension(values[index]))
-                    {
-                        throw new InvalidDataException("A filename must have an extension.");
-                    }
-
                     color.SpectralFileName = values[index];
                     index++;
 
@@ -767,15 +762,6 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                     default:
                         string filename = string.Join(" ", values, index, values.Length - index);
-
-                        if (!Path.HasExtension(filename))
-                        {
-                            throw new InvalidDataException("A filename must have an extension.");
-                        }
-                        if (Path.GetExtension(filename).Contains(" "))
-                        {
-                            throw new InvalidDataException("A filename extension must not have whitespace.");
-                        }
 
                         map.FileName = filename;
                         index = values.Length;

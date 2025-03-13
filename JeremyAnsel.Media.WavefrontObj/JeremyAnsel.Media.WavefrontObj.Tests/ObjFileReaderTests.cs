@@ -1440,26 +1440,24 @@ p 1
         public void RenderAttributes_MapLibrary_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadObj("maplib"));
-            Assert.Throws<InvalidDataException>(() => ReadObj("maplib a"));
         }
 
         [Fact]
         public void RenderAttributes_MapLibrary_Valid()
         {
-            string content = "maplib a.a b.b";
+            string content = "maplib a.a b";
 
             var obj = ReadObj(content);
 
             Assert.Equal(2, obj.MapLibraries.Count);
             Assert.Equal("a.a", obj.MapLibraries[0]);
-            Assert.Equal("b.b", obj.MapLibraries[1]);
+            Assert.Equal("b", obj.MapLibraries[1]);
         }
 
         [Fact]
         public void RenderAttributes_MaterialLibrary_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadObj("mtllib"));
-            Assert.Throws<InvalidDataException>(() => ReadObj("mtllib a"));
         }
 
         [Fact]
@@ -1471,6 +1469,17 @@ p 1
 
             Assert.Single(obj.MaterialLibraries);
             Assert.Equal("a with spaces.b", obj.MaterialLibraries[0]);
+        }
+
+        [Fact]
+        public void RenderAttributes_MaterialLibrary_ValidWithoutExtension()
+        {
+            string content = "mtllib a with spaces";
+
+            var obj = ReadObj(content);
+
+            Assert.Single(obj.MaterialLibraries);
+            Assert.Equal("a with spaces", obj.MaterialLibraries[0]);
         }
 
         [Fact]
@@ -1523,8 +1532,6 @@ p 1
         public void RenderAttributes_ShadowObject_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadObj("shadow_obj"));
-            Assert.Throws<InvalidDataException>(() => ReadObj("shadow_obj a.a 0"));
-            Assert.Throws<InvalidDataException>(() => ReadObj("shadow_obj a"));
         }
 
         [Fact]
@@ -1538,11 +1545,29 @@ p 1
         }
 
         [Fact]
+        public void RenderAttributes_ShadowObject_ValidWithoutExtension()
+        {
+            string content = "shadow_obj a";
+
+            var obj = ReadObj(content);
+
+            Assert.Equal("a", obj.ShadowObjectFileName);
+        }
+
+        [Fact]
+        public void RenderAttributes_ShadowObject_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = "shadow_obj a.a 0";
+
+            var obj = ReadObj(content);
+
+            Assert.Equal("a.a 0", obj.ShadowObjectFileName);
+        }
+
+        [Fact]
         public void RenderAttributes_TraceObject_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadObj("trace_obj"));
-            Assert.Throws<InvalidDataException>(() => ReadObj("trace_obj a.a 0"));
-            Assert.Throws<InvalidDataException>(() => ReadObj("trace_obj a"));
         }
 
         [Fact]
@@ -1553,6 +1578,26 @@ p 1
             var obj = ReadObj(content);
 
             Assert.Equal("a.a", obj.TraceObjectFileName);
+        }
+
+        [Fact]
+        public void RenderAttributes_TraceObject_ValidWithoutExtension()
+        {
+            string content = "trace_obj a";
+
+            var obj = ReadObj(content);
+
+            Assert.Equal("a", obj.TraceObjectFileName);
+        }
+
+        [Fact]
+        public void RenderAttributes_TraceObject_ValidWithExtensionIncludingWhitespace()
+        {
+            string content = "trace_obj a.a 0";
+
+            var obj = ReadObj(content);
+
+            Assert.Equal("a.a 0", obj.TraceObjectFileName);
         }
 
         [Fact]
