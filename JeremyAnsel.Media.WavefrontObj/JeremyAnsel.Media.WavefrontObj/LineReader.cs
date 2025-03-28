@@ -11,11 +11,11 @@ namespace JeremyAnsel.Media.WavefrontObj
 {
     internal class LineReader
     {
-        private static readonly char[] lineSeparators = new char[] { ' ', '\t' };
+        public static readonly char[] LineSeparators = new char[] { ' ', '\t' };
 
         public List<string> HeaderTextLines { get; } = new List<string>();
 
-        public IEnumerable<string[]> Read(Stream stream)
+        public IEnumerable<string> Read(Stream stream)
         {
             using (var reader = new StreamReader(stream, Encoding.UTF8, true, 1024, true))
             {
@@ -77,9 +77,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                         line = line.Substring(0, commentIndex);
                     }
 
-                    string[] values = line.Split(lineSeparators, StringSplitOptions.RemoveEmptyEntries);
-
-                    yield return values;
+                    yield return line;
                 }
             }
         }

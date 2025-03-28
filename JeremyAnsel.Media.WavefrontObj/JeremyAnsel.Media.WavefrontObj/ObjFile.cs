@@ -83,7 +83,11 @@ namespace JeremyAnsel.Media.WavefrontObj
 
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
+#if NET6_0_OR_GREATER
+                return ObjFileReader9.FromStream(stream, settings);
+#else
                 return ObjFileReader.FromStream(stream, settings);
+#endif
             }
         }
 
@@ -94,7 +98,11 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public static ObjFile FromStream(Stream? stream, ObjFileReaderSettings settings)
         {
+#if NET6_0_OR_GREATER
+            return ObjFileReader9.FromStream(stream, settings);
+#else
             return ObjFileReader.FromStream(stream, settings);
+#endif
         }
 
         public void WriteTo(string? path)

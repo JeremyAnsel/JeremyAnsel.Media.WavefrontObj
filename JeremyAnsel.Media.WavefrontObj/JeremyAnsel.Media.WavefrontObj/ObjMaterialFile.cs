@@ -30,13 +30,21 @@ namespace JeremyAnsel.Media.WavefrontObj
 
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
+#if NET6_0_OR_GREATER
+                return ObjMaterialFileReader9.FromStream(stream);
+#else
                 return ObjMaterialFileReader.FromStream(stream);
+#endif
             }
         }
 
         public static ObjMaterialFile FromStream(Stream? stream)
         {
+#if NET6_0_OR_GREATER
+            return ObjMaterialFileReader9.FromStream(stream);
+#else
             return ObjMaterialFileReader.FromStream(stream);
+#endif
         }
 
         public void WriteTo(string? path)

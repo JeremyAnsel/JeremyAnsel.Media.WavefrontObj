@@ -24,8 +24,10 @@ namespace JeremyAnsel.Media.WavefrontObj
             var context = new ObjFileReaderContext(obj, settings);
             var lineReader = new LineReader();
 
-            foreach (var values in lineReader.Read(stream))
+            foreach (string currentLine in lineReader.Read(stream))
             {
+                string[] values = currentLine.Split(LineReader.LineSeparators, StringSplitOptions.RemoveEmptyEntries);
+
                 switch (values[0].ToLowerInvariant())
                 {
                     case "v":
@@ -658,7 +660,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                         {
                             throw new InvalidDataException("A o statement has too many values.");
                         }
-                        
+
                         context.ObjectName = values[1];
                         break;
 
