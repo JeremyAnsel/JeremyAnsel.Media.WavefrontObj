@@ -3005,19 +3005,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.GetHashCode
   nameWithType: ObjVector4.GetHashCode
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3
-  name: ToVector3()
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_ToVector3
-  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3()
-  nameWithType: ObjVector4.ToVector3()
-- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3*
-  name: ToVector3
-  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_ToVector3_
-  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector4
+  name: ToVector4()
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_ToVector4
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector4
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector4()
+  nameWithType: ObjVector4.ToVector4()
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector4*
+  name: ToVector4
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_ToVector4_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector4
   isSpec: "True"
-  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3
-  nameWithType: ObjVector4.ToVector3
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector4
+  nameWithType: ObjVector4.ToVector4
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.W
   name: W
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_W

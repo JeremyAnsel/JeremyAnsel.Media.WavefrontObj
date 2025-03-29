@@ -162,7 +162,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings",
-      "Summary": "<p sourcefile=\"api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.yml\" sourcestartlinenumber=\"1\">Settings to control the behaviour of the <xref href=\"JeremyAnsel.Media.WavefrontObj.ObjFileReader\" data-throw-if-not-resolved=\"false\"></xref></p>\n"
+      "Summary": "<p sourcefile=\"api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.yml\" sourcestartlinenumber=\"1\">Settings to control the behaviour of the ObjFileReader</p>\n"
     },
     {
       "type": "ManagedReference",
