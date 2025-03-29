@@ -63,8 +63,8 @@ namespace JeremyAnsel.Media.WavefrontObj
         private string ToDebuggerDisplayString()
         {
             if (IsSpectral) return $"Spectral:{SpectralFileName} Factor:{SpectralFactor}";
-            if (UseXYZColorSpace) return $"X:{Color.X} Y:{Color.X} Z:{Color.X}";
-            return $"R:{Color.X} G:{Color.X} B:{Color.X}";
+            if (UseXYZColorSpace) return $"X:{Color.X} Y:{Color.Y} Z:{Color.Z}";
+            return $"R:{Color.X} G:{Color.Y} B:{Color.Z}";
         }
     }
 }

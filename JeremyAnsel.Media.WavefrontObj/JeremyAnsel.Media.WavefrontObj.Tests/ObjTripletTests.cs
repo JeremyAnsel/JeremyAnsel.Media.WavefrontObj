@@ -79,5 +79,15 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
 
             Assert.Equal(expected, text);
         }
+
+        [Fact]
+        public void Equality()
+        {
+            var first = new ObjTriplet(2, 3, 4);
+            var second = new ObjTriplet(2, 3, 4);
+            var third = new ObjTriplet(20, 30, 40);
+
+            SharpEqualityAssert.EqualityAssert.EqualityMembers(first, second, third);
+        }
     }
 }

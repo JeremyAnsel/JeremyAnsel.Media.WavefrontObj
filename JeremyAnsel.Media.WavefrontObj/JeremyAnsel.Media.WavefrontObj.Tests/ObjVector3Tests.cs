@@ -67,6 +67,16 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         }
 
         [Fact]
+        public void NewNumericsVector2()
+        {
+            var v = new ObjVector3(new System.Numerics.Vector2(2.0f, 3.0f), 4.0f);
+
+            Assert.Equal(2.0f, v.X);
+            Assert.Equal(3.0f, v.Y);
+            Assert.Equal(4.0f, v.Z);
+        }
+
+        [Fact]
         public void ToNumericsVector3()
         {
             var v = new ObjVector3(2.0f, 3.0f, 4.0f);
@@ -85,6 +95,16 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
             Assert.Equal(2.0f, x);
             Assert.Equal(3.0f, y);
             Assert.Equal(4.0f, z);
+        }
+
+        [Fact]
+        public void Equality()
+        {
+            var first = new ObjVector3(2.0f, 3.0f, 4.0f);
+            var second = new ObjVector3(2.0f, 3.0f, 4.0f);
+            var third = new ObjVector3(20.0f, 30.0f, 40.0f);
+
+            SharpEqualityAssert.EqualityAssert.EqualityMembers(first, second, third);
         }
     }
 }

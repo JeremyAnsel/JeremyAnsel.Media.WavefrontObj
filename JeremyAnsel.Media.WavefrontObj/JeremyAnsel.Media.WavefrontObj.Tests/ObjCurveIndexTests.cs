@@ -46,5 +46,15 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
 
             Assert.Equal(expected, text);
         }
+
+        [Fact]
+        public void Equality()
+        {
+            var first = new ObjCurveIndex(2.0f, 3.0f, 4);
+            var second = new ObjCurveIndex(2.0f, 3.0f, 4);
+            var third = new ObjCurveIndex(20.0f, 30.0f, 40);
+
+            SharpEqualityAssert.EqualityAssert.EqualityMembers(first, second, third);
+        }
     }
 }

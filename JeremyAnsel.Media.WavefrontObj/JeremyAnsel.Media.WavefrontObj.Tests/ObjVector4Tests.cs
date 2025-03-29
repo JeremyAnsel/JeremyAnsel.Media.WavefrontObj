@@ -94,5 +94,15 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
             Assert.Equal(4.0f, z);
             Assert.Equal(5.0f, w);
         }
+
+        [Fact]
+        public void Equality()
+        {
+            var first = new ObjVector4(2.0f, 3.0f, 4.0f, 5.0f);
+            var second = new ObjVector4(2.0f, 3.0f, 4.0f, 5.0f);
+            var third = new ObjVector4(20.0f, 30.0f, 40.0f, 50.0f);
+
+            SharpEqualityAssert.EqualityAssert.EqualityMembers(first, second, third);
+        }
     }
 }

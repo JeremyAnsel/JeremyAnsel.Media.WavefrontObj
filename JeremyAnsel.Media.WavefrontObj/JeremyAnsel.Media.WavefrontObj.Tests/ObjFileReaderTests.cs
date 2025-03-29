@@ -40,6 +40,17 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         }
 
         [Fact]
+        public void Parsing_SpacesStatement_Valid()
+        {
+            string content = "g \t  \t\t a";
+
+            var obj = ReadObj(content);
+
+            Assert.Single(obj.Groups);
+            Assert.Equal("a", obj.Groups[0].Name);
+        }
+
+        [Fact]
         public void HeaderText_Valid()
         {
             string content = @"

@@ -38,6 +38,17 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         }
 
         [Fact]
+        public void Parsing_SpacesStatement_Valid()
+        {
+            string content = "newmtl \t  \t\t a";
+
+            var mtl = ReadMtl(content);
+
+            Assert.Single(mtl.Materials);
+            Assert.Equal("a", mtl.Materials[0].Name);
+        }
+
+        [Fact]
         public void HeaderText_Valid()
         {
             string content = @"

@@ -79,5 +79,15 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
             Assert.Equal(7.0f, v.Color.Value.Z);
             Assert.Equal(8.0f, v.Color.Value.W);
         }
+
+        [Fact]
+        public void Equality()
+        {
+            var first = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f);
+            var second = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f);
+            var third = new ObjVertex(20.0f, 30.0f, 40.0f, 50.0f, 60.0f, 70.0f, 80.0f);
+
+            SharpEqualityAssert.EqualityAssert.EqualityMembers(first, second, third);
+        }
     }
 }
