@@ -22,6 +22,22 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         }
 
         [Fact]
+        public void Parsing_UnknownLongStatement_Valid()
+        {
+            string content = "unknown_unknown_unknown_unknown";
+
+            var mtl = ReadMtl(content);
+        }
+
+        [Fact]
+        public void Parsing_UnknownSpacesStatement_Valid()
+        {
+            string content = "unknown \t  \t\t 0";
+
+            var mtl = ReadMtl(content);
+        }
+
+        [Fact]
         public void HeaderText_Valid()
         {
             string content = @"

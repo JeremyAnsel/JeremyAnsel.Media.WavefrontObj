@@ -5,10 +5,13 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
+using Equatable.Attributes;
+
 namespace JeremyAnsel.Media.WavefrontObj
 {
     [System.Diagnostics.DebuggerDisplay("Vertex Position:{Position} Color:{Color}")]
-    public struct ObjVertex : IEquatable<ObjVertex>
+    [Equatable]
+    public partial struct ObjVertex
     {
         private ObjVector4 position;
 
@@ -48,40 +51,6 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             get { return this.color; }
             set { this.color = value; }
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return obj is ObjVertex vertex && Equals(vertex);
-        }
-
-        public bool Equals(ObjVertex other)
-        {
-            return position.Equals(other.position) &&
-                   EqualityComparer<ObjVector4?>.Default.Equals(color, other.color);
-        }
-
-        public override int GetHashCode()
-        {
-            var hashCode = -2056440846;
-            hashCode = hashCode * -1521134295 + EqualityComparer<ObjVector4>.Default.GetHashCode(position);
-
-            if (color.HasValue)
-            {
-                hashCode = hashCode * -1521134295 + EqualityComparer<ObjVector4>.Default.GetHashCode(color.Value);
-            }
-
-            return hashCode;
-        }
-
-        public static bool operator ==(ObjVertex left, ObjVertex right)
-        {
-            return left.Equals(right);
-        }
-
-        public static bool operator !=(ObjVertex left, ObjVertex right)
-        {
-            return !(left == right);
         }
     }
 }

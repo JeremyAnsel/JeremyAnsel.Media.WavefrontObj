@@ -5,6 +5,8 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
+#if !NET6_0_OR_GREATER
+
 using System.Text;
 
 namespace JeremyAnsel.Media.WavefrontObj
@@ -83,3 +85,5 @@ namespace JeremyAnsel.Media.WavefrontObj
         }
     }
 }
+
+#endif

@@ -5,6 +5,8 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
+#if !NET6_0_OR_GREATER
+
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
@@ -412,65 +414,69 @@ namespace JeremyAnsel.Media.WavefrontObj
                     break;
 
                 case "xyz":
-                    index++;
-
-                    if (values.Length - index < 1)
                     {
-                        throw new InvalidDataException(string.Concat("A ", statement, " xyz statement must specify a color."));
-                    }
+                        index++;
 
-                    color.UseXYZColorSpace = true;
-
-                    var xyz = new ObjVector3();
-
-                    xyz.X = float.Parse(values[index], CultureInfo.InvariantCulture);
-                    index++;
-
-                    if (values.Length > index)
-                    {
-                        if (values.Length - index < 2)
+                        if (values.Length - index < 1)
                         {
-                            throw new InvalidDataException(string.Concat("A ", statement, " xyz statement must specify a XYZ color."));
+                            throw new InvalidDataException(string.Concat("A ", statement, " xyz statement must specify a color."));
                         }
 
-                        xyz.Y = float.Parse(values[index], CultureInfo.InvariantCulture);
-                        xyz.Z = float.Parse(values[index + 1], CultureInfo.InvariantCulture);
-                        index += 2;
-                    }
-                    else
-                    {
-                        xyz.Y = xyz.X;
-                        xyz.Z = xyz.X;
-                    }
+                        color.UseXYZColorSpace = true;
 
-                    color.Color = xyz;
-                    break;
+                        var xyz = new ObjVector3();
+
+                        xyz.X = float.Parse(values[index], CultureInfo.InvariantCulture);
+                        index++;
+
+                        if (values.Length > index)
+                        {
+                            if (values.Length - index < 2)
+                            {
+                                throw new InvalidDataException(string.Concat("A ", statement, " xyz statement must specify a XYZ color."));
+                            }
+
+                            xyz.Y = float.Parse(values[index], CultureInfo.InvariantCulture);
+                            xyz.Z = float.Parse(values[index + 1], CultureInfo.InvariantCulture);
+                            index += 2;
+                        }
+                        else
+                        {
+                            xyz.Y = xyz.X;
+                            xyz.Z = xyz.X;
+                        }
+
+                        color.Color = xyz;
+                        break;
+                    }
 
                 default:
-                    var rgb = new ObjVector3();
-
-                    rgb.X = float.Parse(values[index], CultureInfo.InvariantCulture);
-                    index++;
-
-                    if (values.Length > index)
                     {
-                        if (values.Length - index < 2)
+                        var rgb = new ObjVector3();
+
+                        rgb.X = float.Parse(values[index], CultureInfo.InvariantCulture);
+                        index++;
+
+                        if (values.Length > index)
                         {
-                            throw new InvalidDataException(string.Concat("A ", statement, " statement must specify a RGB color."));
+                            if (values.Length - index < 2)
+                            {
+                                throw new InvalidDataException(string.Concat("A ", statement, " statement must specify a RGB color."));
+                            }
+
+                            rgb.Y = float.Parse(values[index], CultureInfo.InvariantCulture);
+                            rgb.Z = float.Parse(values[index + 1], CultureInfo.InvariantCulture);
+                            index += 2;
+                        }
+                        else
+                        {
+                            rgb.Y = rgb.X;
+                            rgb.Z = rgb.X;
                         }
 
-                        rgb.Y = float.Parse(values[index], CultureInfo.InvariantCulture);
-                        rgb.Z = float.Parse(values[index + 1], CultureInfo.InvariantCulture);
-                        index += 2;
+                        color.Color = rgb;
+                        break;
                     }
-                    else
-                    {
-                        rgb.Y = rgb.X;
-                        rgb.Z = rgb.X;
-                    }
-
-                    color.Color = rgb;
-                    break;
             }
 
             if (index != values.Length)
@@ -696,60 +702,64 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
 
                     case "-s":
-                        if (values.Length - index < 2)
                         {
-                            throw new InvalidDataException(string.Concat("A ", statement, " -s option must specify at least 2 values."));
-                        }
-
-                        var scale = new ObjVector3(1.0f, 1.0f, 1.0f);
-
-                        scale.X = float.Parse(values[index + 1], CultureInfo.InvariantCulture);
-
-                        if (values.Length - index > 3)
-                        {
-                            scale.Y = float.Parse(values[index + 2], CultureInfo.InvariantCulture);
-
-                            if (values.Length - index > 4)
+                            if (values.Length - index < 2)
                             {
-                                scale.Z = float.Parse(values[index + 3], CultureInfo.InvariantCulture);
+                                throw new InvalidDataException(string.Concat("A ", statement, " -s option must specify at least 2 values."));
+                            }
+
+                            var scale = new ObjVector3(1.0f, 1.0f, 1.0f);
+
+                            scale.X = float.Parse(values[index + 1], CultureInfo.InvariantCulture);
+
+                            if (values.Length - index > 3)
+                            {
+                                scale.Y = float.Parse(values[index + 2], CultureInfo.InvariantCulture);
+
+                                if (values.Length - index > 4)
+                                {
+                                    scale.Z = float.Parse(values[index + 3], CultureInfo.InvariantCulture);
+                                    index++;
+                                }
+
                                 index++;
                             }
 
                             index++;
+
+                            map.Scale = scale;
+                            break;
                         }
-
-                        index++;
-
-                        map.Scale = scale;
-                        break;
 
                     case "-t":
-                        if (values.Length - index < 2)
                         {
-                            throw new InvalidDataException(string.Concat("A ", statement, " -t option must specify at least 2 values."));
-                        }
-
-                        var turbulence = new ObjVector3();
-
-                        turbulence.X = float.Parse(values[index + 1], CultureInfo.InvariantCulture);
-
-                        if (values.Length - index > 3)
-                        {
-                            turbulence.Y = float.Parse(values[index + 2], CultureInfo.InvariantCulture);
-
-                            if (values.Length - index > 4)
+                            if (values.Length - index < 2)
                             {
-                                turbulence.Z = float.Parse(values[index + 3], CultureInfo.InvariantCulture);
+                                throw new InvalidDataException(string.Concat("A ", statement, " -t option must specify at least 2 values."));
+                            }
+
+                            var turbulence = new ObjVector3();
+
+                            turbulence.X = float.Parse(values[index + 1], CultureInfo.InvariantCulture);
+
+                            if (values.Length - index > 3)
+                            {
+                                turbulence.Y = float.Parse(values[index + 2], CultureInfo.InvariantCulture);
+
+                                if (values.Length - index > 4)
+                                {
+                                    turbulence.Z = float.Parse(values[index + 3], CultureInfo.InvariantCulture);
+                                    index++;
+                                }
+
                                 index++;
                             }
 
                             index++;
+
+                            map.Turbulence = turbulence;
+                            break;
                         }
-
-                        index++;
-
-                        map.Turbulence = turbulence;
-                        break;
 
                     case "-texres":
                         if (values.Length - index < 2)
@@ -763,12 +773,13 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
 
                     default:
-                        string filename = string.Join(" ", values, index, values.Length - index);
+                        {
+                            string filename = string.Join(" ", values, index, values.Length - index);
 
-                        map.FileName = filename;
-                        index = values.Length;
-
-                        break;
+                            map.FileName = filename;
+                            index = values.Length;
+                            break;
+                        }
                 }
             }
 
@@ -776,3 +787,5 @@ namespace JeremyAnsel.Media.WavefrontObj
         }
     }
 }
+
+#endif

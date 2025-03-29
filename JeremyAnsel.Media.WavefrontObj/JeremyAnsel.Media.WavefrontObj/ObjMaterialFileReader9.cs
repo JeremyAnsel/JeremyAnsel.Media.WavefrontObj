@@ -21,26 +21,20 @@ namespace JeremyAnsel.Media.WavefrontObj
 {
     internal static class ObjMaterialFileReader9
     {
-        private static bool MoveNextSkipEmpty(ref SpanSplitEnumerator values)
+        private static void MoveNextSkipEmpty(ref SpanSplitEnumerator values)
         {
             while (values.MoveNext())
             {
                 if (values.Current.Start.Value != values.Current.End.Value)
                 {
-                    return true;
+                    return;
                 }
             }
-
-            return false;
         }
 
         private static ReadOnlySpan<char> GetNextValue(ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values)
         {
-            if (!MoveNextSkipEmpty(ref values))
-            {
-                throw new InvalidDataException("missing value");
-            }
-
+            MoveNextSkipEmpty(ref values);
             return currentLine[values.Current];
         }
 
@@ -52,11 +46,6 @@ namespace JeremyAnsel.Media.WavefrontObj
         private static int IntParse(ReadOnlySpan<char> s)
         {
             return int.Parse(s, NumberStyles.Integer, CultureInfo.InvariantCulture);
-        }
-
-        private static long LongParse(ReadOnlySpan<char> s)
-        {
-            return long.Parse(s, NumberStyles.Integer, CultureInfo.InvariantCulture);
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
@@ -81,7 +70,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                 int valuesCount = 0;
 
-                foreach (Range range in currentLine.SplitAny(LineReader.LineSeparators))
+                foreach (Range range in currentLine.SplitAny(LineReader9.LineSeparators))
                 {
                     if (currentLine[range].Length == 0)
                     {
@@ -91,12 +80,9 @@ namespace JeremyAnsel.Media.WavefrontObj
                     valuesCount++;
                 }
 
-                SpanSplitEnumerator values = currentLine.SplitAny(LineReader.LineSeparators);
+                SpanSplitEnumerator values = currentLine.SplitAny(LineReader9.LineSeparators);
 
-                if (!MoveNextSkipEmpty(ref values))
-                {
-                    continue;
-                }
+                MoveNextSkipEmpty(ref values);
 
                 if (values.Current.End.Value - values.Current.Start.Value > valueBufferSize)
                 {
@@ -106,10 +92,10 @@ namespace JeremyAnsel.Media.WavefrontObj
                 ReadOnlySpan<char> value0 = currentLine[values.Current];
                 int value0Length = value0.ToLowerInvariant(valueBuffer);
 
-                if (value0Length == -1)
-                {
-                    throw new InvalidDataException("the buffer is too small");
-                }
+                //if (value0Length == -1)
+                //{
+                //    throw new InvalidDataException("the buffer is too small");
+                //}
 
                 switch (valueBuffer[..value0Length])
                 {
@@ -495,10 +481,10 @@ namespace JeremyAnsel.Media.WavefrontObj
             ReadOnlySpan<char> value1 = GetNextValue(ref currentLine, ref values);
             int value1Length = value1.ToLowerInvariant(valueBuffer);
 
-            if (value1Length == -1)
-            {
-                throw new InvalidDataException("the buffer is too small");
-            }
+            //if (value1Length == -1)
+            //{
+            //    throw new InvalidDataException("the buffer is too small");
+            //}
 
             int index = 1;
 
@@ -633,10 +619,10 @@ namespace JeremyAnsel.Media.WavefrontObj
                 ReadOnlySpan<char> value1 = GetNextValue(ref currentLine, ref values);
                 int value1Length = value1.ToLowerInvariant(valueBuffer);
 
-                if (value1Length == -1)
-                {
-                    throw new InvalidDataException("the buffer is too small");
-                }
+                //if (value1Length == -1)
+                //{
+                //    throw new InvalidDataException("the buffer is too small");
+                //}
 
                 if (statement.Equals("refl", StringComparison.OrdinalIgnoreCase))
                 {
@@ -662,10 +648,10 @@ namespace JeremyAnsel.Media.WavefrontObj
                             ReadOnlySpan<char> value2 = GetNextValue(ref currentLine, ref values);
                             int value2Length = value2.ToLowerInvariant(valueBuffer);
 
-                            if (value2Length == -1)
-                            {
-                                throw new InvalidDataException("the buffer is too small");
-                            }
+                            //if (value2Length == -1)
+                            //{
+                            //    throw new InvalidDataException("the buffer is too small");
+                            //}
 
                             switch (valueBuffer[..value2Length])
                             {
@@ -842,10 +828,10 @@ namespace JeremyAnsel.Media.WavefrontObj
                             ReadOnlySpan<char> value2 = GetNextValue(ref currentLine, ref values);
                             int value2Length = value2.ToLowerInvariant(valueBuffer);
 
-                            if (value2Length == -1)
-                            {
-                                throw new InvalidDataException("the buffer is too small");
-                            }
+                            //if (value2Length == -1)
+                            //{
+                            //    throw new InvalidDataException("the buffer is too small");
+                            //}
 
                             switch (valueBuffer[..value2Length])
                             {

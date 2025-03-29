@@ -5,12 +5,14 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
+using Equatable.Attributes;
 using System.Globalization;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
     [System.Diagnostics.DebuggerDisplay("Curve Index:{Curve2D} Start:{Start} End:{End}")]
-    public struct ObjCurveIndex : IEquatable<ObjCurveIndex>
+    [Equatable]
+    public partial struct ObjCurveIndex
     {
         private float start;
 
@@ -43,27 +45,6 @@ namespace JeremyAnsel.Media.WavefrontObj
             set { this.curve2D = value; }
         }
 
-        public override bool Equals(object? obj)
-        {
-            return obj is ObjCurveIndex index && Equals(index);
-        }
-
-        public bool Equals(ObjCurveIndex other)
-        {
-            return start == other.start &&
-                   end == other.end &&
-                   curve2D == other.curve2D;
-        }
-
-        public override int GetHashCode()
-        {
-            var hashCode = -540012629;
-            hashCode = hashCode * -1521134295 + start.GetHashCode();
-            hashCode = hashCode * -1521134295 + end.GetHashCode();
-            hashCode = hashCode * -1521134295 + curve2D.GetHashCode();
-            return hashCode;
-        }
-
         public override string ToString()
         {
             return string.Concat(
@@ -72,16 +53,6 @@ namespace JeremyAnsel.Media.WavefrontObj
                 this.End.ToString("F6", CultureInfo.InvariantCulture),
                 " ",
                 this.Curve2D.ToString(CultureInfo.InvariantCulture));
-        }
-
-        public static bool operator ==(ObjCurveIndex left, ObjCurveIndex right)
-        {
-            return left.Equals(right);
-        }
-
-        public static bool operator !=(ObjCurveIndex left, ObjCurveIndex right)
-        {
-            return !(left == right);
         }
     }
 }

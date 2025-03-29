@@ -38,6 +38,18 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         }
 
         [Fact]
+        public void Parsing_LongComment_Valid()
+        {
+            string nameA = new string('a', 1024);
+            string content = "#\ng " + nameA + " #b";
+
+            var obj = ReadObj(content);
+
+            Assert.Single(obj.Groups);
+            Assert.Equal(nameA, obj.Groups[0].Name);
+        }
+
+        [Fact]
         public void Parsing_MultilineComment_Valid()
         {
             string content = @"
@@ -62,6 +74,23 @@ a\
 
             Assert.Equal(2, obj.Groups.Count);
             Assert.Equal("a", obj.Groups[0].Name);
+            Assert.Equal("b", obj.Groups[1].Name);
+        }
+
+        [Fact]
+        public void Parsing_LongMultiline_Valid()
+        {
+            string nameA = new string('a', 1024);
+            string content = @"
+g \
+
+" + nameA + @"\
+ b";
+
+            var obj = ReadObj(content);
+
+            Assert.Equal(2, obj.Groups.Count);
+            Assert.Equal(nameA, obj.Groups[0].Name);
             Assert.Equal("b", obj.Groups[1].Name);
         }
 

@@ -55,5 +55,36 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
             Assert.Equal(0.0f, v.Y);
             Assert.Equal(1.0f, v.Z);
         }
+
+        [Fact]
+        public void NewNumericsVector3()
+        {
+            ObjVector3 v = new System.Numerics.Vector3(2.0f, 3.0f, 4.0f);
+
+            Assert.Equal(2.0f, v.X);
+            Assert.Equal(3.0f, v.Y);
+            Assert.Equal(4.0f, v.Z);
+        }
+
+        [Fact]
+        public void ToNumericsVector3()
+        {
+            var v = new ObjVector3(2.0f, 3.0f, 4.0f);
+            var v3 = v.ToVector3();
+
+            Assert.Equal(2.0f, v3.X);
+            Assert.Equal(3.0f, v3.Y);
+            Assert.Equal(4.0f, v3.Z);
+        }
+
+        [Fact]
+        public void Deconstruct3()
+        {
+            (float x, float y, float z) = new ObjVector3(2.0f, 3.0f, 4.0f);
+
+            Assert.Equal(2.0f, x);
+            Assert.Equal(3.0f, y);
+            Assert.Equal(4.0f, z);
+        }
     }
 }

@@ -5,12 +5,14 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
+using Equatable.Attributes;
 using System.Globalization;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
     [System.Diagnostics.DebuggerDisplay("Vertex:{vertex} Texture:{texture} Normal:{normal}")]
-    public struct ObjTriplet : IEquatable<ObjTriplet>
+    [Equatable]
+    public partial struct ObjTriplet
     {
         private int vertex;
 
@@ -41,27 +43,6 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             readonly get { return this.normal; }
             set { this.normal = value; }
-        }
-
-        public readonly override bool Equals(object? obj)
-        {
-            return obj is ObjTriplet triplet && Equals(triplet);
-        }
-
-        public readonly bool Equals(ObjTriplet other)
-        {
-            return vertex == other.vertex &&
-                   texture == other.texture &&
-                   normal == other.normal;
-        }
-
-        public readonly override int GetHashCode()
-        {
-            var hashCode = -683219715;
-            hashCode = hashCode * -1521134295 + vertex.GetHashCode();
-            hashCode = hashCode * -1521134295 + texture.GetHashCode();
-            hashCode = hashCode * -1521134295 + normal.GetHashCode();
-            return hashCode;
         }
 
         public readonly override string ToString()
@@ -99,16 +80,6 @@ namespace JeremyAnsel.Media.WavefrontObj
                         this.Normal.ToString(CultureInfo.InvariantCulture));
                 }
             }
-        }
-
-        public static bool operator ==(ObjTriplet left, ObjTriplet right)
-        {
-            return left.Equals(right);
-        }
-
-        public static bool operator !=(ObjTriplet left, ObjTriplet right)
-        {
-            return !(left == right);
         }
     }
 }

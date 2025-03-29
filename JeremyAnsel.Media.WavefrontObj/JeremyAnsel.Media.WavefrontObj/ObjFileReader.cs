@@ -5,6 +5,8 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
+#if !NET6_0_OR_GREATER
+
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
@@ -1214,3 +1216,5 @@ namespace JeremyAnsel.Media.WavefrontObj
         }
     }
 }
+
+#endif

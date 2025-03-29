@@ -5,10 +5,13 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
+using Equatable.Attributes;
+
 namespace JeremyAnsel.Media.WavefrontObj
 {
     [System.Diagnostics.DebuggerDisplay("{X} {Y} {Z}")]
-    public struct ObjVector3 : IEquatable<ObjVector3>
+    [Equatable]
+    public partial struct ObjVector3
     {
         private float x;
 
@@ -67,37 +70,6 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             readonly get { return this.z; }
             set { this.z = value; }
-        }
-
-        public readonly override bool Equals(object? obj)
-        {
-            return obj is ObjVector3 vector && Equals(vector);
-        }
-
-        public readonly bool Equals(ObjVector3 other)
-        {
-            return x == other.x &&
-                   y == other.y &&
-                   z == other.z;
-        }
-
-        public readonly override int GetHashCode()
-        {
-            var hashCode = 373119288;
-            hashCode = hashCode * -1521134295 + x.GetHashCode();
-            hashCode = hashCode * -1521134295 + y.GetHashCode();
-            hashCode = hashCode * -1521134295 + z.GetHashCode();
-            return hashCode;
-        }
-
-        public static bool operator ==(ObjVector3 left, ObjVector3 right)
-        {
-            return left.Equals(right);
-        }
-
-        public static bool operator !=(ObjVector3 left, ObjVector3 right)
-        {
-            return !(left == right);
         }
 
         public static implicit operator ObjVector3(System.Numerics.Vector3 v)

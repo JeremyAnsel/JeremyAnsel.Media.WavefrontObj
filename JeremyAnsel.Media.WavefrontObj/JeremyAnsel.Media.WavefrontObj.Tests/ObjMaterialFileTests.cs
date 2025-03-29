@@ -64,6 +64,13 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         }
 
         [Fact]
+        public void Write_NullFile_Throws()
+        {
+            var mtl = new ObjMaterialFile();
+            Assert.Throws<ArgumentNullException>("path", () => mtl.WriteTo((string?)null));
+        }
+
+        [Fact]
         public void Write_File_Valid()
         {
             var temp = Path.GetTempFileName();

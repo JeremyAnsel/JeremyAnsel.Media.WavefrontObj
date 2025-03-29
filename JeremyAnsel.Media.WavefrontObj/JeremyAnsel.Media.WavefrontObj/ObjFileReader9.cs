@@ -21,26 +21,20 @@ namespace JeremyAnsel.Media.WavefrontObj
 {
     internal static class ObjFileReader9
     {
-        private static bool MoveNextSkipEmpty(ref SpanSplitEnumerator values)
+        private static void MoveNextSkipEmpty(ref SpanSplitEnumerator values)
         {
             while (values.MoveNext())
             {
                 if (values.Current.Start.Value != values.Current.End.Value)
                 {
-                    return true;
+                    return;
                 }
             }
-
-            return false;
         }
 
         private static ReadOnlySpan<char> GetNextValue(ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values)
         {
-            if (!MoveNextSkipEmpty(ref values))
-            {
-                throw new InvalidDataException("missing value");
-            }
-
+            MoveNextSkipEmpty(ref values);
             return currentLine[values.Current];
         }
 
@@ -80,7 +74,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                 int valuesCount = 0;
 
-                foreach (Range range in currentLine.SplitAny(LineReader.LineSeparators))
+                foreach (Range range in currentLine.SplitAny(LineReader9.LineSeparators))
                 {
                     if (currentLine[range].Length == 0)
                     {
@@ -90,12 +84,9 @@ namespace JeremyAnsel.Media.WavefrontObj
                     valuesCount++;
                 }
 
-                SpanSplitEnumerator values = currentLine.SplitAny(LineReader.LineSeparators);
+                SpanSplitEnumerator values = currentLine.SplitAny(LineReader9.LineSeparators);
 
-                if (!MoveNextSkipEmpty(ref values))
-                {
-                    continue;
-                }
+                MoveNextSkipEmpty(ref values);
 
                 if (values.Current.End.Value - values.Current.Start.Value > valueBufferSize)
                 {
@@ -105,10 +96,10 @@ namespace JeremyAnsel.Media.WavefrontObj
                 ReadOnlySpan<char> value0 = currentLine[values.Current];
                 int value0Length = value0.ToLowerInvariant(valueBuffer);
 
-                if (value0Length == -1)
-                {
-                    throw new InvalidDataException("the buffer is too small");
-                }
+                //if (value0Length == -1)
+                //{
+                //    throw new InvalidDataException("the buffer is too small");
+                //}
 
                 switch (valueBuffer[..value0Length])
                 {

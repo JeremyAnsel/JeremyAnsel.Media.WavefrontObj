@@ -27,7 +27,8 @@ namespace JeremyAnsel.Media.WavefrontObj
                 return;
             }
 
-            var newBuffer = new char[_lineBuffer.Length * 2];
+            int newLength = Math.Max(length, _lineBuffer.Length * 2);
+            var newBuffer = new char[newLength];
             Array.Copy(_lineBuffer, newBuffer, _lineBuffer.Length);
             _lineBuffer = newBuffer;
         }
@@ -46,12 +47,12 @@ namespace JeremyAnsel.Media.WavefrontObj
             _lineBufferPosition += line.Length;
         }
 
-        private void AddLineBufferChar(char c)
-        {
-            SetLineBufferLength(_lineBufferPosition + 1);
-            _lineBuffer[_lineBufferPosition] = c;
-            _lineBufferPosition++;
-        }
+        //private void AddLineBufferChar(char c)
+        //{
+        //    SetLineBufferLength(_lineBufferPosition + 1);
+        //    _lineBuffer[_lineBufferPosition] = c;
+        //    _lineBufferPosition++;
+        //}
 
         private char[] _lineReadBuffer = new char[256];
         private int _lineReadBufferPosition = 0;
@@ -63,17 +64,18 @@ namespace JeremyAnsel.Media.WavefrontObj
                 return;
             }
 
-            var newBuffer = new char[_lineReadBuffer.Length * 2];
+            int newLength = Math.Max(length, _lineReadBuffer.Length * 2);
+            var newBuffer = new char[newLength];
             Array.Copy(_lineReadBuffer, newBuffer, _lineReadBuffer.Length);
             _lineReadBuffer = newBuffer;
         }
 
-        private void SetLineReadBufferSlice(ReadOnlySpan<char> line)
-        {
-            SetLineReadBufferLength(line.Length);
-            line.CopyTo(_lineReadBuffer);
-            _lineReadBufferPosition = line.Length;
-        }
+        //private void SetLineReadBufferSlice(ReadOnlySpan<char> line)
+        //{
+        //    SetLineReadBufferLength(line.Length);
+        //    line.CopyTo(_lineReadBuffer);
+        //    _lineReadBufferPosition = line.Length;
+        //}
 
         private void AddLineReadBufferChar(char c)
         {

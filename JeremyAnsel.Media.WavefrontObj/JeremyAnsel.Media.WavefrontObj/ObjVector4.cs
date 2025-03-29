@@ -5,10 +5,13 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
+using Equatable.Attributes;
+
 namespace JeremyAnsel.Media.WavefrontObj
 {
     [System.Diagnostics.DebuggerDisplay("{X} {Y} {Z} {W}")]
-    public struct ObjVector4 : IEquatable<ObjVector4>
+    [Equatable]
+    public partial struct ObjVector4
     {
         private float x;
 
@@ -74,39 +77,6 @@ namespace JeremyAnsel.Media.WavefrontObj
             set { this.w = value; }
         }
 
-        public readonly override bool Equals(object? obj)
-        {
-            return obj is ObjVector4 vector && Equals(vector);
-        }
-
-        public readonly bool Equals(ObjVector4 other)
-        {
-            return x == other.x &&
-                   y == other.y &&
-                   z == other.z &&
-                   w == other.w;
-        }
-
-        public readonly override int GetHashCode()
-        {
-            var hashCode = -1743314642;
-            hashCode = hashCode * -1521134295 + x.GetHashCode();
-            hashCode = hashCode * -1521134295 + y.GetHashCode();
-            hashCode = hashCode * -1521134295 + z.GetHashCode();
-            hashCode = hashCode * -1521134295 + w.GetHashCode();
-            return hashCode;
-        }
-
-        public static bool operator ==(ObjVector4 left, ObjVector4 right)
-        {
-            return left.Equals(right);
-        }
-
-        public static bool operator !=(ObjVector4 left, ObjVector4 right)
-        {
-            return !(left == right);
-        }
-
         public static implicit operator ObjVector4(System.Numerics.Vector4 v)
         {
             return new ObjVector4(v);
@@ -120,7 +90,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             @w = this.w;
         }
 
-        public readonly System.Numerics.Vector4 ToVector3()
+        public readonly System.Numerics.Vector4 ToVector4()
         {
             return new System.Numerics.Vector4(x, y, z, w);
         }
