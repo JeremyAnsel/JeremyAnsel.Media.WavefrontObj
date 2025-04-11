@@ -234,11 +234,11 @@ var assemblies = [
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjFreeFormElement", "rp": "JeremyAnsel.Media.WavefrontObj_ObjFreeFormElement.html", "cl": 25, "ucl": 0, "cal": 25, "tl": 61, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjGroup", "rp": "JeremyAnsel.Media.WavefrontObj_ObjGroup.html", "cl": 18, "ucl": 0, "cal": 18, "tl": 44, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjLine", "rp": "JeremyAnsel.Media.WavefrontObj_ObjLine.html", "cl": 4, "ucl": 0, "cal": 4, "tl": 25, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterial", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterial.html", "cl": 33, "ucl": 0, "cal": 33, "tl": 76, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterial", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterial.html", "cl": 44, "ucl": 0, "cal": 44, "tl": 130, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialColor", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialColor.html", "cl": 23, "ucl": 0, "cal": 23, "tl": 71, "cb": 8, "tb": 8, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFile", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFile.html", "cl": 25, "ucl": 0, "cal": 25, "tl": 77, "cb": 6, "tb": 6, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.html", "cl": 326, "ucl": 0, "cal": 326, "tl": 792, "cb": 371, "tb": 379, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader9.html", "cl": 393, "ucl": 1, "cal": 394, "tl": 1005, "cb": 392, "tb": 401, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.html", "cl": 398, "ucl": 0, "cal": 398, "tl": 950, "cb": 460, "tb": 467, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader9.html", "cl": 465, "ucl": 1, "cal": 466, "tl": 1161, "cb": 481, "tb": 489, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileWriter", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileWriter.html", "cl": 150, "ucl": 0, "cal": 150, "tl": 336, "cb": 103, "tb": 103, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialMap", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialMap.html", "cl": 27, "ucl": 0, "cal": 27, "tl": 60, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "JeremyAnsel.Media.WavefrontObj.ObjMaterialReflectionMap", "rp": "JeremyAnsel.Media.WavefrontObj_ObjMaterialReflectionMap.html", "cl": 7, "ucl": 0, "cal": 7, "tl": 27, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
@@ -278,29 +278,29 @@ var riskHotspots = [
   {
     "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.html", "methodName": "FromStream(System.IO.Stream)", "methodShortName": "FromStream(...)", "fileIndex": 0, "line": 20,
     "metrics": [
-      { "value": 231, "exceeded": true },
-      { "value": 231, "exceeded": true },
+      { "value": 319, "exceeded": true },
+      { "value": 319, "exceeded": true },
     ]},
   {
     "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader9.html", "methodName": "FromStream(System.IO.Stream)", "methodShortName": "FromStream(...)", "fileIndex": 0, "line": 54,
     "metrics": [
-      { "value": 212, "exceeded": true },
-      { "value": 212, "exceeded": true },
+      { "value": 300, "exceeded": true },
+      { "value": 300, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader9.html", "methodName": "ParseMaterialMap(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,Polyfills.Polyfill/SpanSplitEnumerator`1<System.Char>&,System.Int32,JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9/MaterialMapType&)", "methodShortName": "ParseMaterialMap(...)", "fileIndex": 0, "line": 603,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader9.html", "methodName": "ParseMaterialMap(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,System.MemoryExtensions/SpanSplitEnumerator`1<System.Char>&,System.Int32,JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9/MaterialMapType&)", "methodShortName": "ParseMaterialMap(...)", "fileIndex": 0, "line": 759,
     "metrics": [
       { "value": 163, "exceeded": true },
       { "value": 163, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader9.html", "methodName": "ParseMaterialMap(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,System.MemoryExtensions/SpanSplitEnumerator`1<System.Char>&,System.Int32,JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9/MaterialMapType&)", "methodShortName": "ParseMaterialMap(...)", "fileIndex": 0, "line": 603,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader9.html", "methodName": "ParseMaterialMap(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,Polyfills.Polyfill/SpanSplitEnumerator`1<System.Char>&,System.Int32,JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9/MaterialMapType&)", "methodShortName": "ParseMaterialMap(...)", "fileIndex": 0, "line": 759,
     "metrics": [
       { "value": 163, "exceeded": true },
       { "value": 163, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.html", "methodName": "ParseMaterialMap(System.String,System.String[])", "methodShortName": "ParseMaterialMap(...)", "fileIndex": 0, "line": 493,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.html", "methodName": "ParseMaterialMap(System.String,System.String[])", "methodShortName": "ParseMaterialMap(...)", "fileIndex": 0, "line": 651,
     "metrics": [
       { "value": 126, "exceeded": true },
       { "value": 126, "exceeded": true },
@@ -342,13 +342,13 @@ var riskHotspots = [
       { "value": 32, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseApproximationTechnique(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,Polyfills.Polyfill/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseApproximationTechnique(...)", "fileIndex": 0, "line": 1289,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseApproximationTechnique(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,System.MemoryExtensions/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseApproximationTechnique(...)", "fileIndex": 0, "line": 1289,
     "metrics": [
       { "value": 32, "exceeded": true },
       { "value": 32, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseApproximationTechnique(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,System.MemoryExtensions/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseApproximationTechnique(...)", "fileIndex": 0, "line": 1289,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseApproximationTechnique(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,Polyfills.Polyfill/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseApproximationTechnique(...)", "fileIndex": 0, "line": 1289,
     "metrics": [
       { "value": 32, "exceeded": true },
       { "value": 32, "exceeded": true },
@@ -360,19 +360,19 @@ var riskHotspots = [
       { "value": 26, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.html", "methodName": "ParseMaterialColor(System.String,System.String[])", "methodShortName": "ParseMaterialColor(...)", "fileIndex": 0, "line": 386,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader.html", "methodName": "ParseMaterialColor(System.String,System.String[])", "methodShortName": "ParseMaterialColor(...)", "fileIndex": 0, "line": 544,
     "metrics": [
       { "value": 22, "exceeded": false },
       { "value": 22, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader9.html", "methodName": "ParseMaterialColor(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,Polyfills.Polyfill/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseMaterialColor(...)", "fileIndex": 0, "line": 471,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader9.html", "methodName": "ParseMaterialColor(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,System.MemoryExtensions/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseMaterialColor(...)", "fileIndex": 0, "line": 627,
     "metrics": [
       { "value": 22, "exceeded": false },
       { "value": 22, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader9.html", "methodName": "ParseMaterialColor(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,System.MemoryExtensions/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseMaterialColor(...)", "fileIndex": 0, "line": 471,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjMaterialFileReader9.html", "methodName": "ParseMaterialColor(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,Polyfills.Polyfill/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseMaterialColor(...)", "fileIndex": 0, "line": 627,
     "metrics": [
       { "value": 22, "exceeded": false },
       { "value": 22, "exceeded": true },
@@ -390,13 +390,13 @@ var riskHotspots = [
       { "value": 20, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseSurfaceConnection(JeremyAnsel.Media.WavefrontObj.ObjFile,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,Polyfills.Polyfill/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseSurfaceConnection(...)", "fileIndex": 0, "line": 1187,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseSurfaceConnection(JeremyAnsel.Media.WavefrontObj.ObjFile,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,System.MemoryExtensions/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseSurfaceConnection(...)", "fileIndex": 0, "line": 1187,
     "metrics": [
       { "value": 20, "exceeded": false },
       { "value": 20, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseSurfaceConnection(JeremyAnsel.Media.WavefrontObj.ObjFile,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,System.MemoryExtensions/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseSurfaceConnection(...)", "fileIndex": 0, "line": 1187,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseSurfaceConnection(JeremyAnsel.Media.WavefrontObj.ObjFile,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>&,Polyfills.Polyfill/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseSurfaceConnection(...)", "fileIndex": 0, "line": 1187,
     "metrics": [
       { "value": 20, "exceeded": false },
       { "value": 20, "exceeded": true },
@@ -414,13 +414,13 @@ var riskHotspots = [
       { "value": 18, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseFreeFormType(JeremyAnsel.Media.WavefrontObj.ObjFileReaderContext,System.ReadOnlySpan`1<System.Char>&,System.ReadOnlySpan`1<System.Char>&,Polyfills.Polyfill/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseFreeFormType(...)", "fileIndex": 0, "line": 1135,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseFreeFormType(JeremyAnsel.Media.WavefrontObj.ObjFileReaderContext,System.ReadOnlySpan`1<System.Char>&,System.ReadOnlySpan`1<System.Char>&,System.MemoryExtensions/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseFreeFormType(...)", "fileIndex": 0, "line": 1135,
     "metrics": [
       { "value": 18, "exceeded": false },
       { "value": 18, "exceeded": true },
     ]},
   {
-    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseFreeFormType(JeremyAnsel.Media.WavefrontObj.ObjFileReaderContext,System.ReadOnlySpan`1<System.Char>&,System.ReadOnlySpan`1<System.Char>&,System.MemoryExtensions/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseFreeFormType(...)", "fileIndex": 0, "line": 1135,
+    "assembly": "JeremyAnsel.Media.WavefrontObj", "class": "JeremyAnsel.Media.WavefrontObj.ObjFileReader9", "reportPath": "JeremyAnsel.Media.WavefrontObj_ObjFileReader9.html", "methodName": "ParseFreeFormType(JeremyAnsel.Media.WavefrontObj.ObjFileReaderContext,System.ReadOnlySpan`1<System.Char>&,System.ReadOnlySpan`1<System.Char>&,Polyfills.Polyfill/SpanSplitEnumerator`1<System.Char>&,System.Int32)", "methodShortName": "ParseFreeFormType(...)", "fileIndex": 0, "line": 1135,
     "metrics": [
       { "value": 18, "exceeded": false },
       { "value": 18, "exceeded": true },
