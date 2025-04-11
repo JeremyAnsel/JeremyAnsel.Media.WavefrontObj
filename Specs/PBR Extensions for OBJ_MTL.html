@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><script class='tsr-once'>const __TSR_SSR__={matches:[],streamedValues:{},initMatch:o=>(__TSR_SSR__.matches.push(o),o.extracted?.forEach(l=>{if(l.type==="stream"){let r;l.value=new ReadableStream({start(e){r={enqueue:t=>{try{e.enqueue(t)}catch{}},close:()=>{try{e.close()}catch{}}}}}),l.value.controller=r}else{let r,e;l.value=new Promise((t,a)=>{e=a,r=t}),l.value.reject=e,l.value.resolve=r}}),!0),resolvePromise:({matchId:o,id:l,promiseState:r})=>{const e=__TSR_SSR__.matches.find(t=>t.id===o);if(e){const t=e.extracted?.[l];if(t&&t.type==="promise"&&t.value&&r.status==="success")return t.value.resolve(r.data),!0}return!1},injectChunk:({matchId:o,id:l,chunk:r})=>{const e=__TSR_SSR__.matches.find(t=>t.id===o);if(e){const t=e.extracted?.[l];if(t&&t.type==="stream"&&t.value?.controller)return t.value.controller.enqueue(new TextEncoder().encode(r.toString())),!0}return!1},closeStream:({matchId:o,id:l})=>{const r=__TSR_SSR__.matches.find(e=>e.id===o);if(r){const e=r.extracted?.[l];if(e&&e.type==="stream"&&e.value?.controller)return e.value.controller.close(),!0}return!1},cleanScripts:()=>{document.querySelectorAll(".tsr-once").forEach(o=>{o.remove()})}};window.__TSR_SSR__=__TSR_SSR__;
+; if (typeof __TSR_SSR__ !== 'undefined') __TSR_SSR__.cleanScripts()</script><script class='tsr-once'>__TSR_SSR__.initMatch({"id":"/blog/extended-wavefront-obj-mtl-for-pbr","__beforeLoadContext":"{}","loaderData":"{\"blogPost\":{\"id\":\"extended-wavefront-obj-mtl-for-pbr\",\"title\":\"Extending Wavefront OBJ MTL Material Definition for Physically-Based Rendering\",\"shortTitle\":\"PBR Extensions for OBJ/MTL\",\"author\":\"Ben Houston\",\"date\":{\"$date\":\"2015-05-06T00:00:00.000Z\"},\"updatedDate\":{\"$undefined\":0},\"excerpt\":\"With Physically-based Rendering (PBR) becoming the new standard, we need a simple standard interchange format.\",\"imageUrl\":{\"$undefined\":0},\"audioUrl\":{\"$undefined\":0},\"topics\":[],\"readTime\":3,\"hide\":false,\"markDownContent\":\"_Originally [published on the now defunct Exocortex blog](https://web.archive.org/web/20160226114608/http://exocortex.com/blog/extending_wavefront_mtl_to_support_pbr). Republished here for posterity._\\n\\n## Updates\\n\\n- 2015: [TinyObjLoader adopts this proposal](https://github.com/tinyobjloader/tinyobjloader/blob/release/models/pbr-mat-ext.mtl).\\n- 2019: This proposal was included in the US Library of Congress [official description of the MTL material format](https://www.loc.gov/preservation/digital/formats/fdd/fdd000508.shtml).\\n- 2022: These parameters were incorporated into [Blender's MTL importer/exporter](https://projects.blender.org/blender/blender/commit/a99a62231e04), thanks to [Aras Pranchevicius](https://twitter.com/aras_p/status/1570144340038782976).\\n\\n## Original Proposal\\n\\nOver the last couple of years, the game industry has moved from the traditional Blinn-Phong shading model towards the Physically-based or Physically-plausible Rendering method that uses new material definitions that make it easier for artists to create realistic (e.g. physical) results.\\n\\nBut there is a significant issue in trying to develop assets for PBR-based renderers. There is no well defined format for transmitting the underlying Physically-based Material parameters between various creation tools (e.g. Clara.io, Unreal Engine, CryEngine, Unity, Maya, 3DS Max, Modo.)\\n\\nIn this blog post, we propose a simple solution. We suggest simply extending the Wavefront MTL material format with a number of new parameters that capture the model proposed by Disney for Physically-Based Rendering.\\n\\nTo represent a PBR material, we suggest using these existing well defined Wavefront MTL material properties:\\n\\n- Kd/map_Kd (base/diffuse) // reuse\\n- Ks/map_Ks (specular) // reuse\\n- d or Tr (opacity) // reuse\\n- map_d/map_Tr (opacitymap) // reuse\\n- Tf (translucency) // reuse\\n- bump/bm (bump map) // reuse\\n- disp (displacement map) // reuse\\n\\nAnd we propose adding these additional properties, which refer to PBR-specific parameters as defined by the [Disney PBR paper](https://disneyanimation.com/publications/physically-based-shading-at-disney/):\\n\\n- Pr/map_Pr (roughness) // new\\n- Pm/map_Pm (metallic) // new\\n- Ps/map_Ps (sheen) // new\\n- Pc (clearcoat thickness) // new\\n- Pcr (clearcoat roughness) // new\\n- Ke/map_Ke (emissive) // new\\n- aniso (anisotropy) // new\\n- anisor (anisotropy rotation) // new\\n- norm (normal map) // new\\n\\nThe various parameters are to be parsed in the same manner as the original MTL parameters.\"}}","error":"{\"$undefined\":0}","extracted":[],"updatedAt":1744109225957,"status":"success"}); if (typeof __TSR_SSR__ !== 'undefined') __TSR_SSR__.cleanScripts()</script><script class='tsr-once'>__TSR_SSR__.dehydrated = "{\"manifest\":{\"routes\":{\"__root__\":{\"preloads\":[\"/_build/assets/client-ZPmNq3zZ.js\",\"/_build/assets/client-CSR-trZm.js\"],\"assets\":[{\"tag\":\"script\",\"attrs\":{\"type\":\"module\",\"suppressHydrationWarning\":true,\"async\":true},\"children\":\"import(\\\"/_build/assets/client-ZPmNq3zZ.js\\\")\"}]},\"/\":{\"preloads\":{\"$undefined\":0},\"assets\":{\"$undefined\":0}},\"/about\":{\"preloads\":{\"$undefined\":0},\"assets\":{\"$undefined\":0}},\"/sentry-test\":{\"preloads\":{\"$undefined\":0},\"assets\":{\"$undefined\":0}},\"/blog/$slug\":{\"preloads\":{\"$undefined\":0},\"assets\":{\"$undefined\":0}},\"/blog/extended-wavefront-obj-mtl-for-pbr/extended-wavefront-obj-mtl-for-pbr\":{\"preloads\":{\"$undefined\":0},\"assets\":{\"$undefined\":0}}}},\"dehydratedData\":{\"$undefined\":0}}"; if (typeof __TSR_SSR__ !== 'undefined') __TSR_SSR__.cleanScripts()</script><link rel="preload" as="image" href="/bh3d-logo.svg"/><title>PBR Extensions for OBJ/MTL</title><meta name="description" content="With Physically-based Rendering (PBR) becoming the new standard, we need a simple standard interchange format."/><meta property="og:title" content="PBR Extensions for OBJ/MTL"/><meta property="og:description" content="With Physically-based Rendering (PBR) becoming the new standard, we need a simple standard interchange format."/><meta property="og:type" content="article"/><meta property="og:url" content="https://benhouston3d.com/blog/extended-wavefront-obj-mtl-for-pbr"/><meta property="og:site_name" content="Ben Houston&#x27;s Website"/><meta property="article:published_time" content="2015-05-06T00:00:00.000Z"/><meta property="article:author" content="Ben Houston"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:site" content="@BenHouston3D"/><meta name="twitter:title" content="PBR Extensions for OBJ/MTL"/><meta name="twitter:description" content="With Physically-based Rendering (PBR) becoming the new standard, we need a simple standard interchange format."/><link rel="modulepreload" href="/_build/assets/client-ZPmNq3zZ.js"/><link rel="modulepreload" href="/_build/assets/client-CSR-trZm.js"/><link rel="alternate" type="application/rss+xml" title="Ben Houston&#x27;s Blog RSS Feed" href="https://benhouston3d.com/api/rss"/><link rel="stylesheet" href="/_build/assets/app-VgixAvdF.css"/></head><body><!--$--><header class="w-full p-4 shadow-md flex justify-between items-center sticky top-0 z-20 bg-white/75 backdrop-blur-xs"><a href="/"><img src="/bh3d-logo.svg" alt="BH3D Logo" class="text-gray-500 focus:outline-hidden " width="58" height="32"/></a><div class="text-lg font-bold absolute left-1/2 transform -translate-x-1/2">PBR Extensions for OBJ/MTL</div><button class="focus:outline-hidden md:hidden"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button><nav class="hidden top-full text-right ml-auto left-0 w-full backdrop-blur-md shadow-lg md:flex md:static md:shadow-none md:w-auto"><a href="/" class="block text-right ml-auto px-4 py-2">Home</a><a href="/about" class="block text-right ml-auto px-4 py-2">About</a></nav></header><main class="flex min-h-screen flex-col items-center justify-between p-6"><div class="z-10 w-full items-center justify-between text-sm prose"><h1 class="">Extending Wavefront OBJ MTL Material Definition for Physically-Based Rendering</h1><p>By<!-- --> <span class=""><a href="/about">Ben Houston</a></span>, <span>2015-05-06</span></p><div class="prose"><p><em>Originally <a href="https://web.archive.org/web/20160226114608/http://exocortex.com/blog/extending_wavefront_mtl_to_support_pbr">published on the now defunct Exocortex blog</a>. Republished here for posterity.</em></p>
+<h2>Updates</h2>
+<ul>
+<li>2015: <a href="https://github.com/tinyobjloader/tinyobjloader/blob/release/models/pbr-mat-ext.mtl">TinyObjLoader adopts this proposal</a>.</li>
+<li>2019: This proposal was included in the US Library of Congress <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000508.shtml">official description of the MTL material format</a>.</li>
+<li>2022: These parameters were incorporated into <a href="https://projects.blender.org/blender/blender/commit/a99a62231e04">Blender&#x27;s MTL importer/exporter</a>, thanks to <a href="https://twitter.com/aras_p/status/1570144340038782976">Aras Pranchevicius</a>.</li>
+</ul>
+<h2>Original Proposal</h2>
+<p>Over the last couple of years, the game industry has moved from the traditional Blinn-Phong shading model towards the Physically-based or Physically-plausible Rendering method that uses new material definitions that make it easier for artists to create realistic (e.g. physical) results.</p>
+<p>But there is a significant issue in trying to develop assets for PBR-based renderers. There is no well defined format for transmitting the underlying Physically-based Material parameters between various creation tools (e.g. Clara.io, Unreal Engine, CryEngine, Unity, Maya, 3DS Max, Modo.)</p>
+<p>In this blog post, we propose a simple solution. We suggest simply extending the Wavefront MTL material format with a number of new parameters that capture the model proposed by Disney for Physically-Based Rendering.</p>
+<p>To represent a PBR material, we suggest using these existing well defined Wavefront MTL material properties:</p>
+<ul>
+<li>Kd/map_Kd (base/diffuse) // reuse</li>
+<li>Ks/map_Ks (specular) // reuse</li>
+<li>d or Tr (opacity) // reuse</li>
+<li>map_d/map_Tr (opacitymap) // reuse</li>
+<li>Tf (translucency) // reuse</li>
+<li>bump/bm (bump map) // reuse</li>
+<li>disp (displacement map) // reuse</li>
+</ul>
+<p>And we propose adding these additional properties, which refer to PBR-specific parameters as defined by the <a href="https://disneyanimation.com/publications/physically-based-shading-at-disney/">Disney PBR paper</a>:</p>
+<ul>
+<li>Pr/map_Pr (roughness) // new</li>
+<li>Pm/map_Pm (metallic) // new</li>
+<li>Ps/map_Ps (sheen) // new</li>
+<li>Pc (clearcoat thickness) // new</li>
+<li>Pcr (clearcoat roughness) // new</li>
+<li>Ke/map_Ke (emissive) // new</li>
+<li>aniso (anisotropy) // new</li>
+<li>anisor (anisotropy rotation) // new</li>
+<li>norm (normal map) // new</li>
+</ul>
+<p>The various parameters are to be parsed in the same manner as the original MTL parameters.</p></div></div></main><footer class="w-full p-4 shadow-md flex justify-between items-center"><div class="text-sm">© 1998 - 2025 <a href="/about" class="underline hover:text-blue-600 transition-colors">Ben Houston</a>. Maintained using<!-- --> <a href="https://mycoder.ai" class="underline hover:text-blue-600 transition-colors">MyCoder (agentic coder)</a><iframe title="Web 3D Survey" src="https://preview.web3dsurvey.com/collector-iframe.html" style="width:1px;height:1px"></iframe></div><div class="flex space-x-4"><a href="https://bsky.app/profile/benhouston3d.com" title="Ben Houston&#x27;s Bluesky"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" class="w-6 h-6 hover:text-gray-900" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M407.8 294.7c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3zM288 227.1C261.9 176.4 190.9 81.9 124.9 35.3C61.6-9.4 37.5-1.7 21.6 5.5C3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7c3.3-.5 6.6-.9 10-1.4c-3.3 .5-6.6 1-10 1.4C74.3 308.6-9.1 342.8 100.3 464.5C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4c102.4-103.4 28.1-156-65.8-169.9c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3c64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1z"></path></svg></a><a href="https://mastodon.gamedev.place/@BenHouston3D" title="Ben Houston&#x27;s Mastodon"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="w-6 h-6 hover:text-gray-900" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"></path></svg></a><a href="https://x.com/@BenHouston3D" title="Ben Houston&#x27;s X/Twitter"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="w-6 h-6 hover:text-gray-900" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"></path></svg></a><a href="/https://www.linkedin.com/in/benhouston/" title="Ben Houston&#x27;s Linked"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="w-6 h-6 hover:text-gray-900" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></a><a href="/api/rss" title="Ben Houston&#x27;s RSS feed"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="w-6 h-6 hover:text-gray-900" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"></path></svg></a></div></footer><script></script><script class="tsr-once">(function restoreScroll(storageKey2, key, behavior, shouldScrollRestoration, scrollToTopSelectors) {
+  var _a;
+  let byKey;
+  try {
+    byKey = JSON.parse(sessionStorage.getItem(storageKey2) || "{}");
+  } catch (error) {
+    console.error(error);
+    return;
+  }
+  const resolvedKey = key || ((_a = window.history.state) == null ? void 0 : _a.key);
+  const elementEntries = byKey[resolvedKey];
+  ignoreScroll = true;
+  (() => {
+    if (shouldScrollRestoration && elementEntries) {
+      for (const elementSelector in elementEntries) {
+        const entry = elementEntries[elementSelector];
+        if (elementSelector === "window") {
+          window.scrollTo({
+            top: entry.scrollY,
+            left: entry.scrollX,
+            behavior
+          });
+        } else if (elementSelector) {
+          const element = document.querySelector(elementSelector);
+          if (element) {
+            element.scrollLeft = entry.scrollX;
+            element.scrollTop = entry.scrollY;
+          }
+        }
+      }
+      return;
+    }
+    const hash = window.location.hash.split("#")[1];
+    if (hash) {
+      const hashScrollIntoViewOptions = (window.history.state || {}).__hashScrollIntoViewOptions ?? true;
+      if (hashScrollIntoViewOptions) {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView(hashScrollIntoViewOptions);
+        }
+      }
+      return;
+    }
+    [
+      "window",
+      ...(scrollToTopSelectors == null ? void 0 : scrollToTopSelectors.filter((d) => d !== "window")) ?? []
+    ].forEach((selector) => {
+      const element = selector === "window" ? window : document.querySelector(selector);
+      if (element) {
+        element.scrollTo({
+          top: 0,
+          left: 0,
+          behavior
+        });
+      }
+    });
+  })();
+  ignoreScroll = false;
+})("tsr-scroll-restoration-v1_3",null, undefined, true)
+if (typeof __TSR_SSR__ !== "undefined") __TSR_SSR__.cleanScripts()</script><!--/$--><script type="module" async="">import("/_build/assets/client-ZPmNq3zZ.js")</script></body></html>
