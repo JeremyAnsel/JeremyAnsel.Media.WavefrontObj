@@ -411,52 +411,208 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                     case "refl":
                     case "map_refl":
+                        if (currentMaterial == null)
                         {
-                            if (currentMaterial == null)
-                            {
-                                throw new InvalidDataException("The material name is not specified.");
-                            }
-
-                            if (valuesCount < 4)
-                            {
-                                throw new InvalidDataException("A refl statement must specify a type and a file name.");
-                            }
-
-                            ObjMaterialMap materialMap = ParseMaterialMap("refl", value0, ref currentLine, ref values, valuesCount, out MaterialMapType materialMapType);
-
-                            switch (materialMapType)
-                            {
-                                case MaterialMapType.Sphere:
-                                    currentMaterial.ReflectionMap.Sphere = materialMap;
-                                    break;
-
-                                case MaterialMapType.CubeTop:
-                                    currentMaterial.ReflectionMap.CubeTop = materialMap;
-                                    break;
-
-                                case MaterialMapType.CubeBottom:
-                                    currentMaterial.ReflectionMap.CubeBottom = materialMap;
-                                    break;
-
-                                case MaterialMapType.CubeFront:
-                                    currentMaterial.ReflectionMap.CubeFront = materialMap;
-                                    break;
-
-                                case MaterialMapType.CubeBack:
-                                    currentMaterial.ReflectionMap.CubeBack = materialMap;
-                                    break;
-
-                                case MaterialMapType.CubeLeft:
-                                    currentMaterial.ReflectionMap.CubeLeft = materialMap;
-                                    break;
-
-                                case MaterialMapType.CubeRight:
-                                    currentMaterial.ReflectionMap.CubeRight = materialMap;
-                                    break;
-                            }
-
-                            break;
+                            throw new InvalidDataException("The material name is not specified.");
                         }
+
+                        if (valuesCount < 4)
+                        {
+                            throw new InvalidDataException("A refl statement must specify a type and a file name.");
+                        }
+
+                        ObjMaterialMap materialMap = ParseMaterialMap("refl", value0, ref currentLine, ref values, valuesCount, out MaterialMapType materialMapType);
+
+                        switch (materialMapType)
+                        {
+                            case MaterialMapType.Sphere:
+                                currentMaterial.ReflectionMap.Sphere = materialMap;
+                                break;
+
+                            case MaterialMapType.CubeTop:
+                                currentMaterial.ReflectionMap.CubeTop = materialMap;
+                                break;
+
+                            case MaterialMapType.CubeBottom:
+                                currentMaterial.ReflectionMap.CubeBottom = materialMap;
+                                break;
+
+                            case MaterialMapType.CubeFront:
+                                currentMaterial.ReflectionMap.CubeFront = materialMap;
+                                break;
+
+                            case MaterialMapType.CubeBack:
+                                currentMaterial.ReflectionMap.CubeBack = materialMap;
+                                break;
+
+                            case MaterialMapType.CubeLeft:
+                                currentMaterial.ReflectionMap.CubeLeft = materialMap;
+                                break;
+
+                            case MaterialMapType.CubeRight:
+                                currentMaterial.ReflectionMap.CubeRight = materialMap;
+                                break;
+                        }
+
+                        break;
+                    case "pr":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (valuesCount < 2)
+                        {
+                            throw new InvalidDataException("A Pr statement must specify an optical density.");
+                        }
+
+                        if (valuesCount != 2)
+                        {
+                            throw new InvalidDataException("A Pr statement has too many values.");
+                        }
+
+                        currentMaterial.Roughness = FloatParse(GetNextValue(ref currentLine, ref values));
+                        break;
+                    case "map_pr":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        currentMaterial.RoughnessMap = ParseMaterialMap("map_Pr", value0, ref currentLine, ref values, valuesCount);
+                        break;
+                    case "pm":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (valuesCount < 2)
+                        {
+                            throw new InvalidDataException("A Pm statement must specify an optical density.");
+                        }
+
+                        if (valuesCount != 2)
+                        {
+                            throw new InvalidDataException("A Pm statement has too many values.");
+                        }
+
+                        currentMaterial.Metallic = FloatParse(GetNextValue(ref currentLine, ref values));
+                        break;
+                    case "map_pm":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        currentMaterial.MetallicMap = ParseMaterialMap("map_Pm", value0, ref currentLine, ref values, valuesCount);
+                        break;
+                    case "ps":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (valuesCount < 2)
+                        {
+                            throw new InvalidDataException("A Ps statement must specify an optical density.");
+                        }
+
+                        if (valuesCount != 2)
+                        {
+                            throw new InvalidDataException("A Ps statement has too many values.");
+                        }
+
+                        currentMaterial.Sheen = FloatParse(GetNextValue(ref currentLine, ref values));
+                        break;
+                    case "map_ps":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        currentMaterial.SheenMap = ParseMaterialMap("map_Ps", value0, ref currentLine, ref values, valuesCount);
+                        break;
+                    case "pc":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (valuesCount < 2)
+                        {
+                            throw new InvalidDataException("A Pc statement must specify an optical density.");
+                        }
+
+                        if (valuesCount != 2)
+                        {
+                            throw new InvalidDataException("A Pc statement has too many values.");
+                        }
+
+                        currentMaterial.ClearCoatThickness = FloatParse(GetNextValue(ref currentLine, ref values));
+                        break;
+                    case "pcr":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (valuesCount < 2)
+                        {
+                            throw new InvalidDataException("A Pcr statement must specify an optical density.");
+                        }
+
+                        if (valuesCount != 2)
+                        {
+                            throw new InvalidDataException("A Pcr statement has too many values.");
+                        }
+
+                        currentMaterial.ClearCoatRoughness = FloatParse(GetNextValue(ref currentLine, ref values));
+                        break;
+                    case "aniso":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (valuesCount < 2)
+                        {
+                            throw new InvalidDataException("A aniso statement must specify an optical density.");
+                        }
+
+                        if (valuesCount != 2)
+                        {
+                            throw new InvalidDataException("A aniso statement has too many values.");
+                        }
+
+                        currentMaterial.Anisotropy = FloatParse(GetNextValue(ref currentLine, ref values));
+                        break;
+                    case "anisor":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (valuesCount < 2)
+                        {
+                            throw new InvalidDataException("A anisor statement must specify an optical density.");
+                        }
+
+                        if (valuesCount != 2)
+                        {
+                            throw new InvalidDataException("A anisor statement has too many values.");
+                        }
+
+                        currentMaterial.AnisotropyRotation = FloatParse(GetNextValue(ref currentLine, ref values));
+                        break;
+                    case "norm":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        currentMaterial.Norm = ParseMaterialMap("norm", value0, ref currentLine, ref values, valuesCount);
+                        break;
                 }
             }
 

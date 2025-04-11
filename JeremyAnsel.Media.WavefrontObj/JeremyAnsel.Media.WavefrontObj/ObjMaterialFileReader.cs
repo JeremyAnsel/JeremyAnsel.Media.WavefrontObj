@@ -372,6 +372,164 @@ namespace JeremyAnsel.Media.WavefrontObj
                         }
 
                         break;
+                    case "pr":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (values.Length < 2)
+                        {
+                            throw new InvalidDataException("A Pr statement must specify an optical density.");
+                        }
+
+                        if (values.Length != 2)
+                        {
+                            throw new InvalidDataException("A Pr statement has too many values.");
+                        }
+
+                        currentMaterial.Roughness = float.Parse(values[1], CultureInfo.InvariantCulture);
+                        break;
+                    case "map_pr":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        currentMaterial.RoughnessMap = ObjMaterialFileReader.ParseMaterialMap("map_Pr", values);
+                        break;
+                    case "pm":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (values.Length < 2)
+                        {
+                            throw new InvalidDataException("A Pm statement must specify an optical density.");
+                        }
+
+                        if (values.Length != 2)
+                        {
+                            throw new InvalidDataException("A Pm statement has too many values.");
+                        }
+
+                        currentMaterial.Metallic = float.Parse(values[1], CultureInfo.InvariantCulture);
+                        break;
+                    case "map_pm":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        currentMaterial.MetallicMap = ObjMaterialFileReader.ParseMaterialMap("map_Pm", values);
+                        break;
+                    case "ps":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (values.Length < 2)
+                        {
+                            throw new InvalidDataException("A Ps statement must specify an optical density.");
+                        }
+
+                        if (values.Length != 2)
+                        {
+                            throw new InvalidDataException("A Ps statement has too many values.");
+                        }
+
+                        currentMaterial.Sheen = float.Parse(values[1], CultureInfo.InvariantCulture);
+                        break;
+                    case "map_ps":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        currentMaterial.SheenMap = ObjMaterialFileReader.ParseMaterialMap("map_Ps", values);
+                        break;
+                    case "pc":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (values.Length < 2)
+                        {
+                            throw new InvalidDataException("A Pc statement must specify an optical density.");
+                        }
+
+                        if (values.Length != 2)
+                        {
+                            throw new InvalidDataException("A Pc statement has too many values.");
+                        }
+
+                        currentMaterial.ClearCoatThickness = float.Parse(values[1], CultureInfo.InvariantCulture);
+                        break;
+                    case "pcr":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (values.Length < 2)
+                        {
+                            throw new InvalidDataException("A Pcr statement must specify an optical density.");
+                        }
+
+                        if (values.Length != 2)
+                        {
+                            throw new InvalidDataException("A Pcr statement has too many values.");
+                        }
+
+                        currentMaterial.ClearCoatRoughness = float.Parse(values[1], CultureInfo.InvariantCulture);
+                        break;
+                    case "aniso":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (values.Length < 2)
+                        {
+                            throw new InvalidDataException("A aniso statement must specify an optical density.");
+                        }
+
+                        if (values.Length != 2)
+                        {
+                            throw new InvalidDataException("A aniso statement has too many values.");
+                        }
+
+                        currentMaterial.Anisotropy = float.Parse(values[1], CultureInfo.InvariantCulture);
+                        break;
+                    case "anisor":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        if (values.Length < 2)
+                        {
+                            throw new InvalidDataException("A anisor statement must specify an optical density.");
+                        }
+
+                        if (values.Length != 2)
+                        {
+                            throw new InvalidDataException("A anisor statement has too many values.");
+                        }
+
+                        currentMaterial.AnisotropyRotation = float.Parse(values[1], CultureInfo.InvariantCulture);
+                        break;
+                    case "norm":
+                        if (currentMaterial == null)
+                        {
+                            throw new InvalidDataException("The material name is not specified.");
+                        }
+
+                        currentMaterial.Norm = ObjMaterialFileReader.ParseMaterialMap("norm", values);
+                        break;
                 }
             }
 
