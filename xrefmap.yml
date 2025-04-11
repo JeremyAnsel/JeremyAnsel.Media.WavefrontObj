@@ -1450,6 +1450,32 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.AmbientMap
   nameWithType: ObjMaterial.AmbientMap
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Anisotropy
+  name: Anisotropy
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Anisotropy
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterial.Anisotropy
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Anisotropy
+  nameWithType: ObjMaterial.Anisotropy
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Anisotropy*
+  name: Anisotropy
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Anisotropy_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterial.Anisotropy
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Anisotropy
+  nameWithType: ObjMaterial.Anisotropy
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.AnisotropyRotation
+  name: AnisotropyRotation
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_AnisotropyRotation
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterial.AnisotropyRotation
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.AnisotropyRotation
+  nameWithType: ObjMaterial.AnisotropyRotation
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.AnisotropyRotation*
+  name: AnisotropyRotation
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_AnisotropyRotation_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterial.AnisotropyRotation
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.AnisotropyRotation
+  nameWithType: ObjMaterial.AnisotropyRotation
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.BumpMap
   name: BumpMap
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_BumpMap
@@ -1463,6 +1489,32 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.BumpMap
   nameWithType: ObjMaterial.BumpMap
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatRoughness
+  name: ClearCoatRoughness
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_ClearCoatRoughness
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatRoughness
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatRoughness
+  nameWithType: ObjMaterial.ClearCoatRoughness
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatRoughness*
+  name: ClearCoatRoughness
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_ClearCoatRoughness_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatRoughness
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatRoughness
+  nameWithType: ObjMaterial.ClearCoatRoughness
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatThickness
+  name: ClearCoatThickness
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_ClearCoatThickness
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatThickness
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatThickness
+  nameWithType: ObjMaterial.ClearCoatThickness
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatThickness*
+  name: ClearCoatThickness
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_ClearCoatThickness_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatThickness
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.ClearCoatThickness
+  nameWithType: ObjMaterial.ClearCoatThickness
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.DecalMap
   name: DecalMap
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_DecalMap
@@ -1606,6 +1658,32 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.IsHaloDissolve
   nameWithType: ObjMaterial.IsHaloDissolve
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Metallic
+  name: Metallic
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Metallic
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterial.Metallic
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Metallic
+  nameWithType: ObjMaterial.Metallic
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Metallic*
+  name: Metallic
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Metallic_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterial.Metallic
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Metallic
+  nameWithType: ObjMaterial.Metallic
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.MetallicMap
+  name: MetallicMap
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_MetallicMap
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterial.MetallicMap
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.MetallicMap
+  nameWithType: ObjMaterial.MetallicMap
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.MetallicMap*
+  name: MetallicMap
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_MetallicMap_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterial.MetallicMap
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.MetallicMap
+  nameWithType: ObjMaterial.MetallicMap
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Name
   name: Name
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Name
@@ -1619,6 +1697,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Name
   nameWithType: ObjMaterial.Name
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Norm
+  name: Norm
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Norm
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterial.Norm
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Norm
+  nameWithType: ObjMaterial.Norm
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Norm*
+  name: Norm
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Norm_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterial.Norm
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Norm
+  nameWithType: ObjMaterial.Norm
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.OpticalDensity
   name: OpticalDensity
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_OpticalDensity
@@ -1645,6 +1736,32 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.ReflectionMap
   nameWithType: ObjMaterial.ReflectionMap
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Roughness
+  name: Roughness
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Roughness
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterial.Roughness
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Roughness
+  nameWithType: ObjMaterial.Roughness
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Roughness*
+  name: Roughness
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Roughness_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterial.Roughness
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Roughness
+  nameWithType: ObjMaterial.Roughness
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.RoughnessMap
+  name: RoughnessMap
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_RoughnessMap
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterial.RoughnessMap
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.RoughnessMap
+  nameWithType: ObjMaterial.RoughnessMap
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.RoughnessMap*
+  name: RoughnessMap
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_RoughnessMap_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterial.RoughnessMap
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.RoughnessMap
+  nameWithType: ObjMaterial.RoughnessMap
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Sharpness
   name: Sharpness
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Sharpness
@@ -1658,6 +1775,32 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Sharpness
   nameWithType: ObjMaterial.Sharpness
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Sheen
+  name: Sheen
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Sheen
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterial.Sheen
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Sheen
+  nameWithType: ObjMaterial.Sheen
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Sheen*
+  name: Sheen
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_Sheen_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterial.Sheen
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.Sheen
+  nameWithType: ObjMaterial.Sheen
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.SheenMap
+  name: SheenMap
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_SheenMap
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterial.SheenMap
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.SheenMap
+  nameWithType: ObjMaterial.SheenMap
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.SheenMap*
+  name: SheenMap
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_SheenMap_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterial.SheenMap
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterial.SheenMap
+  nameWithType: ObjMaterial.SheenMap
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterial.SpecularColor
   name: SpecularColor
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterial.html#JeremyAnsel_Media_WavefrontObj_ObjMaterial_SpecularColor
