@@ -5,6 +5,8 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using Xunit;
@@ -2022,6 +2024,220 @@ map_Ka -texres 2 b.b";
             Assert.Equal(2, mtl.Materials[0].AmbientMap?.TextureResolution);
         }
 
+        [Theory]
+        [MemberData(nameof(SingleFloatInvalidTestData))]
+        public void PbrExtensions_Roughness_Throws(string materialStringTemplate)
+        {
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Pr");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatValidTestData))]
+        public void PbrExtensions_Roughness_Valid(string materialStringTemplate, float expected)
+        {
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Pr");
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.Equal(expected, mtl.Materials[0].Roughness);
+        }
+
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapInvalidTestData))]
+        public void PbrExtensions_RoughnessMap_Throws(string materialStringTemplate)
+        {
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Pr");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
+        }
+
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapValidTestData))]
+        public void PbrExtensions_RoughnessMapValid_Throws(string materialStringTemplate, string expected)
+        {
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Pr");
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].RoughnessMap);
+            Assert.Equal(expected, mtl.Materials[0].RoughnessMap?.FileName);
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatInvalidTestData))]
+        public void PbrExtensions_Metallic_Throws(string materialStringTemplate)
+        {
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Pm");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatValidTestData))]
+        public void PbrExtensions_Metallic_Valid(string materialStringTemplate, float expected)
+        {
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Pm");
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.Equal(expected, mtl.Materials[0].Metallic);
+        }
+
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapInvalidTestData))]
+        public void PbrExtensions_MetallicMap_Throws(string materialStringTemplate)
+        {
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Pm");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
+        }
+
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapValidTestData))]
+        public void PbrExtensions_MetallicMapValid_Throws(string materialStringTemplate, string expected)
+        {
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Pm");
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].MetallicMap);
+            Assert.Equal(expected, mtl.Materials[0].MetallicMap?.FileName);
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatInvalidTestData))]
+        public void PbrExtensions_Sheen_Throws(string materialStringTemplate)
+        {
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Ps");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatValidTestData))]
+        public void PbrExtensions_Sheen_Valid(string materialStringTemplate, float expected)
+        {
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Ps");
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.Equal(expected, mtl.Materials[0].Sheen);
+        }
+
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapInvalidTestData))]
+        public void PbrExtensions_SheenMap_Throws(string materialStringTemplate)
+        {
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ps");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
+        }
+
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapValidTestData))]
+        public void PbrExtensions_SheenMapValid_Throws(string materialStringTemplate, string expected)
+        {
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ps");
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].SheenMap);
+            Assert.Equal(expected, mtl.Materials[0].SheenMap?.FileName);
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatInvalidTestData))]
+        public void PbrExtensions_ClearCoatThickness_Throws(string materialStringTemplate)
+        {
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Pc");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatValidTestData))]
+        public void PbrExtensions_ClearCoatThickness_Valid(string materialStringTemplate, float expected)
+        {
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Pc");
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.Equal(expected, mtl.Materials[0].ClearCoatThickness);
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatInvalidTestData))]
+        public void PbrExtensions_ClearCoatRoughness_Throws(string materialStringTemplate)
+        {
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Pcr");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatValidTestData))]
+        public void PbrExtensions_ClearCoatRoughness_Valid(string materialStringTemplate, float expected)
+        {
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Pcr");
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.Equal(expected, mtl.Materials[0].ClearCoatRoughness);
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatInvalidTestData))]
+        public void PbrExtensions_Anisotropy_Throws(string materialStringTemplate)
+        {
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "aniso");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatValidTestData))]
+        public void PbrExtensions_Anisotropy_Valid(string materialStringTemplate, float expected)
+        {
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "aniso");
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.Equal(expected, mtl.Materials[0].Anisotropy);
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatInvalidTestData))]
+        public void PbrExtensions_AnisotropyRotation_Throws(string materialStringTemplate)
+        {
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "anisor");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
+        }
+
+        [Theory]
+        [MemberData(nameof(SingleFloatValidTestData))]
+        public void PbrExtensions_AnisotropyRotation_Valid(string materialStringTemplate, float expected)
+        {
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "anisor");
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.Equal(expected, mtl.Materials[0].AnisotropyRotation);
+        }
+
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapInvalidTestData))]
+        public void PbrExtensions_Norm_Throws(string materialStringTemplate)
+        {
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "norm");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
+        }
+
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapValidTestData))]
+        public void PbrExtensions_NormValid_Throws(string materialStringTemplate, string expected)
+        {
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "norm");
+            var mtl = ReadMtl(content);
+
+            Assert.Equal("a", mtl.Materials[0].Name);
+            Assert.NotNull(mtl.Materials[0].Norm);
+            Assert.Equal(expected, mtl.Materials[0].Norm?.FileName);
+        }
+
+
         private ObjMaterialFile ReadMtl(string content)
         {
             var buffer = Encoding.UTF8.GetBytes(content);
@@ -2030,6 +2246,31 @@ map_Ka -texres 2 b.b";
             {
                 return ObjMaterialFile.FromStream(stream);
             }
+        }
+        
+        public static IEnumerable<object[]> SingleFloatInvalidTestData()
+        {
+            yield return ["{0}"];
+            yield return ["newmtl a\n{0}"];
+            yield return ["newmtl a\n{0} 0 0"];
+        }
+
+        public static IEnumerable<object[]> SingleFloatValidTestData()
+        {
+            yield return ["newmtl a\n{0} 1.5", 1.5f];
+        }
+        
+
+        public static IEnumerable<object[]> ObjectMaterialMapInvalidTestData()
+        {
+            yield return ["{0}"];
+            yield return ["newmtl a\n{0}"];
+        }
+
+        public static IEnumerable<object[]> ObjectMaterialMapValidTestData()
+        {
+            yield return ["newmtl a\n{0} b.b", "b.b"];
+            yield return ["newmtl a\n{0} b", "b"];
         }
     }
 }

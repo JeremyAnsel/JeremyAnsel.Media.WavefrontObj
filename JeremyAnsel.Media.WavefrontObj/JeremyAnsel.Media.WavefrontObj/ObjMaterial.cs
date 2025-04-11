@@ -71,5 +71,60 @@ namespace JeremyAnsel.Media.WavefrontObj
         public ObjMaterialMap? BumpMap { get; set; }
 
         public ObjMaterialReflectionMap ReflectionMap { get; private set; }
+
+        /// <summary>
+        ///     PBR Extension: Pr
+        /// </summary>
+        public float Roughness { get; set; }
+
+        /// <summary>
+        ///     PBR Extension: map_Pr
+        /// </summary>
+        public ObjMaterialMap? RoughnessMap { get; set; }
+
+        /// <summary>
+        ///     PBR Extension: Pm
+        /// </summary>
+        public float Metallic { get; set; }
+
+        /// <summary>
+        ///     PBR Extension: map_Pm
+        /// </summary>
+        public ObjMaterialMap? MetallicMap { get; set; }
+
+        /// <summary>
+        ///     PBR Extension: Ps
+        /// </summary>
+        public float Sheen { get; set; }
+
+        /// <summary>
+        ///     PBR Extension: map_Ps
+        /// </summary>
+        public ObjMaterialMap? SheenMap { get; set; }
+
+        /// <summary>
+        ///     PBR Extension: Pc
+        /// </summary>
+        public float ClearCoatThickness { get; set; }
+
+        /// <summary>
+        ///     PBR Extension: Pcr
+        /// </summary>
+        public float ClearCoatRoughness { get; set; }
+
+        /// <summary>
+        ///     PBR Extension: aniso
+        /// </summary>
+        public float Anisotropy { get; set; }
+
+        /// <summary>
+        ///     PBR Extension: anisor
+        /// </summary>
+        public float AnisotropyRotation { get; set; }
+        
+        /// <summary>
+        ///     PBR Extension: norm
+        /// </summary>
+        public ObjMaterialMap? Norm { get; set; }
     }
 }
