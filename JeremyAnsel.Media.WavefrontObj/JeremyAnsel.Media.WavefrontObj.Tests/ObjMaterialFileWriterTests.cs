@@ -1046,6 +1046,259 @@ refl -type cube_right b.b
         }
 
         [Fact]
+        public void Texture_Roughness_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            var material = new ObjMaterial("a");
+            mtl.Materials.Add(material);
+            material.Roughness = 2.0f;
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"newmtl a
+illum 2
+d 1.000000
+Ns 0.000000
+sharpness 60
+Ni 1.000000
+map_aat off
+Pr 2.000000
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Texture_RoughnessMap_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            var material = new ObjMaterial("a");
+            mtl.Materials.Add(material);
+            material.RoughnessMap = new ObjMaterialMap("b.b");
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"newmtl a
+illum 2
+d 1.000000
+Ns 0.000000
+sharpness 60
+Ni 1.000000
+map_aat off
+map_Pr b.b
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Texture_Metallic_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            var material = new ObjMaterial("a");
+            mtl.Materials.Add(material);
+            material.Metallic = 2.0f;
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"newmtl a
+illum 2
+d 1.000000
+Ns 0.000000
+sharpness 60
+Ni 1.000000
+map_aat off
+Pm 2.000000
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Texture_MetallicMap_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            var material = new ObjMaterial("a");
+            mtl.Materials.Add(material);
+            material.MetallicMap = new ObjMaterialMap("b.b");
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"newmtl a
+illum 2
+d 1.000000
+Ns 0.000000
+sharpness 60
+Ni 1.000000
+map_aat off
+map_Pm b.b
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Texture_Sheen_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            var material = new ObjMaterial("a");
+            mtl.Materials.Add(material);
+            material.Sheen = 2.0f;
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"newmtl a
+illum 2
+d 1.000000
+Ns 0.000000
+sharpness 60
+Ni 1.000000
+map_aat off
+Ps 2.000000
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Texture_SheenMap_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            var material = new ObjMaterial("a");
+            mtl.Materials.Add(material);
+            material.SheenMap = new ObjMaterialMap("b.b");
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"newmtl a
+illum 2
+d 1.000000
+Ns 0.000000
+sharpness 60
+Ni 1.000000
+map_aat off
+map_Ps b.b
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Texture_ClearCoatThickness_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            var material = new ObjMaterial("a");
+            mtl.Materials.Add(material);
+            material.ClearCoatThickness = 2.0f;
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"newmtl a
+illum 2
+d 1.000000
+Ns 0.000000
+sharpness 60
+Ni 1.000000
+map_aat off
+Pc 2.000000
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Texture_ClearCoatRoughness_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            var material = new ObjMaterial("a");
+            mtl.Materials.Add(material);
+            material.ClearCoatRoughness = 2.0f;
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"newmtl a
+illum 2
+d 1.000000
+Ns 0.000000
+sharpness 60
+Ni 1.000000
+map_aat off
+Pcr 2.000000
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Texture_Anisotropy_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            var material = new ObjMaterial("a");
+            mtl.Materials.Add(material);
+            material.Anisotropy = 2.0f;
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"newmtl a
+illum 2
+d 1.000000
+Ns 0.000000
+sharpness 60
+Ni 1.000000
+map_aat off
+aniso 2.000000
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Texture_AnisotropyRotation_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            var material = new ObjMaterial("a");
+            mtl.Materials.Add(material);
+            material.AnisotropyRotation = 2.0f;
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"newmtl a
+illum 2
+d 1.000000
+Ns 0.000000
+sharpness 60
+Ni 1.000000
+map_aat off
+anisor 2.000000
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
+        public void Texture_Norm_Valid()
+        {
+            var mtl = new ObjMaterialFile();
+            var material = new ObjMaterial("a");
+            mtl.Materials.Add(material);
+            material.Norm = new ObjMaterialMap("b.b");
+
+            string text = WriteMtl(mtl);
+            string expected =
+@"newmtl a
+illum 2
+d 1.000000
+Ns 0.000000
+sharpness 60
+Ni 1.000000
+map_aat off
+norm b.b
+";
+
+            AssertExtensions.TextEqual(expected, text);
+        }
+
+        [Fact]
         public void MapOptions_HorizontalBlending_Valid()
         {
             var mtl = new ObjMaterialFile();

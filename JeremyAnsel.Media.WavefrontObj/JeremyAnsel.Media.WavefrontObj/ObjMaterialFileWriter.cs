@@ -174,6 +174,68 @@ namespace JeremyAnsel.Media.WavefrontObj
             {
                 WriteMap("refl -type cube_right", material.ReflectionMap.CubeRight, stream);
             }
+
+            if (material.Roughness != 0.0f)
+            {
+                stream.Write("Pr ");
+                stream.WriteLine(material.Roughness.ToString("F6", CultureInfo.InvariantCulture));
+            }
+
+            if (material.RoughnessMap != null)
+            {
+                WriteMap("map_Pr", material.RoughnessMap, stream);
+            }
+
+            if (material.Metallic != 0.0f)
+            {
+                stream.Write("Pm ");
+                stream.WriteLine(material.Metallic.ToString("F6", CultureInfo.InvariantCulture));
+            }
+
+            if (material.MetallicMap != null)
+            {
+                WriteMap("map_Pm", material.MetallicMap, stream);
+            }
+
+            if (material.Sheen != 0.0f)
+            {
+                stream.Write("Ps ");
+                stream.WriteLine(material.Sheen.ToString("F6", CultureInfo.InvariantCulture));
+            }
+
+            if (material.SheenMap != null)
+            {
+                WriteMap("map_Ps", material.SheenMap, stream);
+            }
+
+            if (material.ClearCoatThickness != 0.0f)
+            {
+                stream.Write("Pc ");
+                stream.WriteLine(material.ClearCoatThickness.ToString("F6", CultureInfo.InvariantCulture));
+            }
+
+            if (material.ClearCoatRoughness != 0.0f)
+            {
+                stream.Write("Pcr ");
+                stream.WriteLine(material.ClearCoatRoughness.ToString("F6", CultureInfo.InvariantCulture));
+            }
+
+            if (material.Anisotropy != 0.0f)
+            {
+                stream.Write("aniso ");
+                stream.WriteLine(material.Anisotropy.ToString("F6", CultureInfo.InvariantCulture));
+            }
+
+            if (material.AnisotropyRotation != 0.0f)
+            {
+                stream.Write("anisor ");
+                stream.WriteLine(material.AnisotropyRotation.ToString("F6", CultureInfo.InvariantCulture));
+            }
+
+            if (material.Norm != null)
+            {
+                WriteMap("norm", material.Norm, stream);
+            }
         }
 
         private static void WriteColor(string statement, ObjMaterialColor color, StreamWriter stream)
@@ -210,8 +272,6 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         private static void WriteMap(string statement, ObjMaterialMap map, StreamWriter stream)
         {
-            // TODO: write tests
-
             stream.Write(statement);
 
             if (!map.IsHorizontalBlendingEnabled)
