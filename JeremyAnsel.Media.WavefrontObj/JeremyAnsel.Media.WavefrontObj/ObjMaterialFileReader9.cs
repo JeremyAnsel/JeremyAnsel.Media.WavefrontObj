@@ -774,11 +774,34 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                 ReadOnlySpan<char> value1 = GetNextValue(ref currentLine, ref values);
                 int value1Length = value1.ToLowerInvariant(valueBuffer);
+                
+                // Value1Length is -1 when the buffer is too small.
+                // This should only happen if the value is a file name and not an option
+                if (value1Length == -1)
+                {
+                    if (index == 1)
+                    {
+                        if (statement.Equals("refl", StringComparison.OrdinalIgnoreCase))
+                        {
+                            throw new InvalidDataException("A refl statement must specify a type.");
+                        }    
+                    }
+                    
+                    var sb = new StringBuilder();
 
-                //if (value1Length == -1)
-                //{
-                //    throw new InvalidDataException("the buffer is too small");
-                //}
+                    sb.Append(value1);
+
+                    for (int i = index + 1; i < valuesCount; i++)
+                    {
+                        sb.Append(' ');
+                        sb.Append(GetNextValue(ref currentLine, ref values));
+                    }
+
+                    string filename = sb.ToString();
+
+                    map.FileName = filename;
+                    return map;
+                }
 
                 if (statement.Equals("refl", StringComparison.OrdinalIgnoreCase))
                 {
