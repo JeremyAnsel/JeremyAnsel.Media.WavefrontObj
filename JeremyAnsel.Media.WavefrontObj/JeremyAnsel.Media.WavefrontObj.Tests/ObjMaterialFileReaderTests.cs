@@ -969,285 +969,125 @@ map_aat " + value;
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.Equal(enabled, mtl.Materials[0].IsAntiAliasingEnabled);
         }
-
-        [Fact]
-        public void Texture_Ambient_Throws()
+        
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapInvalidTestData))]
+        public void Texture_Ambient_Throws(string materialStringTemplate)
         {
-            Assert.Throws<InvalidDataException>(() => ReadMtl("map_Ka"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ka"));
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ka");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
         }
 
-        [Fact]
-        public void Texture_Ambient_Valid()
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapValidTestData))]
+        public void Texture_Ambient_Valid(string materialStringTemplate, string expectedFilename)
         {
-            string content = @"
-newmtl a
-map_Ka b.b";
-
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ka");
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
         }
 
-        [Fact]
-        public void Texture_Ambient_ValidWithoutExtension()
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapInvalidTestData))]
+        public void Texture_Diffuse_Throws(string materialStringTemplate)
         {
-            string content = @"
-newmtl a
-map_Ka b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b", mtl.Materials[0].AmbientMap?.FileName);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Kd");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
         }
 
-        [Fact]
-        public void Texture_Diffuse_Throws()
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapValidTestData))]
+        public void Texture_Diffuse_Valid(string materialStringTemplate, string expectedFilename)
         {
-            Assert.Throws<InvalidDataException>(() => ReadMtl("map_Kd"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Kd"));
-        }
-
-        [Fact]
-        public void Texture_Diffuse_Valid()
-        {
-            string content = @"
-newmtl a
-map_Kd b.b";
-
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Kd");
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].DiffuseMap);
-            Assert.Equal("b.b", mtl.Materials[0].DiffuseMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].DiffuseMap?.FileName);
         }
 
-        [Fact]
-        public void Texture_Diffuse_ValidWithoutExtension()
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapInvalidTestData))]
+        public void Texture_Emissive_Throws(string materialStringTemplate)
         {
-            string content = @"
-newmtl a
-map_Kd b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DiffuseMap);
-            Assert.Equal("b", mtl.Materials[0].DiffuseMap?.FileName);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ke");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
         }
 
-        [Fact]
-        public void Texture_Diffuse_ValidWithExtensionIncludingWhitespace()
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapValidTestData))]
+        public void Texture_Emissive_Valid(string materialStringTemplate, string expectedFilename)
         {
-            string content = @"
-newmtl a
-map_Kd b.b 0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DiffuseMap);
-            Assert.Equal("b.b 0", mtl.Materials[0].DiffuseMap?.FileName);
-        }
-
-        [Fact]
-        public void Texture_Emissive_Throws()
-        {
-            Assert.Throws<InvalidDataException>(() => ReadMtl("map_Ke"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ke"));
-        }
-
-        [Fact]
-        public void Texture_Emissive_Valid()
-        {
-            string content = @"
-newmtl a
-map_Ke b.b";
-
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ke");
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].EmissiveMap);
-            Assert.Equal("b.b", mtl.Materials[0].EmissiveMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].EmissiveMap?.FileName);
         }
 
-        [Fact]
-        public void Texture_Emissive_ValidWithoutExtension()
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapInvalidTestData))]
+        public void Texture_Specular_Throws(string materialStringTemplate)
         {
-            string content = @"
-newmtl a
-map_Ke b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].EmissiveMap);
-            Assert.Equal("b", mtl.Materials[0].EmissiveMap?.FileName);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ks");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
         }
 
-        [Fact]
-        public void Texture_Emissive_ValidWithExtensionIncludingWhitespace()
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapValidTestData))]
+        public void Texture_Specular_Valid(string materialStringTemplate, string expectedFilename)
         {
-            string content = @"
-newmtl a
-map_Ke b.b 0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].EmissiveMap);
-            Assert.Equal("b.b 0", mtl.Materials[0].EmissiveMap?.FileName);
-        }
-
-        [Fact]
-        public void Texture_Specular_Throws()
-        {
-            Assert.Throws<InvalidDataException>(() => ReadMtl("map_Ks"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ks"));
-        }
-
-        [Fact]
-        public void Texture_Specular_Valid()
-        {
-            string content = @"
-newmtl a
-map_Ks b.b";
-
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ks");
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].SpecularMap);
-            Assert.Equal("b.b", mtl.Materials[0].SpecularMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].SpecularMap?.FileName);
         }
 
-        [Fact]
-        public void Texture_Specular_ValidWithoutExtension()
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapInvalidTestData))]
+        public void Texture_SpecularExponent_Throws(string materialStringTemplate)
         {
-            string content = @"
-newmtl a
-map_Ks b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularMap);
-            Assert.Equal("b", mtl.Materials[0].SpecularMap?.FileName);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ns");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
         }
 
-        [Fact]
-        public void Texture_Specular_ValidWithExtensionIncludingWhitespace()
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapValidTestData))]
+        public void Texture_SpecularExponent_Valid(string materialStringTemplate, string expectedFilename)
         {
-            string content = @"
-newmtl a
-map_Ks b.b 0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularMap);
-            Assert.Equal("b.b 0", mtl.Materials[0].SpecularMap?.FileName);
-        }
-
-        [Fact]
-        public void Texture_SpecularExponent_Throws()
-        {
-            Assert.Throws<InvalidDataException>(() => ReadMtl("map_Ns"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_Ns"));
-        }
-
-        [Fact]
-        public void Texture_SpecularExponent_Valid()
-        {
-            string content = @"
-newmtl a
-map_Ns b.b";
-
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ns");
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].SpecularExponentMap);
-            Assert.Equal("b.b", mtl.Materials[0].SpecularExponentMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].SpecularExponentMap?.FileName);
         }
 
-        [Fact]
-        public void Texture_SpecularExponent_ValidWithoutExtension()
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapInvalidTestData))]
+        public void Texture_Dissolve_Throws(string materialStringTemplate)
         {
-            string content = @"
-newmtl a
-map_Ns b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularExponentMap);
-            Assert.Equal("b", mtl.Materials[0].SpecularExponentMap?.FileName);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_d");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
         }
 
-        [Fact]
-        public void Texture_SpecularExponent_ValidWithExtensionIncludingWhitespace()
+        [Theory]
+        [MemberData(nameof(ObjectMaterialMapValidTestData))]
+        public void Texture_Dissolve_Valid(string materialStringTemplate, string expectedFilename)
         {
-            string content = @"
-newmtl a
-map_Ns b.b 0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularExponentMap);
-            Assert.Equal("b.b 0", mtl.Materials[0].SpecularExponentMap?.FileName);
-        }
-
-        [Fact]
-        public void Texture_Dissolve_Throws()
-        {
-            Assert.Throws<InvalidDataException>(() => ReadMtl("map_d"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nmap_d"));
-        }
-
-        [Fact]
-        public void Texture_Dissolve_Valid()
-        {
-            string content = @"
-newmtl a
-map_d b.b";
-
+            var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_d");
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].DissolveMap);
-            Assert.Equal("b.b", mtl.Materials[0].DissolveMap?.FileName);
-        }
-
-        [Fact]
-        public void Texture_Dissolve_ValidWithoutExtension()
-        {
-            string content = @"
-newmtl a
-map_d b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DissolveMap);
-            Assert.Equal("b", mtl.Materials[0].DissolveMap?.FileName);
-        }
-
-        [Fact]
-        public void Texture_Dissolve_ValidWithExtensionIncludingWhitespace()
-        {
-            string content = @"
-newmtl a
-map_d b.b 0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DissolveMap);
-            Assert.Equal("b.b 0", mtl.Materials[0].DissolveMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].DissolveMap?.FileName);
         }
 
         [Fact]
@@ -1374,6 +1214,7 @@ bump b.b";
         {
             Assert.Throws<InvalidDataException>(() => ReadMtl("refl"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nrefl"));
+            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nrefl {00000000-0000-0000-0000-000000000000}"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nrefl -type"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nrefl -type sphere"));
             Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nrefl 0 0 0"));
@@ -2053,14 +1894,14 @@ map_Ka -texres 2 b.b";
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void PbrExtensions_RoughnessMapValid_Throws(string materialStringTemplate, string expected)
+        public void PbrExtensions_RoughnessMapValid_Throws(string materialStringTemplate, string expectedFilename)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Pr");
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].RoughnessMap);
-            Assert.Equal(expected, mtl.Materials[0].RoughnessMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].RoughnessMap?.FileName);
         }
 
         [Theory]
@@ -2092,14 +1933,14 @@ map_Ka -texres 2 b.b";
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void PbrExtensions_MetallicMapValid_Throws(string materialStringTemplate, string expected)
+        public void PbrExtensions_MetallicMapValid_Throws(string materialStringTemplate, string expectedFilename)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Pm");
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].MetallicMap);
-            Assert.Equal(expected, mtl.Materials[0].MetallicMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].MetallicMap?.FileName);
         }
 
         [Theory]
@@ -2131,14 +1972,14 @@ map_Ka -texres 2 b.b";
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void PbrExtensions_SheenMapValid_Throws(string materialStringTemplate, string expected)
+        public void PbrExtensions_SheenMapValid_Throws(string materialStringTemplate, string expectedFilename)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ps");
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].SheenMap);
-            Assert.Equal(expected, mtl.Materials[0].SheenMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].SheenMap?.FileName);
         }
 
         [Theory]
@@ -2227,14 +2068,14 @@ map_Ka -texres 2 b.b";
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void PbrExtensions_NormValid_Throws(string materialStringTemplate, string expected)
+        public void PbrExtensions_NormValid_Throws(string materialStringTemplate, string expectedFilename)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "norm");
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].Norm);
-            Assert.Equal(expected, mtl.Materials[0].Norm?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].Norm?.FileName);
         }
 
 
@@ -2247,7 +2088,7 @@ map_Ka -texres 2 b.b";
                 return ObjMaterialFile.FromStream(stream);
             }
         }
-        
+
         public static IEnumerable<object[]> SingleFloatInvalidTestData()
         {
             yield return ["{0}"];
@@ -2259,7 +2100,7 @@ map_Ka -texres 2 b.b";
         {
             yield return ["newmtl a\n{0} 1.5", 1.5f];
         }
-        
+
 
         public static IEnumerable<object[]> ObjectMaterialMapInvalidTestData()
         {
@@ -2269,8 +2110,11 @@ map_Ka -texres 2 b.b";
 
         public static IEnumerable<object[]> ObjectMaterialMapValidTestData()
         {
-            yield return ["newmtl a\n{0} b.b", "b.b"];
             yield return ["newmtl a\n{0} b", "b"];
+            yield return ["newmtl a\n{0} b.b", "b.b"];
+            yield return ["newmtl a\n{0} b.b 0", "b.b 0"];
+            yield return ["newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}}", "{00000000-0000-0000-0000-000000000000}"];
+            yield return ["newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}} {{00000000-0000-0000-0000-000000000000}}", "{00000000-0000-0000-0000-000000000000} {00000000-0000-0000-0000-000000000000}"];
         }
     }
 }
