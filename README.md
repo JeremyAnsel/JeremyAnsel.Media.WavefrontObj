@@ -40,7 +40,7 @@ foreach (ObjMaterial material in objMaterialFile.Materials)
 
 // The 3d geometry contains faces, vertices, normals, and texture coordinates.
 // The vertices, normals, and texture coordinates are defined in global lists.
-// The faces contain indices to these lists.
+// The faces contain indices to these lists. The indices start at 1.
 
 // Get the vertices
 foreach (ObjVertex v in objFile.Vertices)
@@ -75,13 +75,13 @@ foreach (ObjFace face in objFile.Faces)
     foreach (ObjTriplet point in points)
     {
         // index into the global vertices list
-        int vertexIndex = point.Vertex;
+        int vertexIndex = point.Vertex - 1;
 
         // index into the global normals list
-        int normalIndex = point.Normal;
+        int normalIndex = point.Normal - 1;
 
         // index into the global texture coordinates list
-        int textureCoordinatesIndex = point.Texture;
+        int textureCoordinatesIndex = point.Texture - 1;
     }
 }
 ```
