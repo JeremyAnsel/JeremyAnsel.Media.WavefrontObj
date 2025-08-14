@@ -64,6 +64,7 @@ foreach (ObjVector3 v in objFile.TextureVertices)
 foreach (ObjFace face in objFile.Faces)
 {
     // name of the texture as defined in the material file
+    // face.MaterialName is the name of the material as in material.Name
     string? textureName = face.MaterialName;
 
     // points of the face
@@ -85,3 +86,10 @@ foreach (ObjFace face in objFile.Faces)
     }
 }
 ```
+
+An invalid index is 0.
+In the specs an index can be positive or negative.
+Positive means that the index starts at the beginning of the global list.
+Negative means that the index starts at the end of the list.
+While reading the library converts negative indices to positive indices.
+That is why the invalid index is 0.
