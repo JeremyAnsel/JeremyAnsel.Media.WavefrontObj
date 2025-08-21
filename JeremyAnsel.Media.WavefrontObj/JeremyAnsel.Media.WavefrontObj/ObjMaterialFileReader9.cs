@@ -631,10 +631,8 @@ namespace JeremyAnsel.Media.WavefrontObj
 
             var color = new ObjMaterialColor();
 
-            int valueBufferSize = 16;
-            Span<char> valueBuffer = stackalloc char[valueBufferSize];
-
             ReadOnlySpan<char> value1 = GetNextValue(ref currentLine, ref values);
+            Span<char> valueBuffer = stackalloc char[value1.Length];
             int value1Length = value1.ToLowerInvariant(valueBuffer);
 
             //if (value1Length == -1)
