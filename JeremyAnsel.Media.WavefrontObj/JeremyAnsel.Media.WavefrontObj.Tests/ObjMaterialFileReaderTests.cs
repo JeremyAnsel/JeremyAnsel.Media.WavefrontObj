@@ -89,739 +89,99 @@ newmtl a
         }
 
         [Fact]
-        public void MaterialColor_Ambient_Throws()
+        public void MaterialName_NewNamea_Valid()
         {
-            Assert.Throws<InvalidDataException>(() => ReadMtl("Ka"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKa"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKa 0 0"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKa xyz"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKa xyz 0 0"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKa spectral"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKa 0 0 0 0"));
-        }
-
-        [Fact]
-        public void MaterialColor_AmbientRGB_Valid()
-        {
-            string content = @"
-newmtl a
-Ka 2.0 3.0 4.0";
+            string content = "newmtl Plastica (1)";
 
             var mtl = ReadMtl(content);
 
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].AmbientColor);
-            Assert.True(mtl.Materials[0].AmbientColor?.IsRGB);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].AmbientColor?.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].AmbientColor?.Color.Z);
+            Assert.Single(mtl.Materials);
+            Assert.Equal("Plastica (1)", mtl.Materials[0].Name);
         }
 
-        [Fact]
-        public void MaterialColor_AmbientRGB_Optional()
+        [Theory]
+        [MemberData(nameof(MaterialColorInvalidTestData))]
+        public void MaterialColor_Ambient_Throws(string materialStringTemplate)
         {
-            string content = @"
-newmtl a
-Ka 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].AmbientColor);
-            Assert.True(mtl.Materials[0].AmbientColor?.IsRGB);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.Z);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Ka");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
         }
 
-        [Fact]
-        public void MaterialColor_AmbientXYZ_Valid()
+        [Theory]
+        [MemberData(nameof(MaterialColorValidTestData))]
+        public void MaterialColor_Ambient_Valid(string materialStringTemplate, ObjMaterialColor expected)
         {
-            string content = @"
-newmtl a
-Ka xyz 2.0 3.0 4.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].AmbientColor);
-            Assert.True(mtl.Materials[0].AmbientColor?.IsXYZ);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].AmbientColor?.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].AmbientColor?.Color.Z);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Ka");
+            var parsed = ReadMtl(materialString);
+            Assert.Equivalent(expected, parsed.Materials[0].AmbientColor);
         }
 
-        [Fact]
-        public void MaterialColor_AmbientXYZ_Optional()
+        [Theory]
+        [MemberData(nameof(MaterialColorInvalidTestData))]
+        public void MaterialColor_Diffuse_Throws(string materialStringTemplate)
         {
-            string content = @"
-newmtl a
-Ka xyz 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].AmbientColor);
-            Assert.True(mtl.Materials[0].AmbientColor?.IsXYZ);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.Color.Z);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Kd");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
         }
 
-        [Fact]
-        public void MaterialColor_AmbientSpectral_Valid()
+        [Theory]
+        [MemberData(nameof(MaterialColorValidTestData))]
+        public void MaterialColor_Diffuse_Valid(string materialStringTemplate, ObjMaterialColor expected)
         {
-            string content = @"
-newmtl a
-Ka spectral b.b 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].AmbientColor);
-            Assert.True(mtl.Materials[0].AmbientColor?.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientColor?.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.SpectralFactor);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Kd");
+            var parsed = ReadMtl(materialString);
+            Assert.Equivalent(expected, parsed.Materials[0].DiffuseColor);
         }
 
-        [Fact]
-        public void MaterialColor_AmbientSpectral_ValidWithoutExtension()
+        [Theory]
+        [MemberData(nameof(MaterialColorInvalidTestData))]
+        public void MaterialColor_Specular_Throws(string materialStringTemplate)
         {
-            string content = @"
-newmtl a
-Ka spectral b 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].AmbientColor);
-            Assert.True(mtl.Materials[0].AmbientColor?.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
-            Assert.Equal("b", mtl.Materials[0].AmbientColor?.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].AmbientColor?.SpectralFactor);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Ks");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
         }
 
-        [Fact]
-        public void MaterialColor_AmbientSpectral_Optional()
+        [Theory]
+        [MemberData(nameof(MaterialColorValidTestData))]
+        public void MaterialColor_Specular_Valid(string materialStringTemplate, ObjMaterialColor expected)
         {
-            string content = @"
-newmtl a
-Ka spectral b.b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].AmbientColor);
-            Assert.True(mtl.Materials[0].AmbientColor?.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientColor?.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].AmbientColor?.SpectralFactor);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Ks");
+            var parsed = ReadMtl(materialString);
+            Assert.Equivalent(expected, parsed.Materials[0].SpecularColor);
         }
 
-        [Fact]
-        public void MaterialColor_AmbientSpectral_OptionalWithoutExtension()
+        [Theory]
+        [MemberData(nameof(MaterialColorInvalidTestData))]
+        public void MaterialColor_Emissive_Throws(string materialStringTemplate)
         {
-            string content = @"
-newmtl a
-Ka spectral b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].AmbientColor);
-            Assert.True(mtl.Materials[0].AmbientColor?.IsSpectral);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsRGB);
-            Assert.False(mtl.Materials[0].AmbientColor?.IsXYZ);
-            Assert.Equal("b", mtl.Materials[0].AmbientColor?.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].AmbientColor?.SpectralFactor);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Ke");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
         }
 
-        [Fact]
-        public void MaterialColor_Diffuse_Throws()
+        [Theory]
+        [MemberData(nameof(MaterialColorValidTestData))]
+        public void MaterialColor_Emissive_Valid(string materialStringTemplate, ObjMaterialColor expected)
         {
-            Assert.Throws<InvalidDataException>(() => ReadMtl("Kd"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKd"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKd 0 0"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKd xyz"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKd xyz 0 0"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKd spectral"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKd 0 0 0 0"));
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Ke");
+            var parsed = ReadMtl(materialString);
+            Assert.Equivalent(expected, parsed.Materials[0].EmissiveColor);
         }
 
-        [Fact]
-        public void MaterialColor_DiffuseRGB_Valid()
+        [Theory]
+        [MemberData(nameof(MaterialColorInvalidTestData))]
+        public void MaterialColor_Transmission_Throws(string materialStringTemplate)
         {
-            string content = @"
-newmtl a
-Kd 2.0 3.0 4.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DiffuseColor);
-            Assert.True(mtl.Materials[0].DiffuseColor?.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].DiffuseColor?.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].DiffuseColor?.Color.Z);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Tf");
+            Assert.Throws<InvalidDataException>(() => ReadMtl(materialString));
         }
 
-        [Fact]
-        public void MaterialColor_DiffuseRGB_Optional()
+        [Theory]
+        [MemberData(nameof(MaterialColorValidTestData))]
+        public void MaterialColor_Transmission_Valid(string materialStringTemplate, ObjMaterialColor expected)
         {
-            string content = @"
-newmtl a
-Kd 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DiffuseColor);
-            Assert.True(mtl.Materials[0].DiffuseColor?.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_DiffuseXYZ_Valid()
-        {
-            string content = @"
-newmtl a
-Kd xyz 2.0 3.0 4.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DiffuseColor);
-            Assert.True(mtl.Materials[0].DiffuseColor?.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].DiffuseColor?.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].DiffuseColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_DiffuseXYZ_Optional()
-        {
-            string content = @"
-newmtl a
-Kd xyz 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DiffuseColor);
-            Assert.True(mtl.Materials[0].DiffuseColor?.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_DiffuseSpectral_Valid()
-        {
-            string content = @"
-newmtl a
-Kd spectral b.b 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DiffuseColor);
-            Assert.True(mtl.Materials[0].DiffuseColor?.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].DiffuseColor?.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_DiffuseSpectral_ValidWithoutExtension()
-        {
-            string content = @"
-newmtl a
-Kd spectral b 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DiffuseColor);
-            Assert.True(mtl.Materials[0].DiffuseColor?.IsSpectral);
-            Assert.Equal("b", mtl.Materials[0].DiffuseColor?.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].DiffuseColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_DiffuseSpectral_Optional()
-        {
-            string content = @"
-newmtl a
-Kd spectral b.b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DiffuseColor);
-            Assert.True(mtl.Materials[0].DiffuseColor?.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].DiffuseColor?.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].DiffuseColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_DiffuseSpectral_OptionalWithoutExtension()
-        {
-            string content = @"
-newmtl a
-Kd spectral b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].DiffuseColor);
-            Assert.True(mtl.Materials[0].DiffuseColor?.IsSpectral);
-            Assert.Equal("b", mtl.Materials[0].DiffuseColor?.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].DiffuseColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_Emissive_Throws()
-        {
-            Assert.Throws<InvalidDataException>(() => ReadMtl("Ke"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKe"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKe 0 0"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKe xyz"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKe xyz 0 0"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKe spectral"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKe 0 0 0 0"));
-        }
-
-        [Fact]
-        public void MaterialColor_EmissiveRGB_Valid()
-        {
-            string content = @"
-newmtl a
-Ke 2.0 3.0 4.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].EmissiveColor);
-            Assert.True(mtl.Materials[0].EmissiveColor?.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].EmissiveColor?.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].EmissiveColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_EmissiveRGB_Optional()
-        {
-            string content = @"
-newmtl a
-Ke 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].EmissiveColor);
-            Assert.True(mtl.Materials[0].EmissiveColor?.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_EmissiveXYZ_Valid()
-        {
-            string content = @"
-newmtl a
-Ke xyz 2.0 3.0 4.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].EmissiveColor);
-            Assert.True(mtl.Materials[0].EmissiveColor?.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].EmissiveColor?.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].EmissiveColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_EmissiveXYZ_Optional()
-        {
-            string content = @"
-newmtl a
-Ke xyz 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].EmissiveColor);
-            Assert.True(mtl.Materials[0].EmissiveColor?.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_EmissiveSpectral_Valid()
-        {
-            string content = @"
-newmtl a
-Ke spectral b.b 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].EmissiveColor);
-            Assert.True(mtl.Materials[0].EmissiveColor?.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].EmissiveColor?.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_EmissiveSpectral_ValidWithoutExtension()
-        {
-            string content = @"
-newmtl a
-Ke spectral b 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].EmissiveColor);
-            Assert.True(mtl.Materials[0].EmissiveColor?.IsSpectral);
-            Assert.Equal("b", mtl.Materials[0].EmissiveColor?.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].EmissiveColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_EmissiveSpectral_Optional()
-        {
-            string content = @"
-newmtl a
-Ke spectral b.b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].EmissiveColor);
-            Assert.True(mtl.Materials[0].EmissiveColor?.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].EmissiveColor?.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].EmissiveColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_EmissiveSpectral_OptionalWithoutExtension()
-        {
-            string content = @"
-newmtl a
-Ke spectral b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].EmissiveColor);
-            Assert.True(mtl.Materials[0].EmissiveColor?.IsSpectral);
-            Assert.Equal("b", mtl.Materials[0].EmissiveColor?.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].EmissiveColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_Specular_Throws()
-        {
-            Assert.Throws<InvalidDataException>(() => ReadMtl("Ks"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKs"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKs 0 0"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKs xyz"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKs xyz 0 0"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKs spectral"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nKs 0 0 0 0"));
-        }
-
-        [Fact]
-        public void MaterialColor_SpecularRGB_Valid()
-        {
-            string content = @"
-newmtl a
-Ks 2.0 3.0 4.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularColor);
-            Assert.True(mtl.Materials[0].SpecularColor?.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].SpecularColor?.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].SpecularColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_SpecularRGB_Optional()
-        {
-            string content = @"
-newmtl a
-Ks 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularColor);
-            Assert.True(mtl.Materials[0].SpecularColor?.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_SpecularXYZ_Valid()
-        {
-            string content = @"
-newmtl a
-Ks xyz 2.0 3.0 4.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularColor);
-            Assert.True(mtl.Materials[0].SpecularColor?.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].SpecularColor?.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].SpecularColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_SpecularXYZ_Optional()
-        {
-            string content = @"
-newmtl a
-Ks xyz 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularColor);
-            Assert.True(mtl.Materials[0].SpecularColor?.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_SpecularSpectral_Valid()
-        {
-            string content = @"
-newmtl a
-Ks spectral b.b 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularColor);
-            Assert.True(mtl.Materials[0].SpecularColor?.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].SpecularColor?.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_SpecularSpectral_ValidWithoutExtension()
-        {
-            string content = @"
-newmtl a
-Ks spectral b 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularColor);
-            Assert.True(mtl.Materials[0].SpecularColor?.IsSpectral);
-            Assert.Equal("b", mtl.Materials[0].SpecularColor?.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].SpecularColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_SpecularSpectral_Optional()
-        {
-            string content = @"
-newmtl a
-Ks spectral b.b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularColor);
-            Assert.True(mtl.Materials[0].SpecularColor?.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].SpecularColor?.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].SpecularColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_SpecularSpectral_OptionalWithoutExtension()
-        {
-            string content = @"
-newmtl a
-Ks spectral b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].SpecularColor);
-            Assert.True(mtl.Materials[0].SpecularColor?.IsSpectral);
-            Assert.Equal("b", mtl.Materials[0].SpecularColor?.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].SpecularColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_Transmission_Throws()
-        {
-            Assert.Throws<InvalidDataException>(() => ReadMtl("Tf"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nTf"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nTf 0 0"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nTf xyz"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nTf xyz 0 0"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nTf spectral"));
-            Assert.Throws<InvalidDataException>(() => ReadMtl("newmtl a\nTf 0 0 0 0"));
-        }
-
-        [Fact]
-        public void MaterialColor_TransmissionRGB_Valid()
-        {
-            string content = @"
-newmtl a
-Tf 2.0 3.0 4.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].TransmissionColor);
-            Assert.True(mtl.Materials[0].TransmissionColor?.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].TransmissionColor?.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].TransmissionColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_TransmissionRGB_Optional()
-        {
-            string content = @"
-newmtl a
-Tf 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].TransmissionColor);
-            Assert.True(mtl.Materials[0].TransmissionColor?.IsRGB);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_TransmissionXYZ_Valid()
-        {
-            string content = @"
-newmtl a
-Tf xyz 2.0 3.0 4.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].TransmissionColor);
-            Assert.True(mtl.Materials[0].TransmissionColor?.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.X);
-            Assert.Equal(3.0f, mtl.Materials[0].TransmissionColor?.Color.Y);
-            Assert.Equal(4.0f, mtl.Materials[0].TransmissionColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_TransmissionXYZ_Optional()
-        {
-            string content = @"
-newmtl a
-Tf xyz 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].TransmissionColor);
-            Assert.True(mtl.Materials[0].TransmissionColor?.IsXYZ);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.X);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.Y);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.Color.Z);
-        }
-
-        [Fact]
-        public void MaterialColor_TransmissionSpectral_Valid()
-        {
-            string content = @"
-newmtl a
-Tf spectral b.b 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].TransmissionColor);
-            Assert.True(mtl.Materials[0].TransmissionColor?.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].TransmissionColor?.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_TransmissionSpectral_ValidWithoutExtension()
-        {
-            string content = @"
-newmtl a
-Tf spectral b 2.0";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].TransmissionColor);
-            Assert.True(mtl.Materials[0].TransmissionColor?.IsSpectral);
-            Assert.Equal("b", mtl.Materials[0].TransmissionColor?.SpectralFileName);
-            Assert.Equal(2.0f, mtl.Materials[0].TransmissionColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_TransmissionSpectral_Optional()
-        {
-            string content = @"
-newmtl a
-Tf spectral b.b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].TransmissionColor);
-            Assert.True(mtl.Materials[0].TransmissionColor?.IsSpectral);
-            Assert.Equal("b.b", mtl.Materials[0].TransmissionColor?.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].TransmissionColor?.SpectralFactor);
-        }
-
-        [Fact]
-        public void MaterialColor_TransmissionSpectral_OptionalWithoutExtension()
-        {
-            string content = @"
-newmtl a
-Tf spectral b";
-
-            var mtl = ReadMtl(content);
-
-            Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].TransmissionColor);
-            Assert.True(mtl.Materials[0].TransmissionColor?.IsSpectral);
-            Assert.Equal("b", mtl.Materials[0].TransmissionColor?.SpectralFileName);
-            Assert.Equal(1.0f, mtl.Materials[0].TransmissionColor?.SpectralFactor);
+            var materialString = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "Tf");
+            var parsed = ReadMtl(materialString);
+            Assert.Equivalent(expected, parsed.Materials[0].TransmissionColor);
         }
 
         [Fact]
@@ -969,7 +329,7 @@ map_aat " + value;
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.Equal(enabled, mtl.Materials[0].IsAntiAliasingEnabled);
         }
-        
+
         [Theory]
         [MemberData(nameof(ObjectMaterialMapInvalidTestData))]
         public void Texture_Ambient_Throws(string materialStringTemplate)
@@ -2089,6 +1449,29 @@ map_Ka -texres 2 b.b";
             }
         }
 
+        public static IEnumerable<object[]> MaterialColorInvalidTestData()
+        {
+            yield return ["{0}"];
+            yield return ["newmtl a\n{0}"];
+            yield return ["newmtl a\n{0} 0 0"];
+            yield return ["newmtl a\n{0} xyz"];
+            yield return ["newmtl a\n{0} xyz 0 0"];
+            yield return ["newmtl a\n{0} spectral"];
+            yield return ["newmtl a\n{0} 0 0 0 0"];
+        }
+
+        public static IEnumerable<object[]> MaterialColorValidTestData()
+        {
+            yield return ["newmtl a\n{0} 2.0 3.0 4.0", new ObjMaterialColor { Color = new ObjVector3(2.0f, 3.0f, 4.0f) }];
+            yield return ["newmtl a\n{0} 0.800000011920929 0.800000011920929 0.800000011920929", new ObjMaterialColor { Color = new ObjVector3(0.800000011920929f, 0.800000011920929f, 0.800000011920929f) }];
+            yield return ["newmtl a\n{0} 2.0", new ObjMaterialColor { Color = new ObjVector3(2.0f, 2.0f, 2.0f) }];
+            yield return ["newmtl a\n{0} xyz 2.0 3.0 4.0", new ObjMaterialColor { Color = new ObjVector3(2.0f, 3.0f, 4.0f), UseXYZColorSpace = true}];
+            yield return ["newmtl a\n{0} xyz 2.0", new ObjMaterialColor { Color = new ObjVector3(2.0f, 2.0f, 2.0f), UseXYZColorSpace = true}];
+            yield return ["newmtl a\n{0} spectral b.b 2.0", new ObjMaterialColor { SpectralFactor = 2.0f, SpectralFileName = "b.b"}];
+            yield return ["newmtl a\n{0} spectral b 2.0", new ObjMaterialColor { SpectralFactor = 2.0f, SpectralFileName = "b"}];
+            yield return ["newmtl a\n{0} spectral b", new ObjMaterialColor { SpectralFactor = 1.0f, SpectralFileName = "b"}];
+        }
+
         public static IEnumerable<object[]> SingleFloatInvalidTestData()
         {
             yield return ["{0}"];
@@ -2113,8 +1496,13 @@ map_Ka -texres 2 b.b";
             yield return ["newmtl a\n{0} b", "b"];
             yield return ["newmtl a\n{0} b.b", "b.b"];
             yield return ["newmtl a\n{0} b.b 0", "b.b 0"];
-            yield return ["newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}}", "{00000000-0000-0000-0000-000000000000}"];
-            yield return ["newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}} {{00000000-0000-0000-0000-000000000000}}", "{00000000-0000-0000-0000-000000000000} {00000000-0000-0000-0000-000000000000}"];
+            yield return
+                ["newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}}", "{00000000-0000-0000-0000-000000000000}"];
+            yield return
+            [
+                "newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}} {{00000000-0000-0000-0000-000000000000}}",
+                "{00000000-0000-0000-0000-000000000000} {00000000-0000-0000-0000-000000000000}"
+            ];
         }
     }
 }
