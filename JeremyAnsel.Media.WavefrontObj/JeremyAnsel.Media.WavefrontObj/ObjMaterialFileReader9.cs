@@ -38,18 +38,18 @@ namespace JeremyAnsel.Media.WavefrontObj
             return currentLine[values.Current];
         }
 
-        private static float FloatParse(ReadOnlySpan<char> s)
+        private static bool TryFloatParse(ReadOnlySpan<char> s, out float value)
         {
-            return float.Parse(s, NumberStyles.Float, CultureInfo.InvariantCulture);
+            return float.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out value);
         }
 
-        private static int IntParse(ReadOnlySpan<char> s)
+        private static bool TryIntParse(ReadOnlySpan<char> s, out int value)
         {
-            return int.Parse(s, NumberStyles.Integer, CultureInfo.InvariantCulture);
+            return int.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out value);
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        public static ObjMaterialFile FromStream(Stream? stream)
+        public static ObjMaterialFile FromStream(Stream? stream, ObjMaterialFileReaderSettings settings)
         {
             if (stream == null)
             {
@@ -172,6 +172,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
 
                     case "illum":
+                    {
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
@@ -187,9 +188,13 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("An illum statement has too many values.");
                         }
 
-                        currentMaterial.IlluminationModel = IntParse(GetNextValue(ref currentLine, ref values));
-                        break;
+                        if (TryIntParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            currentMaterial.IlluminationModel = value;
+                        }
 
+                        break;
+                    }
                     case "d":
                         {
                             if (currentMaterial == null)
@@ -217,7 +222,10 @@ namespace JeremyAnsel.Media.WavefrontObj
                                 }
 
                                 currentMaterial.IsHaloDissolve = true;
-                                currentMaterial.DissolveFactor = FloatParse(GetNextValue(ref currentLine, ref values));
+                                if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                                {
+                                    currentMaterial.DissolveFactor = value;
+                                }
                             }
                             else
                             {
@@ -226,13 +234,17 @@ namespace JeremyAnsel.Media.WavefrontObj
                                     throw new InvalidDataException("A d statement has too many values.");
                                 }
 
-                                currentMaterial.DissolveFactor = FloatParse(value1);
+                                if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                                {
+                                    currentMaterial.DissolveFactor = value;
+                                }
                             }
 
                             break;
                         }
 
                     case "ns":
+                    {
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
@@ -248,10 +260,14 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A Ns statement has too many values.");
                         }
 
-                        currentMaterial.SpecularExponent = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            currentMaterial.SpecularExponent = value;
+                        }
                         break;
-
+                    }
                     case "sharpness":
+                    {
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
@@ -266,11 +282,14 @@ namespace JeremyAnsel.Media.WavefrontObj
                         {
                             throw new InvalidDataException("A sharpness statement has too many values.");
                         }
-
-                        currentMaterial.Sharpness = IntParse(GetNextValue(ref currentLine, ref values));
+                        if (TryIntParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            currentMaterial.Sharpness = value;
+                        }
                         break;
-
+                    }
                     case "ni":
+                    {
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
@@ -286,9 +305,13 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A Ni statement has too many values.");
                         }
 
-                        currentMaterial.OpticalDensity = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            currentMaterial.OpticalDensity = value;
+                        }
+                        
                         break;
-
+                    }
                     case "map_aat":
                         {
                             if (currentMaterial == null)
@@ -330,7 +353,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.AmbientMap = ParseMaterialMap("map_Ka", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.AmbientMap = ParseMaterialMap("map_Ka", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "map_kd":
@@ -339,7 +362,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DiffuseMap = ParseMaterialMap("map_Kd", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.DiffuseMap = ParseMaterialMap("map_Kd", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "map_ke":
@@ -348,7 +371,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.EmissiveMap = ParseMaterialMap("map_Ke", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.EmissiveMap = ParseMaterialMap("map_Ke", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "map_ks":
@@ -357,7 +380,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.SpecularMap = ParseMaterialMap("map_Ks", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.SpecularMap = ParseMaterialMap("map_Ks", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "map_ns":
@@ -366,7 +389,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.SpecularExponentMap = ParseMaterialMap("map_Ns", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.SpecularExponentMap = ParseMaterialMap("map_Ns", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "map_d":
@@ -376,7 +399,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DissolveMap = ParseMaterialMap("map_d", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.DissolveMap = ParseMaterialMap("map_d", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "decal":
@@ -386,7 +409,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DecalMap = ParseMaterialMap("decal", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.DecalMap = ParseMaterialMap("decal", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "disp":
@@ -396,7 +419,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DispMap = ParseMaterialMap("disp", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.DispMap = ParseMaterialMap("disp", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "bump":
@@ -406,7 +429,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.BumpMap = ParseMaterialMap("bump", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.BumpMap = ParseMaterialMap("bump", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "refl":
@@ -421,7 +444,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A refl statement must specify a type and a file name.");
                         }
 
-                        ObjMaterialMap materialMap = ParseMaterialMap("refl", value0, ref currentLine, ref values, valuesCount, out MaterialMapType materialMapType);
+                        ObjMaterialMap materialMap = ParseMaterialMap("refl", value0, ref currentLine, ref values, valuesCount, settings, out MaterialMapType materialMapType);
 
                         switch (materialMapType)
                         {
@@ -456,6 +479,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                         break;
                     case "pr":
+                    {
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
@@ -471,17 +495,23 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A Pr statement has too many values.");
                         }
 
-                        currentMaterial.Roughness = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            currentMaterial.Roughness = value;
+                        }
+
                         break;
+                    }
                     case "map_pr":
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.RoughnessMap = ParseMaterialMap("map_Pr", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.RoughnessMap = ParseMaterialMap("map_Pr", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
                     case "pm":
+                    {
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
@@ -497,17 +527,22 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A Pm statement has too many values.");
                         }
 
-                        currentMaterial.Metallic = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            currentMaterial.Metallic = value;
+                        }
                         break;
+                    }
                     case "map_pm":
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.MetallicMap = ParseMaterialMap("map_Pm", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.MetallicMap = ParseMaterialMap("map_Pm", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
                     case "ps":
+                    {
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
@@ -523,17 +558,22 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A Ps statement has too many values.");
                         }
 
-                        currentMaterial.Sheen = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            currentMaterial.Sheen = value;
+                        }
                         break;
+                    }
                     case "map_ps":
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.SheenMap = ParseMaterialMap("map_Ps", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.SheenMap = ParseMaterialMap("map_Ps", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
                     case "pc":
+                    {
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
@@ -549,9 +589,14 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A Pc statement has too many values.");
                         }
 
-                        currentMaterial.ClearCoatThickness = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            currentMaterial.ClearCoatThickness = value;
+                        }
                         break;
+                    }
                     case "pcr":
+                    {
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
@@ -567,9 +612,14 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A Pcr statement has too many values.");
                         }
 
-                        currentMaterial.ClearCoatRoughness = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            currentMaterial.ClearCoatRoughness = value;
+                        }
                         break;
+                    }
                     case "aniso":
+                    {
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
@@ -585,9 +635,15 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A aniso statement has too many values.");
                         }
 
-                        currentMaterial.Anisotropy = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            currentMaterial.Anisotropy = value;
+                        }
+
                         break;
+                    }
                     case "anisor":
+                    {
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
@@ -603,15 +659,19 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A anisor statement has too many values.");
                         }
 
-                        currentMaterial.AnisotropyRotation = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            currentMaterial.AnisotropyRotation = value;
+                        }
                         break;
+                    }
                     case "norm":
                         if (currentMaterial == null)
                         {
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.Norm = ParseMaterialMap("norm", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.Norm = ParseMaterialMap("norm", value0, ref currentLine, ref values, valuesCount, settings);
                         break;
                 }
             }
@@ -645,11 +705,13 @@ namespace JeremyAnsel.Media.WavefrontObj
             switch (valueBuffer[..value1Length])
             {
                 case "spectral":
+                {
                     index++;
 
                     if (valuesCount - index < 1)
                     {
-                        throw new InvalidDataException(string.Concat("A ", statement, " spectral statement must specify a file name."));
+                        throw new InvalidDataException(string.Concat("A ", statement,
+                            " spectral statement must specify a file name."));
                     }
 
                     color.SpectralFileName = GetNextValue(ref currentLine, ref values).ToString();
@@ -657,36 +719,54 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                     if (valuesCount > index)
                     {
-                        color.SpectralFactor = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                        {
+                            color.SpectralFactor = value;
+                        }
+
                         index++;
                     }
 
                     break;
-
+                }
                 case "xyz":
+                {
                     index++;
 
                     if (valuesCount - index < 1)
                     {
-                        throw new InvalidDataException(string.Concat("A ", statement, " xyz statement must specify a color."));
+                        throw new InvalidDataException(string.Concat("A ", statement,
+                            " xyz statement must specify a color."));
                     }
 
                     color.UseXYZColorSpace = true;
 
                     var xyz = new ObjVector3();
+                    if (TryFloatParse(GetNextValue(ref currentLine, ref values), out var value))
+                    {
+                        xyz.X = value;
+                    }
 
-                    xyz.X = FloatParse(GetNextValue(ref currentLine, ref values));
                     index++;
 
                     if (valuesCount > index)
                     {
                         if (valuesCount - index < 2)
                         {
-                            throw new InvalidDataException(string.Concat("A ", statement, " xyz statement must specify a XYZ color."));
+                            throw new InvalidDataException(string.Concat("A ", statement,
+                                " xyz statement must specify a XYZ color."));
                         }
 
-                        xyz.Y = FloatParse(GetNextValue(ref currentLine, ref values));
-                        xyz.Z = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out value))
+                        {
+                            xyz.Y = value;
+                        }
+
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out value))
+                        {
+                            xyz.Z = value;
+                        }
+
                         index += 2;
                     }
                     else
@@ -697,22 +777,35 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                     color.Color = xyz;
                     break;
-
+                }
                 default:
+                {
                     var rgb = new ObjVector3();
+                    if (TryFloatParse(value1, out var value))
+                    {
+                        rgb.X = value;
+                    }
 
-                    rgb.X = FloatParse(value1);
                     index++;
 
                     if (valuesCount > index)
                     {
                         if (valuesCount - index < 2)
                         {
-                            throw new InvalidDataException(string.Concat("A ", statement, " statement must specify a RGB color."));
+                            throw new InvalidDataException(string.Concat("A ", statement,
+                                " statement must specify a RGB color."));
                         }
 
-                        rgb.Y = FloatParse(GetNextValue(ref currentLine, ref values));
-                        rgb.Z = FloatParse(GetNextValue(ref currentLine, ref values));
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out value))
+                        {
+                            rgb.Y = value;
+                        }
+
+                        if (TryFloatParse(GetNextValue(ref currentLine, ref values), out value))
+                        {
+                            rgb.Z = value;
+                        }
+
                         index += 2;
                     }
                     else
@@ -723,6 +816,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                     color.Color = rgb;
                     break;
+                }
             }
 
             if (index != valuesCount)
@@ -746,17 +840,18 @@ namespace JeremyAnsel.Media.WavefrontObj
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        private static ObjMaterialMap ParseMaterialMap(ReadOnlySpan<char> statement, ReadOnlySpan<char> value0, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount)
+        private static ObjMaterialMap ParseMaterialMap(ReadOnlySpan<char> statement, ReadOnlySpan<char> value0, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount, ObjMaterialFileReaderSettings settings)
         {
-            return ParseMaterialMap(statement, value0, ref currentLine, ref values, valuesCount, out _);
+            return ParseMaterialMap(statement, value0, ref currentLine, ref values, valuesCount, settings, out _);
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        private static ObjMaterialMap ParseMaterialMap(ReadOnlySpan<char> statement, ReadOnlySpan<char> value0, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount, out MaterialMapType materialMapType)
+        private static ObjMaterialMap ParseMaterialMap(ReadOnlySpan<char> statement, ReadOnlySpan<char> value0, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount, ObjMaterialFileReaderSettings settings, out MaterialMapType materialMapType)
         {
             materialMapType = MaterialMapType.None;
 
             var map = new ObjMaterialMap();
+            var charsRead = 0;
 
             int valueBufferSize = 16;
             Span<char> valueBuffer = stackalloc char[valueBufferSize];
@@ -784,22 +879,31 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A refl statement must specify a type.");
                         }    
                     }
-                    
-                    var sb = new StringBuilder();
-
-                    sb.Append(value1);
-
-                    for (int i = index + 1; i < valuesCount; i++)
+                    if (settings.KeepWhitespacesOfMapFileReferences)
                     {
-                        sb.Append(' ');
-                        sb.Append(GetNextValue(ref currentLine, ref values));
+                        map.FileName = new string(currentLine[(statement.Length + charsRead)..]);
                     }
+                    else
+                    {
+                        var sb = new StringBuilder();
 
-                    string filename = sb.ToString();
+                        sb.Append(value1);
 
-                    map.FileName = filename;
+                        for (int i = index + 1; i < valuesCount; i++)
+                        {
+                            sb.Append(' ');
+                            sb.Append(GetNextValue(ref currentLine, ref values));
+                        }
+
+                        string filename = sb.ToString();
+
+                        map.FileName = filename;
+                    }
+                    
                     return map;
                 }
+
+                charsRead += value1Length;
 
                 if (statement.Equals("refl", StringComparison.OrdinalIgnoreCase))
                 {
@@ -824,6 +928,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                         {
                             ReadOnlySpan<char> value2 = GetNextValue(ref currentLine, ref values);
                             int value2Length = value2.ToLowerInvariant(valueBuffer);
+                            charsRead += value2Length;
 
                             //if (value2Length == -1)
                             //{
@@ -877,6 +982,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             }
 
                             var value2 = GetNextValue(ref currentLine, ref values);
+                            charsRead += value2.Length;
 
                             if (value2.Equals("on", StringComparison.OrdinalIgnoreCase))
                             {
@@ -903,6 +1009,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             }
 
                             var value2 = GetNextValue(ref currentLine, ref values);
+                            charsRead += value2.Length;
 
                             if (value2.Equals("on", StringComparison.OrdinalIgnoreCase))
                             {
@@ -922,27 +1029,42 @@ namespace JeremyAnsel.Media.WavefrontObj
                         }
 
                     case "-bm":
+                    {
                         if (valuesCount - index < 2)
                         {
                             throw new InvalidDataException(string.Concat("A ", statement, " -bm option must specify a value."));
                         }
 
-                        map.BumpMultiplier = FloatParse(GetNextValue(ref currentLine, ref values));
+                        var value2 = GetNextValue(ref currentLine, ref values);
+                        charsRead += value2.Length;
 
-                        index++;
-                        break;
-
-                    case "-boost":
-                        if (valuesCount - index < 2)
+                        if (TryFloatParse(value2, out var value))
                         {
-                            throw new InvalidDataException(string.Concat("A ", statement, " -boost option must specify a value."));
+                            map.BumpMultiplier = value;
                         }
 
-                        map.Boost = FloatParse(GetNextValue(ref currentLine, ref values));
+                        index++;
+                        break;
+                    }
+                    case "-boost":
+                    {
+                        if (valuesCount - index < 2)
+                        {
+                            throw new InvalidDataException(string.Concat("A ", statement,
+                                " -boost option must specify a value."));
+                        }
+
+                        var value2 = GetNextValue(ref currentLine, ref values);
+                        charsRead += value2.Length;
+
+                        if (TryFloatParse(value2, out var value))
+                        {
+                            map.Boost = value;
+                        }
 
                         index++;
                         break;
-
+                    }
                     case "-cc":
                         {
                             if (valuesCount - index < 2)
@@ -951,6 +1073,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             }
 
                             var value2 = GetNextValue(ref currentLine, ref values);
+                            charsRead += value2.Length;
 
                             if (value2.Equals("on", StringComparison.OrdinalIgnoreCase))
                             {
@@ -977,6 +1100,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             }
 
                             var value2 = GetNextValue(ref currentLine, ref values);
+                            charsRead += value2.Length;
 
                             if (value2.Equals("on", StringComparison.OrdinalIgnoreCase))
                             {
@@ -1004,6 +1128,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                             ReadOnlySpan<char> value2 = GetNextValue(ref currentLine, ref values);
                             int value2Length = value2.ToLowerInvariant(valueBuffer);
+                            charsRead += value2Length;
 
                             //if (value2Length == -1)
                             //{
@@ -1045,127 +1170,257 @@ namespace JeremyAnsel.Media.WavefrontObj
                         }
 
                     case "-mm":
+                    {
                         if (valuesCount - index < 3)
                         {
                             throw new InvalidDataException(string.Concat("A ", statement, " -mm option must specify a base and a gain."));
                         }
 
-                        map.ModifierBase = FloatParse(GetNextValue(ref currentLine, ref values));
-                        map.ModifierGain = FloatParse(GetNextValue(ref currentLine, ref values));
+                        var value2 = GetNextValue(ref currentLine, ref values);
+                        charsRead += value2.Length;
+
+                        if (TryFloatParse(value2, out var value))
+                        {
+                            map.ModifierBase = value;
+                        }
+                        value2 = GetNextValue(ref currentLine, ref values);
+                        charsRead += value2.Length;
+
+                        if (TryFloatParse(value2, out value))
+                        {
+                            map.ModifierGain = value;
+                        }
 
                         index += 2;
                         break;
+                    }
+
 
                     case "-o":
+                    {
                         if (valuesCount - index < 2)
                         {
-                            throw new InvalidDataException(string.Concat("A ", statement, " -o option must specify at least 2 values."));
+                            throw new InvalidDataException(string.Concat("A ", statement,
+                                " -o option must specify at least 2 values."));
                         }
 
                         var offset = new ObjVector3();
+                        var value2 = GetNextValue(ref currentLine, ref values);
+                        index++;
+                        charsRead += value2.Length;
 
-                        offset.X = FloatParse(GetNextValue(ref currentLine, ref values));
-
-                        if (valuesCount - index > 3)
+                        if (TryFloatParse(value2, out var value))
                         {
-                            offset.Y = FloatParse(GetNextValue(ref currentLine, ref values));
-
-                            if (valuesCount - index > 4)
-                            {
-                                offset.Z = FloatParse(GetNextValue(ref currentLine, ref values));
-                                index++;
-                            }
-
-                            index++;
+                            offset.X = value;
+                        }
+                        else
+                        {
+                            map.Offset = offset;
+                            value1 = value2;
+                            goto ReadFileName;
                         }
 
-                        index++;
+                        if (valuesCount - index > 2)
+                        {
+                            value2 = GetNextValue(ref currentLine, ref values);
+                            index++;
+                            charsRead += value2.Length;
+                            if (TryFloatParse(value2, out value))
+                            {
+                                offset.Y = value;
+                            }
+                            else
+                            {
+                                map.Offset = offset;
+                                value1 = value2;
+                                goto ReadFileName;
+                            }
 
+                            if (valuesCount - index > 2)
+                            {
+                                value2 = GetNextValue(ref currentLine, ref values);
+                                index++;
+                                charsRead += value2.Length;
+                                if (TryFloatParse(value2, out value))
+                                {
+                                    offset.Z = value;
+                                }
+                                else
+                                {
+                                    map.Offset = offset;
+                                    value1 = value2;
+                                    goto ReadFileName;
+                                }
+                            }
+                        }
+                        
                         map.Offset = offset;
                         break;
-
+                    }
                     case "-s":
+                    {
                         if (valuesCount - index < 2)
                         {
-                            throw new InvalidDataException(string.Concat("A ", statement, " -s option must specify at least 2 values."));
+                            throw new InvalidDataException(string.Concat("A ", statement,
+                                " -s option must specify at least 2 values."));
                         }
 
                         var scale = new ObjVector3(1.0f, 1.0f, 1.0f);
+                        
+                        var value2 = GetNextValue(ref currentLine, ref values);
+                        index++;
+                        charsRead += value2.Length;
 
-                        scale.X = FloatParse(GetNextValue(ref currentLine, ref values));
-
-                        if (valuesCount - index > 3)
+                        if (TryFloatParse(value2, out var value))
                         {
-                            scale.Y = FloatParse(GetNextValue(ref currentLine, ref values));
-
-                            if (valuesCount - index > 4)
-                            {
-                                scale.Z = FloatParse(GetNextValue(ref currentLine, ref values));
-                                index++;
-                            }
-
-                            index++;
+                            scale.X = value;
+                        }
+                        else
+                        {
+                            map.Scale = scale;
+                            value1 = value2;
+                            goto ReadFileName;
                         }
 
-                        index++;
+                        if (valuesCount - index > 2)
+                        {
+                            value2 = GetNextValue(ref currentLine, ref values);
+                            index++;
+                            charsRead += value2.Length;
+                            if (TryFloatParse(value2, out value))
+                            {
+                                scale.Y = value;
+                            }
+                            else
+                            {
+                                map.Scale = scale;
+                                value1 = value2;
+                                goto ReadFileName;
+                            }
+
+                            if (valuesCount - index > 2)
+                            {
+                                value2 = GetNextValue(ref currentLine, ref values);
+                                index++;
+                                charsRead += value2.Length;
+                                if (TryFloatParse(value2, out value))
+                                {
+                                    scale.Z = value;
+                                }
+                                else
+                                {
+                                    map.Scale = scale;
+                                    value1 = value2;
+                                    goto ReadFileName;
+                                }
+                            }
+                        }
 
                         map.Scale = scale;
                         break;
-
+                    }
                     case "-t":
+                    {
                         if (valuesCount - index < 2)
                         {
-                            throw new InvalidDataException(string.Concat("A ", statement, " -t option must specify at least 2 values."));
+                            throw new InvalidDataException(string.Concat("A ", statement,
+                                " -t option must specify at least 2 values."));
                         }
 
                         var turbulence = new ObjVector3();
+                        
+                        var value2 = GetNextValue(ref currentLine, ref values);
+                        index++;
+                        charsRead += value2.Length;
 
-                        turbulence.X = FloatParse(GetNextValue(ref currentLine, ref values));
-
-                        if (valuesCount - index > 3)
+                        if (TryFloatParse(value2, out var value))
                         {
-                            turbulence.Y = FloatParse(GetNextValue(ref currentLine, ref values));
-
-                            if (valuesCount - index > 4)
-                            {
-                                turbulence.Z = FloatParse(GetNextValue(ref currentLine, ref values));
-                                index++;
-                            }
-
-                            index++;
+                            turbulence.X = value;
+                        }
+                        else
+                        {
+                            map.Turbulence = turbulence;
+                            value1 = value2;
+                            goto ReadFileName;
                         }
 
-                        index++;
+                        if (valuesCount - index > 2)
+                        {
+                            value2 = GetNextValue(ref currentLine, ref values);
+                            index++;
+                            charsRead += value2.Length;
+                            if (TryFloatParse(value2, out value))
+                            {
+                                turbulence.Y = value;
+                            }
+                            else
+                            {
+                                map.Turbulence = turbulence;
+                                value1 = value2;
+                                goto ReadFileName;
+                            }
+
+                            if (valuesCount - index > 2)
+                            {
+                                value2 = GetNextValue(ref currentLine, ref values);
+                                index++;
+                                charsRead += value2.Length;
+                                if (TryFloatParse(value2, out value))
+                                {
+                                    turbulence.Z = value;
+                                }
+                                else
+                                {
+                                    map.Turbulence = turbulence;
+                                    value1 = value2;
+                                    goto ReadFileName;
+                                }
+                            }
+                        }
 
                         map.Turbulence = turbulence;
                         break;
-
+                    }
                     case "-texres":
+                    {
                         if (valuesCount - index < 2)
                         {
-                            throw new InvalidDataException(string.Concat("A ", statement, " -texres option must specify a value."));
+                            throw new InvalidDataException(string.Concat("A ", statement,
+                                " -texres option must specify a value."));
                         }
-
-                        map.TextureResolution = IntParse(GetNextValue(ref currentLine, ref values));
+                        var value2 = GetNextValue(ref currentLine, ref values);
+                        charsRead += value2.Length;
+                        if (TryIntParse(value2, out var value))
+                        {
+                            map.TextureResolution = value;
+                        }
 
                         index++;
                         break;
-
+                    }
                     default:
+ReadFileName:
                         {
-                            var sb = new StringBuilder();
-
-                            sb.Append(value1);
-
-                            for (int i = index + 1; i < valuesCount; i++)
+                            if (settings.KeepWhitespacesOfMapFileReferences)
                             {
-                                sb.Append(' ');
-                                sb.Append(GetNextValue(ref currentLine, ref values));
+                                map.FileName = new string(currentLine[(statement.Length + index + charsRead - value1.Length)..]);
                             }
+                            else
+                            {
+                                var sb = new StringBuilder();
 
-                            string filename = sb.ToString();
+                                sb.Append(value1);
 
-                            map.FileName = filename;
+                                for (int i = index + 1; i < valuesCount; i++)
+                                {
+                                    sb.Append(' ');
+                                    sb.Append(GetNextValue(ref currentLine, ref values));
+                                }
+
+                                string filename = sb.ToString();
+
+                                map.FileName = filename;
+                            }
                             index = valuesCount;
 
                             break;
