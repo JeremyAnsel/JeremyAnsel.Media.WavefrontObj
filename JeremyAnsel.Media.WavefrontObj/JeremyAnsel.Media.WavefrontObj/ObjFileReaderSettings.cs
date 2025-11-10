@@ -36,13 +36,4 @@ public class ObjFileReaderSettings
     ///     This flag should be set to true, when object files should be interpreted like other libraries like three.js or tinyobjloader
     /// </remarks>
     public bool KeepWhitespacesOfMtlLibReferences { get; set; } = false;
-
-    /// <summary>
-    ///     Normally whitespaces removed during import e.g. "usemtl wl file  5" changed to "usemtl wl file 5"
-    ///     If this flag is set to true, all after the usemtl will be interpreted as a single usemtl reference
-    /// </summary>
-    /// <remarks>
-    ///     This flag should be set to true, when object files should be interpreted like other libraries like three.js or tinyobjloader
-    /// </remarks>
-    public bool KeepWhitespacesOfUseMtlReferences { get; set; } = false;
 }

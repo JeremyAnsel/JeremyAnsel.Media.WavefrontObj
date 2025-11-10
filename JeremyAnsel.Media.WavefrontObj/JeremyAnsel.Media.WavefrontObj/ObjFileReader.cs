@@ -831,10 +831,6 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                             context.MaterialName = null;
                         }
-                        else if (settings.KeepWhitespacesOfUseMtlReferences)
-                        {
-                            context.MaterialName = currentLine.Remove(0, 7).Trim();
-                        }
                         else
                         {
                             context.MaterialName = string.Join(" ", values, 1, values.Length - 1);

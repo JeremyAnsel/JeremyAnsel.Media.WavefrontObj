@@ -950,10 +950,6 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                             context.MaterialName = null;
                         }
-                        else if (settings.KeepWhitespacesOfUseMtlReferences)
-                        {
-                            context.MaterialName = new string(currentLine[7..]).Trim();
-                        }
                         else
                         {
                             var sb = new StringBuilder();

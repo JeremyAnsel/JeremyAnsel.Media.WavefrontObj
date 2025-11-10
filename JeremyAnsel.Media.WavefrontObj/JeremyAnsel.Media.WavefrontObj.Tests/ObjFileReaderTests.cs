@@ -1552,11 +1552,10 @@ p 1
         }
 
         [Theory]
-        [InlineData("off", null, false)]
-        [InlineData("a with spaces", "a with spaces", false)]
-        [InlineData("a with  multiple   spaces", "a with multiple spaces", false)]
-        [InlineData("a with  multiple   spaces", "a with  multiple   spaces", true)]
-        public void RenderAttributes_UseMaterial_Valid(string value, string? expected, bool keepWhitespaces)
+        [InlineData("off", null)]
+        [InlineData("a with spaces", "a with spaces")]
+        [InlineData("a with  multiple   spaces", "a with multiple spaces")]
+        public void RenderAttributes_UseMaterial_Valid(string value, string? expected)
         {
             string content = @"
 usemtl " + value + @"
@@ -1564,7 +1563,7 @@ v 0 0 0
 p 1
 ";
 
-            var obj = ReadObj(content, new ObjFileReaderSettings { KeepWhitespacesOfUseMtlReferences = keepWhitespaces});
+            var obj = ReadObj(content);
 
             Assert.Equal(expected, obj.Points[0].MaterialName);
         }
