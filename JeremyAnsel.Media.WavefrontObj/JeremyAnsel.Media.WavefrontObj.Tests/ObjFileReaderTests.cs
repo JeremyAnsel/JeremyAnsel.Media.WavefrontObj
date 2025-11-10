@@ -1511,6 +1511,17 @@ p 1
         }
 
         [Fact]
+        public void RenderAttributes_MaterialLibrary_KeepWhitespaces()
+        {
+            string content = "mtllib wl 56   true.mtl";
+
+            var obj = ReadObj(content, new ObjFileReaderSettings { KeepWhitespacesOfMtlLibReferences = true});
+
+            Assert.Single(obj.MaterialLibraries);
+            Assert.Equal("wl 56   true.mtl", obj.MaterialLibraries[0]);
+        }
+
+        [Fact]
         public void RenderAttributes_UseMap_Throws()
         {
             Assert.Throws<InvalidDataException>(() => ReadObj("usemap"));
@@ -1541,9 +1552,11 @@ p 1
         }
 
         [Theory]
-        [InlineData("off", null)]
-        [InlineData("a with spaces", "a with spaces")]
-        public void RenderAttributes_UseMaterial_Valid(string value, string? expected)
+        [InlineData("off", null, false)]
+        [InlineData("a with spaces", "a with spaces", false)]
+        [InlineData("a with  multiple   spaces", "a with multiple spaces", false)]
+        [InlineData("a with  multiple   spaces", "a with  multiple   spaces", true)]
+        public void RenderAttributes_UseMaterial_Valid(string value, string? expected, bool keepWhitespaces)
         {
             string content = @"
 usemtl " + value + @"
@@ -1551,7 +1564,7 @@ v 0 0 0
 p 1
 ";
 
-            var obj = ReadObj(content);
+            var obj = ReadObj(content, new ObjFileReaderSettings { KeepWhitespacesOfUseMtlReferences = keepWhitespaces});
 
             Assert.Equal(expected, obj.Points[0].MaterialName);
         }
