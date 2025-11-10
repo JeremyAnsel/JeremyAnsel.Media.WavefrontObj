@@ -2056,6 +2056,15 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile(String)
   nameWithType: ObjMaterialFile.FromFile(string?)
   nameWithType.vb: ObjMaterialFile.FromFile(String)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile(System.String,JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings)
+  name: FromFile(string?, ObjMaterialFileReaderSettings)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_FromFile_System_String_JeremyAnsel_Media_WavefrontObj_ObjMaterialFileReaderSettings_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile(System.String,JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings)
+  name.vb: FromFile(String, ObjMaterialFileReaderSettings)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile(string?, JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile(String, JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings)
+  nameWithType: ObjMaterialFile.FromFile(string?, ObjMaterialFileReaderSettings)
+  nameWithType.vb: ObjMaterialFile.FromFile(String, ObjMaterialFileReaderSettings)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromFile*
   name: FromFile
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_FromFile_
@@ -2072,6 +2081,15 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream(System.IO.Stream)
   nameWithType: ObjMaterialFile.FromStream(Stream?)
   nameWithType.vb: ObjMaterialFile.FromStream(Stream)
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream(System.IO.Stream,JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings)
+  name: FromStream(Stream?, ObjMaterialFileReaderSettings)
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_FromStream_System_IO_Stream_JeremyAnsel_Media_WavefrontObj_ObjMaterialFileReaderSettings_
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream(System.IO.Stream,JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings)
+  name.vb: FromStream(Stream, ObjMaterialFileReaderSettings)
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream(System.IO.Stream?, JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings)
+  fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream(System.IO.Stream, JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings)
+  nameWithType: ObjMaterialFile.FromStream(Stream?, ObjMaterialFileReaderSettings)
+  nameWithType.vb: ObjMaterialFile.FromStream(Stream, ObjMaterialFileReaderSettings)
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.FromStream*
   name: FromStream
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFile_FromStream_
@@ -2130,6 +2148,31 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFile.WriteTo
   nameWithType: ObjMaterialFile.WriteTo
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings
+  name: ObjMaterialFileReaderSettings
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.html
+  commentId: T:JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings
+  nameWithType: ObjMaterialFileReaderSettings
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.Default
+  name: Default
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFileReaderSettings_Default
+  commentId: F:JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.Default
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.Default
+  nameWithType: ObjMaterialFileReaderSettings.Default
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.KeepWhitespacesOfMapFileReferences
+  name: KeepWhitespacesOfMapFileReferences
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFileReaderSettings_KeepWhitespacesOfMapFileReferences
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.KeepWhitespacesOfMapFileReferences
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.KeepWhitespacesOfMapFileReferences
+  nameWithType: ObjMaterialFileReaderSettings.KeepWhitespacesOfMapFileReferences
+- uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.KeepWhitespacesOfMapFileReferences*
+  name: KeepWhitespacesOfMapFileReferences
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjMaterialFileReaderSettings_KeepWhitespacesOfMapFileReferences_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.KeepWhitespacesOfMapFileReferences
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjMaterialFileReaderSettings.KeepWhitespacesOfMapFileReferences
+  nameWithType: ObjMaterialFileReaderSettings.KeepWhitespacesOfMapFileReferences
 - uid: JeremyAnsel.Media.WavefrontObj.ObjMaterialMap
   name: ObjMaterialMap
   href: api/JeremyAnsel.Media.WavefrontObj.ObjMaterialMap.html
