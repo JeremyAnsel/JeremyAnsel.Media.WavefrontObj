@@ -909,6 +909,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleObjectNamesAsGroup
   nameWithType: ObjFileReaderSettings.HandleObjectNamesAsGroup
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.KeepWhitespacesOfMtlLibReferences
+  name: KeepWhitespacesOfMtlLibReferences
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_KeepWhitespacesOfMtlLibReferences
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.KeepWhitespacesOfMtlLibReferences
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.KeepWhitespacesOfMtlLibReferences
+  nameWithType: ObjFileReaderSettings.KeepWhitespacesOfMtlLibReferences
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.KeepWhitespacesOfMtlLibReferences*
+  name: KeepWhitespacesOfMtlLibReferences
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_KeepWhitespacesOfMtlLibReferences_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.KeepWhitespacesOfMtlLibReferences
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.KeepWhitespacesOfMtlLibReferences
+  nameWithType: ObjFileReaderSettings.KeepWhitespacesOfMtlLibReferences
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.OnlyOneGroupNamePerLine
   name: OnlyOneGroupNamePerLine
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_OnlyOneGroupNamePerLine
