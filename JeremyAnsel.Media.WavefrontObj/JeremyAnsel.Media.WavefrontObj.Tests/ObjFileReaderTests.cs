@@ -1487,38 +1487,21 @@ p 1
         {
             Assert.Throws<InvalidDataException>(() => ReadObj("mtllib"));
         }
-
-        [Fact]
-        public void RenderAttributes_MaterialLibrary_Valid()
+        
+        [Theory]
+        [InlineData("a with spaces.b", "a with spaces.b", false)]
+        [InlineData("a with spaces", "a with spaces", false)]
+        [InlineData("a with  multiple   spaces", "a with multiple spaces", false)]
+        [InlineData("a with  multiple   spaces", "a with  multiple   spaces", true)]
+        [InlineData("a with  multiple   spaces.b", "a with  multiple   spaces.b", true)]
+        public void RenderAttributes_MaterialLibrary_Valid(string value, string? expected, bool keepWhitespaces)
         {
-            string content = "mtllib a with spaces.b";
+            string content = "mtllib "+value;
 
-            var obj = ReadObj(content);
+            var obj = ReadObj(content, new ObjFileReaderSettings { KeepWhitespacesOfMtlLibReferences = keepWhitespaces});
 
             Assert.Single(obj.MaterialLibraries);
-            Assert.Equal("a with spaces.b", obj.MaterialLibraries[0]);
-        }
-
-        [Fact]
-        public void RenderAttributes_MaterialLibrary_ValidWithoutExtension()
-        {
-            string content = "mtllib a with spaces";
-
-            var obj = ReadObj(content);
-
-            Assert.Single(obj.MaterialLibraries);
-            Assert.Equal("a with spaces", obj.MaterialLibraries[0]);
-        }
-
-        [Fact]
-        public void RenderAttributes_MaterialLibrary_KeepWhitespaces()
-        {
-            string content = "mtllib wl 56   true.mtl";
-
-            var obj = ReadObj(content, new ObjFileReaderSettings { KeepWhitespacesOfMtlLibReferences = true});
-
-            Assert.Single(obj.MaterialLibraries);
-            Assert.Equal("wl 56   true.mtl", obj.MaterialLibraries[0]);
+            Assert.Equal(expected, obj.MaterialLibraries[0]);
         }
 
         [Fact]

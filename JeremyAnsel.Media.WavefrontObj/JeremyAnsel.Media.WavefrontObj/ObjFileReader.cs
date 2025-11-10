@@ -14,8 +14,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 {
     internal static class ObjFileReader
     {
-        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés",
-            Justification = "Reviewed.")]
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         public static ObjFile FromStream(Stream? stream, ObjFileReaderSettings settings)
         {
             if (stream == null)
@@ -34,146 +33,146 @@ namespace JeremyAnsel.Media.WavefrontObj
                 switch (values[0].ToLowerInvariant())
                 {
                     case "v":
-                    {
-                        if (values.Length < 4)
                         {
-                            throw new InvalidDataException("A v statement must specify at least 3 values.");
-                        }
-
-                        float x = float.Parse(values[1], CultureInfo.InvariantCulture);
-                        float y = float.Parse(values[2], CultureInfo.InvariantCulture);
-                        float z = float.Parse(values[3], CultureInfo.InvariantCulture);
-                        float w = 1.0f;
-                        bool hasColor = false;
-                        float r = 0.0f;
-                        float g = 0.0f;
-                        float b = 0.0f;
-                        float a = 1.0f;
-
-                        if (values.Length == 4 || values.Length == 5)
-                        {
-                            if (values.Length == 5)
+                            if (values.Length < 4)
                             {
-                                w = float.Parse(values[4], CultureInfo.InvariantCulture);
+                                throw new InvalidDataException("A v statement must specify at least 3 values.");
                             }
-                        }
-                        else if (values.Length == 7 || values.Length == 8)
-                        {
-                            hasColor = true;
-                            r = float.Parse(values[4], CultureInfo.InvariantCulture);
-                            g = float.Parse(values[5], CultureInfo.InvariantCulture);
-                            b = float.Parse(values[6], CultureInfo.InvariantCulture);
 
-                            if (values.Length == 8)
+                            float x = float.Parse(values[1], CultureInfo.InvariantCulture);
+                            float y = float.Parse(values[2], CultureInfo.InvariantCulture);
+                            float z = float.Parse(values[3], CultureInfo.InvariantCulture);
+                            float w = 1.0f;
+                            bool hasColor = false;
+                            float r = 0.0f;
+                            float g = 0.0f;
+                            float b = 0.0f;
+                            float a = 1.0f;
+
+                            if (values.Length == 4 || values.Length == 5)
                             {
-                                a = float.Parse(values[7], CultureInfo.InvariantCulture);
+                                if (values.Length == 5)
+                                {
+                                    w = float.Parse(values[4], CultureInfo.InvariantCulture);
+                                }
                             }
-                        }
-                        else
-                        {
-                            throw new InvalidDataException("A v statement has too many values.");
-                        }
+                            else if (values.Length == 7 || values.Length == 8)
+                            {
+                                hasColor = true;
+                                r = float.Parse(values[4], CultureInfo.InvariantCulture);
+                                g = float.Parse(values[5], CultureInfo.InvariantCulture);
+                                b = float.Parse(values[6], CultureInfo.InvariantCulture);
 
-                        var v = new ObjVertex();
-                        v.Position = new ObjVector4(x, y, z, w);
+                                if (values.Length == 8)
+                                {
+                                    a = float.Parse(values[7], CultureInfo.InvariantCulture);
+                                }
+                            }
+                            else
+                            {
+                                throw new InvalidDataException("A v statement has too many values.");
+                            }
 
-                        if (hasColor)
-                        {
-                            v.Color = new ObjVector4(r, g, b, a);
+                            var v = new ObjVertex();
+                            v.Position = new ObjVector4(x, y, z, w);
+
+                            if (hasColor)
+                            {
+                                v.Color = new ObjVector4(r, g, b, a);
+                            }
+
+                            obj.Vertices.Add(v);
+                            break;
                         }
-
-                        obj.Vertices.Add(v);
-                        break;
-                    }
 
                     case "vp":
-                    {
-                        if (values.Length < 2)
                         {
-                            throw new InvalidDataException("A vp statement must specify at least 1 value.");
-                        }
+                            if (values.Length < 2)
+                            {
+                                throw new InvalidDataException("A vp statement must specify at least 1 value.");
+                            }
 
-                        var v = new ObjVector3();
-                        v.X = float.Parse(values[1], CultureInfo.InvariantCulture);
+                            var v = new ObjVector3();
+                            v.X = float.Parse(values[1], CultureInfo.InvariantCulture);
 
-                        if (values.Length == 2)
-                        {
-                            v.Y = 0.0f;
-                            v.Z = 1.0f;
-                        }
-                        else if (values.Length == 3)
-                        {
-                            v.Y = float.Parse(values[2], CultureInfo.InvariantCulture);
-                            v.Z = 1.0f;
-                        }
-                        else if (values.Length == 4)
-                        {
-                            v.Y = float.Parse(values[2], CultureInfo.InvariantCulture);
-                            v.Z = float.Parse(values[3], CultureInfo.InvariantCulture);
-                        }
-                        else
-                        {
-                            throw new InvalidDataException("A vp statement has too many values.");
-                        }
+                            if (values.Length == 2)
+                            {
+                                v.Y = 0.0f;
+                                v.Z = 1.0f;
+                            }
+                            else if (values.Length == 3)
+                            {
+                                v.Y = float.Parse(values[2], CultureInfo.InvariantCulture);
+                                v.Z = 1.0f;
+                            }
+                            else if (values.Length == 4)
+                            {
+                                v.Y = float.Parse(values[2], CultureInfo.InvariantCulture);
+                                v.Z = float.Parse(values[3], CultureInfo.InvariantCulture);
+                            }
+                            else
+                            {
+                                throw new InvalidDataException("A vp statement has too many values.");
+                            }
 
-                        obj.ParameterSpaceVertices.Add(v);
-                        break;
-                    }
+                            obj.ParameterSpaceVertices.Add(v);
+                            break;
+                        }
 
                     case "vn":
-                    {
-                        if (values.Length < 4)
                         {
-                            throw new InvalidDataException("A vn statement must specify 3 values.");
-                        }
+                            if (values.Length < 4)
+                            {
+                                throw new InvalidDataException("A vn statement must specify 3 values.");
+                            }
 
-                        if (values.Length != 4)
-                        {
-                            throw new InvalidDataException("A vn statement has too many values.");
-                        }
+                            if (values.Length != 4)
+                            {
+                                throw new InvalidDataException("A vn statement has too many values.");
+                            }
 
-                        var v = new ObjVector3();
-                        v.X = float.Parse(values[1], CultureInfo.InvariantCulture);
-                        v.Y = float.Parse(values[2], CultureInfo.InvariantCulture);
-                        v.Z = float.Parse(values[3], CultureInfo.InvariantCulture);
-
-                        obj.VertexNormals.Add(v);
-                        break;
-                    }
-
-                    case "vt":
-                    {
-                        if (values.Length < 2)
-                        {
-                            throw new InvalidDataException("A vt statement must specify at least 1 value.");
-                        }
-
-                        var v = new ObjVector3();
-                        v.X = float.Parse(values[1], CultureInfo.InvariantCulture);
-
-                        if (values.Length == 2)
-                        {
-                            v.Y = 0.0f;
-                            v.Z = 0.0f;
-                        }
-                        else if (values.Length == 3)
-                        {
-                            v.Y = float.Parse(values[2], CultureInfo.InvariantCulture);
-                            v.Z = 0.0f;
-                        }
-                        else if (values.Length == 4)
-                        {
+                            var v = new ObjVector3();
+                            v.X = float.Parse(values[1], CultureInfo.InvariantCulture);
                             v.Y = float.Parse(values[2], CultureInfo.InvariantCulture);
                             v.Z = float.Parse(values[3], CultureInfo.InvariantCulture);
-                        }
-                        else
-                        {
-                            throw new InvalidDataException("A vt statement has too many values.");
+
+                            obj.VertexNormals.Add(v);
+                            break;
                         }
 
-                        obj.TextureVertices.Add(v);
-                        break;
-                    }
+                    case "vt":
+                        {
+                            if (values.Length < 2)
+                            {
+                                throw new InvalidDataException("A vt statement must specify at least 1 value.");
+                            }
+
+                            var v = new ObjVector3();
+                            v.X = float.Parse(values[1], CultureInfo.InvariantCulture);
+
+                            if (values.Length == 2)
+                            {
+                                v.Y = 0.0f;
+                                v.Z = 0.0f;
+                            }
+                            else if (values.Length == 3)
+                            {
+                                v.Y = float.Parse(values[2], CultureInfo.InvariantCulture);
+                                v.Z = 0.0f;
+                            }
+                            else if (values.Length == 4)
+                            {
+                                v.Y = float.Parse(values[2], CultureInfo.InvariantCulture);
+                                v.Z = float.Parse(values[3], CultureInfo.InvariantCulture);
+                            }
+                            else
+                            {
+                                throw new InvalidDataException("A vt statement has too many values.");
+                            }
+
+                            obj.TextureVertices.Add(v);
+                            break;
+                        }
 
                     case "cstype":
                         ObjFileReader.ParseFreeFormType(context, values);
@@ -203,54 +202,54 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
 
                     case "bmat":
-                    {
-                        if (values.Length < 2)
                         {
-                            throw new InvalidDataException("A bmat statement must specify a direction.");
+                            if (values.Length < 2)
+                            {
+                                throw new InvalidDataException("A bmat statement must specify a direction.");
+                            }
+
+                            int d;
+
+                            if (string.Equals(values[1], "u", StringComparison.OrdinalIgnoreCase))
+                            {
+                                d = 1;
+                            }
+                            else if (string.Equals(values[1], "v", StringComparison.OrdinalIgnoreCase))
+                            {
+                                d = 2;
+                            }
+                            else
+                            {
+                                throw new InvalidDataException("A bmat statement has an unknown direction.");
+                            }
+
+                            int count = (context.DegreeU + 1) * (context.DegreeV + 1);
+
+                            if (values.Length != count + 2)
+                            {
+                                throw new InvalidDataException("A bmat statement has too many or too few values.");
+                            }
+
+                            var matrix = new float[count];
+
+                            for (int i = 0; i < count; i++)
+                            {
+                                matrix[i] = float.Parse(values[2 + i], CultureInfo.InvariantCulture);
+                            }
+
+                            switch (d)
+                            {
+                                case 1:
+                                    context.BasicMatrixU = matrix;
+                                    break;
+
+                                case 2:
+                                    context.BasicMatrixV = matrix;
+                                    break;
+                            }
+
+                            break;
                         }
-
-                        int d;
-
-                        if (string.Equals(values[1], "u", StringComparison.OrdinalIgnoreCase))
-                        {
-                            d = 1;
-                        }
-                        else if (string.Equals(values[1], "v", StringComparison.OrdinalIgnoreCase))
-                        {
-                            d = 2;
-                        }
-                        else
-                        {
-                            throw new InvalidDataException("A bmat statement has an unknown direction.");
-                        }
-
-                        int count = (context.DegreeU + 1) * (context.DegreeV + 1);
-
-                        if (values.Length != count + 2)
-                        {
-                            throw new InvalidDataException("A bmat statement has too many or too few values.");
-                        }
-
-                        var matrix = new float[count];
-
-                        for (int i = 0; i < count; i++)
-                        {
-                            matrix[i] = float.Parse(values[2 + i], CultureInfo.InvariantCulture);
-                        }
-
-                        switch (d)
-                        {
-                            case 1:
-                                context.BasicMatrixU = matrix;
-                                break;
-
-                            case 2:
-                                context.BasicMatrixV = matrix;
-                                break;
-                        }
-
-                        break;
-                    }
 
                     case "step":
                         if (values.Length < 2)
@@ -276,213 +275,212 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
 
                     case "p":
-                    {
-                        if (values.Length < 2)
                         {
-                            throw new InvalidDataException("A p statement must specify at least 1 value.");
+                            if (values.Length < 2)
+                            {
+                                throw new InvalidDataException("A p statement must specify at least 1 value.");
+                            }
+
+                            var point = new ObjPoint();
+
+                            for (int i = 1; i < values.Length; i++)
+                            {
+                                point.Vertices.Add(ObjFileReader.ParseTriplet(obj, values[i]));
+                            }
+
+                            context.ApplyAttributesToElement(point);
+                            context.ApplyAttributesToPolygonalElement(point);
+
+                            obj.Points.Add(point);
+
+                            foreach (var group in context.GetCurrentGroups())
+                            {
+                                group.Points.Add(point);
+                            }
+
+                            break;
                         }
-
-                        var point = new ObjPoint();
-
-                        for (int i = 1; i < values.Length; i++)
-                        {
-                            point.Vertices.Add(ObjFileReader.ParseTriplet(obj, values[i]));
-                        }
-
-                        context.ApplyAttributesToElement(point);
-                        context.ApplyAttributesToPolygonalElement(point);
-
-                        obj.Points.Add(point);
-
-                        foreach (var group in context.GetCurrentGroups())
-                        {
-                            group.Points.Add(point);
-                        }
-
-                        break;
-                    }
 
                     case "l":
-                    {
-                        if (values.Length < 3)
                         {
-                            throw new InvalidDataException("A l statement must specify at least 2 values.");
+                            if (values.Length < 3)
+                            {
+                                throw new InvalidDataException("A l statement must specify at least 2 values.");
+                            }
+
+                            var line = new ObjLine();
+
+                            for (int i = 1; i < values.Length; i++)
+                            {
+                                line.Vertices.Add(ObjFileReader.ParseTriplet(obj, values[i]));
+                            }
+
+                            context.ApplyAttributesToElement(line);
+                            context.ApplyAttributesToPolygonalElement(line);
+
+                            obj.Lines.Add(line);
+
+                            foreach (var group in context.GetCurrentGroups())
+                            {
+                                group.Lines.Add(line);
+                            }
+
+                            break;
                         }
-
-                        var line = new ObjLine();
-
-                        for (int i = 1; i < values.Length; i++)
-                        {
-                            line.Vertices.Add(ObjFileReader.ParseTriplet(obj, values[i]));
-                        }
-
-                        context.ApplyAttributesToElement(line);
-                        context.ApplyAttributesToPolygonalElement(line);
-
-                        obj.Lines.Add(line);
-
-                        foreach (var group in context.GetCurrentGroups())
-                        {
-                            group.Lines.Add(line);
-                        }
-
-                        break;
-                    }
 
                     case "f":
                     case "fo":
-                    {
-                        if (values.Length < 4)
                         {
-                            throw new InvalidDataException("A f statement must specify at least 3 values.");
+                            if (values.Length < 4)
+                            {
+                                throw new InvalidDataException("A f statement must specify at least 3 values.");
+                            }
+
+                            var face = new ObjFace();
+
+                            for (int i = 1; i < values.Length; i++)
+                            {
+                                face.Vertices.Add(ObjFileReader.ParseTriplet(obj, values[i]));
+                            }
+
+                            context.ApplyAttributesToElement(face);
+                            context.ApplyAttributesToPolygonalElement(face);
+
+                            obj.Faces.Add(face);
+
+                            foreach (var group in context.GetCurrentGroups())
+                            {
+                                group.Faces.Add(face);
+                            }
+
+                            break;
                         }
-
-                        var face = new ObjFace();
-
-                        for (int i = 1; i < values.Length; i++)
-                        {
-                            face.Vertices.Add(ObjFileReader.ParseTriplet(obj, values[i]));
-                        }
-
-                        context.ApplyAttributesToElement(face);
-                        context.ApplyAttributesToPolygonalElement(face);
-
-                        obj.Faces.Add(face);
-
-                        foreach (var group in context.GetCurrentGroups())
-                        {
-                            group.Faces.Add(face);
-                        }
-
-                        break;
-                    }
 
                     case "curv":
-                    {
-                        if (values.Length < 5)
                         {
-                            throw new InvalidDataException("A curv statement must specify at least 4 values.");
-                        }
-
-                        var curve = new ObjCurve();
-
-                        curve.StartParameter = float.Parse(values[1], CultureInfo.InvariantCulture);
-                        curve.EndParameter = float.Parse(values[2], CultureInfo.InvariantCulture);
-
-                        for (int i = 3; i < values.Length; i++)
-                        {
-                            int v = int.Parse(values[i], CultureInfo.InvariantCulture);
-
-                            if (v == 0)
+                            if (values.Length < 5)
                             {
-                                throw new InvalidDataException("A curv statement contains an invalid vertex index.");
+                                throw new InvalidDataException("A curv statement must specify at least 4 values.");
                             }
 
-                            if (v < 0)
+                            var curve = new ObjCurve();
+
+                            curve.StartParameter = float.Parse(values[1], CultureInfo.InvariantCulture);
+                            curve.EndParameter = float.Parse(values[2], CultureInfo.InvariantCulture);
+
+                            for (int i = 3; i < values.Length; i++)
                             {
-                                v = obj.Vertices.Count + v + 1;
+                                int v = int.Parse(values[i], CultureInfo.InvariantCulture);
+
+                                if (v == 0)
+                                {
+                                    throw new InvalidDataException("A curv statement contains an invalid vertex index.");
+                                }
+
+                                if (v < 0)
+                                {
+                                    v = obj.Vertices.Count + v + 1;
+                                }
+
+                                if (v <= 0 || v > obj.Vertices.Count)
+                                {
+                                    throw new IndexOutOfRangeException();
+                                }
+
+                                curve.Vertices.Add(v);
                             }
 
-                            if (v <= 0 || v > obj.Vertices.Count)
+                            context.ApplyAttributesToElement(curve);
+                            context.ApplyAttributesToFreeFormElement(curve);
+                            context.CurrentFreeFormElement = curve;
+
+                            obj.Curves.Add(curve);
+
+                            foreach (var group in context.GetCurrentGroups())
                             {
-                                throw new IndexOutOfRangeException();
+                                group.Curves.Add(curve);
                             }
 
-                            curve.Vertices.Add(v);
+                            break;
                         }
-
-                        context.ApplyAttributesToElement(curve);
-                        context.ApplyAttributesToFreeFormElement(curve);
-                        context.CurrentFreeFormElement = curve;
-
-                        obj.Curves.Add(curve);
-
-                        foreach (var group in context.GetCurrentGroups())
-                        {
-                            group.Curves.Add(curve);
-                        }
-
-                        break;
-                    }
 
                     case "curv2":
-                    {
-                        if (values.Length < 3)
                         {
-                            throw new InvalidDataException("A curv2 statement must specify at least 2 values.");
-                        }
-
-                        var curve = new ObjCurve2D();
-
-                        for (int i = 1; i < values.Length; i++)
-                        {
-                            int vp = int.Parse(values[i], CultureInfo.InvariantCulture);
-
-                            if (vp == 0)
+                            if (values.Length < 3)
                             {
-                                throw new InvalidDataException(
-                                    "A curv2 statement contains an invalid parameter space vertex index.");
+                                throw new InvalidDataException("A curv2 statement must specify at least 2 values.");
                             }
 
-                            if (vp < 0)
+                            var curve = new ObjCurve2D();
+
+                            for (int i = 1; i < values.Length; i++)
                             {
-                                vp = obj.ParameterSpaceVertices.Count + vp + 1;
+                                int vp = int.Parse(values[i], CultureInfo.InvariantCulture);
+
+                                if (vp == 0)
+                                {
+                                    throw new InvalidDataException("A curv2 statement contains an invalid parameter space vertex index.");
+                                }
+
+                                if (vp < 0)
+                                {
+                                    vp = obj.ParameterSpaceVertices.Count + vp + 1;
+                                }
+
+                                if (vp <= 0 || vp > obj.ParameterSpaceVertices.Count)
+                                {
+                                    throw new IndexOutOfRangeException();
+                                }
+
+                                curve.ParameterSpaceVertices.Add(vp);
                             }
 
-                            if (vp <= 0 || vp > obj.ParameterSpaceVertices.Count)
+                            context.ApplyAttributesToElement(curve);
+                            context.ApplyAttributesToFreeFormElement(curve);
+                            context.CurrentFreeFormElement = curve;
+
+                            obj.Curves2D.Add(curve);
+
+                            foreach (var group in context.GetCurrentGroups())
                             {
-                                throw new IndexOutOfRangeException();
+                                group.Curves2D.Add(curve);
                             }
 
-                            curve.ParameterSpaceVertices.Add(vp);
+                            break;
                         }
-
-                        context.ApplyAttributesToElement(curve);
-                        context.ApplyAttributesToFreeFormElement(curve);
-                        context.CurrentFreeFormElement = curve;
-
-                        obj.Curves2D.Add(curve);
-
-                        foreach (var group in context.GetCurrentGroups())
-                        {
-                            group.Curves2D.Add(curve);
-                        }
-
-                        break;
-                    }
 
                     case "surf":
-                    {
-                        if (values.Length < 6)
                         {
-                            throw new InvalidDataException("A surf statement must specify at least 5 values.");
+                            if (values.Length < 6)
+                            {
+                                throw new InvalidDataException("A surf statement must specify at least 5 values.");
+                            }
+
+                            var surface = new ObjSurface();
+
+                            surface.StartParameterU = float.Parse(values[1], CultureInfo.InvariantCulture);
+                            surface.EndParameterU = float.Parse(values[2], CultureInfo.InvariantCulture);
+                            surface.StartParameterV = float.Parse(values[3], CultureInfo.InvariantCulture);
+                            surface.EndParameterV = float.Parse(values[4], CultureInfo.InvariantCulture);
+
+                            for (int i = 5; i < values.Length; i++)
+                            {
+                                surface.Vertices.Add(ObjFileReader.ParseTriplet(obj, values[i]));
+                            }
+
+                            context.ApplyAttributesToElement(surface);
+                            context.ApplyAttributesToFreeFormElement(surface);
+                            context.CurrentFreeFormElement = surface;
+
+                            obj.Surfaces.Add(surface);
+
+                            foreach (var group in context.GetCurrentGroups())
+                            {
+                                group.Surfaces.Add(surface);
+                            }
+
+                            break;
                         }
-
-                        var surface = new ObjSurface();
-
-                        surface.StartParameterU = float.Parse(values[1], CultureInfo.InvariantCulture);
-                        surface.EndParameterU = float.Parse(values[2], CultureInfo.InvariantCulture);
-                        surface.StartParameterV = float.Parse(values[3], CultureInfo.InvariantCulture);
-                        surface.EndParameterV = float.Parse(values[4], CultureInfo.InvariantCulture);
-
-                        for (int i = 5; i < values.Length; i++)
-                        {
-                            surface.Vertices.Add(ObjFileReader.ParseTriplet(obj, values[i]));
-                        }
-
-                        context.ApplyAttributesToElement(surface);
-                        context.ApplyAttributesToFreeFormElement(surface);
-                        context.CurrentFreeFormElement = surface;
-
-                        obj.Surfaces.Add(surface);
-
-                        foreach (var group in context.GetCurrentGroups())
-                        {
-                            group.Surfaces.Add(surface);
-                        }
-
-                        break;
-                    }
 
                     case "parm":
                         if (context.CurrentFreeFormElement == null)
@@ -561,8 +559,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                             if (vp == 0)
                             {
-                                throw new InvalidDataException(
-                                    "A sp statement contains an invalid parameter space vertex index.");
+                                throw new InvalidDataException("A sp statement contains an invalid parameter space vertex index.");
                             }
 
                             if (vp < 0)
@@ -656,13 +653,11 @@ namespace JeremyAnsel.Media.WavefrontObj
                             ParseGroupName(values, context);
                             break;
                         }
-
                         if (values.Length == 1)
                         {
                             context.ObjectName = null;
                             break;
                         }
-
                         if (values.Length != 2)
                         {
                             throw new InvalidDataException("A o statement has too many values.");
@@ -781,16 +776,15 @@ namespace JeremyAnsel.Media.WavefrontObj
                         {
                             throw new InvalidDataException("A mtllib statement must specify a file name.");
                         }
-
+                        
                         if (settings.KeepWhitespacesOfMtlLibReferences)
                         {
                             obj.MaterialLibraries.Add(currentLine.Remove(0, 7).Trim());
                         }
                         else
                         {
-                            obj.MaterialLibraries.Add(string.Join(" ", values, 1, values.Length - 1));
+                            obj.MaterialLibraries.Add(string.Join(" ", values, 1, values.Length - 1));    
                         }
-
 
                         break;
 
@@ -869,8 +863,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                     case "cdc":
                     case "cdp":
                     case "res":
-                        throw new NotImplementedException(string.Concat(values[0],
-                            " statement have been replaced by free-form geometry statements."));
+                        throw new NotImplementedException(string.Concat(values[0], " statement have been replaced by free-form geometry statements."));
                 }
             }
 
@@ -879,8 +872,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             return obj;
         }
 
-        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés",
-            Justification = "Reviewed.")]
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private static ObjTriplet ParseTriplet(ObjFile obj, string value)
         {
             var values = value.Split('/');
@@ -907,9 +899,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                 throw new IndexOutOfRangeException();
             }
 
-            int vt = values.Length > 1 && !string.IsNullOrEmpty(values[1])
-                ? int.Parse(values[1], CultureInfo.InvariantCulture)
-                : 0;
+            int vt = values.Length > 1 && !string.IsNullOrEmpty(values[1]) ? int.Parse(values[1], CultureInfo.InvariantCulture) : 0;
 
             if (vt != 0)
             {
@@ -924,9 +914,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                 }
             }
 
-            int vn = values.Length > 2 && !string.IsNullOrEmpty(values[2])
-                ? int.Parse(values[2], CultureInfo.InvariantCulture)
-                : 0;
+            int vn = values.Length > 2 && !string.IsNullOrEmpty(values[2]) ? int.Parse(values[2], CultureInfo.InvariantCulture) : 0;
 
             if (vn != 0)
             {
@@ -944,8 +932,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             return new ObjTriplet(v, vt, vn);
         }
 
-        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés",
-            Justification = "Reviewed.")]
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private static ObjCurveIndex ParseCurveIndex(ObjFile obj, string[] values, int index)
         {
             float start = float.Parse(values[index], CultureInfo.InvariantCulture);
@@ -974,8 +961,7 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             if (values.Length < 4)
             {
-                throw new InvalidDataException(string.Concat("A ", values[0],
-                    " statement must specify at least 3 value."));
+                throw new InvalidDataException(string.Concat("A ", values[0], " statement must specify at least 3 value."));
             }
 
             if ((values.Length - 1) % 3 != 0)
@@ -989,8 +975,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             }
         }
 
-        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés",
-            Justification = "Reviewed.")]
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private static void ParseFreeFormType(ObjFileReaderContext context, string[] values)
         {
             if (values.Length < 2)
@@ -1042,8 +1027,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             }
         }
 
-        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés",
-            Justification = "Reviewed.")]
+        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
         private static void ParseSurfaceConnection(ObjFile obj, string[] values)
         {
             if (values.Length < 9)
@@ -1145,105 +1129,94 @@ namespace JeremyAnsel.Media.WavefrontObj
             switch (values[1].ToLowerInvariant())
             {
                 case "cparm":
-                {
-                    if (values.Length < 3)
                     {
-                        throw new InvalidDataException(string.Concat("A ", values[0],
-                            " cparm statement must specify a value."));
-                    }
+                        if (values.Length < 3)
+                        {
+                            throw new InvalidDataException(string.Concat("A ", values[0], " cparm statement must specify a value."));
+                        }
 
-                    if (values.Length != 3)
-                    {
-                        throw new InvalidDataException(string.Concat("A ", values[0],
-                            " cparm statement has too many values."));
-                    }
+                        if (values.Length != 3)
+                        {
+                            throw new InvalidDataException(string.Concat("A ", values[0], " cparm statement has too many values."));
+                        }
 
-                    float res = float.Parse(values[2], CultureInfo.InvariantCulture);
-                    technique = new ObjConstantParametricSubdivisionTechnique(res);
-                    break;
-                }
+                        float res = float.Parse(values[2], CultureInfo.InvariantCulture);
+                        technique = new ObjConstantParametricSubdivisionTechnique(res);
+                        break;
+                    }
 
                 case "cparma":
-                {
-                    if (values.Length < 4)
                     {
-                        throw new InvalidDataException(string.Concat("A ", values[0],
-                            " cparma statement must specify a value."));
-                    }
+                        if (values.Length < 4)
+                        {
+                            throw new InvalidDataException(string.Concat("A ", values[0], " cparma statement must specify a value."));
+                        }
 
-                    if (values.Length != 4)
-                    {
-                        throw new InvalidDataException(string.Concat("A ", values[0],
-                            " cparma statement has too many values."));
-                    }
+                        if (values.Length != 4)
+                        {
+                            throw new InvalidDataException(string.Concat("A ", values[0], " cparma statement has too many values."));
+                        }
 
-                    float resU = float.Parse(values[2], CultureInfo.InvariantCulture);
-                    float resV = float.Parse(values[3], CultureInfo.InvariantCulture);
-                    technique = new ObjConstantParametricSubdivisionTechnique(resU, resV);
-                    break;
-                }
+                        float resU = float.Parse(values[2], CultureInfo.InvariantCulture);
+                        float resV = float.Parse(values[3], CultureInfo.InvariantCulture);
+                        technique = new ObjConstantParametricSubdivisionTechnique(resU, resV);
+                        break;
+                    }
 
                 case "cparmb":
-                {
-                    if (values.Length < 3)
                     {
-                        throw new InvalidDataException(string.Concat("A ", values[0],
-                            " cparmb statement must specify a value."));
-                    }
+                        if (values.Length < 3)
+                        {
+                            throw new InvalidDataException(string.Concat("A ", values[0], " cparmb statement must specify a value."));
+                        }
 
-                    if (values.Length != 3)
-                    {
-                        throw new InvalidDataException(string.Concat("A ", values[0],
-                            " cparmb statement has too many values."));
-                    }
+                        if (values.Length != 3)
+                        {
+                            throw new InvalidDataException(string.Concat("A ", values[0], " cparmb statement has too many values."));
+                        }
 
-                    float resU = float.Parse(values[2], CultureInfo.InvariantCulture);
-                    technique = new ObjConstantParametricSubdivisionTechnique(resU);
-                    break;
-                }
+                        float resU = float.Parse(values[2], CultureInfo.InvariantCulture);
+                        technique = new ObjConstantParametricSubdivisionTechnique(resU);
+                        break;
+                    }
 
                 case "cspace":
-                {
-                    if (values.Length < 3)
                     {
-                        throw new InvalidDataException(string.Concat("A ", values[0],
-                            " cspace statement must specify a value."));
-                    }
+                        if (values.Length < 3)
+                        {
+                            throw new InvalidDataException(string.Concat("A ", values[0], " cspace statement must specify a value."));
+                        }
 
-                    if (values.Length != 3)
-                    {
-                        throw new InvalidDataException(string.Concat("A ", values[0],
-                            " cspace statement has too many values."));
-                    }
+                        if (values.Length != 3)
+                        {
+                            throw new InvalidDataException(string.Concat("A ", values[0], " cspace statement has too many values."));
+                        }
 
-                    float length = float.Parse(values[2], CultureInfo.InvariantCulture);
-                    technique = new ObjConstantSpatialSubdivisionTechnique(length);
-                    break;
-                }
+                        float length = float.Parse(values[2], CultureInfo.InvariantCulture);
+                        technique = new ObjConstantSpatialSubdivisionTechnique(length);
+                        break;
+                    }
 
                 case "curv":
-                {
-                    if (values.Length < 4)
                     {
-                        throw new InvalidDataException(string.Concat("A ", values[0],
-                            " curv statement must specify a value."));
-                    }
+                        if (values.Length < 4)
+                        {
+                            throw new InvalidDataException(string.Concat("A ", values[0], " curv statement must specify a value."));
+                        }
 
-                    if (values.Length != 4)
-                    {
-                        throw new InvalidDataException(string.Concat("A ", values[0],
-                            " curv statement has too many values."));
-                    }
+                        if (values.Length != 4)
+                        {
+                            throw new InvalidDataException(string.Concat("A ", values[0], " curv statement has too many values."));
+                        }
 
-                    float distance = float.Parse(values[2], CultureInfo.InvariantCulture);
-                    float angle = float.Parse(values[3], CultureInfo.InvariantCulture);
-                    technique = new ObjCurvatureDependentSubdivisionTechnique(distance, angle);
-                    break;
-                }
+                        float distance = float.Parse(values[2], CultureInfo.InvariantCulture);
+                        float angle = float.Parse(values[3], CultureInfo.InvariantCulture);
+                        technique = new ObjCurvatureDependentSubdivisionTechnique(distance, angle);
+                        break;
+                    }
 
                 default:
-                    throw new InvalidDataException(string.Concat("A ", values[0],
-                        " statement contains an unknown technique."));
+                    throw new InvalidDataException(string.Concat("A ", values[0], " statement contains an unknown technique."));
             }
 
             return technique;
