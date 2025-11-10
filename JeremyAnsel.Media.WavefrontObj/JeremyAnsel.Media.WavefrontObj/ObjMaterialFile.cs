@@ -23,6 +23,11 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public static ObjMaterialFile FromFile(string? path)
         {
+            return FromFile(path, ObjMaterialFileReaderSettings.Default);
+        }
+
+        public static ObjMaterialFile FromFile(string? path, ObjMaterialFileReaderSettings settings)
+        {
             if (path == null)
             {
                 throw new ArgumentNullException(nameof(path));
@@ -31,19 +36,24 @@ namespace JeremyAnsel.Media.WavefrontObj
             using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
 #if NET6_0_OR_GREATER
-                return ObjMaterialFileReader9.FromStream(stream);
+                return ObjMaterialFileReader9.FromStream(stream, settings);
 #else
-                return ObjMaterialFileReader.FromStream(stream);
+                return ObjMaterialFileReader.FromStream(stream, settings);
 #endif
             }
         }
 
         public static ObjMaterialFile FromStream(Stream? stream)
         {
+            return FromStream(stream, ObjMaterialFileReaderSettings.Default);
+        }
+        
+        public static ObjMaterialFile FromStream(Stream? stream, ObjMaterialFileReaderSettings settings)
+        {
 #if NET6_0_OR_GREATER
-            return ObjMaterialFileReader9.FromStream(stream);
+            return ObjMaterialFileReader9.FromStream(stream, settings);
 #else
-            return ObjMaterialFileReader.FromStream(stream);
+            return ObjMaterialFileReader.FromStream(stream, settings);
 #endif
         }
 

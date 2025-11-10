@@ -340,10 +340,10 @@ map_aat " + value;
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void Texture_Ambient_Valid(string materialStringTemplate, string expectedFilename)
+        public void Texture_Ambient_Valid(string materialStringTemplate, string expectedFilename, bool keepWhitespaces)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ka");
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings { KeepWhitespacesOfMapFileReferences = keepWhitespaces});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
@@ -360,10 +360,10 @@ map_aat " + value;
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void Texture_Diffuse_Valid(string materialStringTemplate, string expectedFilename)
+        public void Texture_Diffuse_Valid(string materialStringTemplate, string expectedFilename, bool keepWhitespaces)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Kd");
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings { KeepWhitespacesOfMapFileReferences = keepWhitespaces});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].DiffuseMap);
@@ -380,10 +380,10 @@ map_aat " + value;
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void Texture_Emissive_Valid(string materialStringTemplate, string expectedFilename)
+        public void Texture_Emissive_Valid(string materialStringTemplate, string expectedFilename, bool keepWhitespaces)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ke");
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings { KeepWhitespacesOfMapFileReferences = keepWhitespaces});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].EmissiveMap);
@@ -400,10 +400,10 @@ map_aat " + value;
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void Texture_Specular_Valid(string materialStringTemplate, string expectedFilename)
+        public void Texture_Specular_Valid(string materialStringTemplate, string expectedFilename, bool keepWhitespaces)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ks");
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings { KeepWhitespacesOfMapFileReferences = keepWhitespaces});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].SpecularMap);
@@ -420,10 +420,10 @@ map_aat " + value;
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void Texture_SpecularExponent_Valid(string materialStringTemplate, string expectedFilename)
+        public void Texture_SpecularExponent_Valid(string materialStringTemplate, string expectedFilename, bool keepWhitespaces)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ns");
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings { KeepWhitespacesOfMapFileReferences = keepWhitespaces});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].SpecularExponentMap);
@@ -440,10 +440,10 @@ map_aat " + value;
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void Texture_Dissolve_Valid(string materialStringTemplate, string expectedFilename)
+        public void Texture_Dissolve_Valid(string materialStringTemplate, string expectedFilename, bool keepWhitespaces)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_d");
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings { KeepWhitespacesOfMapFileReferences = keepWhitespaces});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].DissolveMap);
@@ -923,305 +923,377 @@ refl -type cube_right b.b 0";
         }
 
         [Theory]
-        [InlineData("on", true)]
-        [InlineData("off", false)]
-        public void MapOptions_HorizontalBlending_Valid(string value, bool expected)
+        [InlineData("on", true, "b.b", "b.b", false)]
+        [InlineData("off", false, "b.b", "b.b", true)]
+        [InlineData("on", true, "b   b", "b b", false)]
+        [InlineData("off", false, "b   b", "b   b", true)]
+        public void MapOptions_HorizontalBlending_Valid(string value, bool expected, string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -blenu " + value + @" b.b";
+map_Ka -blenu " + value + " " + filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(expected, mtl.Materials[0].AmbientMap?.IsHorizontalBlendingEnabled);
         }
 
         [Theory]
-        [InlineData("on", true)]
-        [InlineData("off", false)]
-        public void MapOptions_VerticalBlending_Valid(string value, bool expected)
+        [InlineData("on", true, "b.b", "b.b", false)]
+        [InlineData("off", false, "b.b", "b.b", true)]
+        [InlineData("on", true, "b   b", "b b", false)]
+        [InlineData("off", false, "b   b", "b   b", true)]
+        public void MapOptions_VerticalBlending_Valid(string value, bool expected, string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -blenv " + value + @" b.b";
+map_Ka -blenv " + value + " " + filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings { KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(expected, mtl.Materials[0].AmbientMap?.IsVerticalBlendingEnabled);
         }
 
-        [Fact]
-        public void MapOptions_BumpMultiplier_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_BumpMultiplier_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -bm 2.0 b.b";
+map_Ka -bm 2.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.BumpMultiplier);
         }
 
-        [Fact]
-        public void MapOptions_Boost_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_Boost_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -boost 2.0 b.b";
+map_Ka -boost 2.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Boost);
         }
 
         [Theory]
-        [InlineData("on", true)]
-        [InlineData("off", false)]
-        public void MapOptions_ColorCorrection_Valid(string value, bool expected)
+        [InlineData("on", true, "b.b", "b.b", false)]
+        [InlineData("off", false, "b.b", "b.b", true)]
+        [InlineData("on", true, "b   b", "b b", false)]
+        [InlineData("off", false, "b   b", "b   b", true)]
+        public void MapOptions_ColorCorrection_Valid(string value, bool expected, string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -cc " + value + @" b.b";
+map_Ka -cc " + value + @" "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(expected, mtl.Materials[0].AmbientMap?.IsColorCorrectionEnabled);
         }
 
         [Theory]
-        [InlineData("on", true)]
-        [InlineData("off", false)]
-        public void MapOptions_Clamping_Valid(string value, bool expected)
+        [InlineData("on", true, "b.b", "b.b", false)]
+        [InlineData("off", false, "b.b", "b.b", true)]
+        [InlineData("on", true, "b   b", "b b", false)]
+        [InlineData("off", false, "b   b", "b   b", true)]
+        public void MapOptions_Clamping_Valid(string value, bool expected, string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -clamp " + value + @" b.b";
+map_Ka -clamp " + value + @" "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(expected, mtl.Materials[0].AmbientMap?.IsClampingEnabled);
         }
 
         [Theory]
-        [InlineData("r", ObjMapChannel.Red)]
-        [InlineData("g", ObjMapChannel.Green)]
-        [InlineData("b", ObjMapChannel.Blue)]
-        [InlineData("m", ObjMapChannel.Matte)]
-        [InlineData("l", ObjMapChannel.Luminance)]
-        [InlineData("z", ObjMapChannel.Depth)]
-        public void MapOptions_ScalarChannel_Valid(string value, ObjMapChannel expected)
+        [InlineData("r", ObjMapChannel.Red, "b.b", "b.b", false)]
+        [InlineData("g", ObjMapChannel.Green, "b.b", "b.b", false)]
+        [InlineData("b", ObjMapChannel.Blue, "b.b", "b.b", false)]
+        [InlineData("m", ObjMapChannel.Matte, "b.b", "b.b", false)]
+        [InlineData("l", ObjMapChannel.Luminance, "b.b", "b.b", false)]
+        [InlineData("z", ObjMapChannel.Depth, "b.b", "b.b", false)]
+        [InlineData("r", ObjMapChannel.Red, "b  b", "b b", false)]
+        [InlineData("g", ObjMapChannel.Green, "b  b", "b b", false)]
+        [InlineData("b", ObjMapChannel.Blue, "b  b", "b b", false)]
+        [InlineData("m", ObjMapChannel.Matte, "b  b", "b b", false)]
+        [InlineData("l", ObjMapChannel.Luminance, "b  b", "b b", false)]
+        [InlineData("z", ObjMapChannel.Depth, "b  b", "b b", false)]
+        [InlineData("r", ObjMapChannel.Red, "b  b", "b  b", true)]
+        [InlineData("g", ObjMapChannel.Green, "b  b", "b  b", true)]
+        [InlineData("b", ObjMapChannel.Blue, "b  b", "b  b", true)]
+        [InlineData("m", ObjMapChannel.Matte, "b  b", "b  b", true)]
+        [InlineData("l", ObjMapChannel.Luminance, "b  b", "b  b", true)]
+        [InlineData("z", ObjMapChannel.Depth, "b  b", "b  b", true)]
+        public void MapOptions_ScalarChannel_Valid(string value, ObjMapChannel expected, string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -imfchan " + value + @" b.b";
+map_Ka -imfchan " + value + " "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(expected, mtl.Materials[0].AmbientMap?.ScalarChannel);
         }
 
-        [Fact]
-        public void MapOptions_Modifier_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_Modifier_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -mm 2.0 3.0 b.b";
+map_Ka -mm 2.0 3.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.ModifierBase);
             Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.ModifierGain);
         }
 
-        [Fact]
-        public void MapOptions_Offset1_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_Offset1_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -o 2.0 b.b";
+map_Ka -o 2.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Offset.X);
             Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Offset.Y);
             Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Offset.Z);
         }
 
-        [Fact]
-        public void MapOptions_Offset2_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_Offset2_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -o 2.0 3.0 b.b";
+map_Ka -o 2.0 3.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Offset.X);
             Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Offset.Y);
             Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Offset.Z);
         }
 
-        [Fact]
-        public void MapOptions_Offset3_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_Offset3_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -o 2.0 3.0 4.0 b.b";
+map_Ka -o 2.0 3.0 4.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Offset.X);
             Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Offset.Y);
             Assert.Equal(4.0f, mtl.Materials[0].AmbientMap?.Offset.Z);
         }
 
-        [Fact]
-        public void MapOptions_Scale1_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_Scale1_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -s 2.0 b.b";
+map_Ka -s 2.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Scale.X);
             Assert.Equal(1.0f, mtl.Materials[0].AmbientMap?.Scale.Y);
             Assert.Equal(1.0f, mtl.Materials[0].AmbientMap?.Scale.Z);
         }
 
-        [Fact]
-        public void MapOptions_Scale2_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_Scale2_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -s 2.0 3.0 b.b";
+map_Ka -s 2.0 3.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Scale.X);
             Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Scale.Y);
             Assert.Equal(1.0f, mtl.Materials[0].AmbientMap?.Scale.Z);
         }
 
-        [Fact]
-        public void MapOptions_Scale3_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_Scale3_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -s 2.0 3.0 4.0 b.b";
+map_Ka -s 2.0 3.0 4.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Scale.X);
             Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Scale.Y);
             Assert.Equal(4.0f, mtl.Materials[0].AmbientMap?.Scale.Z);
         }
 
-        [Fact]
-        public void MapOptions_Turbulence1_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_Turbulence1_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -t 2.0 b.b";
+map_Ka -t 2.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Turbulence.X);
             Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Turbulence.Y);
             Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Turbulence.Z);
         }
 
-        [Fact]
-        public void MapOptions_Turbulence2_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_Turbulence2_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -t 2.0 3.0 b.b";
+map_Ka -t 2.0 3.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Turbulence.X);
             Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Turbulence.Y);
             Assert.Equal(0.0f, mtl.Materials[0].AmbientMap?.Turbulence.Z);
         }
 
-        [Fact]
-        public void MapOptions_Turbulence3_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_Turbulence3_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -t 2.0 3.0 4.0 b.b";
+map_Ka -t 2.0 3.0 4.0 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2.0f, mtl.Materials[0].AmbientMap?.Turbulence.X);
             Assert.Equal(3.0f, mtl.Materials[0].AmbientMap?.Turbulence.Y);
             Assert.Equal(4.0f, mtl.Materials[0].AmbientMap?.Turbulence.Z);
         }
 
-        [Fact]
-        public void MapOptions_TextureResolution_Valid()
+        [Theory]
+        [InlineData("b.b", "b.b", false)]
+        [InlineData("b.b", "b.b", true)]
+        [InlineData("b   b", "b b", false)]
+        [InlineData("b   b", "b   b", true)]
+        public void MapOptions_TextureResolution_Valid(string filename, string expectedFilename, bool keepWhitespace)
         {
             string content = @"
 newmtl a
-map_Ka -texres 2 b.b";
+map_Ka -texres 2 "+filename;
 
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].AmbientMap);
-            Assert.Equal("b.b", mtl.Materials[0].AmbientMap?.FileName);
+            Assert.Equal(expectedFilename, mtl.Materials[0].AmbientMap?.FileName);
             Assert.Equal(2, mtl.Materials[0].AmbientMap?.TextureResolution);
         }
 
@@ -1254,10 +1326,10 @@ map_Ka -texres 2 b.b";
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void PbrExtensions_RoughnessMapValid_Throws(string materialStringTemplate, string expectedFilename)
+        public void PbrExtensions_RoughnessMapValid_Throws(string materialStringTemplate, string expectedFilename, bool keepWhitespaces)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Pr");
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings { KeepWhitespacesOfMapFileReferences = keepWhitespaces});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].RoughnessMap);
@@ -1293,10 +1365,10 @@ map_Ka -texres 2 b.b";
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void PbrExtensions_MetallicMapValid_Throws(string materialStringTemplate, string expectedFilename)
+        public void PbrExtensions_MetallicMapValid_Throws(string materialStringTemplate, string expectedFilename, bool keepWhitespaces)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Pm");
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings { KeepWhitespacesOfMapFileReferences = keepWhitespaces});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].MetallicMap);
@@ -1332,10 +1404,10 @@ map_Ka -texres 2 b.b";
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void PbrExtensions_SheenMapValid_Throws(string materialStringTemplate, string expectedFilename)
+        public void PbrExtensions_SheenMapValid_Throws(string materialStringTemplate, string expectedFilename, bool keepWhitespaces)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "map_Ps");
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings { KeepWhitespacesOfMapFileReferences = keepWhitespaces});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].SheenMap);
@@ -1428,10 +1500,10 @@ map_Ka -texres 2 b.b";
 
         [Theory]
         [MemberData(nameof(ObjectMaterialMapValidTestData))]
-        public void PbrExtensions_NormValid_Throws(string materialStringTemplate, string expectedFilename)
+        public void PbrExtensions_NormValid_Throws(string materialStringTemplate, string expectedFilename, bool keepWhitespaces)
         {
             var content = string.Format(CultureInfo.InvariantCulture, materialStringTemplate, "norm");
-            var mtl = ReadMtl(content);
+            var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings { KeepWhitespacesOfMapFileReferences = keepWhitespaces});
 
             Assert.Equal("a", mtl.Materials[0].Name);
             Assert.NotNull(mtl.Materials[0].Norm);
@@ -1439,13 +1511,13 @@ map_Ka -texres 2 b.b";
         }
 
 
-        private ObjMaterialFile ReadMtl(string content)
+        private ObjMaterialFile ReadMtl(string content, ObjMaterialFileReaderSettings? settings = null)
         {
             var buffer = Encoding.UTF8.GetBytes(content);
 
             using (var stream = new MemoryStream(buffer, false))
             {
-                return ObjMaterialFile.FromStream(stream);
+                return ObjMaterialFile.FromStream(stream, settings ?? ObjMaterialFileReaderSettings.Default);
             }
         }
 
@@ -1493,16 +1565,33 @@ map_Ka -texres 2 b.b";
 
         public static IEnumerable<object[]> ObjectMaterialMapValidTestData()
         {
-            yield return ["newmtl a\n{0} b", "b"];
-            yield return ["newmtl a\n{0} b.b", "b.b"];
-            yield return ["newmtl a\n{0} b.b 0", "b.b 0"];
+            yield return ["newmtl a\n{0} b", "b", false];
+            yield return ["newmtl a\n{0} b.b", "b.b", false];
+            yield return ["newmtl a\n{0} b.b 0", "b.b 0", false];
             yield return
-                ["newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}}", "{00000000-0000-0000-0000-000000000000}"];
+                ["newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}}", "{00000000-0000-0000-0000-000000000000}", false];
             yield return
             [
                 "newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}} {{00000000-0000-0000-0000-000000000000}}",
-                "{00000000-0000-0000-0000-000000000000} {00000000-0000-0000-0000-000000000000}"
+                "{00000000-0000-0000-0000-000000000000} {00000000-0000-0000-0000-000000000000}", 
+                false
             ];
+            yield return
+            [
+                "newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}}   {{00000000-0000-0000-0000-000000000000}}",
+                "{00000000-0000-0000-0000-000000000000} {00000000-0000-0000-0000-000000000000}", 
+                false
+            ];
+            yield return
+            [
+                "newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}}   {{00000000-0000-0000-0000-000000000000}}",
+                "{00000000-0000-0000-0000-000000000000}   {00000000-0000-0000-0000-000000000000}", 
+                true
+            ];
+            yield return ["newmtl a\n{0} b   b 0", "b b 0", false];
+            yield return ["newmtl a\n{0} b   b 0", "b   b 0", true];
+            yield return ["newmtl a\n{0} a  whitespace", "a whitespace", false];
+            yield return ["newmtl a\n{0} a  whitespace", "a  whitespace", true];
         }
     }
 }

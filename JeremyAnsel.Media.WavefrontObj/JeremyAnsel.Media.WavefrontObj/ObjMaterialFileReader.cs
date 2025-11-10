@@ -15,7 +15,7 @@ namespace JeremyAnsel.Media.WavefrontObj
     internal static class ObjMaterialFileReader
     {
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        public static ObjMaterialFile FromStream(Stream? stream)
+        public static ObjMaterialFile FromStream(Stream? stream, ObjMaterialFileReaderSettings settings)
         {
             if (stream == null)
             {
@@ -244,7 +244,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.AmbientMap = ObjMaterialFileReader.ParseMaterialMap("map_Ka", values);
+                        currentMaterial.AmbientMap = ObjMaterialFileReader.ParseMaterialMap("map_Ka", values, currentLine, settings);
                         break;
 
                     case "map_kd":
@@ -253,7 +253,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DiffuseMap = ObjMaterialFileReader.ParseMaterialMap("map_Kd", values);
+                        currentMaterial.DiffuseMap = ObjMaterialFileReader.ParseMaterialMap("map_Kd", values, currentLine, settings);
                         break;
 
                     case "map_ke":
@@ -262,7 +262,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.EmissiveMap = ObjMaterialFileReader.ParseMaterialMap("map_Ke", values);
+                        currentMaterial.EmissiveMap = ObjMaterialFileReader.ParseMaterialMap("map_Ke", values, currentLine, settings);
                         break;
 
                     case "map_ks":
@@ -271,7 +271,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.SpecularMap = ObjMaterialFileReader.ParseMaterialMap("map_Ks", values);
+                        currentMaterial.SpecularMap = ObjMaterialFileReader.ParseMaterialMap("map_Ks", values, currentLine, settings);
                         break;
 
                     case "map_ns":
@@ -280,7 +280,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.SpecularExponentMap = ObjMaterialFileReader.ParseMaterialMap("map_Ns", values);
+                        currentMaterial.SpecularExponentMap = ObjMaterialFileReader.ParseMaterialMap("map_Ns", values, currentLine, settings);
                         break;
 
                     case "map_d":
@@ -290,7 +290,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DissolveMap = ObjMaterialFileReader.ParseMaterialMap("map_d", values);
+                        currentMaterial.DissolveMap = ObjMaterialFileReader.ParseMaterialMap("map_d", values, currentLine, settings);
                         break;
 
                     case "decal":
@@ -300,7 +300,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DecalMap = ObjMaterialFileReader.ParseMaterialMap("decal", values);
+                        currentMaterial.DecalMap = ObjMaterialFileReader.ParseMaterialMap("decal", values, currentLine, settings);
                         break;
 
                     case "disp":
@@ -310,7 +310,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DispMap = ObjMaterialFileReader.ParseMaterialMap("disp", values);
+                        currentMaterial.DispMap = ObjMaterialFileReader.ParseMaterialMap("disp", values, currentLine, settings);
                         break;
 
                     case "bump":
@@ -320,7 +320,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.BumpMap = ObjMaterialFileReader.ParseMaterialMap("bump", values);
+                        currentMaterial.BumpMap = ObjMaterialFileReader.ParseMaterialMap("bump", values, currentLine, settings);
                         break;
 
                     case "refl":
@@ -343,31 +343,31 @@ namespace JeremyAnsel.Media.WavefrontObj
                         switch (values[2].ToLowerInvariant())
                         {
                             case "sphere":
-                                currentMaterial.ReflectionMap.Sphere = ObjMaterialFileReader.ParseMaterialMap("refl", values);
+                                currentMaterial.ReflectionMap.Sphere = ObjMaterialFileReader.ParseMaterialMap("refl", values, currentLine, settings);
                                 break;
 
                             case "cube_top":
-                                currentMaterial.ReflectionMap.CubeTop = ObjMaterialFileReader.ParseMaterialMap("refl", values);
+                                currentMaterial.ReflectionMap.CubeTop = ObjMaterialFileReader.ParseMaterialMap("refl", values, currentLine, settings);
                                 break;
 
                             case "cube_bottom":
-                                currentMaterial.ReflectionMap.CubeBottom = ObjMaterialFileReader.ParseMaterialMap("refl", values);
+                                currentMaterial.ReflectionMap.CubeBottom = ObjMaterialFileReader.ParseMaterialMap("refl", values, currentLine, settings);
                                 break;
 
                             case "cube_front":
-                                currentMaterial.ReflectionMap.CubeFront = ObjMaterialFileReader.ParseMaterialMap("refl", values);
+                                currentMaterial.ReflectionMap.CubeFront = ObjMaterialFileReader.ParseMaterialMap("refl", values, currentLine, settings);
                                 break;
 
                             case "cube_back":
-                                currentMaterial.ReflectionMap.CubeBack = ObjMaterialFileReader.ParseMaterialMap("refl", values);
+                                currentMaterial.ReflectionMap.CubeBack = ObjMaterialFileReader.ParseMaterialMap("refl", values, currentLine, settings);
                                 break;
 
                             case "cube_left":
-                                currentMaterial.ReflectionMap.CubeLeft = ObjMaterialFileReader.ParseMaterialMap("refl", values);
+                                currentMaterial.ReflectionMap.CubeLeft = ObjMaterialFileReader.ParseMaterialMap("refl", values, currentLine, settings);
                                 break;
 
                             case "cube_right":
-                                currentMaterial.ReflectionMap.CubeRight = ObjMaterialFileReader.ParseMaterialMap("refl", values);
+                                currentMaterial.ReflectionMap.CubeRight = ObjMaterialFileReader.ParseMaterialMap("refl", values, currentLine, settings);
                                 break;
                         }
 
@@ -396,7 +396,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.RoughnessMap = ObjMaterialFileReader.ParseMaterialMap("map_Pr", values);
+                        currentMaterial.RoughnessMap = ObjMaterialFileReader.ParseMaterialMap("map_Pr", values, currentLine, settings);
                         break;
                     case "pm":
                         if (currentMaterial == null)
@@ -422,7 +422,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.MetallicMap = ObjMaterialFileReader.ParseMaterialMap("map_Pm", values);
+                        currentMaterial.MetallicMap = ObjMaterialFileReader.ParseMaterialMap("map_Pm", values, currentLine, settings);
                         break;
                     case "ps":
                         if (currentMaterial == null)
@@ -448,7 +448,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.SheenMap = ObjMaterialFileReader.ParseMaterialMap("map_Ps", values);
+                        currentMaterial.SheenMap = ObjMaterialFileReader.ParseMaterialMap("map_Ps", values, currentLine, settings);
                         break;
                     case "pc":
                         if (currentMaterial == null)
@@ -528,7 +528,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.Norm = ObjMaterialFileReader.ParseMaterialMap("norm", values);
+                        currentMaterial.Norm = ObjMaterialFileReader.ParseMaterialMap("norm", values, currentLine, settings);
                         break;
                 }
             }
@@ -646,7 +646,7 @@ namespace JeremyAnsel.Media.WavefrontObj
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        private static ObjMaterialMap ParseMaterialMap(string statement, string[] values)
+        private static ObjMaterialMap ParseMaterialMap(string statement, string[] values, string currentLine, ObjMaterialFileReaderSettings settings)
         {
             var map = new ObjMaterialMap();
 
@@ -840,21 +840,35 @@ namespace JeremyAnsel.Media.WavefrontObj
                         var offset = new ObjVector3();
 
                         offset.X = float.Parse(values[index + 1], CultureInfo.InvariantCulture);
+                        index++;
 
-                        if (values.Length - index > 3)
+                        if (values.Length - index > 2)
                         {
-                            offset.Y = float.Parse(values[index + 2], CultureInfo.InvariantCulture);
-
-                            if (values.Length - index > 4)
+                            if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out var v))
                             {
-                                offset.Z = float.Parse(values[index + 3], CultureInfo.InvariantCulture);
+                                offset.Y = v;
                                 index++;
                             }
-
-                            index++;
+                            else
+                            {
+                                map.Offset = offset;
+                                break;
+                            }
+                            
+                            if (values.Length - index > 2)
+                            {
+                                if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out v))
+                                {
+                                    offset.Z = v;
+                                    index++;
+                                }
+                                else
+                                {
+                                    map.Offset = offset;
+                                    break;
+                                }
+                            }
                         }
-
-                        index++;
 
                         map.Offset = offset;
                         break;
@@ -869,21 +883,35 @@ namespace JeremyAnsel.Media.WavefrontObj
                             var scale = new ObjVector3(1.0f, 1.0f, 1.0f);
 
                             scale.X = float.Parse(values[index + 1], CultureInfo.InvariantCulture);
+                            index++;
 
-                            if (values.Length - index > 3)
+                            if (values.Length - index > 2)
                             {
-                                scale.Y = float.Parse(values[index + 2], CultureInfo.InvariantCulture);
-
-                                if (values.Length - index > 4)
+                                if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out var v))
                                 {
-                                    scale.Z = float.Parse(values[index + 3], CultureInfo.InvariantCulture);
+                                    scale.Y = v;
                                     index++;
                                 }
-
-                                index++;
+                                else
+                                {
+                                    map.Scale = scale;
+                                    break;
+                                }
+                            
+                                if (values.Length - index > 2)
+                                {
+                                    if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out v))
+                                    {
+                                        scale.Z = v;
+                                        index++;
+                                    }
+                                    else
+                                    {
+                                        map.Scale = scale;
+                                        break;
+                                    }
+                                }
                             }
-
-                            index++;
 
                             map.Scale = scale;
                             break;
@@ -899,21 +927,35 @@ namespace JeremyAnsel.Media.WavefrontObj
                             var turbulence = new ObjVector3();
 
                             turbulence.X = float.Parse(values[index + 1], CultureInfo.InvariantCulture);
+                            index++;
 
-                            if (values.Length - index > 3)
+                            if (values.Length - index > 2)
                             {
-                                turbulence.Y = float.Parse(values[index + 2], CultureInfo.InvariantCulture);
-
-                                if (values.Length - index > 4)
+                                if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out var v))
                                 {
-                                    turbulence.Z = float.Parse(values[index + 3], CultureInfo.InvariantCulture);
+                                    turbulence.Y = v;
                                     index++;
                                 }
-
-                                index++;
+                                else
+                                {
+                                    map.Turbulence = turbulence;
+                                    break;
+                                }
+                            
+                                if (values.Length - index > 2)
+                                {
+                                    if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out v))
+                                    {
+                                        turbulence.Z = v;
+                                        index++;
+                                    }
+                                    else
+                                    {
+                                        map.Turbulence = turbulence;
+                                        break;
+                                    }
+                                }
                             }
-
-                            index++;
 
                             map.Turbulence = turbulence;
                             break;
@@ -932,10 +974,23 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                     default:
                         {
-                            string filename = string.Join(" ", values, index, values.Length - index);
+                            if (settings.KeepWhitespacesOfMapFileReferences)
+                            {
+                                var charsRead = 0;
+                                for (var i = 1; i < index; i++)
+                                {
+                                    charsRead += values[i].Length;
+                                }
+                                map.FileName = currentLine.Remove(0, statement.Length + charsRead + index);
+                            }
+                            else
+                            {
+                                string filename = string.Join(" ", values, index, values.Length - index);
 
-                            map.FileName = filename;
+                                map.FileName = filename; 
+                            }
                             index = values.Length;
+                            
                             break;
                         }
                 }
