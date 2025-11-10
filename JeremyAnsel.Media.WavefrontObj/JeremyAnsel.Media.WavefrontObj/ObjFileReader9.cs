@@ -874,18 +874,25 @@ namespace JeremyAnsel.Media.WavefrontObj
                             {
                                 throw new InvalidDataException("A mtllib statement must specify a file name.");
                             }
-
-                            var sb = new StringBuilder();
-
-                            sb.Append(GetNextValue(ref currentLine, ref values));
-
-                            for (int i = 2; i < valuesCount; i++)
+                            
+                            if (settings.KeepWhitespacesOfMtlLibReferences)
                             {
-                                sb.Append(' ');
-                                sb.Append(GetNextValue(ref currentLine, ref values));
+                                obj.MaterialLibraries.Add(new string(currentLine[7..]).Trim());
                             }
+                            else
+                            {
+                                var sb = new StringBuilder();
 
-                            obj.MaterialLibraries.Add(sb.ToString());
+                                sb.Append(GetNextValue(ref currentLine, ref values));
+
+                                for (int i = 2; i < valuesCount; i++)
+                                {
+                                    sb.Append(' ');
+                                    sb.Append(GetNextValue(ref currentLine, ref values));
+                                }
+
+                                obj.MaterialLibraries.Add(sb.ToString());
+                            }
 
                             break;
                         }

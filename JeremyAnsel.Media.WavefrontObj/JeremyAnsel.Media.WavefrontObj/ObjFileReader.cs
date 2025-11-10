@@ -776,8 +776,15 @@ namespace JeremyAnsel.Media.WavefrontObj
                         {
                             throw new InvalidDataException("A mtllib statement must specify a file name.");
                         }
-
-                        obj.MaterialLibraries.Add(string.Join(" ", values, 1, values.Length - 1));
+                        
+                        if (settings.KeepWhitespacesOfMtlLibReferences)
+                        {
+                            obj.MaterialLibraries.Add(currentLine.Remove(0, 7).Trim());
+                        }
+                        else
+                        {
+                            obj.MaterialLibraries.Add(string.Join(" ", values, 1, values.Length - 1));    
+                        }
 
                         break;
 
