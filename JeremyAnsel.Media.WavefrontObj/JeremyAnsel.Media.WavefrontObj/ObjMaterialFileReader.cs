@@ -844,28 +844,28 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                         if (values.Length - index > 2)
                         {
-                            index++;
-                            if (float.TryParse(values[index], NumberStyles.Float, CultureInfo.InvariantCulture, out var v))
+                            if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out var v))
                             {
                                 offset.Y = v;
+                                index++;
                             }
                             else
                             {
                                 map.Offset = offset;
-                                goto ReadFileName;
+                                break;
                             }
                             
                             if (values.Length - index > 2)
                             {
-                                index++;
-                                if (float.TryParse(values[index], NumberStyles.Float, CultureInfo.InvariantCulture, out v))
+                                if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out v))
                                 {
                                     offset.Z = v;
+                                    index++;
                                 }
                                 else
                                 {
                                     map.Offset = offset;
-                                    goto ReadFileName;
+                                    break;
                                 }
                             }
                         }
@@ -887,28 +887,28 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                             if (values.Length - index > 2)
                             {
-                                index++;
-                                if (float.TryParse(values[index], NumberStyles.Float, CultureInfo.InvariantCulture, out var v))
+                                if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out var v))
                                 {
                                     scale.Y = v;
+                                    index++;
                                 }
                                 else
                                 {
                                     map.Scale = scale;
-                                    goto ReadFileName;
+                                    break;
                                 }
                             
                                 if (values.Length - index > 2)
                                 {
-                                    index++;
-                                    if (float.TryParse(values[index], NumberStyles.Float, CultureInfo.InvariantCulture, out v))
+                                    if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out v))
                                     {
                                         scale.Z = v;
+                                        index++;
                                     }
                                     else
                                     {
                                         map.Scale = scale;
-                                        goto ReadFileName;
+                                        break;
                                     }
                                 }
                             }
@@ -931,28 +931,28 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                             if (values.Length - index > 2)
                             {
-                                index++;
-                                if (float.TryParse(values[index], NumberStyles.Float, CultureInfo.InvariantCulture, out var v))
+                                if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out var v))
                                 {
                                     turbulence.Y = v;
+                                    index++;
                                 }
                                 else
                                 {
                                     map.Turbulence = turbulence;
-                                    goto ReadFileName;
+                                    break;
                                 }
                             
                                 if (values.Length - index > 2)
                                 {
-                                    index++;
-                                    if (float.TryParse(values[index], NumberStyles.Float, CultureInfo.InvariantCulture, out v))
+                                    if (float.TryParse(values[index + 1], NumberStyles.Float, CultureInfo.InvariantCulture, out v))
                                     {
                                         turbulence.Z = v;
+                                        index++;
                                     }
                                     else
                                     {
                                         map.Turbulence = turbulence;
-                                        goto ReadFileName;
+                                        break;
                                     }
                                 }
                             }
@@ -973,17 +973,15 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
 
                     default:
-ReadFileName:
                         {
                             if (settings.KeepWhitespacesOfMapFileReferences)
                             {
                                 var charsRead = 0;
-                                for (var i = 0; i < index; i++)
+                                for (var i = 1; i < index; i++)
                                 {
                                     charsRead += values[i].Length;
-                                    charsRead++;
                                 }
-                                map.FileName = currentLine.Remove(0, charsRead);
+                                map.FileName = currentLine.Remove(0, statement.Length + charsRead + index);
                             }
                             else
                             {

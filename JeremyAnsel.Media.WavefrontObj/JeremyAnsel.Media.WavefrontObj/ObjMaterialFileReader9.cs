@@ -881,7 +881,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                     }
                     if (settings.KeepWhitespacesOfMapFileReferences)
                     {
-                        map.FileName = new string(currentLine[(statement.Length + charsRead)..]);
+                        map.FileName = new string(currentLine[(statement.Length + charsRead + 1)..]);
                     }
                     else
                     {
@@ -1206,50 +1206,47 @@ namespace JeremyAnsel.Media.WavefrontObj
 
                         var offset = new ObjVector3();
                         var value2 = GetNextValue(ref currentLine, ref values);
-                        index++;
-                        charsRead += value2.Length;
 
                         if (TryFloatParse(value2, out var value))
                         {
                             offset.X = value;
+                            index++;
+                            charsRead += value2.Length;
                         }
                         else
                         {
                             map.Offset = offset;
-                            value1 = value2;
-                            goto ReadFileName;
+                            break;
                         }
 
                         if (valuesCount - index > 2)
                         {
                             value2 = GetNextValue(ref currentLine, ref values);
-                            index++;
-                            charsRead += value2.Length;
                             if (TryFloatParse(value2, out value))
                             {
                                 offset.Y = value;
+                                index++;
+                                charsRead += value2.Length;
                             }
                             else
                             {
                                 map.Offset = offset;
-                                value1 = value2;
-                                goto ReadFileName;
+                                break;
                             }
 
                             if (valuesCount - index > 2)
                             {
                                 value2 = GetNextValue(ref currentLine, ref values);
-                                index++;
-                                charsRead += value2.Length;
                                 if (TryFloatParse(value2, out value))
                                 {
                                     offset.Z = value;
+                                    index++;
+                                    charsRead += value2.Length;
                                 }
                                 else
                                 {
                                     map.Offset = offset;
-                                    value1 = value2;
-                                    goto ReadFileName;
+                                    break;
                                 }
                             }
                         }
@@ -1268,50 +1265,47 @@ namespace JeremyAnsel.Media.WavefrontObj
                         var scale = new ObjVector3(1.0f, 1.0f, 1.0f);
                         
                         var value2 = GetNextValue(ref currentLine, ref values);
-                        index++;
-                        charsRead += value2.Length;
 
                         if (TryFloatParse(value2, out var value))
                         {
                             scale.X = value;
+                            index++;
+                            charsRead += value2.Length;
                         }
                         else
                         {
                             map.Scale = scale;
-                            value1 = value2;
-                            goto ReadFileName;
+                            break;
                         }
 
                         if (valuesCount - index > 2)
                         {
                             value2 = GetNextValue(ref currentLine, ref values);
-                            index++;
-                            charsRead += value2.Length;
                             if (TryFloatParse(value2, out value))
                             {
                                 scale.Y = value;
+                                index++;
+                                charsRead += value2.Length;
                             }
                             else
                             {
                                 map.Scale = scale;
-                                value1 = value2;
-                                goto ReadFileName;
+                                break;
                             }
 
                             if (valuesCount - index > 2)
                             {
                                 value2 = GetNextValue(ref currentLine, ref values);
-                                index++;
-                                charsRead += value2.Length;
                                 if (TryFloatParse(value2, out value))
                                 {
                                     scale.Z = value;
+                                    index++;
+                                    charsRead += value2.Length;
                                 }
                                 else
                                 {
                                     map.Scale = scale;
-                                    value1 = value2;
-                                    goto ReadFileName;
+                                    break;
                                 }
                             }
                         }
@@ -1330,50 +1324,47 @@ namespace JeremyAnsel.Media.WavefrontObj
                         var turbulence = new ObjVector3();
                         
                         var value2 = GetNextValue(ref currentLine, ref values);
-                        index++;
-                        charsRead += value2.Length;
 
                         if (TryFloatParse(value2, out var value))
                         {
                             turbulence.X = value;
+                            index++;
+                            charsRead += value2.Length;
                         }
                         else
                         {
                             map.Turbulence = turbulence;
-                            value1 = value2;
-                            goto ReadFileName;
+                            break;
                         }
 
                         if (valuesCount - index > 2)
                         {
                             value2 = GetNextValue(ref currentLine, ref values);
-                            index++;
-                            charsRead += value2.Length;
                             if (TryFloatParse(value2, out value))
                             {
                                 turbulence.Y = value;
+                                index++;
+                                charsRead += value2.Length;
                             }
                             else
                             {
                                 map.Turbulence = turbulence;
-                                value1 = value2;
-                                goto ReadFileName;
+                                break;
                             }
 
                             if (valuesCount - index > 2)
                             {
                                 value2 = GetNextValue(ref currentLine, ref values);
-                                index++;
-                                charsRead += value2.Length;
                                 if (TryFloatParse(value2, out value))
                                 {
                                     turbulence.Z = value;
+                                    index++;
+                                    charsRead += value2.Length;
                                 }
                                 else
                                 {
                                     map.Turbulence = turbulence;
-                                    value1 = value2;
-                                    goto ReadFileName;
+                                    break;
                                 }
                             }
                         }
@@ -1399,7 +1390,6 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
                     }
                     default:
-ReadFileName:
                         {
                             if (settings.KeepWhitespacesOfMapFileReferences)
                             {
