@@ -14,45 +14,24 @@ namespace JeremyAnsel.Media.WavefrontObj
     [Equatable]
     public partial struct ObjCurveIndex
     {
-        private float start;
-
-        private float end;
-
-        private int curve2D;
-
         public ObjCurveIndex(float startParameter, float endParameter, int curve2DIndex)
         {
-            this.start = startParameter;
-            this.end = endParameter;
-            this.curve2D = curve2DIndex;
+            Start = startParameter;
+            End = endParameter;
+            Curve2D = curve2DIndex;
         }
 
-        public float Start
-        {
-            get { return this.start; }
-            set { this.start = value; }
-        }
+        public float Start { get; set; }
 
-        public float End
-        {
-            get { return this.end; }
-            set { this.end = value; }
-        }
+        public float End { get; set; }
 
-        public int Curve2D
-        {
-            get { return this.curve2D; }
-            set { this.curve2D = value; }
-        }
+        public int Curve2D { get; set; }
 
-        public override string ToString()
-        {
-            return string.Concat(
-                this.Start.ToString("F6", CultureInfo.InvariantCulture),
-                " ",
-                this.End.ToString("F6", CultureInfo.InvariantCulture),
-                " ",
-                this.Curve2D.ToString(CultureInfo.InvariantCulture));
-        }
+        public override string ToString() => string.Concat(
+            Start.ToString("F6", CultureInfo.InvariantCulture),
+            " ",
+            End.ToString("F6", CultureInfo.InvariantCulture),
+            " ",
+            Curve2D.ToString(CultureInfo.InvariantCulture));
     }
 }

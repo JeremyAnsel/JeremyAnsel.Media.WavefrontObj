@@ -1397,8 +1397,8 @@ curv 5.000000 6.000000 2 3 4
             element.IsRationalForm = true;
             element.DegreeU = 1;
             element.DegreeV = 1;
-            element.BasicMatrixU = new float[4] { 0, 0, 0, 0 };
-            element.BasicMatrixV = new float[4] { 0, 0, 0, 0 };
+            element.BasicMatrixU = [0, 0, 0, 0];
+            element.BasicMatrixV = [0, 0, 0, 0];
             element.StepU = 0.5f;
             element.StepV = 0.5f;
             element.CurveApproximationTechnique = new ObjConstantParametricSubdivisionTechnique(1.0f);

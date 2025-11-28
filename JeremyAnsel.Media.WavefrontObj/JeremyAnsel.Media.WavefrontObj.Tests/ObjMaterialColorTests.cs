@@ -87,9 +87,7 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         [Fact]
         public void ToDebuggerDisplayString_RGBColorSpace_Valid()
         {
-            var color = new ObjMaterialColor(2, 3, 4)
-            {
-            };
+            var color = new ObjMaterialColor(2, 3, 4);
 
             string s = (string)typeof(ObjMaterialColor).GetTypeInfo().GetDeclaredMethod("ToDebuggerDisplayString")!.Invoke(color, null)!;
 

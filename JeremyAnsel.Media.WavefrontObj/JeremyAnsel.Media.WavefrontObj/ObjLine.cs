@@ -5,18 +5,13 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace JeremyAnsel.Media.WavefrontObj
 {
     public class ObjLine : ObjPolygonalElement
     {
         public ObjLine()
         {
-            this.Vertices = new List<ObjTriplet>();
+            Vertices = new List<ObjTriplet>();
         }
 
         public List<ObjTriplet> Vertices { get; private set; }

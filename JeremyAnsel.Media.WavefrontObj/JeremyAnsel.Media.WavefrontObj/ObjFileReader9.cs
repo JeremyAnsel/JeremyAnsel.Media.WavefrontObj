@@ -246,7 +246,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                         }
 
                     case "cstype":
-                        ParseFreeFormType(context, ref value0, ref currentLine, ref values, valuesCount);
+                        ParseFreeFormType(context, ref currentLine, ref values, valuesCount);
                         break;
 
                     case "deg":
@@ -657,7 +657,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
 
                     case "con":
-                        ParseSurfaceConnection(obj, value0, ref currentLine, ref values, valuesCount);
+                        ParseSurfaceConnection(obj, ref currentLine, ref values, valuesCount);
                         break;
 
                     case "g":
@@ -1028,7 +1028,7 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             int valuesCount = 0;
 
-            foreach (Range range in value.Split('/'))
+            foreach (var _ in value.Split('/'))
             {
                 valuesCount++;
             }
@@ -1137,7 +1137,7 @@ namespace JeremyAnsel.Media.WavefrontObj
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        private static void ParseFreeFormType(ObjFileReaderContext context, ref ReadOnlySpan<char> value0, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount)
+        private static void ParseFreeFormType(ObjFileReaderContext context, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount)
         {
             if (valuesCount < 2)
             {
@@ -1188,8 +1188,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             }
         }
 
-        [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        private static void ParseSurfaceConnection(ObjFile obj, ReadOnlySpan<char> value0, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount)
+        private static void ParseSurfaceConnection(ObjFile obj, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount)
         {
             if (valuesCount < 9)
             {

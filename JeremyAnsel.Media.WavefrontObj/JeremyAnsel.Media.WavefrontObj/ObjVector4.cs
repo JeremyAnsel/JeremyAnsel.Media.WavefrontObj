@@ -13,69 +13,45 @@ namespace JeremyAnsel.Media.WavefrontObj
     [Equatable]
     public partial struct ObjVector4
     {
-        private float x;
-
-        private float y;
-
-        private float z;
-
-        private float w;        
-
         public ObjVector4(System.Numerics.Vector4 v)
         {
-            this.x = v.X;
-            this.y = v.Y;
-            this.z = v.Z;
-            this.w = v.W;
+            X = v.X;
+            Y = v.Y;
+            Z = v.Z;
+            W = v.W;
         }
 
         public ObjVector4(System.Numerics.Vector3 v, float w = 1.0f)
         {
-            this.x = v.X;
-            this.y = v.Y;
-            this.z = v.Z;
-            this.w = w;
+            X = v.X;
+            Y = v.Y;
+            Z = v.Z;
+            W = w;
         }
 
         public ObjVector4(float x, float y, float z, float w)
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = w;
+            X = x;
+            Y = y;
+            Z = z;
+            W = w;
         }
 
         public ObjVector4(float x, float y, float z)
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = 1.0f;
+            X = x;
+            Y = y;
+            Z = z;
+            W = 1.0f;
         }
 
-        public float X
-        {
-            readonly get { return this.x; }
-            set { this.x = value; }
-        }
+        public float X { get; set; }
 
-        public float Y
-        {
-            readonly get { return this.y; }
-            set { this.y = value; }
-        }
+        public float Y { get; set; }
 
-        public float Z
-        {
-            readonly get { return this.z; }
-            set { this.z = value; }
-        }
+        public float Z { get; set; }
 
-        public float W
-        {
-            readonly get { return this.w; }
-            set { this.w = value; }
-        }
+        public float W { get; set; }
 
         public static implicit operator ObjVector4(System.Numerics.Vector4 v)
         {
@@ -84,15 +60,15 @@ namespace JeremyAnsel.Media.WavefrontObj
 
         public readonly void Deconstruct(out float @x, out float @y, out float @z, out float @w)
         {
-            @x = this.x;
-            @y = this.y;
-            @z = this.z;
-            @w = this.w;
+            @x = X;
+            @y = Y;
+            @z = Z;
+            @w = W;
         }
 
         public readonly System.Numerics.Vector4 ToVector4()
         {
-            return new System.Numerics.Vector4(x, y, z, w);
+            return new System.Numerics.Vector4(X, Y, Z, W);
         }
     }
 }

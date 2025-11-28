@@ -11,12 +11,12 @@ namespace JeremyAnsel.Media.WavefrontObj
 {
     internal class ObjFileWriterContext
     {
-        private ObjFile obj;
+        private readonly ObjFile _obj;
 
         public ObjFileWriterContext(ObjFile obj)
         {
-            this.obj = obj;
-            this.GroupNames = string.Empty;
+            _obj = obj;
+            GroupNames = string.Empty;
         }
 
         public string GroupNames { get; private set; }
@@ -182,7 +182,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                 }
                 else
                 {
-                    float res = obj.MergingGroupResolutions[this.MergingGroupNumber];
+                    float res = _obj.MergingGroupResolutions[this.MergingGroupNumber];
                     stream.WriteLine("mg {0} {1}", this.MergingGroupNumber, res.ToString("F6", CultureInfo.InvariantCulture));
                 }
             }
@@ -357,7 +357,7 @@ namespace JeremyAnsel.Media.WavefrontObj
         {
             var groups = new List<string>();
 
-            foreach (ObjGroup group in obj.Groups)
+            foreach (ObjGroup group in _obj.Groups)
             {
                 List<T> elements = func(group);
 

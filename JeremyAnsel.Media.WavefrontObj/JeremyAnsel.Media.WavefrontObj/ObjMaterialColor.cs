@@ -50,15 +50,9 @@ namespace JeremyAnsel.Media.WavefrontObj
             }
         }
 
-        public bool IsRGB
-        {
-            get { return !this.IsSpectral && !this.UseXYZColorSpace; }
-        }
+        public bool IsRGB => !IsSpectral && !UseXYZColorSpace;
 
-        public bool IsXYZ
-        {
-            get { return !this.IsSpectral && this.UseXYZColorSpace; }
-        }
+        public bool IsXYZ => !IsSpectral && UseXYZColorSpace;
 
         private string ToDebuggerDisplayString()
         {

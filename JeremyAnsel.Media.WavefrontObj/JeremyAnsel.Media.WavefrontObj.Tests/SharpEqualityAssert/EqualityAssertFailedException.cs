@@ -32,7 +32,6 @@ public class EqualityAssertFailedException : Exception
     /// Initializes a new instance of the <see cref="AssertFailedException"/> class.
     /// </summary>
     public EqualityAssertFailedException()
-        : base()
     {
     }
 

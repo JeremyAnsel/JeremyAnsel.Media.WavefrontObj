@@ -9,14 +9,14 @@ namespace JeremyAnsel.Media.WavefrontObj
 {
     internal class ObjFileReaderContext
     {
-        private ObjFile obj;
+        private readonly ObjFile _obj;
 
         public ObjFileReaderContext(ObjFile obj, ObjFileReaderSettings settings)
         {
-            this.obj = obj;
-            this.Settings = settings;
+            _obj = obj;
+            Settings = settings;
 
-            this.GroupNames = new List<string>();
+            GroupNames = new List<string>();
         }
         
         public ObjFileReaderSettings Settings { get; }
@@ -69,12 +69,12 @@ namespace JeremyAnsel.Media.WavefrontObj
 
             foreach (var name in this.GroupNames)
             {
-                var group = obj.Groups.FirstOrDefault(t => string.Equals(t.Name, name, StringComparison.Ordinal));
+                var group = _obj.Groups.FirstOrDefault(t => string.Equals(t.Name, name, StringComparison.Ordinal));
 
                 if (group == null)
                 {
                     group = new ObjGroup(name);
-                    obj.Groups.Add(group);
+                    _obj.Groups.Add(group);
                 }
 
                 groups.Add(group);
@@ -82,7 +82,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 
             if (groups.Count == 0)
             {
-                groups.Add(obj.DefaultGroup);
+                groups.Add(_obj.DefaultGroup);
             }
 
             return groups;
