@@ -13,7 +13,7 @@ namespace JeremyAnsel.Media.WavefrontObj
 {
     internal class LineReader
     {
-        public static readonly char[] LineSeparators = new char[] { ' ', '\t' };
+        public static readonly char[] LineSeparators = [' ', '\t'];
 
         public List<string> HeaderTextLines { get; } = new List<string>();
 

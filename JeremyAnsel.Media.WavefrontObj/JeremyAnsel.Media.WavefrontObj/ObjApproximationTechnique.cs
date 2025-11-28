@@ -5,12 +5,11 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+public abstract class ObjApproximationTechnique
 {
-    public abstract class ObjApproximationTechnique
+    internal ObjApproximationTechnique()
     {
-        internal ObjApproximationTechnique()
-        {
-        }
     }
 }

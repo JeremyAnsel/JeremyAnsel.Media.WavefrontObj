@@ -5,15 +5,14 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
-{
-    public class ObjCurve2D : ObjFreeFormElement
-    {
-        public ObjCurve2D()
-        {
-            this.ParameterSpaceVertices = new List<int>();
-        }
+namespace JeremyAnsel.Media.WavefrontObj;
 
-        public List<int> ParameterSpaceVertices { get; private set; }
+public class ObjCurve2D : ObjFreeFormElement
+{
+    public ObjCurve2D()
+    {
+        this.ParameterSpaceVertices = new List<int>();
     }
+
+    public List<int> ParameterSpaceVertices { get; private set; }
 }

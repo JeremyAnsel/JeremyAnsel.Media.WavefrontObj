@@ -7,39 +7,38 @@
 
 using Xunit;
 
-namespace JeremyAnsel.Media.WavefrontObj.Tests
+namespace JeremyAnsel.Media.WavefrontObj.Tests;
+
+public class ObjConstantParametricSubdivisionTechniqueTests
 {
-    public class ObjConstantParametricSubdivisionTechniqueTests
+    [Fact]
+    public void New()
     {
-        [Fact]
-        public void New()
+        var technique = new ObjConstantParametricSubdivisionTechnique
         {
-            var technique = new ObjConstantParametricSubdivisionTechnique
-            {
-                ResolutionU = 2.0f,
-                ResolutionV = 3.0f
-            };
+            ResolutionU = 2.0f,
+            ResolutionV = 3.0f
+        };
 
-            Assert.Equal(2.0f, technique.ResolutionU);
-            Assert.Equal(3.0f, technique.ResolutionV);
-        }
+        Assert.Equal(2.0f, technique.ResolutionU);
+        Assert.Equal(3.0f, technique.ResolutionV);
+    }
 
-        [Fact]
-        public void New1()
-        {
-            var technique = new ObjConstantParametricSubdivisionTechnique(2.0f);
+    [Fact]
+    public void New1()
+    {
+        var technique = new ObjConstantParametricSubdivisionTechnique(2.0f);
 
-            Assert.Equal(2.0f, technique.ResolutionU);
-            Assert.Equal(2.0f, technique.ResolutionV);
-        }
+        Assert.Equal(2.0f, technique.ResolutionU);
+        Assert.Equal(2.0f, technique.ResolutionV);
+    }
 
-        [Fact]
-        public void New2()
-        {
-            var technique = new ObjConstantParametricSubdivisionTechnique(2.0f, 3.0f);
+    [Fact]
+    public void New2()
+    {
+        var technique = new ObjConstantParametricSubdivisionTechnique(2.0f, 3.0f);
 
-            Assert.Equal(2.0f, technique.ResolutionU);
-            Assert.Equal(3.0f, technique.ResolutionV);
-        }
+        Assert.Equal(2.0f, technique.ResolutionU);
+        Assert.Equal(3.0f, technique.ResolutionV);
     }
 }

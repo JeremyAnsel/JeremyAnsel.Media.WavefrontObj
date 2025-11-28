@@ -5,18 +5,17 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+public enum ObjFreeFormType
 {
-    public enum ObjFreeFormType
-    {
-        BasisMatrix,
+    BasisMatrix,
 
-        Bezier,
+    Bezier,
 
-        BSpline,
+    BSpline,
 
-        Cardinal,
+    Cardinal,
 
-        Taylor
-    }
+    Taylor
 }

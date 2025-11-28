@@ -13,12 +13,12 @@ namespace JeremyAnsel.Media.WavefrontObj
 {
     internal class LineReader9
     {
-        public static readonly char[] LineSeparators = new char[] { ' ', '\t' };
+        public static readonly char[] LineSeparators = [' ', '\t'];
 
-        public List<string> HeaderTextLines { get; } = new List<string>();
+        public List<string> HeaderTextLines { get; } = [];
 
         private char[] _lineBuffer = new char[256];
-        private int _lineBufferPosition = 0;
+        private int _lineBufferPosition;
 
         private void SetLineBufferLength(int length)
         {
@@ -55,7 +55,7 @@ namespace JeremyAnsel.Media.WavefrontObj
         //}
 
         private char[] _lineReadBuffer = new char[256];
-        private int _lineReadBufferPosition = 0;
+        private int _lineReadBufferPosition;
 
         private void SetLineReadBufferLength(int length)
         {

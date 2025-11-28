@@ -7,50 +7,37 @@
 
 using Equatable.Attributes;
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+[System.Diagnostics.DebuggerDisplay("Vertex Position:{Position} Color:{Color}")]
+[Equatable]
+public partial struct ObjVertex
 {
-    [System.Diagnostics.DebuggerDisplay("Vertex Position:{Position} Color:{Color}")]
-    [Equatable]
-    public partial struct ObjVertex
+    public ObjVertex(float x, float y, float z)
     {
-        private ObjVector4 position;
-
-        private ObjVector4? color;
-
-        public ObjVertex(float x, float y, float z)
-        {
-            this.position = new ObjVector4(x, y, z, 1.0f);
-            this.color = null;
-        }
-
-        public ObjVertex(float x, float y, float z, float w)
-        {
-            this.position = new ObjVector4(x, y, z, w);
-            this.color = null;
-        }
-
-        public ObjVertex(float x, float y, float z, float r, float g, float b)
-        {
-            this.position = new ObjVector4(x, y, z, 1.0f);
-            this.color = new ObjVector4(r, g, b, 1.0f);
-        }
-
-        public ObjVertex(float x, float y, float z, float r, float g, float b, float a)
-        {
-            this.position = new ObjVector4(x, y, z, 1.0f);
-            this.color = new ObjVector4(r, g, b, a);
-        }
-
-        public ObjVector4 Position
-        {
-            get { return this.position; }
-            set { this.position = value; }
-        }
-
-        public ObjVector4? Color
-        {
-            get { return this.color; }
-            set { this.color = value; }
-        }
+        Position = new ObjVector4(x, y, z, 1.0f);
+        Color = null;
     }
+
+    public ObjVertex(float x, float y, float z, float w)
+    {
+        Position = new ObjVector4(x, y, z, w);
+        Color = null;
+    }
+
+    public ObjVertex(float x, float y, float z, float r, float g, float b)
+    {
+        Position = new ObjVector4(x, y, z, 1.0f);
+        Color = new ObjVector4(r, g, b, 1.0f);
+    }
+
+    public ObjVertex(float x, float y, float z, float r, float g, float b, float a)
+    {
+        Position = new ObjVector4(x, y, z, 1.0f);
+        Color = new ObjVector4(r, g, b, a);
+    }
+
+    public ObjVector4 Position { get; set; }
+
+    public ObjVector4? Color { get; set; }
 }

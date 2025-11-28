@@ -7,128 +7,119 @@
 
 using System.Text;
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+public class ObjFile
 {
-    public class ObjFile
+    public ObjFile()
     {
-        public ObjFile()
+        Vertices = new List<ObjVertex>();
+        ParameterSpaceVertices = new List<ObjVector3>();
+        VertexNormals = new List<ObjVector3>();
+        TextureVertices = new List<ObjVector3>();
+        Points = new List<ObjPoint>();
+        Lines = new List<ObjLine>();
+        Faces = new List<ObjFace>();
+        Curves = new List<ObjCurve>();
+        Curves2D = new List<ObjCurve2D>();
+        Surfaces = new List<ObjSurface>();
+        SurfaceConnections = new List<ObjSurfaceConnection>();
+        DefaultGroup = new ObjGroup();
+        Groups = new List<ObjGroup>();
+        MergingGroupResolutions = new Dictionary<int, float>();
+        MapLibraries = new List<string>();
+        MaterialLibraries = new List<string>();
+    }
+
+    public string? HeaderText { get; set; }
+
+    public List<ObjVertex> Vertices { get; private set; }
+
+    public List<ObjVector3> ParameterSpaceVertices { get; private set; }
+
+    public List<ObjVector3> VertexNormals { get; private set; }
+
+    public List<ObjVector3> TextureVertices { get; private set; }
+
+    public List<ObjPoint> Points { get; private set; }
+
+    public List<ObjLine> Lines { get; private set; }
+
+    public List<ObjFace> Faces { get; private set; }
+
+    public List<ObjCurve> Curves { get; private set; }
+
+    public List<ObjCurve2D> Curves2D { get; private set; }
+
+    public List<ObjSurface> Surfaces { get; private set; }
+
+    public List<ObjSurfaceConnection> SurfaceConnections { get; private set; }
+
+    public ObjGroup DefaultGroup { get; private set; }
+
+    public List<ObjGroup> Groups { get; private set; }
+
+    public Dictionary<int, float> MergingGroupResolutions { get; private set; }
+
+    public List<string> MapLibraries { get; private set; }
+
+    public List<string> MaterialLibraries { get; private set; }
+
+    public string? ShadowObjectFileName { get; set; }
+
+    public string? TraceObjectFileName { get; set; }
+
+    public static ObjFile FromFile(string? path)
+    {
+        return FromFile(path, ObjFileReaderSettings.Default);
+    }
+
+    public static ObjFile FromFile(string? path, ObjFileReaderSettings settings)
+    {
+        if (path == null)
         {
-            this.Vertices = new List<ObjVertex>();
-            this.ParameterSpaceVertices = new List<ObjVector3>();
-            this.VertexNormals = new List<ObjVector3>();
-            this.TextureVertices = new List<ObjVector3>();
-            this.Points = new List<ObjPoint>();
-            this.Lines = new List<ObjLine>();
-            this.Faces = new List<ObjFace>();
-            this.Curves = new List<ObjCurve>();
-            this.Curves2D = new List<ObjCurve2D>();
-            this.Surfaces = new List<ObjSurface>();
-            this.SurfaceConnections = new List<ObjSurfaceConnection>();
-            this.DefaultGroup = new ObjGroup();
-            this.Groups = new List<ObjGroup>();
-            this.MergingGroupResolutions = new Dictionary<int, float>();
-            this.MapLibraries = new List<string>();
-            this.MaterialLibraries = new List<string>();
+            throw new ArgumentNullException(nameof(path));
         }
 
-        public string? HeaderText { get; set; }
-
-        public List<ObjVertex> Vertices { get; private set; }
-
-        public List<ObjVector3> ParameterSpaceVertices { get; private set; }
-
-        public List<ObjVector3> VertexNormals { get; private set; }
-
-        public List<ObjVector3> TextureVertices { get; private set; }
-
-        public List<ObjPoint> Points { get; private set; }
-
-        public List<ObjLine> Lines { get; private set; }
-
-        public List<ObjFace> Faces { get; private set; }
-
-        public List<ObjCurve> Curves { get; private set; }
-
-        public List<ObjCurve2D> Curves2D { get; private set; }
-
-        public List<ObjSurface> Surfaces { get; private set; }
-
-        public List<ObjSurfaceConnection> SurfaceConnections { get; private set; }
-
-        public ObjGroup DefaultGroup { get; private set; }
-
-        public List<ObjGroup> Groups { get; private set; }
-
-        public Dictionary<int, float> MergingGroupResolutions { get; private set; }
-
-        public List<string> MapLibraries { get; private set; }
-
-        public List<string> MaterialLibraries { get; private set; }
-
-        public string? ShadowObjectFileName { get; set; }
-
-        public string? TraceObjectFileName { get; set; }
-
-        public static ObjFile FromFile(string? path)
+        using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
         {
-            return FromFile(path, ObjFileReaderSettings.Default);
-        }
-
-        public static ObjFile FromFile(string? path, ObjFileReaderSettings settings)
-        {
-            if (path == null)
-            {
-                throw new ArgumentNullException(nameof(path));
-            }
-
-            using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-#if NET6_0_OR_GREATER
-                return ObjFileReader9.FromStream(stream, settings);
-#else
-                return ObjFileReader.FromStream(stream, settings);
-#endif
-            }
-        }
-
-        public static ObjFile FromStream(Stream? stream)
-        {
-            return FromStream(stream, ObjFileReaderSettings.Default);
-        }
-
-        public static ObjFile FromStream(Stream? stream, ObjFileReaderSettings settings)
-        {
-#if NET6_0_OR_GREATER
-            return ObjFileReader9.FromStream(stream, settings);
-#else
             return ObjFileReader.FromStream(stream, settings);
-#endif
+        }
+    }
+
+    public static ObjFile FromStream(Stream? stream)
+    {
+        return FromStream(stream, ObjFileReaderSettings.Default);
+    }
+
+    public static ObjFile FromStream(Stream? stream, ObjFileReaderSettings settings)
+    {
+        return ObjFileReader.FromStream(stream, settings);
+    }
+
+    public void WriteTo(string? path)
+    {
+        if (path == null)
+        {
+            throw new ArgumentNullException(nameof(path));
         }
 
-        public void WriteTo(string? path)
+        using (var writer = new StreamWriter(path))
         {
-            if (path == null)
-            {
-                throw new ArgumentNullException(nameof(path));
-            }
+            ObjFileWriter.Write(this, writer);
+        }
+    }
 
-            using (var writer = new StreamWriter(path))
-            {
-                ObjFileWriter.Write(this, writer);
-            }
+    public void WriteTo(Stream? stream)
+    {
+        if (stream == null)
+        {
+            throw new ArgumentNullException(nameof(stream));
         }
 
-        public void WriteTo(Stream? stream)
+        using (var writer = new StreamWriter(stream, new UTF8Encoding(false, true), 1024, true))
         {
-            if (stream == null)
-            {
-                throw new ArgumentNullException(nameof(stream));
-            }
-
-            using (var writer = new StreamWriter(stream, new UTF8Encoding(false, true), 1024, true))
-            {
-                ObjFileWriter.Write(this, writer);
-            }
+            ObjFileWriter.Write(this, writer);
         }
     }
 }

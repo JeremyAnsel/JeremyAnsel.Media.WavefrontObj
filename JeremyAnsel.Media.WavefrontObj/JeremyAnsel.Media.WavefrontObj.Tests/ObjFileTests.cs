@@ -10,128 +10,127 @@ using System.IO;
 using System.Text;
 using Xunit;
 
-namespace JeremyAnsel.Media.WavefrontObj.Tests
+namespace JeremyAnsel.Media.WavefrontObj.Tests;
+
+public class ObjFileTests
 {
-    public class ObjFileTests
+    [Fact]
+    public void Read_NullFile_Throws()
     {
-        [Fact]
-        public void Read_NullFile_Throws()
+        Assert.Throws<ArgumentNullException>("path", () => ObjFile.FromFile(null));
+    }
+
+    [Fact]
+    public void Read_File_Valid()
+    {
+        var temp = Path.GetTempFileName();
+
+        try
         {
-            Assert.Throws<ArgumentNullException>("path", () => ObjFile.FromFile(null));
-        }
+            File.WriteAllText(temp, "shadow_obj a.a");
 
-        [Fact]
-        public void Read_File_Valid()
+            var obj = ObjFile.FromFile(temp);
+
+            Assert.Equal("a.a", obj.ShadowObjectFileName);
+        }
+        finally
         {
-            var temp = Path.GetTempFileName();
-
-            try
-            {
-                File.WriteAllText(temp, "shadow_obj a.a");
-
-                var obj = ObjFile.FromFile(temp);
-
-                Assert.Equal("a.a", obj.ShadowObjectFileName);
-            }
-            finally
-            {
-                File.Delete(temp);
-            }
+            File.Delete(temp);
         }
+    }
 
-        [Fact]
-        public void Read_NullStream_Throws()
+    [Fact]
+    public void Read_NullStream_Throws()
+    {
+        Assert.Throws<ArgumentNullException>("stream", () => ObjFile.FromStream(null));
+    }
+
+    [Fact]
+    public void Read_Stream_Valid()
+    {
+        using (var stream = new MemoryStream())
         {
-            Assert.Throws<ArgumentNullException>("stream", () => ObjFile.FromStream(null));
+            string text = "shadow_obj a.a";
+            byte[] buffer = Encoding.UTF8.GetBytes(text);
+            stream.Write(buffer, 0, buffer.Length);
+            stream.Seek(0, SeekOrigin.Begin);
+
+            var obj = ObjFile.FromStream(stream);
+
+            Assert.True(stream.CanRead);
+            Assert.Equal("a.a", obj.ShadowObjectFileName);
         }
+    }
 
-        [Fact]
-        public void Read_Stream_Valid()
-        {
-            using (var stream = new MemoryStream())
-            {
-                string text = "shadow_obj a.a";
-                byte[] buffer = Encoding.UTF8.GetBytes(text);
-                stream.Write(buffer, 0, buffer.Length);
-                stream.Seek(0, SeekOrigin.Begin);
+    [Fact]
+    public void Write_NullFile_Throws()
+    {
+        var obj = new ObjFile();
+        Assert.Throws<ArgumentNullException>("path", () => obj.WriteTo((string?)null));
+    }
 
-                var obj = ObjFile.FromStream(stream);
+    [Fact]
+    public void Write_File_Valid()
+    {
+        var temp = Path.GetTempFileName();
 
-                Assert.True(stream.CanRead);
-                Assert.Equal("a.a", obj.ShadowObjectFileName);
-            }
-        }
-
-        [Fact]
-        public void Write_NullFile_Throws()
+        try
         {
             var obj = new ObjFile();
-            Assert.Throws<ArgumentNullException>("path", () => obj.WriteTo((string?)null));
-        }
 
-        [Fact]
-        public void Write_File_Valid()
-        {
-            var temp = Path.GetTempFileName();
+            obj.ShadowObjectFileName = "a.a";
 
-            try
-            {
-                var obj = new ObjFile();
+            obj.WriteTo(temp);
 
-                obj.ShadowObjectFileName = "a.a";
-
-                obj.WriteTo(temp);
-
-                var text = File.ReadAllText(temp);
-                string expected =
-@"shadow_obj a.a
-";
-
-                AssertExtensions.TextEqual(expected, text);
-            }
-            finally
-            {
-                File.Delete(temp);
-            }
-        }
-
-        [Fact]
-        public void Write_NullStream_Throws()
-        {
-            var obj = new ObjFile();
-            Assert.Throws<ArgumentNullException>("stream", () => obj.WriteTo((Stream?)null));
-        }
-
-        [Fact]
-        public void Write_Stream_Valid()
-        {
-            byte[] buffer;
-
-            using (var stream = new MemoryStream())
-            {
-                var obj = new ObjFile();
-                obj.ShadowObjectFileName = "a.a";
-
-                obj.WriteTo(stream);
-
-                Assert.True(stream.CanWrite);
-
-                buffer = stream.ToArray();
-            }
-
-            string text;
-
-            using (var stream = new MemoryStream(buffer, false))
-            using (var reader = new StreamReader(stream))
-            {
-                text = reader.ReadToEnd();
-            }
-
+            var text = File.ReadAllText(temp);
             string expected =
-@"shadow_obj a.a
+                @"shadow_obj a.a
 ";
 
             AssertExtensions.TextEqual(expected, text);
         }
+        finally
+        {
+            File.Delete(temp);
+        }
+    }
+
+    [Fact]
+    public void Write_NullStream_Throws()
+    {
+        var obj = new ObjFile();
+        Assert.Throws<ArgumentNullException>("stream", () => obj.WriteTo((Stream?)null));
+    }
+
+    [Fact]
+    public void Write_Stream_Valid()
+    {
+        byte[] buffer;
+
+        using (var stream = new MemoryStream())
+        {
+            var obj = new ObjFile();
+            obj.ShadowObjectFileName = "a.a";
+
+            obj.WriteTo(stream);
+
+            Assert.True(stream.CanWrite);
+
+            buffer = stream.ToArray();
+        }
+
+        string text;
+
+        using (var stream = new MemoryStream(buffer, false))
+        using (var reader = new StreamReader(stream))
+        {
+            text = reader.ReadToEnd();
+        }
+
+        string expected =
+            @"shadow_obj a.a
+";
+
+        AssertExtensions.TextEqual(expected, text);
     }
 }
