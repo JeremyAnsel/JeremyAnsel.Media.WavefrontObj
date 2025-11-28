@@ -13,7 +13,7 @@ public class ObjMaterialFile
 {
     public ObjMaterialFile()
     {
-        this.Materials = new List<ObjMaterial>();
+        Materials = new List<ObjMaterial>();
     }
 
     public string? HeaderText { get; set; }
@@ -35,11 +35,7 @@ public class ObjMaterialFile
 
         using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
         {
-#if NET6_0_OR_GREATER
-            return ObjMaterialFileReader9.FromStream(stream, settings);
-#else
-                return ObjMaterialFileReader.FromStream(stream, settings);
-#endif
+            return ObjMaterialFileReader.FromStream(stream, settings);
         }
     }
 
@@ -50,11 +46,7 @@ public class ObjMaterialFile
         
     public static ObjMaterialFile FromStream(Stream? stream, ObjMaterialFileReaderSettings settings)
     {
-#if NET6_0_OR_GREATER
-        return ObjMaterialFileReader9.FromStream(stream, settings);
-#else
-            return ObjMaterialFileReader.FromStream(stream, settings);
-#endif
+        return ObjMaterialFileReader.FromStream(stream, settings);
     }
 
     public void WriteTo(string? path)

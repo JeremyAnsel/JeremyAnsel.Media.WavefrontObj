@@ -19,7 +19,7 @@ using SpanSplitEnumerator = Polyfills.Polyfill.SpanSplitEnumerator<char>;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
-    internal static class ObjFileReader9
+    internal static class ObjFileReader
     {
         private static void MoveNextSkipEmpty(ref SpanSplitEnumerator values)
         {

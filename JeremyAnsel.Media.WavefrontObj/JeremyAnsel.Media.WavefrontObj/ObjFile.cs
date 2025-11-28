@@ -13,22 +13,22 @@ public class ObjFile
 {
     public ObjFile()
     {
-        this.Vertices = new List<ObjVertex>();
-        this.ParameterSpaceVertices = new List<ObjVector3>();
-        this.VertexNormals = new List<ObjVector3>();
-        this.TextureVertices = new List<ObjVector3>();
-        this.Points = new List<ObjPoint>();
-        this.Lines = new List<ObjLine>();
-        this.Faces = new List<ObjFace>();
-        this.Curves = new List<ObjCurve>();
-        this.Curves2D = new List<ObjCurve2D>();
-        this.Surfaces = new List<ObjSurface>();
-        this.SurfaceConnections = new List<ObjSurfaceConnection>();
-        this.DefaultGroup = new ObjGroup();
-        this.Groups = new List<ObjGroup>();
-        this.MergingGroupResolutions = new Dictionary<int, float>();
-        this.MapLibraries = new List<string>();
-        this.MaterialLibraries = new List<string>();
+        Vertices = new List<ObjVertex>();
+        ParameterSpaceVertices = new List<ObjVector3>();
+        VertexNormals = new List<ObjVector3>();
+        TextureVertices = new List<ObjVector3>();
+        Points = new List<ObjPoint>();
+        Lines = new List<ObjLine>();
+        Faces = new List<ObjFace>();
+        Curves = new List<ObjCurve>();
+        Curves2D = new List<ObjCurve2D>();
+        Surfaces = new List<ObjSurface>();
+        SurfaceConnections = new List<ObjSurfaceConnection>();
+        DefaultGroup = new ObjGroup();
+        Groups = new List<ObjGroup>();
+        MergingGroupResolutions = new Dictionary<int, float>();
+        MapLibraries = new List<string>();
+        MaterialLibraries = new List<string>();
     }
 
     public string? HeaderText { get; set; }
@@ -83,11 +83,7 @@ public class ObjFile
 
         using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
         {
-#if NET6_0_OR_GREATER
-            return ObjFileReader9.FromStream(stream, settings);
-#else
-                return ObjFileReader.FromStream(stream, settings);
-#endif
+            return ObjFileReader.FromStream(stream, settings);
         }
     }
 
@@ -98,11 +94,7 @@ public class ObjFile
 
     public static ObjFile FromStream(Stream? stream, ObjFileReaderSettings settings)
     {
-#if NET6_0_OR_GREATER
-        return ObjFileReader9.FromStream(stream, settings);
-#else
-            return ObjFileReader.FromStream(stream, settings);
-#endif
+        return ObjFileReader.FromStream(stream, settings);
     }
 
     public void WriteTo(string? path)
