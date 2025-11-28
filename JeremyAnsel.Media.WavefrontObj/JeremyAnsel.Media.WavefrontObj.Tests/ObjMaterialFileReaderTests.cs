@@ -19,24 +19,24 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         public void Parsing_UnknownStatement_Valid()
         {
             string content = "unknown";
-
-            var mtl = ReadMtl(content);
+            var exception = Record.Exception(() => ReadMtl(content));
+            Assert.Null(exception);
         }
 
         [Fact]
         public void Parsing_UnknownLongStatement_Valid()
         {
             string content = "unknown_unknown_unknown_unknown";
-
-            var mtl = ReadMtl(content);
+            var exception = Record.Exception(() => ReadMtl(content));
+            Assert.Null(exception);
         }
 
         [Fact]
         public void Parsing_UnknownSpacesStatement_Valid()
         {
             string content = "unknown \t  \t\t 0";
-
-            var mtl = ReadMtl(content);
+            var exception = Record.Exception(() => ReadMtl(content));
+            Assert.Null(exception);
         }
 
         [Fact]
@@ -600,8 +600,8 @@ refl -type sphere b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.Sphere);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.Sphere?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.Sphere);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.Sphere?.FileName);
         }
 
         [Fact]
@@ -614,8 +614,8 @@ refl -type sphere b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.Sphere);
-            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.Sphere?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.Sphere);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap.Sphere?.FileName);
         }
 
         [Fact]
@@ -628,8 +628,8 @@ refl -type sphere b.b 0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.Sphere);
-            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.Sphere?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.Sphere);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap.Sphere?.FileName);
         }
 
         [Fact]
@@ -642,8 +642,8 @@ refl -type cube_top b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeTop);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeTop?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeTop);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeTop?.FileName);
         }
 
         [Fact]
@@ -656,8 +656,8 @@ refl -type cube_top b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeTop);
-            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeTop?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeTop);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap.CubeTop?.FileName);
         }
 
         [Fact]
@@ -670,8 +670,8 @@ refl -type cube_top b.b 0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeTop);
-            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeTop?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeTop);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap.CubeTop?.FileName);
         }
 
         [Fact]
@@ -684,8 +684,8 @@ refl -type cube_bottom b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBottom);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeBottom?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeBottom);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeBottom?.FileName);
         }
 
         [Fact]
@@ -698,8 +698,8 @@ refl -type cube_bottom b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBottom);
-            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeBottom?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeBottom);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap.CubeBottom?.FileName);
         }
 
         [Fact]
@@ -712,8 +712,8 @@ refl -type cube_bottom b.b 0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBottom);
-            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeBottom?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeBottom);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap.CubeBottom?.FileName);
         }
 
         [Fact]
@@ -726,8 +726,8 @@ refl -type cube_front b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeFront);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeFront?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeFront);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeFront?.FileName);
         }
 
         [Fact]
@@ -740,8 +740,8 @@ refl -type cube_front b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeFront);
-            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeFront?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeFront);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap.CubeFront?.FileName);
         }
 
         [Fact]
@@ -754,8 +754,8 @@ refl -type cube_front b.b 0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeFront);
-            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeFront?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeFront);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap.CubeFront?.FileName);
         }
 
         [Fact]
@@ -768,8 +768,8 @@ refl -type cube_back b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBack);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeBack?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeBack);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeBack?.FileName);
         }
 
         [Fact]
@@ -782,8 +782,8 @@ refl -type cube_back b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBack);
-            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeBack?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeBack);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap.CubeBack?.FileName);
         }
 
         [Fact]
@@ -796,8 +796,8 @@ refl -type cube_back b.b 0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeBack);
-            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeBack?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeBack);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap.CubeBack?.FileName);
         }
 
         [Fact]
@@ -810,8 +810,8 @@ refl -type cube_left b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeLeft);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeLeft?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeLeft);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeLeft?.FileName);
         }
 
         [Fact]
@@ -824,8 +824,8 @@ refl -type cube_left b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeLeft);
-            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeLeft?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeLeft);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap.CubeLeft?.FileName);
         }
 
         [Fact]
@@ -838,8 +838,8 @@ refl -type cube_left b.b 0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeLeft);
-            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeLeft?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeLeft);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap.CubeLeft?.FileName);
         }
 
         [Fact]
@@ -852,8 +852,8 @@ refl -type cube_right b.b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeRight);
-            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap?.CubeRight?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeRight);
+            Assert.Equal("b.b", mtl.Materials[0].ReflectionMap.CubeRight?.FileName);
         }
 
         [Fact]
@@ -866,8 +866,8 @@ refl -type cube_right b";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeRight);
-            Assert.Equal("b", mtl.Materials[0].ReflectionMap?.CubeRight?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeRight);
+            Assert.Equal("b", mtl.Materials[0].ReflectionMap.CubeRight?.FileName);
         }
 
         [Fact]
@@ -880,8 +880,8 @@ refl -type cube_right b.b 0";
             var mtl = ReadMtl(content);
 
             Assert.Equal("a", mtl.Materials[0].Name);
-            Assert.NotNull(mtl.Materials[0].ReflectionMap?.CubeRight);
-            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap?.CubeRight?.FileName);
+            Assert.NotNull(mtl.Materials[0].ReflectionMap.CubeRight);
+            Assert.Equal("b.b 0", mtl.Materials[0].ReflectionMap.CubeRight?.FileName);
         }
 
         [Fact]

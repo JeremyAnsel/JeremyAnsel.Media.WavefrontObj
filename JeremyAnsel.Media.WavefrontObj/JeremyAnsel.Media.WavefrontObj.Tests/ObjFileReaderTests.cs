@@ -19,24 +19,24 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests
         public void Parsing_UnknownStatement_Valid()
         {
             string content = "unknown";
-
-            var obj = ReadObj(content);
+            var exception = Record.Exception(() => ReadObj(content));
+            Assert.Null(exception);
         }
 
         [Fact]
         public void Parsing_UnknownoLongStatement_Valid()
         {
             string content = "unknown_unknown_unknown_unknown";
-
-            var obj = ReadObj(content);
+            var exception = Record.Exception(() => ReadObj(content));
+            Assert.Null(exception);
         }
 
         [Fact]
         public void Parsing_UnknownSpacesStatement_Valid()
         {
             string content = "unknown \t  \t\t 0";
-
-            var mtl = ReadObj(content);
+            var exception = Record.Exception(() => ReadObj(content));
+            Assert.Null(exception);
         }
 
         [Fact]
