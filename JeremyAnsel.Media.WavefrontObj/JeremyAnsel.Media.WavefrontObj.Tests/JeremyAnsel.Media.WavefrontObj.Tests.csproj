@@ -3,8 +3,9 @@
   <PropertyGroup>
     <TargetFrameworks>net10.0;net9.0;net8.0;net48</TargetFrameworks>
     <LangVersion>14.0</LangVersion>
+    <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
-
+    <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -14,7 +15,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
-    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.v3.mtp-v2" Version="3.2.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
