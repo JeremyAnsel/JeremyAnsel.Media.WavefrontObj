@@ -661,7 +661,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                         break;
 
                     case "g":
-                        ParseGroupName(context, value0, ref currentLine, ref values, valuesCount);
+                        ParseGroupName(context, ref currentLine, ref values, valuesCount);
                         break;
 
                     case "s":
@@ -733,7 +733,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                     case "o":
                         if (settings.HandleObjectNamesAsGroup)
                         {
-                            ParseGroupName(context, value0, ref currentLine, ref values, valuesCount);
+                            ParseGroupName(context, ref currentLine, ref values, valuesCount);
                             break;
                         }
 
@@ -1249,7 +1249,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             obj.SurfaceConnections.Add(connection);
         }
 
-        private static void ParseGroupName(ObjFileReaderContext context, ReadOnlySpan<char> value0, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount)
+        private static void ParseGroupName(ObjFileReaderContext context, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount)
         {
             context.GroupNames.Clear();
 
