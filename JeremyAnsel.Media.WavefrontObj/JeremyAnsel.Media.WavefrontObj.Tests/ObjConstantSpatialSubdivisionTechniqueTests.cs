@@ -7,27 +7,26 @@
 
 using Xunit;
 
-namespace JeremyAnsel.Media.WavefrontObj.Tests
+namespace JeremyAnsel.Media.WavefrontObj.Tests;
+
+public class ObjConstantSpatialSubdivisionTechniqueTests
 {
-    public class ObjConstantSpatialSubdivisionTechniqueTests
+    [Fact]
+    public void New()
     {
-        [Fact]
-        public void New()
+        var technique = new ObjConstantSpatialSubdivisionTechnique
         {
-            var technique = new ObjConstantSpatialSubdivisionTechnique
-            {
-                MaximumLength = 2.0f
-            };
+            MaximumLength = 2.0f
+        };
 
-            Assert.Equal(2.0f, technique.MaximumLength);
-        }
+        Assert.Equal(2.0f, technique.MaximumLength);
+    }
 
-        [Fact]
-        public void New1()
-        {
-            var technique = new ObjConstantSpatialSubdivisionTechnique(2.0f);
+    [Fact]
+    public void New1()
+    {
+        var technique = new ObjConstantSpatialSubdivisionTechnique(2.0f);
 
-            Assert.Equal(2.0f, technique.MaximumLength);
-        }
+        Assert.Equal(2.0f, technique.MaximumLength);
     }
 }

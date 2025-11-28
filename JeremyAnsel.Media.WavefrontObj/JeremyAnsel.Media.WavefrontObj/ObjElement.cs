@@ -5,20 +5,19 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+public abstract class ObjElement
 {
-    public abstract class ObjElement
+    internal ObjElement()
     {
-        internal ObjElement()
-        {
-        }
-
-        public string? ObjectName { get; set; }
-
-        public int LevelOfDetail { get; set; }
-
-        public string? MapName { get; set; }
-
-        public string? MaterialName { get; set; }
     }
+
+    public string? ObjectName { get; set; }
+
+    public int LevelOfDetail { get; set; }
+
+    public string? MapName { get; set; }
+
+    public string? MaterialName { get; set; }
 }

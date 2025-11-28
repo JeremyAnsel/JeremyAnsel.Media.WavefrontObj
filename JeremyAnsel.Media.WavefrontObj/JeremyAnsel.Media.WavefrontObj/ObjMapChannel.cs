@@ -5,20 +5,19 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+public enum ObjMapChannel
 {
-    public enum ObjMapChannel
-    {
-        Red,
+    Red,
 
-        Green,
+    Green,
 
-        Blue,
+    Blue,
 
-        Matte,
+    Matte,
 
-        Luminance,
+    Luminance,
 
-        Depth
-    }
+    Depth
 }

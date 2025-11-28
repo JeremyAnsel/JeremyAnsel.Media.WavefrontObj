@@ -5,118 +5,117 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+internal class ObjFileReaderContext
 {
-    internal class ObjFileReaderContext
+    private readonly ObjFile _obj;
+
+    public ObjFileReaderContext(ObjFile obj, ObjFileReaderSettings settings)
     {
-        private readonly ObjFile _obj;
+        _obj = obj;
+        Settings = settings;
 
-        public ObjFileReaderContext(ObjFile obj, ObjFileReaderSettings settings)
-        {
-            _obj = obj;
-            Settings = settings;
-
-            GroupNames = new List<string>();
-        }
+        GroupNames = new List<string>();
+    }
         
-        public ObjFileReaderSettings Settings { get; }
+    public ObjFileReaderSettings Settings { get; }
 
-        public string? ObjectName { get; set; }
+    public string? ObjectName { get; set; }
 
-        public int LevelOfDetail { get; set; }
+    public int LevelOfDetail { get; set; }
 
-        public string? MapName { get; set; }
+    public string? MapName { get; set; }
 
-        public string? MaterialName { get; set; }
+    public string? MaterialName { get; set; }
 
-        public long SmoothingGroupNumber { get; set; }
+    public long SmoothingGroupNumber { get; set; }
 
-        public bool IsBevelInterpolationEnabled { get; set; }
+    public bool IsBevelInterpolationEnabled { get; set; }
 
-        public bool IsColorInterpolationEnabled { get; set; }
+    public bool IsColorInterpolationEnabled { get; set; }
 
-        public bool IsDissolveInterpolationEnabled { get; set; }
+    public bool IsDissolveInterpolationEnabled { get; set; }
 
-        public int MergingGroupNumber { get; set; }
+    public int MergingGroupNumber { get; set; }
 
-        public ObjFreeFormType FreeFormType { get; set; }
+    public ObjFreeFormType FreeFormType { get; set; }
 
-        public bool IsRationalForm { get; set; }
+    public bool IsRationalForm { get; set; }
 
-        public int DegreeU { get; set; }
+    public int DegreeU { get; set; }
 
-        public int DegreeV { get; set; }
+    public int DegreeV { get; set; }
 
-        public float[]? BasicMatrixU { get; set; }
+    public float[]? BasicMatrixU { get; set; }
 
-        public float[]? BasicMatrixV { get; set; }
+    public float[]? BasicMatrixV { get; set; }
 
-        public float StepU { get; set; }
+    public float StepU { get; set; }
 
-        public float StepV { get; set; }
+    public float StepV { get; set; }
 
-        public ObjApproximationTechnique? CurveApproximationTechnique { get; set; }
+    public ObjApproximationTechnique? CurveApproximationTechnique { get; set; }
 
-        public ObjApproximationTechnique? SurfaceApproximationTechnique { get; set; }
+    public ObjApproximationTechnique? SurfaceApproximationTechnique { get; set; }
 
-        public ObjFreeFormElement? CurrentFreeFormElement { get; set; }
+    public ObjFreeFormElement? CurrentFreeFormElement { get; set; }
 
-        public List<string> GroupNames { get; private set; }
+    public List<string> GroupNames { get; private set; }
 
-        public List<ObjGroup> GetCurrentGroups()
+    public List<ObjGroup> GetCurrentGroups()
+    {
+        var groups = new List<ObjGroup>();
+
+        foreach (var name in this.GroupNames)
         {
-            var groups = new List<ObjGroup>();
+            var group = _obj.Groups.FirstOrDefault(t => string.Equals(t.Name, name, StringComparison.Ordinal));
 
-            foreach (var name in this.GroupNames)
+            if (group == null)
             {
-                var group = _obj.Groups.FirstOrDefault(t => string.Equals(t.Name, name, StringComparison.Ordinal));
-
-                if (group == null)
-                {
-                    group = new ObjGroup(name);
-                    _obj.Groups.Add(group);
-                }
-
-                groups.Add(group);
+                group = new ObjGroup(name);
+                _obj.Groups.Add(group);
             }
 
-            if (groups.Count == 0)
-            {
-                groups.Add(_obj.DefaultGroup);
-            }
-
-            return groups;
+            groups.Add(group);
         }
 
-        public void ApplyAttributesToElement(ObjElement element)
+        if (groups.Count == 0)
         {
-            element.ObjectName = this.ObjectName;
-            element.LevelOfDetail = this.LevelOfDetail;
-            element.MapName = this.MapName;
-            element.MaterialName = this.MaterialName;
+            groups.Add(_obj.DefaultGroup);
         }
 
-        public void ApplyAttributesToPolygonalElement(ObjPolygonalElement element)
-        {
-            element.SmoothingGroupNumber = this.SmoothingGroupNumber;
-            element.IsBevelInterpolationEnabled = this.IsBevelInterpolationEnabled;
-            element.IsColorInterpolationEnabled = this.IsColorInterpolationEnabled;
-            element.IsDissolveInterpolationEnabled = this.IsDissolveInterpolationEnabled;
-        }
+        return groups;
+    }
 
-        public void ApplyAttributesToFreeFormElement(ObjFreeFormElement element)
-        {
-            element.MergingGroupNumber = this.MergingGroupNumber;
-            element.FreeFormType = this.FreeFormType;
-            element.IsRationalForm = this.IsRationalForm;
-            element.DegreeU = this.DegreeU;
-            element.DegreeV = this.DegreeV;
-            element.BasicMatrixU = this.BasicMatrixU;
-            element.BasicMatrixV = this.BasicMatrixV;
-            element.StepU = this.StepU;
-            element.StepV = this.StepV;
-            element.CurveApproximationTechnique = this.CurveApproximationTechnique;
-            element.SurfaceApproximationTechnique = this.SurfaceApproximationTechnique;
-        }
+    public void ApplyAttributesToElement(ObjElement element)
+    {
+        element.ObjectName = this.ObjectName;
+        element.LevelOfDetail = this.LevelOfDetail;
+        element.MapName = this.MapName;
+        element.MaterialName = this.MaterialName;
+    }
+
+    public void ApplyAttributesToPolygonalElement(ObjPolygonalElement element)
+    {
+        element.SmoothingGroupNumber = this.SmoothingGroupNumber;
+        element.IsBevelInterpolationEnabled = this.IsBevelInterpolationEnabled;
+        element.IsColorInterpolationEnabled = this.IsColorInterpolationEnabled;
+        element.IsDissolveInterpolationEnabled = this.IsDissolveInterpolationEnabled;
+    }
+
+    public void ApplyAttributesToFreeFormElement(ObjFreeFormElement element)
+    {
+        element.MergingGroupNumber = this.MergingGroupNumber;
+        element.FreeFormType = this.FreeFormType;
+        element.IsRationalForm = this.IsRationalForm;
+        element.DegreeU = this.DegreeU;
+        element.DegreeV = this.DegreeV;
+        element.BasicMatrixU = this.BasicMatrixU;
+        element.BasicMatrixV = this.BasicMatrixV;
+        element.StepU = this.StepU;
+        element.StepV = this.StepV;
+        element.CurveApproximationTechnique = this.CurveApproximationTechnique;
+        element.SurfaceApproximationTechnique = this.SurfaceApproximationTechnique;
     }
 }

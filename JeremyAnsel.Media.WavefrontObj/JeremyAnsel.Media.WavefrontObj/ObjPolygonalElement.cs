@@ -5,20 +5,19 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+public abstract class ObjPolygonalElement : ObjElement
 {
-    public abstract class ObjPolygonalElement : ObjElement
+    internal ObjPolygonalElement()
     {
-        internal ObjPolygonalElement()
-        {
-        }
-
-        public long SmoothingGroupNumber { get; set; }
-
-        public bool IsBevelInterpolationEnabled { get; set; }
-
-        public bool IsColorInterpolationEnabled { get; set; }
-
-        public bool IsDissolveInterpolationEnabled { get; set; }
     }
+
+    public long SmoothingGroupNumber { get; set; }
+
+    public bool IsBevelInterpolationEnabled { get; set; }
+
+    public bool IsColorInterpolationEnabled { get; set; }
+
+    public bool IsDissolveInterpolationEnabled { get; set; }
 }

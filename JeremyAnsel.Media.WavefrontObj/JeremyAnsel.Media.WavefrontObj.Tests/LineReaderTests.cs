@@ -9,99 +9,98 @@ using System.IO;
 using System.Text;
 using Xunit;
 
-namespace JeremyAnsel.Media.WavefrontObj.Tests
+namespace JeremyAnsel.Media.WavefrontObj.Tests;
+
+public class LineReaderTests
 {
-    public class LineReaderTests
+    [Fact]
+    public void Parsing_SpaceAndTab_Valid()
     {
-        [Fact]
-        public void Parsing_SpaceAndTab_Valid()
-        {
-            string content = "g \ta  b\t\tc";
+        string content = "g \ta  b\t\tc";
 
-            var obj = ReadObj(content);
+        var obj = ReadObj(content);
 
-            Assert.Equal(3, obj.Groups.Count);
-            Assert.Equal("a", obj.Groups[0].Name);
-            Assert.Equal("b", obj.Groups[1].Name);
-            Assert.Equal("c", obj.Groups[2].Name);
-        }
+        Assert.Equal(3, obj.Groups.Count);
+        Assert.Equal("a", obj.Groups[0].Name);
+        Assert.Equal("b", obj.Groups[1].Name);
+        Assert.Equal("c", obj.Groups[2].Name);
+    }
 
-        [Fact]
-        public void Parsing_Comment_Valid()
-        {
-            string content = "#\ng a #b";
+    [Fact]
+    public void Parsing_Comment_Valid()
+    {
+        string content = "#\ng a #b";
 
-            var obj = ReadObj(content);
+        var obj = ReadObj(content);
 
-            Assert.Single(obj.Groups);
-            Assert.Equal("a", obj.Groups[0].Name);
-        }
+        Assert.Single(obj.Groups);
+        Assert.Equal("a", obj.Groups[0].Name);
+    }
 
-        [Fact]
-        public void Parsing_LongComment_Valid()
-        {
-            string nameA = new string('a', 1024);
-            string content = "#\ng " + nameA + " #b";
+    [Fact]
+    public void Parsing_LongComment_Valid()
+    {
+        string nameA = new string('a', 1024);
+        string content = "#\ng " + nameA + " #b";
 
-            var obj = ReadObj(content);
+        var obj = ReadObj(content);
 
-            Assert.Single(obj.Groups);
-            Assert.Equal(nameA, obj.Groups[0].Name);
-        }
+        Assert.Single(obj.Groups);
+        Assert.Equal(nameA, obj.Groups[0].Name);
+    }
 
-        [Fact]
-        public void Parsing_MultilineComment_Valid()
-        {
-            string content = @"
+    [Fact]
+    public void Parsing_MultilineComment_Valid()
+    {
+        string content = @"
 # \
 g a";
 
-            var obj = ReadObj(content);
+        var obj = ReadObj(content);
 
-            Assert.Empty(obj.Groups);
-        }
+        Assert.Empty(obj.Groups);
+    }
 
-        [Fact]
-        public void Parsing_Multiline_Valid()
-        {
-            string content = @"
+    [Fact]
+    public void Parsing_Multiline_Valid()
+    {
+        string content = @"
 g \
 
 a\
  b";
 
-            var obj = ReadObj(content);
+        var obj = ReadObj(content);
 
-            Assert.Equal(2, obj.Groups.Count);
-            Assert.Equal("a", obj.Groups[0].Name);
-            Assert.Equal("b", obj.Groups[1].Name);
-        }
+        Assert.Equal(2, obj.Groups.Count);
+        Assert.Equal("a", obj.Groups[0].Name);
+        Assert.Equal("b", obj.Groups[1].Name);
+    }
 
-        [Fact]
-        public void Parsing_LongMultiline_Valid()
-        {
-            string nameA = new string('a', 1024);
-            string content = @"
+    [Fact]
+    public void Parsing_LongMultiline_Valid()
+    {
+        string nameA = new string('a', 1024);
+        string content = @"
 g \
 
 " + nameA + @"\
  b";
 
-            var obj = ReadObj(content);
+        var obj = ReadObj(content);
 
-            Assert.Equal(2, obj.Groups.Count);
-            Assert.Equal(nameA, obj.Groups[0].Name);
-            Assert.Equal("b", obj.Groups[1].Name);
-        }
+        Assert.Equal(2, obj.Groups.Count);
+        Assert.Equal(nameA, obj.Groups[0].Name);
+        Assert.Equal("b", obj.Groups[1].Name);
+    }
 
-        private ObjFile ReadObj(string content)
+    private ObjFile ReadObj(string content)
+    {
+        var buffer = Encoding.UTF8.GetBytes(content);
+
+        using (var stream = new MemoryStream(buffer, false))
         {
-            var buffer = Encoding.UTF8.GetBytes(content);
-
-            using (var stream = new MemoryStream(buffer, false))
-            {
-                return ObjFile.FromStream(stream);
-            }
+            return ObjFile.FromStream(stream);
         }
     }
 }

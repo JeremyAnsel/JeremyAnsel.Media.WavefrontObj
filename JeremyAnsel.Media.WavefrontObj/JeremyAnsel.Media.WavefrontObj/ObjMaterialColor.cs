@@ -5,60 +5,59 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+[System.Diagnostics.DebuggerDisplay("{ToDebuggerDisplayString(),nq}")]
+public class ObjMaterialColor
 {
-    [System.Diagnostics.DebuggerDisplay("{ToDebuggerDisplayString(),nq}")]
-    public class ObjMaterialColor
+    public ObjMaterialColor()
     {
-        public ObjMaterialColor()
+        this.SpectralFactor = 1.0f;
+    }
+
+    public ObjMaterialColor(float x, float y, float z)
+        : this()
+    {
+        this.Color = new ObjVector3(x, y, z);
+    }
+
+    public ObjMaterialColor(string? spectralFileName)
+        : this()
+    {
+        this.SpectralFileName = spectralFileName;
+    }
+
+    public ObjMaterialColor(string? spectralFileName, float factor)
+        : this()
+    {
+        this.SpectralFileName = spectralFileName;
+        this.SpectralFactor = factor;
+    }
+
+    public ObjVector3 Color { get; set; }
+
+    public bool UseXYZColorSpace { get; set; }
+
+    public string? SpectralFileName { get; set; }
+
+    public float SpectralFactor { get; set; }
+
+    public bool IsSpectral
+    {
+        get
         {
-            this.SpectralFactor = 1.0f;
+            return !string.IsNullOrWhiteSpace(this.SpectralFileName);
         }
+    }
 
-        public ObjMaterialColor(float x, float y, float z)
-            : this()
-        {
-            this.Color = new ObjVector3(x, y, z);
-        }
+    public bool IsRGB => !IsSpectral && !UseXYZColorSpace;
 
-        public ObjMaterialColor(string? spectralFileName)
-            : this()
-        {
-            this.SpectralFileName = spectralFileName;
-        }
+    public bool IsXYZ => !IsSpectral && UseXYZColorSpace;
 
-        public ObjMaterialColor(string? spectralFileName, float factor)
-            : this()
-        {
-            this.SpectralFileName = spectralFileName;
-            this.SpectralFactor = factor;
-        }
-
-        public ObjVector3 Color { get; set; }
-
-        public bool UseXYZColorSpace { get; set; }
-
-        public string? SpectralFileName { get; set; }
-
-        public float SpectralFactor { get; set; }
-
-        public bool IsSpectral
-        {
-            get
-            {
-                return !string.IsNullOrWhiteSpace(this.SpectralFileName);
-            }
-        }
-
-        public bool IsRGB => !IsSpectral && !UseXYZColorSpace;
-
-        public bool IsXYZ => !IsSpectral && UseXYZColorSpace;
-
-        private string ToDebuggerDisplayString()
-        {
-            if (IsSpectral) return $"Spectral:{SpectralFileName} Factor:{SpectralFactor}";
-            if (UseXYZColorSpace) return $"X:{Color.X} Y:{Color.Y} Z:{Color.Z}";
-            return $"R:{Color.X} G:{Color.Y} B:{Color.Z}";
-        }
+    private string ToDebuggerDisplayString()
+    {
+        if (IsSpectral) return $"Spectral:{SpectralFileName} Factor:{SpectralFactor}";
+        if (UseXYZColorSpace) return $"X:{Color.X} Y:{Color.Y} Z:{Color.Z}";
+        return $"R:{Color.X} G:{Color.Y} B:{Color.Z}";
     }
 }

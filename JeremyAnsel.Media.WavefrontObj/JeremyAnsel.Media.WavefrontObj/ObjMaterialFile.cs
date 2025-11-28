@@ -7,80 +7,79 @@
 
 using System.Text;
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+public class ObjMaterialFile
 {
-    public class ObjMaterialFile
+    public ObjMaterialFile()
     {
-        public ObjMaterialFile()
+        this.Materials = new List<ObjMaterial>();
+    }
+
+    public string? HeaderText { get; set; }
+
+    [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.RootHidden)]
+    public List<ObjMaterial> Materials { get; private set; }
+
+    public static ObjMaterialFile FromFile(string? path)
+    {
+        return FromFile(path, ObjMaterialFileReaderSettings.Default);
+    }
+
+    public static ObjMaterialFile FromFile(string? path, ObjMaterialFileReaderSettings settings)
+    {
+        if (path == null)
         {
-            this.Materials = new List<ObjMaterial>();
+            throw new ArgumentNullException(nameof(path));
         }
 
-        public string? HeaderText { get; set; }
-
-        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.RootHidden)]
-        public List<ObjMaterial> Materials { get; private set; }
-
-        public static ObjMaterialFile FromFile(string? path)
-        {
-            return FromFile(path, ObjMaterialFileReaderSettings.Default);
-        }
-
-        public static ObjMaterialFile FromFile(string? path, ObjMaterialFileReaderSettings settings)
-        {
-            if (path == null)
-            {
-                throw new ArgumentNullException(nameof(path));
-            }
-
-            using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-#if NET6_0_OR_GREATER
-                return ObjMaterialFileReader9.FromStream(stream, settings);
-#else
-                return ObjMaterialFileReader.FromStream(stream, settings);
-#endif
-            }
-        }
-
-        public static ObjMaterialFile FromStream(Stream? stream)
-        {
-            return FromStream(stream, ObjMaterialFileReaderSettings.Default);
-        }
-        
-        public static ObjMaterialFile FromStream(Stream? stream, ObjMaterialFileReaderSettings settings)
+        using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
         {
 #if NET6_0_OR_GREATER
             return ObjMaterialFileReader9.FromStream(stream, settings);
 #else
-            return ObjMaterialFileReader.FromStream(stream, settings);
+                return ObjMaterialFileReader.FromStream(stream, settings);
 #endif
         }
+    }
 
-        public void WriteTo(string? path)
+    public static ObjMaterialFile FromStream(Stream? stream)
+    {
+        return FromStream(stream, ObjMaterialFileReaderSettings.Default);
+    }
+        
+    public static ObjMaterialFile FromStream(Stream? stream, ObjMaterialFileReaderSettings settings)
+    {
+#if NET6_0_OR_GREATER
+        return ObjMaterialFileReader9.FromStream(stream, settings);
+#else
+            return ObjMaterialFileReader.FromStream(stream, settings);
+#endif
+    }
+
+    public void WriteTo(string? path)
+    {
+        if (path == null)
         {
-            if (path == null)
-            {
-                throw new ArgumentNullException(nameof(path));
-            }
-
-            using (var writer = new StreamWriter(path))
-            {
-                ObjMaterialFileWriter.Write(this, writer);
-            }
+            throw new ArgumentNullException(nameof(path));
         }
 
-        public void WriteTo(Stream? stream)
+        using (var writer = new StreamWriter(path))
         {
-            if (stream == null)
-            {
-                throw new ArgumentNullException(nameof(stream));
-            }
+            ObjMaterialFileWriter.Write(this, writer);
+        }
+    }
 
-            using (var writer = new StreamWriter(stream, new UTF8Encoding(false, true), 1024, true))
-            {
-                ObjMaterialFileWriter.Write(this, writer);
-            }
+    public void WriteTo(Stream? stream)
+    {
+        if (stream == null)
+        {
+            throw new ArgumentNullException(nameof(stream));
+        }
+
+        using (var writer = new StreamWriter(stream, new UTF8Encoding(false, true), 1024, true))
+        {
+            ObjMaterialFileWriter.Write(this, writer);
         }
     }
 }

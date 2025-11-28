@@ -7,13 +7,12 @@
 
 using Xunit;
 
-namespace JeremyAnsel.Media.WavefrontObj.Tests
+namespace JeremyAnsel.Media.WavefrontObj.Tests;
+
+public static class AssertExtensions
 {
-    public static class AssertExtensions
+    public static void TextEqual(string expected, string text)
     {
-        public static void TextEqual(string expected, string text)
-        {
-            Assert.Equal(expected, text, ignoreLineEndingDifferences: true);
-        }
+        Assert.Equal(expected, text, ignoreLineEndingDifferences: true);
     }
 }
