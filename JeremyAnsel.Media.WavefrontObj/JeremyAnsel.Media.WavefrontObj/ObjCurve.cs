@@ -5,19 +5,18 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+public class ObjCurve : ObjFreeFormElement
 {
-    public class ObjCurve : ObjFreeFormElement
+    public ObjCurve()
     {
-        public ObjCurve()
-        {
-            this.Vertices = new List<int>();
-        }
-
-        public float StartParameter { get; set; }
-
-        public float EndParameter { get; set; }
-
-        public List<int> Vertices { get; private set; }
+        this.Vertices = new List<int>();
     }
+
+    public float StartParameter { get; set; }
+
+    public float EndParameter { get; set; }
+
+    public List<int> Vertices { get; private set; }
 }

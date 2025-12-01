@@ -5,15 +5,14 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
-{
-    public class ObjFace : ObjPolygonalElement
-    {
-        public ObjFace()
-        {
-            this.Vertices = new List<ObjTriplet>();
-        }
+namespace JeremyAnsel.Media.WavefrontObj;
 
-        public List<ObjTriplet> Vertices { get; private set; }
+public class ObjFace : ObjPolygonalElement
+{
+    public ObjFace()
+    {
+        this.Vertices = new List<ObjTriplet>();
     }
+
+    public List<ObjTriplet> Vertices { get; private set; }
 }

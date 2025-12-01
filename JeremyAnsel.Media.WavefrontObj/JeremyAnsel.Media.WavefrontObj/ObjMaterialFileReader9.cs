@@ -19,7 +19,7 @@ using SpanSplitEnumerator = Polyfills.Polyfill.SpanSplitEnumerator<char>;
 
 namespace JeremyAnsel.Media.WavefrontObj
 {
-    internal static class ObjMaterialFileReader9
+    internal static class ObjMaterialFileReader
     {
         private static void MoveNextSkipEmpty(ref SpanSplitEnumerator values)
         {
@@ -132,7 +132,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.AmbientColor = ParseMaterialColor("Ka", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.AmbientColor = ParseMaterialColor("Ka", ref currentLine, ref values, valuesCount);
                         break;
 
                     case "kd":
@@ -141,7 +141,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DiffuseColor = ParseMaterialColor("Kd", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.DiffuseColor = ParseMaterialColor("Kd", ref currentLine, ref values, valuesCount);
                         break;
 
                     case "ke":
@@ -150,7 +150,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.EmissiveColor = ParseMaterialColor("Ke", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.EmissiveColor = ParseMaterialColor("Ke", ref currentLine, ref values, valuesCount);
                         break;
 
                     case "ks":
@@ -159,7 +159,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.SpecularColor = ParseMaterialColor("Ks", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.SpecularColor = ParseMaterialColor("Ks", ref currentLine, ref values, valuesCount);
                         break;
 
                     case "tf":
@@ -168,7 +168,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.TransmissionColor = ParseMaterialColor("Tf", value0, ref currentLine, ref values, valuesCount);
+                        currentMaterial.TransmissionColor = ParseMaterialColor("Tf", ref currentLine, ref values, valuesCount);
                         break;
 
                     case "illum":
@@ -353,7 +353,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.AmbientMap = ParseMaterialMap("map_Ka", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.AmbientMap = ParseMaterialMap("map_Ka", ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "map_kd":
@@ -362,7 +362,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DiffuseMap = ParseMaterialMap("map_Kd", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.DiffuseMap = ParseMaterialMap("map_Kd", ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "map_ke":
@@ -371,7 +371,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.EmissiveMap = ParseMaterialMap("map_Ke", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.EmissiveMap = ParseMaterialMap("map_Ke", ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "map_ks":
@@ -380,7 +380,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.SpecularMap = ParseMaterialMap("map_Ks", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.SpecularMap = ParseMaterialMap("map_Ks", ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "map_ns":
@@ -389,7 +389,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.SpecularExponentMap = ParseMaterialMap("map_Ns", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.SpecularExponentMap = ParseMaterialMap("map_Ns", ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "map_d":
@@ -399,7 +399,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DissolveMap = ParseMaterialMap("map_d", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.DissolveMap = ParseMaterialMap("map_d", ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "decal":
@@ -409,7 +409,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DecalMap = ParseMaterialMap("decal", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.DecalMap = ParseMaterialMap("decal", ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "disp":
@@ -419,7 +419,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.DispMap = ParseMaterialMap("disp", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.DispMap = ParseMaterialMap("disp", ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "bump":
@@ -429,7 +429,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.BumpMap = ParseMaterialMap("bump", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.BumpMap = ParseMaterialMap("bump", ref currentLine, ref values, valuesCount, settings);
                         break;
 
                     case "refl":
@@ -444,7 +444,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("A refl statement must specify a type and a file name.");
                         }
 
-                        ObjMaterialMap materialMap = ParseMaterialMap("refl", value0, ref currentLine, ref values, valuesCount, settings, out MaterialMapType materialMapType);
+                        ObjMaterialMap materialMap = ParseMaterialMap("refl", ref currentLine, ref values, valuesCount, settings, out MaterialMapType materialMapType);
 
                         switch (materialMapType)
                         {
@@ -508,7 +508,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.RoughnessMap = ParseMaterialMap("map_Pr", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.RoughnessMap = ParseMaterialMap("map_Pr", ref currentLine, ref values, valuesCount, settings);
                         break;
                     case "pm":
                     {
@@ -539,7 +539,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.MetallicMap = ParseMaterialMap("map_Pm", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.MetallicMap = ParseMaterialMap("map_Pm", ref currentLine, ref values, valuesCount, settings);
                         break;
                     case "ps":
                     {
@@ -570,7 +570,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.SheenMap = ParseMaterialMap("map_Ps", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.SheenMap = ParseMaterialMap("map_Ps", ref currentLine, ref values, valuesCount, settings);
                         break;
                     case "pc":
                     {
@@ -671,7 +671,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                             throw new InvalidDataException("The material name is not specified.");
                         }
 
-                        currentMaterial.Norm = ParseMaterialMap("norm", value0, ref currentLine, ref values, valuesCount, settings);
+                        currentMaterial.Norm = ParseMaterialMap("norm", ref currentLine, ref values, valuesCount, settings);
                         break;
                 }
             }
@@ -682,7 +682,7 @@ namespace JeremyAnsel.Media.WavefrontObj
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        private static ObjMaterialColor ParseMaterialColor(ReadOnlySpan<char> statement, ReadOnlySpan<char> value0, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount)
+        private static ObjMaterialColor ParseMaterialColor(ReadOnlySpan<char> statement, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount)
         {
             if (valuesCount < 2)
             {
@@ -840,13 +840,13 @@ namespace JeremyAnsel.Media.WavefrontObj
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        private static ObjMaterialMap ParseMaterialMap(ReadOnlySpan<char> statement, ReadOnlySpan<char> value0, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount, ObjMaterialFileReaderSettings settings)
+        private static ObjMaterialMap ParseMaterialMap(ReadOnlySpan<char> statement, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount, ObjMaterialFileReaderSettings settings)
         {
-            return ParseMaterialMap(statement, value0, ref currentLine, ref values, valuesCount, settings, out _);
+            return ParseMaterialMap(statement, ref currentLine, ref values, valuesCount, settings, out _);
         }
 
         [SuppressMessage("Globalization", "CA1303:Ne pas passer de littéraux en paramètres localisés", Justification = "Reviewed.")]
-        private static ObjMaterialMap ParseMaterialMap(ReadOnlySpan<char> statement, ReadOnlySpan<char> value0, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount, ObjMaterialFileReaderSettings settings, out MaterialMapType materialMapType)
+        private static ObjMaterialMap ParseMaterialMap(ReadOnlySpan<char> statement, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount, ObjMaterialFileReaderSettings settings, out MaterialMapType materialMapType)
         {
             materialMapType = MaterialMapType.None;
 

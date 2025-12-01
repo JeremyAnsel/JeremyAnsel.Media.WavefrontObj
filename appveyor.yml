@@ -2,6 +2,11 @@ image: Visual Studio 2022
 version: 3.0.{build}
 configuration: Release
 
+install:
+- ps: |
+    Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -UseBasicParsing -OutFile "$env:temp\dotnet-install.ps1"
+    & $env:temp\dotnet-install.ps1 -Architecture x64 -Version '10.0.100' -InstallDir "$env:ProgramFiles\dotnet"
+
 init:
 - if "%APPVEYOR_REPO_NAME%" == "JeremyAnsel/JeremyAnsel.Media.WavefrontObj" if "%APPVEYOR_REPO_BRANCH%"=="master" if not defined APPVEYOR_PULL_REQUEST_NUMBER set DEPLOY=True
 

@@ -5,55 +5,54 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+[System.Diagnostics.DebuggerDisplay("Material Map:{FileName}")]
+public class ObjMaterialMap
 {
-    [System.Diagnostics.DebuggerDisplay("Material Map:{FileName}")]
-    public class ObjMaterialMap
+    public ObjMaterialMap()
     {
-        public ObjMaterialMap()
-        {
-            this.IsHorizontalBlendingEnabled = true;
-            this.IsVerticalBlendingEnabled = true;
-            this.ScalarChannel = ObjMapChannel.Luminance;
-            this.ModifierBase = 0.0f;
-            this.ModifierGain = 1.0f;
-            this.Offset = new ObjVector3(0.0f, 0.0f, 0.0f);
-            this.Scale = new ObjVector3(1.0f, 1.0f, 1.0f);
-            this.Turbulence = new ObjVector3(0.0f, 0.0f, 0.0f);
-        }
-
-        public ObjMaterialMap(string? fileName)
-            :this()
-        {
-            this.FileName = fileName;
-        }
-
-        public string? FileName { get; set; }
-
-        public bool IsHorizontalBlendingEnabled { get; set; }
-
-        public bool IsVerticalBlendingEnabled { get; set; }
-
-        public float BumpMultiplier { get; set; }
-
-        public float Boost { get; set; }
-
-        public bool IsColorCorrectionEnabled { get; set; }
-
-        public bool IsClampingEnabled { get; set; }
-
-        public ObjMapChannel ScalarChannel { get; set; }
-
-        public float ModifierBase { get; set; }
-
-        public float ModifierGain { get; set; }
-
-        public ObjVector3 Offset { get; set; }
-
-        public ObjVector3 Scale { get; set; }
-
-        public ObjVector3 Turbulence { get; set; }
-
-        public int TextureResolution { get; set; }
+        this.IsHorizontalBlendingEnabled = true;
+        this.IsVerticalBlendingEnabled = true;
+        this.ScalarChannel = ObjMapChannel.Luminance;
+        this.ModifierBase = 0.0f;
+        this.ModifierGain = 1.0f;
+        this.Offset = new ObjVector3(0.0f, 0.0f, 0.0f);
+        this.Scale = new ObjVector3(1.0f, 1.0f, 1.0f);
+        this.Turbulence = new ObjVector3(0.0f, 0.0f, 0.0f);
     }
+
+    public ObjMaterialMap(string? fileName)
+        :this()
+    {
+        this.FileName = fileName;
+    }
+
+    public string? FileName { get; set; }
+
+    public bool IsHorizontalBlendingEnabled { get; set; }
+
+    public bool IsVerticalBlendingEnabled { get; set; }
+
+    public float BumpMultiplier { get; set; }
+
+    public float Boost { get; set; }
+
+    public bool IsColorCorrectionEnabled { get; set; }
+
+    public bool IsClampingEnabled { get; set; }
+
+    public ObjMapChannel ScalarChannel { get; set; }
+
+    public float ModifierBase { get; set; }
+
+    public float ModifierGain { get; set; }
+
+    public ObjVector3 Offset { get; set; }
+
+    public ObjVector3 Scale { get; set; }
+
+    public ObjVector3 Turbulence { get; set; }
+
+    public int TextureResolution { get; set; }
 }

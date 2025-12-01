@@ -7,54 +7,53 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+public abstract class ObjFreeFormElement : ObjElement
 {
-    public abstract class ObjFreeFormElement : ObjElement
+    internal ObjFreeFormElement()
     {
-        internal ObjFreeFormElement()
-        {
-            this.ParametersU = new List<float>();
-            this.ParametersV = new List<float>();
-            this.OuterTrimmingCurves = new List<ObjCurveIndex>();
-            this.InnerTrimmingCurves = new List<ObjCurveIndex>();
-            this.SequenceCurves = new List<ObjCurveIndex>();
-            this.SpecialPoints = new List<int>();
-        }
-
-        public int MergingGroupNumber { get; set; }
-
-        public ObjFreeFormType FreeFormType { get; set; }
-
-        public bool IsRationalForm { get; set; }
-
-        public int DegreeU { get; set; }
-
-        public int DegreeV { get; set; }
-
-        [SuppressMessage("Performance", "CA1819:Les propriétés ne doivent pas retourner de tableaux", Justification = "Reviewed.")]
-        public float[]? BasicMatrixU { get; set; }
-
-        [SuppressMessage("Performance", "CA1819:Les propriétés ne doivent pas retourner de tableaux", Justification = "Reviewed.")]
-        public float[]? BasicMatrixV { get; set; }
-
-        public float StepU { get; set; }
-
-        public float StepV { get; set; }
-
-        public ObjApproximationTechnique? CurveApproximationTechnique { get; set; }
-
-        public ObjApproximationTechnique? SurfaceApproximationTechnique { get; set; }
-
-        public List<float> ParametersU { get; private set; }
-
-        public List<float> ParametersV { get; private set; }
-
-        public List<ObjCurveIndex> OuterTrimmingCurves { get; private set; }
-
-        public List<ObjCurveIndex> InnerTrimmingCurves { get; private set; }
-
-        public List<ObjCurveIndex> SequenceCurves { get; private set; }
-
-        public List<int> SpecialPoints { get; private set; }
+        this.ParametersU = new List<float>();
+        this.ParametersV = new List<float>();
+        this.OuterTrimmingCurves = new List<ObjCurveIndex>();
+        this.InnerTrimmingCurves = new List<ObjCurveIndex>();
+        this.SequenceCurves = new List<ObjCurveIndex>();
+        this.SpecialPoints = new List<int>();
     }
+
+    public int MergingGroupNumber { get; set; }
+
+    public ObjFreeFormType FreeFormType { get; set; }
+
+    public bool IsRationalForm { get; set; }
+
+    public int DegreeU { get; set; }
+
+    public int DegreeV { get; set; }
+
+    [SuppressMessage("Performance", "CA1819:Les propriétés ne doivent pas retourner de tableaux", Justification = "Reviewed.")]
+    public float[]? BasicMatrixU { get; set; }
+
+    [SuppressMessage("Performance", "CA1819:Les propriétés ne doivent pas retourner de tableaux", Justification = "Reviewed.")]
+    public float[]? BasicMatrixV { get; set; }
+
+    public float StepU { get; set; }
+
+    public float StepV { get; set; }
+
+    public ObjApproximationTechnique? CurveApproximationTechnique { get; set; }
+
+    public ObjApproximationTechnique? SurfaceApproximationTechnique { get; set; }
+
+    public List<float> ParametersU { get; private set; }
+
+    public List<float> ParametersV { get; private set; }
+
+    public List<ObjCurveIndex> OuterTrimmingCurves { get; private set; }
+
+    public List<ObjCurveIndex> InnerTrimmingCurves { get; private set; }
+
+    public List<ObjCurveIndex> SequenceCurves { get; private set; }
+
+    public List<int> SpecialPoints { get; private set; }
 }

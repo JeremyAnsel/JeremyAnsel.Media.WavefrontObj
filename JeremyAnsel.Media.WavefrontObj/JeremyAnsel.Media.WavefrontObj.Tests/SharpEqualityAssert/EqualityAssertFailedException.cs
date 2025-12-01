@@ -10,7 +10,7 @@ namespace JeremyAnsel.Media.WavefrontObj.Tests.SharpEqualityAssert;
 public class EqualityAssertFailedException : Exception
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="AssertFailedException"/> class.
+    /// Initializes a new instance of the <see cref="EqualityAssertFailedException"/> class.
     /// </summary>
     /// <param name="msg"> The message. </param>
     /// <param name="ex"> The exception. </param>
@@ -20,7 +20,7 @@ public class EqualityAssertFailedException : Exception
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="AssertFailedException"/> class.
+    /// Initializes a new instance of the <see cref="EqualityAssertFailedException"/> class.
     /// </summary>
     /// <param name="msg"> The message. </param>
     public EqualityAssertFailedException(string msg)
@@ -29,15 +29,14 @@ public class EqualityAssertFailedException : Exception
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="AssertFailedException"/> class.
+    /// Initializes a new instance of the <see cref="EqualityAssertFailedException"/> class.
     /// </summary>
     public EqualityAssertFailedException()
-        : base()
     {
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="AssertFailedException"/> class.
+    /// Initializes a new instance of the <see cref="EqualityAssertFailedException"/> class.
     /// </summary>
     /// <param name="info">Serialization info.</param>
     /// <param name="context">Streaming context.</param>

@@ -7,19 +7,18 @@
 
 using Xunit;
 
-namespace JeremyAnsel.Media.WavefrontObj.Tests
-{
-    public class ObjMaterialTests
-    {
-        [Fact]
-        public void New()
-        {
-            var material = new ObjMaterial();
+namespace JeremyAnsel.Media.WavefrontObj.Tests;
 
-            Assert.Equal(2, material.IlluminationModel);
-            Assert.Equal(1.0f, material.DissolveFactor);
-            Assert.Equal(60, material.Sharpness);
-            Assert.Equal(1.0f, material.OpticalDensity);
-        }
+public class ObjMaterialTests
+{
+    [Fact]
+    public void New()
+    {
+        var material = new ObjMaterial();
+
+        Assert.Equal(2, material.IlluminationModel);
+        Assert.Equal(1.0f, material.DissolveFactor);
+        Assert.Equal(60, material.Sharpness);
+        Assert.Equal(1.0f, material.OpticalDensity);
     }
 }

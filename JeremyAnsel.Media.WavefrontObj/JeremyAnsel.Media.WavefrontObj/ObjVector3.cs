@@ -7,86 +7,67 @@
 
 using Equatable.Attributes;
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+[System.Diagnostics.DebuggerDisplay("{X} {Y} {Z}")]
+[Equatable]
+public partial struct ObjVector3
 {
-    [System.Diagnostics.DebuggerDisplay("{X} {Y} {Z}")]
-    [Equatable]
-    public partial struct ObjVector3
+    public ObjVector3(System.Numerics.Vector3 v)
     {
-        private float x;
+        X = v.X;
+        Y = v.Y;
+        Z = v.Z;
+    }
 
-        private float y;
+    public ObjVector3(System.Numerics.Vector2 v, float z = 1.0f)
+    {
+        X = v.X;
+        Y = v.Y;
+        Z = z;
+    }
 
-        private float z;        
+    public ObjVector3(float x, float y, float z)
+    {
+        X = x;
+        Y = y;
+        Z = z;
+    }
 
-        public ObjVector3(System.Numerics.Vector3 v)
-        {
-            this.x = v.X;
-            this.y = v.Y;
-            this.z = v.Z;
-        }
+    public ObjVector3(float x, float y)
+    {
+        X = x;
+        Y = y;
+        Z = 1.0f;
+    }
 
-        public ObjVector3(System.Numerics.Vector2 v, float z = 1.0f)
-        {
-            this.x = v.X;
-            this.y = v.Y;
-            this.z = z;
-        }
+    public ObjVector3(float x)
+    {
+        X = x;
+        Y = 0.0f;
+        Z = 1.0f;
+    }
 
-        public ObjVector3(float x, float y, float z)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
+    public float X { get; set; }
 
-        public ObjVector3(float x, float y)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = 1.0f;
-        }
+    public float Y { get; set; }
 
-        public ObjVector3(float x)
-        {
-            this.x = x;
-            this.y = 0.0f;
-            this.z = 1.0f;
-        }
+    public float Z { get; set; }
 
-        public float X
-        {
-            readonly get { return this.x; }
-            set { this.x = value; }
-        }
+    public static implicit operator ObjVector3(System.Numerics.Vector3 v)
+    {
+        return new ObjVector3(v);
+    }
 
-        public float Y
-        {
-            readonly get { return this.y; }
-            set { this.y = value; }
-        }
+    public readonly void Deconstruct(out float @x, out float @y, out float @z)
+    {
+        @x = X;
+        @y = Y;
+        @z = Z;            
+    }
 
-        public float Z
-        {
-            readonly get { return this.z; }
-            set { this.z = value; }
-        }
-
-        public static implicit operator ObjVector3(System.Numerics.Vector3 v)
-        {
-            return new ObjVector3(v);
-        }
-
-        public readonly void Deconstruct(out float @x, out float @y, out float @z)
-        {
-            @x = this.x;
-            @y = this.y;
-            @z = this.z;            
-        }
-
-        public readonly System.Numerics.Vector3 ToVector3()
-        {
-            return new System.Numerics.Vector3(x, y, z);
-        }
+    public readonly System.Numerics.Vector3 ToVector3()
+    {
+        return new System.Numerics.Vector3(X, Y, Z);
     }
 }

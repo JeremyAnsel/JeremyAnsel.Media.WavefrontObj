@@ -5,23 +5,22 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+[System.Diagnostics.DebuggerDisplay("ObjCurvatureDependentSubdivisionTechnique MaxDist:{MaximumDistance} MaxAngle:{MaximumAngle}")]
+public class ObjCurvatureDependentSubdivisionTechnique : ObjApproximationTechnique
 {
-    [System.Diagnostics.DebuggerDisplay("ObjCurvatureDependentSubdivisionTechnique MaxDist:{MaximumDistance} MaxAngle:{MaximumAngle}")]
-    public class ObjCurvatureDependentSubdivisionTechnique : ObjApproximationTechnique
+    public ObjCurvatureDependentSubdivisionTechnique()
     {
-        public ObjCurvatureDependentSubdivisionTechnique()
-        {
-        }
-
-        public ObjCurvatureDependentSubdivisionTechnique(float distance, float angle)
-        {
-            this.MaximumDistance = distance;
-            this.MaximumAngle = angle;
-        }
-
-        public float MaximumDistance { get; set; }
-
-        public float MaximumAngle { get; set; }
     }
+
+    public ObjCurvatureDependentSubdivisionTechnique(float distance, float angle)
+    {
+        this.MaximumDistance = distance;
+        this.MaximumAngle = angle;
+    }
+
+    public float MaximumDistance { get; set; }
+
+    public float MaximumAngle { get; set; }
 }

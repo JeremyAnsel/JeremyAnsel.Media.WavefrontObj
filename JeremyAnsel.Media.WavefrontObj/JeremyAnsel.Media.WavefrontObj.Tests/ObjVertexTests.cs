@@ -7,87 +7,86 @@
 
 using Xunit;
 
-namespace JeremyAnsel.Media.WavefrontObj.Tests
+namespace JeremyAnsel.Media.WavefrontObj.Tests;
+
+public class ObjVertexTests
 {
-    public class ObjVertexTests
+    [Fact]
+    public void New()
     {
-        [Fact]
-        public void New()
+        var v = new ObjVertex
         {
-            var v = new ObjVertex
-            {
-                Position = new ObjVector4(2.0f, 3.0f, 4.0f, 5.0f),
-                Color = new ObjVector4(6.0f, 7.0f, 8.0f, 9.0f)
-            };
+            Position = new ObjVector4(2.0f, 3.0f, 4.0f, 5.0f),
+            Color = new ObjVector4(6.0f, 7.0f, 8.0f, 9.0f)
+        };
 
-            Assert.Equal(new ObjVector4(2.0f, 3.0f, 4.0f, 5.0f), v.Position);
-            Assert.Equal(new ObjVector4(6.0f, 7.0f, 8.0f, 9.0f), v.Color);
-        }
+        Assert.Equal(new ObjVector4(2.0f, 3.0f, 4.0f, 5.0f), v.Position);
+        Assert.Equal(new ObjVector4(6.0f, 7.0f, 8.0f, 9.0f), v.Color);
+    }
 
-        [Fact]
-        public void New3()
-        {
-            var v = new ObjVertex(2.0f, 3.0f, 4.0f);
+    [Fact]
+    public void New3()
+    {
+        var v = new ObjVertex(2.0f, 3.0f, 4.0f);
 
-            Assert.Equal(2.0f, v.Position.X);
-            Assert.Equal(3.0f, v.Position.Y);
-            Assert.Equal(4.0f, v.Position.Z);
-            Assert.Equal(1.0f, v.Position.W);
-            Assert.Null(v.Color);
-        }
+        Assert.Equal(2.0f, v.Position.X);
+        Assert.Equal(3.0f, v.Position.Y);
+        Assert.Equal(4.0f, v.Position.Z);
+        Assert.Equal(1.0f, v.Position.W);
+        Assert.Null(v.Color);
+    }
 
-        [Fact]
-        public void New4()
-        {
-            var v = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f);
+    [Fact]
+    public void New4()
+    {
+        var v = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f);
 
-            Assert.Equal(2.0f, v.Position.X);
-            Assert.Equal(3.0f, v.Position.Y);
-            Assert.Equal(4.0f, v.Position.Z);
-            Assert.Equal(5.0f, v.Position.W);
-            Assert.Null(v.Color);
-        }
+        Assert.Equal(2.0f, v.Position.X);
+        Assert.Equal(3.0f, v.Position.Y);
+        Assert.Equal(4.0f, v.Position.Z);
+        Assert.Equal(5.0f, v.Position.W);
+        Assert.Null(v.Color);
+    }
 
-        [Fact]
-        public void New6()
-        {
-            var v = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f);
+    [Fact]
+    public void New6()
+    {
+        var v = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f);
 
-            Assert.Equal(2.0f, v.Position.X);
-            Assert.Equal(3.0f, v.Position.Y);
-            Assert.Equal(4.0f, v.Position.Z);
-            Assert.Equal(1.0f, v.Position.W);
-            Assert.NotNull(v.Color);
-            Assert.Equal(5.0f, v.Color.Value.X);
-            Assert.Equal(6.0f, v.Color.Value.Y);
-            Assert.Equal(7.0f, v.Color.Value.Z);
-            Assert.Equal(1.0f, v.Color.Value.W);
-        }
+        Assert.Equal(2.0f, v.Position.X);
+        Assert.Equal(3.0f, v.Position.Y);
+        Assert.Equal(4.0f, v.Position.Z);
+        Assert.Equal(1.0f, v.Position.W);
+        Assert.NotNull(v.Color);
+        Assert.Equal(5.0f, v.Color.Value.X);
+        Assert.Equal(6.0f, v.Color.Value.Y);
+        Assert.Equal(7.0f, v.Color.Value.Z);
+        Assert.Equal(1.0f, v.Color.Value.W);
+    }
 
-        [Fact]
-        public void New7()
-        {
-            var v = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f);
+    [Fact]
+    public void New7()
+    {
+        var v = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f);
 
-            Assert.Equal(2.0f, v.Position.X);
-            Assert.Equal(3.0f, v.Position.Y);
-            Assert.Equal(4.0f, v.Position.Z);
-            Assert.Equal(1.0f, v.Position.W);
-            Assert.NotNull(v.Color);
-            Assert.Equal(5.0f, v.Color.Value.X);
-            Assert.Equal(6.0f, v.Color.Value.Y);
-            Assert.Equal(7.0f, v.Color.Value.Z);
-            Assert.Equal(8.0f, v.Color.Value.W);
-        }
+        Assert.Equal(2.0f, v.Position.X);
+        Assert.Equal(3.0f, v.Position.Y);
+        Assert.Equal(4.0f, v.Position.Z);
+        Assert.Equal(1.0f, v.Position.W);
+        Assert.NotNull(v.Color);
+        Assert.Equal(5.0f, v.Color.Value.X);
+        Assert.Equal(6.0f, v.Color.Value.Y);
+        Assert.Equal(7.0f, v.Color.Value.Z);
+        Assert.Equal(8.0f, v.Color.Value.W);
+    }
 
-        [Fact]
-        public void Equality()
-        {
-            var first = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f);
-            var second = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f);
-            var third = new ObjVertex(20.0f, 30.0f, 40.0f, 50.0f, 60.0f, 70.0f, 80.0f);
+    [Fact]
+    public void Equality()
+    {
+        var first = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f);
+        var second = new ObjVertex(2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f);
+        var third = new ObjVertex(20.0f, 30.0f, 40.0f, 50.0f, 60.0f, 70.0f, 80.0f);
 
-            SharpEqualityAssert.EqualityAssert.EqualityMembers(first, second, third);
-        }
+        SharpEqualityAssert.EqualityAssert.EqualityMembers(first, second, third);
     }
 }

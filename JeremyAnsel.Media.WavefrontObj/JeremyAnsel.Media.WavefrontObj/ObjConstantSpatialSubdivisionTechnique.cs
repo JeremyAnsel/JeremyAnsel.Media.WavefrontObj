@@ -5,20 +5,19 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+[System.Diagnostics.DebuggerDisplay("ObjConstantSpatialSubdivisionTechnique MaxLen:{MaximumLength}")]
+public class ObjConstantSpatialSubdivisionTechnique : ObjApproximationTechnique
 {
-    [System.Diagnostics.DebuggerDisplay("ObjConstantSpatialSubdivisionTechnique MaxLen:{MaximumLength}")]
-    public class ObjConstantSpatialSubdivisionTechnique : ObjApproximationTechnique
+    public ObjConstantSpatialSubdivisionTechnique()
     {
-        public ObjConstantSpatialSubdivisionTechnique()
-        {
-        }
-
-        public ObjConstantSpatialSubdivisionTechnique(float length)
-        {
-            this.MaximumLength = length;
-        }
-
-        public float MaximumLength { get; set; }
     }
+
+    public ObjConstantSpatialSubdivisionTechnique(float length)
+    {
+        this.MaximumLength = length;
+    }
+
+    public float MaximumLength { get; set; }
 }

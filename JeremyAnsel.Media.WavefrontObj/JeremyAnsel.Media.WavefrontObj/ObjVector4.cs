@@ -7,92 +7,67 @@
 
 using Equatable.Attributes;
 
-namespace JeremyAnsel.Media.WavefrontObj
+namespace JeremyAnsel.Media.WavefrontObj;
+
+[System.Diagnostics.DebuggerDisplay("{X} {Y} {Z} {W}")]
+[Equatable]
+public partial struct ObjVector4
 {
-    [System.Diagnostics.DebuggerDisplay("{X} {Y} {Z} {W}")]
-    [Equatable]
-    public partial struct ObjVector4
+    public ObjVector4(System.Numerics.Vector4 v)
     {
-        private float x;
+        X = v.X;
+        Y = v.Y;
+        Z = v.Z;
+        W = v.W;
+    }
 
-        private float y;
+    public ObjVector4(System.Numerics.Vector3 v, float w = 1.0f)
+    {
+        X = v.X;
+        Y = v.Y;
+        Z = v.Z;
+        W = w;
+    }
 
-        private float z;
+    public ObjVector4(float x, float y, float z, float w)
+    {
+        X = x;
+        Y = y;
+        Z = z;
+        W = w;
+    }
 
-        private float w;        
+    public ObjVector4(float x, float y, float z)
+    {
+        X = x;
+        Y = y;
+        Z = z;
+        W = 1.0f;
+    }
 
-        public ObjVector4(System.Numerics.Vector4 v)
-        {
-            this.x = v.X;
-            this.y = v.Y;
-            this.z = v.Z;
-            this.w = v.W;
-        }
+    public float X { get; set; }
 
-        public ObjVector4(System.Numerics.Vector3 v, float w = 1.0f)
-        {
-            this.x = v.X;
-            this.y = v.Y;
-            this.z = v.Z;
-            this.w = w;
-        }
+    public float Y { get; set; }
 
-        public ObjVector4(float x, float y, float z, float w)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = w;
-        }
+    public float Z { get; set; }
 
-        public ObjVector4(float x, float y, float z)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = 1.0f;
-        }
+    public float W { get; set; }
 
-        public float X
-        {
-            readonly get { return this.x; }
-            set { this.x = value; }
-        }
+    public static implicit operator ObjVector4(System.Numerics.Vector4 v)
+    {
+        return new ObjVector4(v);
+    }
 
-        public float Y
-        {
-            readonly get { return this.y; }
-            set { this.y = value; }
-        }
+    public readonly void Deconstruct(out float @x, out float @y, out float @z, out float @w)
+    {
+        @x = X;
+        @y = Y;
+        @z = Z;
+        @w = W;
+    }
 
-        public float Z
-        {
-            readonly get { return this.z; }
-            set { this.z = value; }
-        }
-
-        public float W
-        {
-            readonly get { return this.w; }
-            set { this.w = value; }
-        }
-
-        public static implicit operator ObjVector4(System.Numerics.Vector4 v)
-        {
-            return new ObjVector4(v);
-        }
-
-        public readonly void Deconstruct(out float @x, out float @y, out float @z, out float @w)
-        {
-            @x = this.x;
-            @y = this.y;
-            @z = this.z;
-            @w = this.w;
-        }
-
-        public readonly System.Numerics.Vector4 ToVector4()
-        {
-            return new System.Numerics.Vector4(x, y, z, w);
-        }
+    public readonly System.Numerics.Vector4 ToVector4()
+    {
+        return new System.Numerics.Vector4(X, Y, Z, W);
     }
 }
