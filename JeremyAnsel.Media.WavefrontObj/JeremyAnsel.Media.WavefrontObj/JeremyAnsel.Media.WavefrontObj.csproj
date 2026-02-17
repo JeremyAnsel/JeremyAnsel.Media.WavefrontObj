@@ -43,10 +43,6 @@
 
   <ItemGroup>
     <PackageReference Include="Equatable.Generator" Version="2.1.0" PrivateAssets="all" />
-    <PackageReference Condition="'$(CI)' == 'True'" Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -54,7 +50,7 @@
   </ItemGroup>
     
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
-    <PackageReference Include="Polyfill" Version="9.3.0">
+    <PackageReference Include="Polyfill" Version="9.9.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
