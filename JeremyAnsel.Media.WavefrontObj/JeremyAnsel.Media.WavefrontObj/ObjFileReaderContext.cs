@@ -18,7 +18,7 @@ internal class ObjFileReaderContext
 
         GroupNames = new List<string>();
     }
-        
+
     public ObjFileReaderSettings Settings { get; }
 
     public string? ObjectName { get; set; }
@@ -63,30 +63,41 @@ internal class ObjFileReaderContext
 
     public List<string> GroupNames { get; private set; }
 
+    private List<ObjGroup>? _currentGroups;
+
     public List<ObjGroup> GetCurrentGroups()
     {
-        var groups = new List<ObjGroup>();
+        if (_currentGroups is not null) return _currentGroups;
+        _currentGroups = [_obj.DefaultGroup];
+        return _currentGroups;
+    }
 
+    public void CreateGroups()
+    {
+        _currentGroups = new List<ObjGroup>();
         foreach (var name in this.GroupNames)
         {
-            var group = _obj.Groups.FirstOrDefault(t => string.Equals(t.Name, name, StringComparison.Ordinal));
+            ObjGroup? group = null;
+            if (!Settings.HandleEachGroupOccurrenceAsNewGroup)
+                group = GetGroupByName(name);
 
-            if (group == null)
+            if (group is null)
             {
                 group = new ObjGroup(name);
                 _obj.Groups.Add(group);
             }
 
-            groups.Add(group);
+            _currentGroups.Add(group);
         }
 
-        if (groups.Count == 0)
+        if (_currentGroups.Count == 0)
         {
-            groups.Add(_obj.DefaultGroup);
+            _currentGroups.Add(_obj.DefaultGroup);
         }
-
-        return groups;
     }
+
+    private ObjGroup? GetGroupByName(string name)
+        => _obj.Groups.Find(t => string.Equals(t.Name, name, StringComparison.Ordinal));
 
     public void ApplyAttributesToElement(ObjElement element)
     {

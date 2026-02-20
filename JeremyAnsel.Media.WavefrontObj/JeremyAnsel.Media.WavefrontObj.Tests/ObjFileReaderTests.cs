@@ -1257,6 +1257,54 @@ public class ObjFileReaderTests
     }
 
     [Fact]
+    public void Group_SameGroupOccurredTwice_ShouldCreateSingleGroup_WhenCreateNewGroupsForDuplicateGroupNamesIsFalse()
+    {
+        const string content = """
+                               v 1 1 1
+                               v 1 1 2
+                               v 1 1 3
+                               v 1 2 1
+                               v 1 2 2
+                               v 1 2 3
+                               g a
+                               p 1 2 3
+                               g a
+                               p 4 5 6
+                               """;
+
+        var obj = ReadObj(content, new ObjFileReaderSettings { HandleEachGroupOccurrenceAsNewGroup = false });
+
+        Assert.Single(obj.Groups);
+        Assert.Equal("a", obj.Groups[0].Name);
+        Assert.Equal(2, obj.Groups[0].Points.Count);
+    }
+
+    [Fact]
+    public void Group_SameGroupOccurredTwice_ShouldCreateSingleGroup_WhenCreateNewGroupsForDuplicateGroupNamesIsTrue()
+    {
+        const string content = """
+                               v 1 1 1
+                               v 1 1 2
+                               v 1 1 3
+                               v 1 2 1
+                               v 1 2 2
+                               v 1 2 3
+                               g a
+                               p 1 2 3
+                               g a
+                               p 4 5 6
+                               """;
+
+        var obj = ReadObj(content, new ObjFileReaderSettings { HandleEachGroupOccurrenceAsNewGroup = true });
+
+        Assert.Equal(2, obj.Groups.Count);
+        Assert.Equal("a", obj.Groups[0].Name);
+        Assert.Equal("a", obj.Groups[1].Name);
+        Assert.Single(obj.Groups[0].Points);
+        Assert.Single(obj.Groups[1].Points);
+    }
+
+    [Fact]
     public void SmoothingGroup_Throws()
     {
         Assert.Throws<InvalidDataException>(() => ReadObj("s"));
@@ -1381,6 +1429,54 @@ public class ObjFileReaderTests
 
         Assert.Single(obj.Groups);
         Assert.Equal("a b", obj.Groups[0].Name);
+    }
+
+    [Fact]
+    public void ObjectName_SameGroupOccurredTwice_ShouldCreateSingleGroup_WhenCreateNewGroupsForDuplicateGroupNamesIsFalse()
+    {
+        const string content = """
+                               v 1 1 1
+                               v 1 1 2
+                               v 1 1 3
+                               v 1 2 1
+                               v 1 2 2
+                               v 1 2 3
+                               o a
+                               p 1 2 3
+                               o a
+                               p 4 5 6
+                               """;
+
+        var obj = ReadObj(content, new ObjFileReaderSettings { HandleEachGroupOccurrenceAsNewGroup = false, HandleObjectNamesAsGroup = true});
+
+        Assert.Single(obj.Groups);
+        Assert.Equal("a", obj.Groups[0].Name);
+        Assert.Equal(2, obj.Groups[0].Points.Count);
+    }
+
+    [Fact]
+    public void ObjectName_SameGroupOccurredTwice_ShouldCreateSingleGroup_WhenCreateNewGroupsForDuplicateGroupNamesIsTrue()
+    {
+        const string content = """
+                               v 1 1 1
+                               v 1 1 2
+                               v 1 1 3
+                               v 1 2 1
+                               v 1 2 2
+                               v 1 2 3
+                               o a
+                               p 1 2 3
+                               o a
+                               p 4 5 6
+                               """;
+
+        var obj = ReadObj(content, new ObjFileReaderSettings { HandleEachGroupOccurrenceAsNewGroup = true, HandleObjectNamesAsGroup = true });
+
+        Assert.Equal(2, obj.Groups.Count);
+        Assert.Equal("a", obj.Groups[0].Name);
+        Assert.Equal("a", obj.Groups[1].Name);
+        Assert.Single(obj.Groups[0].Points);
+        Assert.Single(obj.Groups[1].Points);
     }
 
     [Fact]
