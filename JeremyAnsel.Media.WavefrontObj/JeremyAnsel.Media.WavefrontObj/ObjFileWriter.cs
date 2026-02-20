@@ -117,7 +117,7 @@ internal static class ObjFileWriter
             {
                 var color = vertex.Color.Value;
 
-                if (color.W == 1.0f)
+                if (Math.Abs(color.W - 1.0f) < float.Epsilon)
                 {
                     stream.WriteLine(
                         "v {0} {1} {2} {3} {4} {5}",
@@ -143,7 +143,7 @@ internal static class ObjFileWriter
             }
             else
             {
-                if (position.W == 1.0f)
+                if (Math.Abs(position.W - 1.0f) < float.Epsilon)
                 {
                     stream.WriteLine(
                         "v {0} {1} {2}",
@@ -168,7 +168,7 @@ internal static class ObjFileWriter
     {
         foreach (var vertex in obj.ParameterSpaceVertices)
         {
-            if (vertex.Z == 1.0f)
+            if (Math.Abs(vertex.Z - 1.0f) < float.Epsilon)
             {
                 if (vertex.Y == 0.0f)
                 {

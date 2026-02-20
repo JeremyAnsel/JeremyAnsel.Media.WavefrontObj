@@ -280,7 +280,7 @@ internal class ObjFileWriterContext
             stream.WriteLine();
         }
 
-        if (element.StepV == 1.0f)
+        if (Math.Abs(element.StepV - 1.0f) < float.Epsilon)
         {
             stream.WriteLine(
                 "step {0}",
@@ -322,7 +322,7 @@ internal class ObjFileWriterContext
             {
                 var technique = (ObjConstantParametricSubdivisionTechnique)element.SurfaceApproximationTechnique;
 
-                if (technique.ResolutionU == technique.ResolutionV)
+                if (Math.Abs(technique.ResolutionU - technique.ResolutionV) < float.Epsilon)
                 {
                     stream.WriteLine(
                         "stech cparmb {0}",

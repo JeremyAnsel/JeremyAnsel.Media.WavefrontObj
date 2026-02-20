@@ -36,6 +36,7 @@ public class ObjMaterialColor
 
     public ObjVector3 Color { get; set; }
 
+    // ReSharper disable once InconsistentNaming
     public bool UseXYZColorSpace { get; set; }
 
     public string? SpectralFileName { get; set; }
@@ -50,8 +51,10 @@ public class ObjMaterialColor
         }
     }
 
+    // ReSharper disable once InconsistentNaming
     public bool IsRGB => !IsSpectral && !UseXYZColorSpace;
 
+    // ReSharper disable once InconsistentNaming
     public bool IsXYZ => !IsSpectral && UseXYZColorSpace;
 
     private string ToDebuggerDisplayString()
