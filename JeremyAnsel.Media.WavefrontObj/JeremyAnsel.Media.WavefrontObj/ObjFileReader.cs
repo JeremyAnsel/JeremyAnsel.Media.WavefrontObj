@@ -1114,7 +1114,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                 }
             }
 
-            context.GetCurrentGroups();
+            context.CreateGroups();
         }
 
         private static ObjApproximationTechnique ParseApproximationTechnique(string[] values)

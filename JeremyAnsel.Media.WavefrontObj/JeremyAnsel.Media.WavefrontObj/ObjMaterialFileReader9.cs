@@ -1243,11 +1243,6 @@ namespace JeremyAnsel.Media.WavefrontObj
                                     index++;
                                     charsRead += value2.Length;
                                 }
-                                else
-                                {
-                                    map.Offset = offset;
-                                    break;
-                                }
                             }
                         }
                         
@@ -1302,11 +1297,6 @@ namespace JeremyAnsel.Media.WavefrontObj
                                     index++;
                                     charsRead += value2.Length;
                                 }
-                                else
-                                {
-                                    map.Scale = scale;
-                                    break;
-                                }
                             }
                         }
 
@@ -1360,11 +1350,6 @@ namespace JeremyAnsel.Media.WavefrontObj
                                     turbulence.Z = value;
                                     index++;
                                     charsRead += value2.Length;
-                                }
-                                else
-                                {
-                                    map.Turbulence = turbulence;
-                                    break;
                                 }
                             }
                         }

@@ -247,7 +247,7 @@ internal static class ObjMaterialFileWriter
             stream.Write(" spectral ");
             stream.Write(color.SpectralFileName);
 
-            if (color.SpectralFactor != 1.0f)
+            if (Math.Abs(color.SpectralFactor - 1.0f) > float.Epsilon)
             {
                 stream.Write(' ');
                 stream.Write(color.SpectralFactor.ToString("F6", CultureInfo.InvariantCulture));
@@ -338,7 +338,7 @@ internal static class ObjMaterialFileWriter
             }
         }
 
-        if (map.ModifierBase != 0.0f || map.ModifierGain != 1.0f)
+        if (map.ModifierBase != 0.0f || Math.Abs(map.ModifierGain - 1.0f) > float.Epsilon)
         {
             stream.Write(" -mm ");
             stream.Write(map.ModifierBase.ToString("F6", CultureInfo.InvariantCulture));
@@ -360,7 +360,7 @@ internal static class ObjMaterialFileWriter
 
         ObjVector3 scale = map.Scale;
 
-        if (scale.X != 1.0f || scale.Y != 1.0f || scale.Z != 1.0f)
+        if (Math.Abs(scale.X - 1.0f) > float.Epsilon || Math.Abs(scale.Y - 1.0f) > float.Epsilon || Math.Abs(scale.Z - 1.0f) > float.Epsilon)
         {
             stream.Write(" -s ");
             stream.Write(scale.X.ToString("F6", CultureInfo.InvariantCulture));

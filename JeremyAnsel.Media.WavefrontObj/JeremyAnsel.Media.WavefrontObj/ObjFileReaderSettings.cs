@@ -36,4 +36,23 @@ public class ObjFileReaderSettings
     ///     This flag should be set to true, when object files should be interpreted like other libraries like three.js or tinyobjloader
     /// </remarks>
     public bool KeepWhitespacesOfMtlLibReferences { get; set; } = false;
+
+    /// <summary>
+    ///     Normally groups are reused when the group name is used multiple times.
+    ///     If this flag is set to true, all group occurrences are handled as a different and new group
+    /// </summary>
+    /// <remarks>
+    ///     This flag should be set to true, when groups should be interpreted like other libraries like three.js or tinyobjloader
+    ///     The following example shows the difference between the default behavior and the behavior with this flag set to true:
+    ///     g cube
+    ///     f 1 2 3
+    ///     g other
+    ///     f 4 5 6
+    ///     g cube
+    ///     f 7 8 9
+    ///     When set to true: 3 groups are created (cube, other, cube)
+    ///     When set to false: 2 groups are created (cube, other). All faces of the second cube group are part of the first
+    ///     cube group.
+    /// </remarks>
+    public bool HandleEachGroupOccurrenceAsNewGroup { get; set; } = false;
 }

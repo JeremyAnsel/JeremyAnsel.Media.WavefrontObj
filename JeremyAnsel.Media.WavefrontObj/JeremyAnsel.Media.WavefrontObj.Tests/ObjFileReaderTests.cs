@@ -18,7 +18,7 @@ public class ObjFileReaderTests
     [Fact]
     public void Parsing_UnknownStatement_Valid()
     {
-        string content = "unknown";
+        const string content = "unknown";
         var exception = Record.Exception(() => ReadObj(content));
         Assert.Null(exception);
     }
@@ -26,7 +26,7 @@ public class ObjFileReaderTests
     [Fact]
     public void Parsing_UnknownoLongStatement_Valid()
     {
-        string content = "unknown_unknown_unknown_unknown";
+        const string content = "unknown_unknown_unknown_unknown";
         var exception = Record.Exception(() => ReadObj(content));
         Assert.Null(exception);
     }
@@ -34,7 +34,7 @@ public class ObjFileReaderTests
     [Fact]
     public void Parsing_UnknownSpacesStatement_Valid()
     {
-        string content = "unknown \t  \t\t 0";
+        const string content = "unknown \t  \t\t 0";
         var exception = Record.Exception(() => ReadObj(content));
         Assert.Null(exception);
     }
@@ -42,7 +42,7 @@ public class ObjFileReaderTests
     [Fact]
     public void Parsing_SpacesStatement_Valid()
     {
-        string content = "g \t  \t\t a";
+        const string content = "g \t  \t\t a";
 
         var obj = ReadObj(content);
 
@@ -53,16 +53,17 @@ public class ObjFileReaderTests
     [Fact]
     public void HeaderText_Valid()
     {
-        string content = @"
-# header line 1
-
-# header line 2
-
-# header \
-line 3
-g a
-# comment
-";
+        const string content = """
+                               
+                               # header line 1
+                               
+                               # header line 2
+                               
+                               # header \
+                               line 3
+                               g a
+                               # comment
+                               """;
 
         var obj = ReadObj(content);
 
@@ -88,11 +89,11 @@ g a
     [Fact]
     public void Parsing_Triplet1_Valid()
     {
-        string content = @"
-v 0 0 0
-v 0 0 0
-p 2
-";
+        const string content = """
+                               v 0 0 0
+                               v 0 0 0
+                               p 2
+                               """;
 
         var obj = ReadObj(content);
         var triplet = obj.Points[0].Vertices[0];
@@ -105,14 +106,14 @@ p 2
     [Fact]
     public void Parsing_Triplet2_Valid()
     {
-        string content = @"
-v 0 0 0
-v 0 0 0
-vt 0
-vt 0
-vt 0
-p 2/3/
-";
+        const string content = """
+                               v 0 0 0
+                               v 0 0 0
+                               vt 0
+                               vt 0
+                               vt 0
+                               p 2/3/
+                               """;
 
         var obj = ReadObj(content);
         var triplet = obj.Points[0].Vertices[0];
@@ -125,14 +126,14 @@ p 2/3/
     [Fact]
     public void Parsing_Triplet3_Valid()
     {
-        string content = @"
-v 0 0 0
-v 0 0 0
-vn 0 0 0
-vn 0 0 0
-vn 0 0 0
-p 2//3
-";
+        const string content = """
+                               v 0 0 0
+                               v 0 0 0
+                               vn 0 0 0
+                               vn 0 0 0
+                               vn 0 0 0
+                               p 2//3
+                               """;
 
         var obj = ReadObj(content);
         var triplet = obj.Points[0].Vertices[0];
@@ -145,18 +146,18 @@ p 2//3
     [Fact]
     public void Parsing_Triplet4_Valid()
     {
-        string content = @"
-v 0 0 0
-v 0 0 0
-vt 0
-vt 0
-vt 0
-vn 0 0 0
-vn 0 0 0
-vn 0 0 0
-vn 0 0 0
-p 2/3/4
-";
+        const string content = """
+                               v 0 0 0
+                               v 0 0 0
+                               vt 0
+                               vt 0
+                               vt 0
+                               vn 0 0 0
+                               vn 0 0 0
+                               vn 0 0 0
+                               vn 0 0 0
+                               p 2/3/4
+                               """;
 
         var obj = ReadObj(content);
         var triplet = obj.Points[0].Vertices[0];
@@ -179,9 +180,9 @@ p 2/3/4
     [Fact]
     public void Vertex_Geometric3_Valid()
     {
-        string content = @"
-v 2.0 3.0 4.0
-";
+        const string content = """
+                               v 2.0 3.0 4.0
+                               """;
 
         var obj = ReadObj(content);
 
@@ -192,9 +193,9 @@ v 2.0 3.0 4.0
     [Fact]
     public void Vertex_Geometric4_Valid()
     {
-        string content = @"
-v 2.0 3.0 4.0 5.0
-";
+        const string content = """
+                               v 2.0 3.0 4.0 5.0
+                               """;
 
         var obj = ReadObj(content);
 
@@ -205,9 +206,9 @@ v 2.0 3.0 4.0 5.0
     [Fact]
     public void Vertex_Geometric6_Valid()
     {
-        string content = @"
-v 2.0 3.0 4.0 5.0 6.0 7.0
-";
+        const string content = """
+                               v 2.0 3.0 4.0 5.0 6.0 7.0
+                               """;
 
         var obj = ReadObj(content);
 
@@ -218,9 +219,9 @@ v 2.0 3.0 4.0 5.0 6.0 7.0
     [Fact]
     public void Vertex_Geometric7_Valid()
     {
-        string content = @"
-v 2.0 3.0 4.0 5.0 6.0 7.0 8.0
-";
+        const string content = """
+                               v 2.0 3.0 4.0 5.0 6.0 7.0 8.0
+                               """;
 
         var obj = ReadObj(content);
 
@@ -238,9 +239,9 @@ v 2.0 3.0 4.0 5.0 6.0 7.0 8.0
     [Fact]
     public void Vertex_ParameterSpace1_Valid()
     {
-        string content = @"
-vp 2.0
-";
+        const string content = """
+                               vp 2.0
+                               """;
 
         var obj = ReadObj(content);
 
@@ -251,9 +252,9 @@ vp 2.0
     [Fact]
     public void Vertex_ParameterSpace2_Valid()
     {
-        string content = @"
-vp 2.0 3.0
-";
+        const string content = """
+                               vp 2.0 3.0
+                               """;
 
         var obj = ReadObj(content);
 
@@ -264,9 +265,9 @@ vp 2.0 3.0
     [Fact]
     public void Vertex_ParameterSpace3_Valid()
     {
-        string content = @"
-vp 2.0 3.0 4.0
-";
+        const string content = """
+                               vp 2.0 3.0 4.0
+                               """;
 
         var obj = ReadObj(content);
 
@@ -286,9 +287,9 @@ vp 2.0 3.0 4.0
     [Fact]
     public void Vertex_Normal_Valid()
     {
-        string content = @"
-vn 2.0 3.0 4.0
-";
+        const string content = """
+                               vn 2.0 3.0 4.0
+                               """;
 
         var obj = ReadObj(content);
 
@@ -306,9 +307,9 @@ vn 2.0 3.0 4.0
     [Fact]
     public void Vertex_Texture1_Valid()
     {
-        string content = @"
-vt 2.0
-";
+        const string content = """
+                               vt 2.0
+                               """;
 
         var obj = ReadObj(content);
 
@@ -319,9 +320,9 @@ vt 2.0
     [Fact]
     public void Vertex_Texture2_Valid()
     {
-        string content = @"
-vt 2.0 3.0
-";
+        const string content = """
+                               vt 2.0 3.0
+                               """;
 
         var obj = ReadObj(content);
 
@@ -332,9 +333,10 @@ vt 2.0 3.0
     [Fact]
     public void Vertex_Texture3_Valid()
     {
-        string content = @"
-vt 2.0 3.0 4.0
-";
+        const string content = """
+
+                               vt 2.0 3.0 4.0
+                               """;
 
         var obj = ReadObj(content);
 
@@ -365,12 +367,12 @@ vt 2.0 3.0 4.0
     [InlineData("rat taylor", true, ObjFreeFormType.Taylor)]
     public void FreeFormAttributes_Type_Valid(string value, bool rational, ObjFreeFormType type)
     {
-        string content = @"
-v 0 0 0
-v 0 0 0
-cstype " + value + @"
-curv 0 1 1 2
-";
+        string content = $"""
+                          v 0 0 0
+                          v 0 0 0
+                          cstype {value}
+                          curv 0 1 1 2
+                          """;
 
         var obj = ReadObj(content);
 
@@ -390,12 +392,12 @@ curv 0 1 1 2
     [InlineData("2 3", 2, 3)]
     public void FreeFormAttributes_Degree_Valid(string value, int u, int v)
     {
-        string content = @"
-v 0 0 0
-v 0 0 0
-deg " + value + @"
-curv 0 1 1 2
-";
+        string content = $"""
+                          v 0 0 0
+                          v 0 0 0
+                          deg {value}
+                          curv 0 1 1 2
+                          """;
 
         var obj = ReadObj(content);
 
@@ -416,13 +418,13 @@ curv 0 1 1 2
     [InlineData("v", 1)]
     public void FreeFormAttributes_BasisMatrix_Valid(string value, int index)
     {
-        string content = @"
-v 0 0 0
-v 0 0 0
-deg 2 3
-bmat " + value + @" 2.0 3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0 12.0 13.0
-curv 0 1 1 2
-";
+        string content = $"""
+                          v 0 0 0
+                          v 0 0 0
+                          deg 2 3
+                          bmat {value} 2.0 3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0 12.0 13.0
+                          curv 0 1 1 2
+                          """;
 
         var obj = ReadObj(content);
 
@@ -452,12 +454,12 @@ curv 0 1 1 2
     [InlineData("2.0 3.0", 2.0f, 3.0f)]
     public void FreeFormAttributes_Step_Valid(string value, float u, float v)
     {
-        string content = @"
-v 0 0 0
-v 0 0 0
-step " + value + @"
-curv 0 1 1 2
-";
+        string content = $"""
+                          v 0 0 0
+                          v 0 0 0
+                          step {value}
+                          curv 0 1 1 2
+                          """;
 
         var obj = ReadObj(content);
 
@@ -474,21 +476,21 @@ curv 0 1 1 2
     [Fact]
     public void Element_Point_Valid()
     {
-        string content = @"
-s 10
-o a
-g b
-lod 2
-usemap c
-usemtl d
-bevel on
-c_interp on
-d_interp on
-v 0 0 0
-v 0 0 0
-v 0 0 0
-p 2 3
-";
+        const string content = """
+                               s 10
+                               o a
+                               g b
+                               lod 2
+                               usemap c
+                               usemtl d
+                               bevel on
+                               c_interp on
+                               d_interp on
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               p 2 3
+                               """;
 
         var obj = ReadObj(content);
 
@@ -510,13 +512,13 @@ p 2 3
     [Fact]
     public void Element_PointDefaultGroup_Valid()
     {
-        string content = @"
-g default
-v 0 0 0
-v 0 0 0
-v 0 0 0
-p 2 3
-";
+        const string content = """
+                               g default
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               p 2 3
+                               """;
 
         var obj = ReadObj(content);
 
@@ -537,22 +539,22 @@ p 2 3
     [Fact]
     public void Element_Line_Valid()
     {
-        string content = @"
-s 10
-o a
-g b
-lod 2
-usemap c
-usemtl d
-bevel on
-c_interp on
-d_interp on
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-l 2 3 4
-";
+        const string content = """
+                               s 10
+                               o a
+                               g b
+                               lod 2
+                               usemap c
+                               usemtl d
+                               bevel on
+                               c_interp on
+                               d_interp on
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               l 2 3 4
+                               """;
 
         var obj = ReadObj(content);
 
@@ -575,14 +577,14 @@ l 2 3 4
     [Fact]
     public void Element_LineDefaultGroup_Valid()
     {
-        string content = @"
-g default
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-l 2 3 4
-";
+        const string content = """
+                               g default
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               l 2 3 4
+                               """;
 
         var obj = ReadObj(content);
 
@@ -609,24 +611,24 @@ l 2 3 4
     [InlineData("fo")]
     public void Element_Face_Valid(string statement)
     {
-        string content = @"
-s 10
-o a
-g b
-lod 2
-usemap c
-usemtl d
-bevel on
-c_interp on
-d_interp on
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-" + statement + @" 2 3 4 5 6
-";
+        string content = $"""
+                          s 10
+                          o a
+                          g b
+                          lod 2
+                          usemap c
+                          usemtl d
+                          bevel on
+                          c_interp on
+                          d_interp on
+                          v 0 0 0
+                          v 0 0 0
+                          v 0 0 0
+                          v 0 0 0
+                          v 0 0 0
+                          v 0 0 0
+                          {statement} 2 3 4 5 6
+                          """;
 
         var obj = ReadObj(content);
 
@@ -653,16 +655,16 @@ v 0 0 0
     [InlineData("fo")]
     public void Element_FaceDefaultGroup_Valid(string statement)
     {
-        string content = @"
-g default
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-" + statement + @" 2 3 4 5 6
-";
+        string content = $"""
+                          g default
+                          v 0 0 0
+                          v 0 0 0
+                          v 0 0 0
+                          v 0 0 0
+                          v 0 0 0
+                          v 0 0 0
+                          {statement} 2 3 4 5 6
+                          """;
 
         var obj = ReadObj(content);
 
@@ -691,21 +693,21 @@ v 0 0 0
     [Fact]
     public void Element_Curve_Valid()
     {
-        string content = @"
-mg 10 0
-o a
-g b
-lod 2
-usemap c
-usemtl d
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-ctech cspace 0
-stech cspace 0
-curv 5.0 6.0 2 3 4
-";
+        const string content = """
+                               mg 10 0
+                               o a
+                               g b
+                               lod 2
+                               usemap c
+                               usemtl d
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               ctech cspace 0
+                               stech cspace 0
+                               curv 5.0 6.0 2 3 4
+                               """;
 
         var obj = ReadObj(content);
 
@@ -729,16 +731,16 @@ curv 5.0 6.0 2 3 4
     [Fact]
     public void Element_CurveDefaultGroup_Valid()
     {
-        string content = @"
-g default
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-ctech cspace 0
-stech cspace 0
-curv 5.0 6.0 2 3 4
-";
+        const string content = """
+                               g default
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               ctech cspace 0
+                               stech cspace 0
+                               curv 5.0 6.0 2 3 4
+                               """;
 
         var obj = ReadObj(content);
 
@@ -767,21 +769,21 @@ curv 5.0 6.0 2 3 4
     [Fact]
     public void Element_Curve2D_Valid()
     {
-        string content = @"
-mg 10 0
-o a
-g b
-lod 2
-usemap c
-usemtl d
-vp 0 0 0
-vp 0 0 0
-vp 0 0 0
-vp 0 0 0
-ctech cspace 0
-stech cspace 0
-curv2 2 3 4
-";
+        const string content = """
+                               mg 10 0
+                               o a
+                               g b
+                               lod 2
+                               usemap c
+                               usemtl d
+                               vp 0 0 0
+                               vp 0 0 0
+                               vp 0 0 0
+                               vp 0 0 0
+                               ctech cspace 0
+                               stech cspace 0
+                               curv2 2 3 4
+                               """;
 
         var obj = ReadObj(content);
 
@@ -803,16 +805,16 @@ curv2 2 3 4
     [Fact]
     public void Element_Curve2DDefaultGroup_Valid()
     {
-        string content = @"
-g default
-vp 0 0 0
-vp 0 0 0
-vp 0 0 0
-vp 0 0 0
-ctech cspace 0
-stech cspace 0
-curv2 2 3 4
-";
+        const string content = """
+                               g default
+                               vp 0 0 0
+                               vp 0 0 0
+                               vp 0 0 0
+                               vp 0 0 0
+                               ctech cspace 0
+                               stech cspace 0
+                               curv2 2 3 4
+                               """;
 
         var obj = ReadObj(content);
 
@@ -842,21 +844,21 @@ curv2 2 3 4
     [Fact]
     public void Element_Surface_Valid()
     {
-        string content = @"
-mg 10 0
-o a
-g b
-lod 2
-usemap c
-usemtl d
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-ctech cspace 0
-stech cspace 0
-surf 5.0 6.0 7.0 8.0 2 3 4
-";
+        const string content = """
+                               mg 10 0
+                               o a
+                               g b
+                               lod 2
+                               usemap c
+                               usemtl d
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               ctech cspace 0
+                               stech cspace 0
+                               surf 5.0 6.0 7.0 8.0 2 3 4
+                               """;
 
         var obj = ReadObj(content);
 
@@ -882,16 +884,16 @@ surf 5.0 6.0 7.0 8.0 2 3 4
     [Fact]
     public void Element_SurfaceDefaultGroup_Valid()
     {
-        string content = @"
-g default
-v 0 0 0
-v 0 0 0
-v 0 0 0
-v 0 0 0
-ctech cspace 0
-stech cspace 0
-surf 5.0 6.0 7.0 8.0 2 3 4
-";
+        const string content = """
+                               g default
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               v 0 0 0
+                               ctech cspace 0
+                               stech cspace 0
+                               surf 5.0 6.0 7.0 8.0 2 3 4
+                               """;
 
         var obj = ReadObj(content);
 
@@ -914,10 +916,11 @@ surf 5.0 6.0 7.0 8.0 2 3 4
     {
         ReadObj("parm");
 
-        string data = @"
-v 0 0 0
-curv 0 0 1 1
-";
+        string data = """
+                      v 0 0 0
+                      curv 0 0 1 1
+                      
+                      """;
 
         Assert.Throws<InvalidDataException>(() => ReadObj(data + "parm"));
         Assert.Throws<InvalidDataException>(() => ReadObj(data + "parm 0"));
@@ -930,12 +933,12 @@ curv 0 0 1 1
     [InlineData("v", 1)]
     public void FreeFormBody_Parameter_Valid(string value, int type)
     {
-        string content = @"
-v 0 0 0
-curv 0 0 1 1
-parm " + value + @" 2.0 3.0 4.0
-end
-";
+        string content = $"""
+                          v 0 0 0
+                          curv 0 0 1 1
+                          parm {value} 2.0 3.0 4.0 
+                          end
+                          """;
 
         var obj = ReadObj(content);
         List<float> parameters = type == 0 ? obj.Curves[0].ParametersU : obj.Curves[0].ParametersV;
@@ -951,10 +954,12 @@ end
     {
         ReadObj("trim");
 
-        string data = @"
-vp 0 0 0
-curv2 1 1
-";
+        string data = """
+
+                      vp 0 0 0
+                      curv2 1 1
+
+                      """;
 
         Assert.Throws<InvalidDataException>(() => ReadObj(data + "trim"));
         Assert.Throws<InvalidDataException>(() => ReadObj(data + "trim 0"));
@@ -969,16 +974,16 @@ curv2 1 1
     [Fact]
     public void FreeFormBody_Trim_Valid()
     {
-        string content = @"
-vp 0 0 0
-curv2 1 1
-curv2 1 1
-curv2 1 1
-v 0 0 0
-curv 0 0 1 1
-trim 4.0 5.0 2 6.0 7.0 3
-end
-";
+        const string content = """
+                               vp 0 0 0
+                               curv2 1 1
+                               curv2 1 1
+                               curv2 1 1
+                               v 0 0 0
+                               curv 0 0 1 1
+                               trim 4.0 5.0 2 6.0 7.0 3
+                               end
+                               """;
 
         var obj = ReadObj(content);
 
@@ -996,10 +1001,12 @@ end
     {
         ReadObj("hole");
 
-        string data = @"
-vp 0 0 0
-curv2 1 1
-";
+        string data = """
+
+                      vp 0 0 0
+                      curv2 1 1
+
+                      """;
 
         Assert.Throws<InvalidDataException>(() => ReadObj(data + "hole"));
         Assert.Throws<InvalidDataException>(() => ReadObj(data + "hole 0"));
@@ -1014,16 +1021,16 @@ curv2 1 1
     [Fact]
     public void FreeFormBody_Hole_Valid()
     {
-        string content = @"
-vp 0 0 0
-curv2 1 1
-curv2 1 1
-curv2 1 1
-v 0 0 0
-curv 0 0 1 1
-hole 4.0 5.0 2 6.0 7.0 3
-end
-";
+        const string content = """
+                               vp 0 0 0
+                               curv2 1 1
+                               curv2 1 1
+                               curv2 1 1
+                               v 0 0 0
+                               curv 0 0 1 1
+                               hole 4.0 5.0 2 6.0 7.0 3
+                               end
+                               """;
 
         var obj = ReadObj(content);
 
@@ -1041,10 +1048,12 @@ end
     {
         ReadObj("scrv");
 
-        string data = @"
-vp 0 0 0
-curv2 1 1
-";
+        string data = """
+
+                      vp 0 0 0
+                      curv2 1 1
+
+                      """;
 
         Assert.Throws<InvalidDataException>(() => ReadObj(data + "scrv"));
         Assert.Throws<InvalidDataException>(() => ReadObj(data + "scrv 0"));
@@ -1059,16 +1068,16 @@ curv2 1 1
     [Fact]
     public void FreeFormBody_Sequence_Valid()
     {
-        string content = @"
-vp 0 0 0
-curv2 1 1
-curv2 1 1
-curv2 1 1
-v 0 0 0
-curv 0 0 1 1
-scrv 4.0 5.0 2 6.0 7.0 3
-end
-";
+        const string content = """
+                               vp 0 0 0
+                               curv2 1 1
+                               curv2 1 1
+                               curv2 1 1
+                               v 0 0 0
+                               curv 0 0 1 1
+                               scrv 4.0 5.0 2 6.0 7.0 3
+                               end
+                               """;
 
         var obj = ReadObj(content);
 
@@ -1086,10 +1095,12 @@ end
     {
         ReadObj("sp");
 
-        string data = @"
-vp 0 0 0
-curv2 1 1
-";
+        string data = """
+
+                      vp 0 0 0
+                      curv2 1 1
+
+                      """;
 
         Assert.Throws<InvalidDataException>(() => ReadObj(data + "sp"));
         Assert.Throws<InvalidDataException>(() => ReadObj(data + "sp 0"));
@@ -1100,15 +1111,15 @@ curv2 1 1
     [Fact]
     public void FreeFormBody_SpecialPoints_Valid()
     {
-        string content = @"
-vp 0 0 0
-vp 0 0 0
-vp 0 0 0
-v 0 0 0
-curv 0 0 1 1
-sp 2 3
-end
-";
+        const string content = """
+                               vp 0 0 0
+                               vp 0 0 0
+                               vp 0 0 0
+                               v 0 0 0
+                               curv 0 0 1 1
+                               sp 2 3
+                               end
+                               """;
 
         var obj = ReadObj(content);
 
@@ -1130,12 +1141,13 @@ end
         Assert.Throws<InvalidDataException>(() => ReadObj("con 0 0 0 0 0 0 0"));
         Assert.Throws<InvalidDataException>(() => ReadObj("con 0 0 0 0 0 0 0 0 0"));
 
-        string data = @"
-v 0 0 0
-surf 0 0 0 0 1
-vp 0 0 0
-curv2 1 1
-";
+        const string data = """
+                            v 0 0 0
+                            surf 0 0 0 0 1
+                            vp 0 0 0
+                            curv2 1 1
+                            
+                            """;
 
         Assert.Throws<InvalidDataException>(() => ReadObj(data + "con 0 0 0 0 0 0 0 0"));
         Assert.Throws<IndexOutOfRangeException>(() => ReadObj(data + "con 2 0 0 0 0 0 0 0"));
@@ -1154,20 +1166,20 @@ curv2 1 1
     [Fact]
     public void SurfaceConnection_Valid()
     {
-        string content = @"
-v 0 0 0
-surf 0 0 0 0 1
-surf 0 0 0 0 1
-surf 0 0 0 0 1
-surf 0 0 0 0 1
-vp 0 0 0
-curv2 1 1
-curv2 1 1
-curv2 1 1
-curv2 1 1
-curv2 1 1
-con 2 6.0 7.0 3 4 8.0 9.0 5
-";
+        const string content = """
+                               v 0 0 0
+                               surf 0 0 0 0 1
+                               surf 0 0 0 0 1
+                               surf 0 0 0 0 1
+                               surf 0 0 0 0 1
+                               vp 0 0 0
+                               curv2 1 1
+                               curv2 1 1
+                               curv2 1 1
+                               curv2 1 1
+                               curv2 1 1
+                               con 2 6.0 7.0 3 4 8.0 9.0 5
+                               """;
 
         var obj = ReadObj(content);
 
@@ -1185,11 +1197,11 @@ con 2 6.0 7.0 3 4 8.0 9.0 5
     [Fact]
     public void Group_WithoutName_Valid()
     {
-        string content = @"
-g
-v 0 0 0
-p 1
-";
+        const string content = """
+                               g
+                               v 0 0 0
+                               p 1
+                               """;
 
         var obj = ReadObj(content);
 
@@ -1199,11 +1211,11 @@ p 1
     [Fact]
     public void Group_DefaultName_Valid()
     {
-        string content = @"
-g default
-v 0 0 0
-p 1
-";
+        const string content = """
+                               g default
+                               v 0 0 0
+                               p 1
+                               """;
 
         var obj = ReadObj(content);
 
@@ -1213,7 +1225,7 @@ p 1
     [Fact]
     public void Group_SingleName_Valid()
     {
-        string content = "g a";
+        const string content = "g a";
 
         var obj = ReadObj(content);
 
@@ -1224,7 +1236,7 @@ p 1
     [Fact]
     public void Group_MultipleNames_Valid()
     {
-        string content = "g a b";
+        const string content = "g a b";
 
         var obj = ReadObj(content);
 
@@ -1236,12 +1248,60 @@ p 1
     [Fact]
     public void Group_MultipleNames_OnlyOneGroupNamePerLine_Valid()
     {
-        string content = "g a b";
+        const string content = "g a b";
 
-        var obj = ReadObj(content, new ObjFileReaderSettings { OnlyOneGroupNamePerLine = true});
+        var obj = ReadObj(content, new ObjFileReaderSettings { OnlyOneGroupNamePerLine = true });
 
         Assert.Single(obj.Groups);
         Assert.Equal("a b", obj.Groups[0].Name);
+    }
+
+    [Fact]
+    public void Group_SameGroupOccurredTwice_ShouldCreateSingleGroup_WhenCreateNewGroupsForDuplicateGroupNamesIsFalse()
+    {
+        const string content = """
+                               v 1 1 1
+                               v 1 1 2
+                               v 1 1 3
+                               v 1 2 1
+                               v 1 2 2
+                               v 1 2 3
+                               g a
+                               p 1 2 3
+                               g a
+                               p 4 5 6
+                               """;
+
+        var obj = ReadObj(content, new ObjFileReaderSettings { HandleEachGroupOccurrenceAsNewGroup = false });
+
+        Assert.Single(obj.Groups);
+        Assert.Equal("a", obj.Groups[0].Name);
+        Assert.Equal(2, obj.Groups[0].Points.Count);
+    }
+
+    [Fact]
+    public void Group_SameGroupOccurredTwice_ShouldCreateSingleGroup_WhenCreateNewGroupsForDuplicateGroupNamesIsTrue()
+    {
+        const string content = """
+                               v 1 1 1
+                               v 1 1 2
+                               v 1 1 3
+                               v 1 2 1
+                               v 1 2 2
+                               v 1 2 3
+                               g a
+                               p 1 2 3
+                               g a
+                               p 4 5 6
+                               """;
+
+        var obj = ReadObj(content, new ObjFileReaderSettings { HandleEachGroupOccurrenceAsNewGroup = true });
+
+        Assert.Equal(2, obj.Groups.Count);
+        Assert.Equal("a", obj.Groups[0].Name);
+        Assert.Equal("a", obj.Groups[1].Name);
+        Assert.Single(obj.Groups[0].Points);
+        Assert.Single(obj.Groups[1].Points);
     }
 
     [Fact]
@@ -1257,11 +1317,11 @@ p 1
     [InlineData("2", 2L)]
     public void SmoothingGroup_Valid(string value, long number)
     {
-        string content = @"
-s " + value + @"
-v 0 0 0
-p 1
-";
+        string content = $"""
+                          s {value}
+                          v 0 0 0
+                          p 1 
+                          """;
 
         var obj = ReadObj(content);
 
@@ -1283,12 +1343,12 @@ p 1
     [InlineData("2 3.0", 2, 3.0f)]
     public void MergingGroup_Valid(string value, int mg, float res)
     {
-        string content = @"
-mg " + value + @"
-v 0 0 0
-v 0 0 0
-curv 0 1 1 2
-";
+        string content = $"""
+                          mg {value}
+                          v 0 0 0
+                          v 0 0 0
+                          curv 0 1 1 2
+                          """;
 
         var obj = ReadObj(content);
 
@@ -1310,11 +1370,11 @@ curv 0 1 1 2
     [Fact]
     public void ObjectName_WithoutName_Valid()
     {
-        string content = @"
-o
-v 0 0 0
-p 1
-";
+        const string content = """
+                               o
+                               v 0 0 0
+                               p 1
+                               """;
 
         var obj = ReadObj(content);
 
@@ -1324,25 +1384,24 @@ p 1
     [Fact]
     public void ObjectName_Valid()
     {
-        string content = @"
-o a
-v 0 0 0
-p 1
-";
+        const string content = """
+                               o a
+                               v 0 0 0
+                               p 1
+                               """;
 
         var obj = ReadObj(content);
 
         Assert.Equal("a", obj.Points[0].ObjectName);
     }
-        
-        
+
 
     [Fact]
     public void ObjectName_SingleName_HandleObjectNamesAsGroup_Valid()
     {
-        string content = "o a";
+        const string content = "o a";
 
-        var obj = ReadObj(content, new ObjFileReaderSettings { HandleObjectNamesAsGroup = true});
+        var obj = ReadObj(content, new ObjFileReaderSettings { HandleObjectNamesAsGroup = true });
 
         Assert.Single(obj.Groups);
         Assert.Equal("a", obj.Groups[0].Name);
@@ -1351,9 +1410,9 @@ p 1
     [Fact]
     public void ObjectName_MultipleNames_HandleObjectNamesAsGroup_Valid()
     {
-        string content = "o a b";
+        const string content = "o a b";
 
-        var obj = ReadObj(content, new ObjFileReaderSettings { HandleObjectNamesAsGroup = true});
+        var obj = ReadObj(content, new ObjFileReaderSettings { HandleObjectNamesAsGroup = true });
 
         Assert.Equal(2, obj.Groups.Count);
         Assert.Equal("a", obj.Groups[0].Name);
@@ -1363,12 +1422,61 @@ p 1
     [Fact]
     public void ObjectName_OnlyOneGroupNamePerLine_HandleObjectNamesAsGroup_MultipleNames_Valid()
     {
-        string content = "o a b";
+        const string content = "o a b";
 
-        var obj = ReadObj(content, new ObjFileReaderSettings { HandleObjectNamesAsGroup = true, OnlyOneGroupNamePerLine = true});
+        var obj = ReadObj(content,
+            new ObjFileReaderSettings { HandleObjectNamesAsGroup = true, OnlyOneGroupNamePerLine = true });
 
         Assert.Single(obj.Groups);
         Assert.Equal("a b", obj.Groups[0].Name);
+    }
+
+    [Fact]
+    public void ObjectName_SameGroupOccurredTwice_ShouldCreateSingleGroup_WhenCreateNewGroupsForDuplicateGroupNamesIsFalse()
+    {
+        const string content = """
+                               v 1 1 1
+                               v 1 1 2
+                               v 1 1 3
+                               v 1 2 1
+                               v 1 2 2
+                               v 1 2 3
+                               o a
+                               p 1 2 3
+                               o a
+                               p 4 5 6
+                               """;
+
+        var obj = ReadObj(content, new ObjFileReaderSettings { HandleEachGroupOccurrenceAsNewGroup = false, HandleObjectNamesAsGroup = true});
+
+        Assert.Single(obj.Groups);
+        Assert.Equal("a", obj.Groups[0].Name);
+        Assert.Equal(2, obj.Groups[0].Points.Count);
+    }
+
+    [Fact]
+    public void ObjectName_SameGroupOccurredTwice_ShouldCreateSingleGroup_WhenCreateNewGroupsForDuplicateGroupNamesIsTrue()
+    {
+        const string content = """
+                               v 1 1 1
+                               v 1 1 2
+                               v 1 1 3
+                               v 1 2 1
+                               v 1 2 2
+                               v 1 2 3
+                               o a
+                               p 1 2 3
+                               o a
+                               p 4 5 6
+                               """;
+
+        var obj = ReadObj(content, new ObjFileReaderSettings { HandleEachGroupOccurrenceAsNewGroup = true, HandleObjectNamesAsGroup = true });
+
+        Assert.Equal(2, obj.Groups.Count);
+        Assert.Equal("a", obj.Groups[0].Name);
+        Assert.Equal("a", obj.Groups[1].Name);
+        Assert.Single(obj.Groups[0].Points);
+        Assert.Single(obj.Groups[1].Points);
     }
 
     [Fact]
@@ -1384,11 +1492,11 @@ p 1
     [InlineData("off", false)]
     public void RenderAttributes_Bevel_Valid(string value, bool expected)
     {
-        string content = @"
-bevel " + value + @"
-v 0 0 0
-p 1
-";
+        string content = $"""
+                          bevel {value}
+                          v 0 0 0
+                          p 1
+                          """;
 
         var obj = ReadObj(content);
 
@@ -1408,11 +1516,11 @@ p 1
     [InlineData("off", false)]
     public void RenderAttributes_ColorInterpolation_Valid(string value, bool expected)
     {
-        string content = @"
-c_interp " + value + @"
-v 0 0 0
-p 1
-";
+        string content = $"""
+                          c_interp {value}
+                          v 0 0 0
+                          p 1
+                          """;
 
         var obj = ReadObj(content);
 
@@ -1432,11 +1540,11 @@ p 1
     [InlineData("off", false)]
     public void RenderAttributes_DissolveInterpolation_Valid(string value, bool expected)
     {
-        string content = @"
-d_interp " + value + @"
-v 0 0 0
-p 1
-";
+        string content = $"""
+                          d_interp {value}
+                          v 0 0 0
+                          p 1
+                          """;
 
         var obj = ReadObj(content);
 
@@ -1453,11 +1561,11 @@ p 1
     [Fact]
     public void RenderAttributes_LevelOfDetail_Valid()
     {
-        string content = @"
-lod 2
-v 0 0 0
-p 1
-";
+        const string content = """
+                               lod 2
+                               v 0 0 0
+                               p 1
+                               """;
 
         var obj = ReadObj(content);
 
@@ -1473,7 +1581,7 @@ p 1
     [Fact]
     public void RenderAttributes_MapLibrary_Valid()
     {
-        string content = "maplib a.a b";
+        const string content = "maplib a.a b";
 
         var obj = ReadObj(content);
 
@@ -1487,7 +1595,7 @@ p 1
     {
         Assert.Throws<InvalidDataException>(() => ReadObj("mtllib"));
     }
-        
+
     [Theory]
     [InlineData("a with spaces.b", "a with spaces.b", false)]
     [InlineData("a with spaces", "a with spaces", false)]
@@ -1496,9 +1604,9 @@ p 1
     [InlineData("a with  multiple   spaces.b", "a with  multiple   spaces.b", true)]
     public void RenderAttributes_MaterialLibrary_Valid(string value, string? expected, bool keepWhitespaces)
     {
-        string content = "mtllib "+value;
+        string content = "mtllib " + value;
 
-        var obj = ReadObj(content, new ObjFileReaderSettings { KeepWhitespacesOfMtlLibReferences = keepWhitespaces});
+        var obj = ReadObj(content, new ObjFileReaderSettings { KeepWhitespacesOfMtlLibReferences = keepWhitespaces });
 
         Assert.Single(obj.MaterialLibraries);
         Assert.Equal(expected, obj.MaterialLibraries[0]);
@@ -1516,11 +1624,11 @@ p 1
     [InlineData("a", "a")]
     public void RenderAttributes_UseMap_Valid(string value, string? expected)
     {
-        string content = @"
-usemap " + value + @"
-v 0 0 0
-p 1
-";
+        string content = $"""
+                          usemap {value}
+                          v 0 0 0
+                          p 1
+                          """;
 
         var obj = ReadObj(content);
 
@@ -1540,11 +1648,11 @@ p 1
     [InlineData("a with  multiple   spaces", "a with multiple spaces")]
     public void RenderAttributes_UseMaterial_Valid(string value, string? expected)
     {
-        string content = @"
-usemtl " + value + @"
-v 0 0 0
-p 1
-";
+        string content = $"""
+                          usemtl {value}
+                          v 0 0 0
+                          p 1
+                          """;
 
         var obj = ReadObj(content);
 
@@ -1560,7 +1668,7 @@ p 1
     [Fact]
     public void RenderAttributes_ShadowObject_Valid()
     {
-        string content = "shadow_obj a.a";
+        const string content = "shadow_obj a.a";
 
         var obj = ReadObj(content);
 
@@ -1570,7 +1678,7 @@ p 1
     [Fact]
     public void RenderAttributes_ShadowObject_ValidWithoutExtension()
     {
-        string content = "shadow_obj a";
+        const string content = "shadow_obj a";
 
         var obj = ReadObj(content);
 
@@ -1580,7 +1688,7 @@ p 1
     [Fact]
     public void RenderAttributes_ShadowObject_ValidWithExtensionIncludingWhitespace()
     {
-        string content = "shadow_obj a.a 0";
+        const string content = "shadow_obj a.a 0";
 
         var obj = ReadObj(content);
 
@@ -1596,7 +1704,7 @@ p 1
     [Fact]
     public void RenderAttributes_TraceObject_Valid()
     {
-        string content = "trace_obj a.a";
+        const string content = "trace_obj a.a";
 
         var obj = ReadObj(content);
 
@@ -1606,7 +1714,7 @@ p 1
     [Fact]
     public void RenderAttributes_TraceObject_ValidWithoutExtension()
     {
-        string content = "trace_obj a";
+        const string content = "trace_obj a";
 
         var obj = ReadObj(content);
 
@@ -1616,7 +1724,7 @@ p 1
     [Fact]
     public void RenderAttributes_TraceObject_ValidWithExtensionIncludingWhitespace()
     {
-        string content = "trace_obj a.a 0";
+        const string content = "trace_obj a.a 0";
 
         var obj = ReadObj(content);
 
@@ -1650,12 +1758,12 @@ p 1
     [InlineData("stech cparmb 2.0", 2.0f, 2.0f, 1)]
     public void RenderAttributes_ApproximationTechnique_Parametric_Valid(string value, float u, float v, int type)
     {
-        string content = @"
-v 0 0 0
-v 0 0 0
-" + value + @"
-curv 0 1 1 2
-";
+        string content = $"""
+                          v 0 0 0
+                          v 0 0 0
+                          {value}
+                          curv 0 1 1 2
+                          """;
 
         var obj = ReadObj(content);
 
@@ -1668,7 +1776,6 @@ curv 0 1 1 2
         else
         {
             technique = obj.Curves[0].SurfaceApproximationTechnique;
-
         }
 
         Assert.IsType<ObjConstantParametricSubdivisionTechnique>(technique);
@@ -1690,12 +1797,12 @@ curv 0 1 1 2
     [InlineData("stech cspace 2.0", 2.0f, 1)]
     public void RenderAttributes_ApproximationTechnique_Spatial_Valid(string value, float length, int type)
     {
-        string content = @"
-v 0 0 0
-v 0 0 0
-" + value + @"
-curv 0 1 1 2
-";
+        string content = $"""
+                          v 0 0 0
+                          v 0 0 0
+                          {value}
+                          curv 0 1 1 2
+                          """;
 
         var obj = ReadObj(content);
 
@@ -1708,7 +1815,6 @@ curv 0 1 1 2
         else
         {
             technique = obj.Curves[0].SurfaceApproximationTechnique;
-
         }
 
         Assert.IsType<ObjConstantSpatialSubdivisionTechnique>(technique);
@@ -1729,14 +1835,15 @@ curv 0 1 1 2
     [Theory]
     [InlineData("ctech curv 2.0 3.0", 2.0f, 3.0f, 0)]
     [InlineData("stech curv 2.0 3.0", 2.0f, 3.0f, 1)]
-    public void RenderAttributes_ApproximationTechnique_Curvature_Valid(string value, float distance, float angle, int type)
+    public void RenderAttributes_ApproximationTechnique_Curvature_Valid(string value, float distance, float angle,
+        int type)
     {
-        string content = @"
-v 0 0 0
-v 0 0 0
-" + value + @"
-curv 0 1 1 2
-";
+        string content = $"""
+                          v 0 0 0
+                          v 0 0 0
+                          {value}
+                          curv 0 1 1 2
+                          """;
 
         var obj = ReadObj(content);
 
@@ -1749,7 +1856,6 @@ curv 0 1 1 2
         else
         {
             technique = obj.Curves[0].SurfaceApproximationTechnique;
-
         }
 
         Assert.IsType<ObjCurvatureDependentSubdivisionTechnique>(technique);

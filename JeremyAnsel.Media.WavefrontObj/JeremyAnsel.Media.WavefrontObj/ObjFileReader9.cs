@@ -1188,6 +1188,7 @@ namespace JeremyAnsel.Media.WavefrontObj
             }
         }
 
+        // ReSharper disable once ParameterOnlyUsedForPreconditionCheck.Local
         private static void ParseSurfaceConnection(ObjFile obj, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount)
         {
             if (valuesCount < 9)
@@ -1285,7 +1286,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                 }
             }
 
-            context.GetCurrentGroups();
+            context.CreateGroups();
         }
 
         private static ObjApproximationTechnique ParseApproximationTechnique(ReadOnlySpan<char> value0, ref ReadOnlySpan<char> currentLine, ref SpanSplitEnumerator values, int valuesCount)
