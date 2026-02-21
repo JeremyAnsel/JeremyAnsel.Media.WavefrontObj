@@ -3,6 +3,12 @@ setlocal
 
 cd "%~dp0"
 
+echo Test
+echo Configuration
+echo %Configuration%
+echo CONFIGURATION
+echo %CONFIGURATION%
+
 if '%Configuration%' == '' if not '%1' == '' set Configuration=%1
 if '%Configuration%' == '' set Configuration=Debug
 
