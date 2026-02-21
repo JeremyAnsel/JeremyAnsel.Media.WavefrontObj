@@ -3,12 +3,6 @@ setlocal
 
 cd "%~dp0"
 
-echo Test
-echo Configuration
-echo %Configuration%
-echo CONFIGURATION
-echo %CONFIGURATION%
-
 if '%Configuration%' == '' if not '%1' == '' set Configuration=%1
 if '%Configuration%' == '' set Configuration=Debug
 
@@ -19,7 +13,7 @@ md bld\coverage
 
 if exist bld\TestResults rd /s /q bld\TestResults
 
-dotnet test --no-build --coverage --coverage-output-format cobertura --results-directory bld\TestResults
+dotnet test --no-build  --configuration %Configuration% --coverage --coverage-output-format cobertura --results-directory bld\TestResults
 if %ERRORLEVEL% neq 0 exit /b %ERRORLEVEL%
 
 setlocal EnableDelayedExpansion
