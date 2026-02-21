@@ -896,6 +896,19 @@ references:
   commentId: F:JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.Default
   fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.Default
   nameWithType: ObjFileReaderSettings.Default
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleEachGroupOccurrenceAsNewGroup
+  name: HandleEachGroupOccurrenceAsNewGroup
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_HandleEachGroupOccurrenceAsNewGroup
+  commentId: P:JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleEachGroupOccurrenceAsNewGroup
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleEachGroupOccurrenceAsNewGroup
+  nameWithType: ObjFileReaderSettings.HandleEachGroupOccurrenceAsNewGroup
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleEachGroupOccurrenceAsNewGroup*
+  name: HandleEachGroupOccurrenceAsNewGroup
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_HandleEachGroupOccurrenceAsNewGroup_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleEachGroupOccurrenceAsNewGroup
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleEachGroupOccurrenceAsNewGroup
+  nameWithType: ObjFileReaderSettings.HandleEachGroupOccurrenceAsNewGroup
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.HandleObjectNamesAsGroup
   name: HandleObjectNamesAsGroup
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFileReaderSettings.html#JeremyAnsel_Media_WavefrontObj_ObjFileReaderSettings_HandleObjectNamesAsGroup
