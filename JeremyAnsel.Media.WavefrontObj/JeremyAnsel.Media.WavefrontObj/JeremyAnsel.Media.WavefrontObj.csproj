@@ -29,7 +29,7 @@
     <InvariantGlobalization>true</InvariantGlobalization>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
-    <NoWarn>NETSDK1045;CA1416;CS1591</NoWarn>
+    <NoWarn>CA1416;CS1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
