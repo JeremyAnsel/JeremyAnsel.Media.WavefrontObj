@@ -24,6 +24,12 @@
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>JeremyAnsel.Media.WavefrontObj.snk</AssemblyOriginatorKeyFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">true</IsAotCompatible>
+    <VerifyReferenceAotCompatibility>true</VerifyReferenceAotCompatibility>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <NoWarn>CA1416;CS1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
