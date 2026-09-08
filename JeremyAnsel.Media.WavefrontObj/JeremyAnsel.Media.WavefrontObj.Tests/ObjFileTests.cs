@@ -133,4 +133,36 @@ public class ObjFileTests
 
         AssertExtensions.TextEqual(expected, text);
     }
+
+    [Fact]
+    public void Calculate_Normals_Valid()
+    {
+        const string content = """
+                               v 1 0 0
+                               v -1 0 0
+                               v 0 1 1
+                               v 0 -1 1
+                               sm 1
+                               f 1 2 3
+                               f 2 1 4
+                               """;
+
+        var temp = Path.GetTempFileName();
+
+        File.WriteAllText(temp, content);
+
+        var model = ObjFile.FromFile(temp);
+
+        model.CalculateFaceNormals();
+
+        Assert.Equal(3, model.VertexNormals.Count);
+
+        foreach(var f in model.Faces)
+        {
+            foreach(var v in f.Vertices)
+            {
+                Assert.InRange(v.Normal, 1, model.VertexNormals.Count);
+            }
+        }
+    }
 }

@@ -70,4 +70,9 @@ public partial struct ObjVector4
     {
         return new System.Numerics.Vector4(X, Y, Z, W);
     }
+
+    public readonly System.Numerics.Vector3 ToVector3()
+    {
+        return new System.Numerics.Vector3(X, Y, Z);
+    }
 }
