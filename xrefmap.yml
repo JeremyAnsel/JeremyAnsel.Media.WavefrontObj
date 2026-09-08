@@ -562,6 +562,19 @@ references:
   fullName.vb: JeremyAnsel.Media.WavefrontObj.ObjFile.New
   nameWithType: ObjFile.ObjFile
   nameWithType.vb: ObjFile.New
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFile.CalculateFaceNormals
+  name: CalculateFaceNormals()
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_CalculateFaceNormals
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjFile.CalculateFaceNormals
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.CalculateFaceNormals()
+  nameWithType: ObjFile.CalculateFaceNormals()
+- uid: JeremyAnsel.Media.WavefrontObj.ObjFile.CalculateFaceNormals*
+  name: CalculateFaceNormals
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_CalculateFaceNormals_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjFile.CalculateFaceNormals
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjFile.CalculateFaceNormals
+  nameWithType: ObjFile.CalculateFaceNormals
 - uid: JeremyAnsel.Media.WavefrontObj.ObjFile.Curves
   name: Curves
   href: api/JeremyAnsel.Media.WavefrontObj.ObjFile.html#JeremyAnsel_Media_WavefrontObj_ObjFile_Curves
@@ -3217,6 +3230,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.GetHashCode
   nameWithType: ObjVector4.GetHashCode
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3
+  name: ToVector3()
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_ToVector3
+  commentId: M:JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3()
+  nameWithType: ObjVector4.ToVector3()
+- uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3*
+  name: ToVector3
+  href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_ToVector3_
+  commentId: Overload:JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3
+  isSpec: "True"
+  fullName: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector3
+  nameWithType: ObjVector4.ToVector3
 - uid: JeremyAnsel.Media.WavefrontObj.ObjVector4.ToVector4
   name: ToVector4()
   href: api/JeremyAnsel.Media.WavefrontObj.ObjVector4.html#JeremyAnsel_Media_WavefrontObj_ObjVector4_ToVector4
