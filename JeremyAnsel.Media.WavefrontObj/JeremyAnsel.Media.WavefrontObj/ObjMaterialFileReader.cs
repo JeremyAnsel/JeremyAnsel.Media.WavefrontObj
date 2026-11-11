@@ -939,11 +939,6 @@ namespace JeremyAnsel.Media.WavefrontObj
                                     turbulence.Z = v;
                                     index++;
                                 }
-                                else
-                                {
-                                    map.Turbulence = turbulence;
-                                    break;
-                                }
                             }
                         }
 

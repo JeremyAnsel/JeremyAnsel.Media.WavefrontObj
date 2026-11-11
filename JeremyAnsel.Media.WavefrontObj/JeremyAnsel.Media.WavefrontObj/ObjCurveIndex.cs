@@ -5,7 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using Equatable.Attributes;
 using System.Globalization;
 
 namespace JeremyAnsel.Media.WavefrontObj;

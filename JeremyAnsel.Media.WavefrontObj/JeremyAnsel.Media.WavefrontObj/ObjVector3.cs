@@ -5,8 +5,6 @@
 // Licensed under the MIT license. See LICENSE.txt
 // </license>
 
-using Equatable.Attributes;
-
 namespace JeremyAnsel.Media.WavefrontObj;
 
 [System.Diagnostics.DebuggerDisplay("{X} {Y} {Z}")]
