@@ -57,7 +57,7 @@ test_script:
 deploy:
 - provider: NuGet
   api_key:
-    secure: toP8icI81ESpC873xi6NZdwMSYmzPP94sV0sqXssPAIQDLxvaGUEmxiEH/K/cBf2
+    secure: fE/COc4VZGWWkK0n/jSt5wA5OBns31ZV7pl82UagZRIZWC7crh/bYro/tF3cU8Es
   skip_symbols: false
   on:
     branch: master
