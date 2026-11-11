@@ -969,7 +969,7 @@ map_Ka -blenv " + value + " " + filename;
     {
         string content = @"
 newmtl a
-map_Ka -bm 2.0 "+filename;
+	map_Ka -bm 2.0000 "+filename;
 
         var mtl = ReadMtl(content, new ObjMaterialFileReaderSettings {KeepWhitespacesOfMapFileReferences = keepWhitespace});
 
@@ -1585,6 +1585,12 @@ map_Ka -texres 2 "+filename;
         yield return
         [
             "newmtl a\n{0} {{00000000-0000-0000-0000-000000000000}}   {{00000000-0000-0000-0000-000000000000}}",
+            "{00000000-0000-0000-0000-000000000000}   {00000000-0000-0000-0000-000000000000}", 
+            true
+        ];
+        yield return
+        [
+            "newmtl a\n{0} -bm 0.0000 {{00000000-0000-0000-0000-000000000000}}   {{00000000-0000-0000-0000-000000000000}}",
             "{00000000-0000-0000-0000-000000000000}   {00000000-0000-0000-0000-000000000000}", 
             true
         ];
