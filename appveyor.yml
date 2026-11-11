@@ -5,6 +5,25 @@ configuration: Release
 init:
 - if "%APPVEYOR_REPO_NAME%" == "JeremyAnsel/JeremyAnsel.Media.WavefrontObj" if "%APPVEYOR_REPO_BRANCH%"=="master" if not defined APPVEYOR_PULL_REQUEST_NUMBER set DEPLOY=True
 
+install:
+- ps: |
+    $installer = "$env:TEMP\dotnet-install.ps1"
+
+    Invoke-WebRequest `
+      -Uri "https://dot.net/v1/dotnet-install.ps1" `
+      -OutFile $installer
+
+    & $installer `
+      -Channel "11.0" `
+      -Architecture x64 `
+      -InstallDir "$env:ProgramFiles\dotnet"
+
+    if ($LASTEXITCODE -ne 0) {
+      throw ".NET 11 SDK installation failed"
+    }
+
+    dotnet --list-sdks
+
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
