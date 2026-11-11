@@ -127,7 +127,7 @@ public class ObjFile
     public void CalculateFaceNormals()
     {
         var faceAreaDirections = new Vector3[Faces.Count];
-        var adjacentFacesMap = Enumerable.Range(0, Vertices.Count).Select(item => new List<int>()).ToArray();
+        var adjacentFacesMap = Enumerable.Range(0, Vertices.Count).Select(_ => new List<int>()).ToArray();
 
         for (int faceindex = 0; faceindex < Faces.Count; faceindex++)
         {
@@ -152,7 +152,7 @@ public class ObjFile
         Func<ObjPolygonalElement, ObjPolygonalElement, bool> smoothFunc = (l, r) => (l.SmoothingGroupNumber & r.SmoothingGroupNumber) != 0;
 
         // this should be used if no actual smooth groups are defined, but right now it's not possible to tell.
-        if (Faces.All(f => f.SmoothingGroupNumber == 0)) smoothFunc = (l, r) => true;
+        if (Faces.All(f => f.SmoothingGroupNumber == 0)) smoothFunc = (_, _) => true;
 
         for (int faceIndex = 0; faceIndex < Faces.Count; ++faceIndex)
         {

@@ -881,7 +881,7 @@ namespace JeremyAnsel.Media.WavefrontObj
                     }
                     if (settings.KeepWhitespacesOfMapFileReferences)
                     {
-                        map.FileName = new string(currentLine[(statement.Length + charsRead + 1)..]);
+                        map.FileName = new string(currentLine[(statement.Length + charsRead + index)..]);
                     }
                     else
                     {
